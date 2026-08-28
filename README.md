@@ -4,7 +4,20 @@ A Python -> Postgres -> Docker/FastAPI -> Azure -> Power BI data pipeline analyz
 
 ## Project Status
 
-Just starting the scope, nothing built yet.
+Data scoping phase — extraction sources confirmed, pipeline not yet built.
+
+### v1.0 data collection/extraction map
+
+- `standard`/`shooting`/`misc`/`playing_time` (soccerdata, already working)
+- Passing completion + progression (WhoScored-derived)
+- Possession/touches by zone + take-ons (WhoScored-derived)
+- Defense: tackles/interceptions/blocks/clearances by zone (WhoScored-derived)
+- Final-third/penalty-area entries as SCA proxy (WhoScored-derived, cheap)
+- Transfermarkt fees/market value/bio/injury history
+
+### v2
+
+xG or "advanced" metrics - deliberately deferred to test free data model's strength vs paywalled Opta-sourced data as of January 2026
 
 ## Overview
 
@@ -22,7 +35,11 @@ Borne from a strong passion for Ajax/the Eredivisie, this project determines whi
 
 ## Data Sources
 
-In progress
+Still in the data-scoping phase — nothing built against these yet, this section reflects what's been confirmed feasible so far, not a finished integration.
+
+- **FBref** (via the `soccerdata` library): standard, shooting, misc, playing-time, and keeper stats confirmed working. Requires a Cloudflare-bypass approach (SeleniumBase UC/undetected-browser mode) — plain `requests`/`cloudscraper` are blocked. FBref's Opta-sourced advanced metrics (passing, possession, defense, goal/shot creation, and xG/xA across the board) were pulled sitewide in January 2026 after the data provider terminated FBref's license — confirmed empty for both the current and a fully completed prior season, so this isn't a scraper gap or a timing issue.
+- **Transfermarkt**: identified as the source for transfer fees, market values, bio data, and injury history. Not yet built.
+- **WhoScored**: identified as the likely path to shot-level event data (location, body part, outcome) needed to train an in-house xG model, since FBref no longer provides it. Not yet built or confirmed scrapeable end-to-end.
 
 ## Folder Structure
 
@@ -38,9 +55,19 @@ eredivisie_scout/
 ├── pipelines/       # ETL and retrain/rescore pipeline code (extract -> clean -> train -> write back)
 ├── schema/          # Database schema only (tables, views, materialized views, migrations)
 ├── scripts/         # One-off/supporting scripts not part of a scheduled pipeline
+│   ├── soccerdata/    # Scripts using the soccerdata library (covers both FBref and WhoScored)
+│   ├── fbref/          # Custom FBref scraping, outside soccerdata's supported categories
+│   ├── whoscored/       # Custom WhoScored logic beyond soccerdata's built-in read_* methods
+│   └── transfermarkt/   # Transfermarkt scraping (not yet built)
 ├── tests/           # Testing of scripts/schema/views and any other machine learning code
+│   ├── soccerdata/
+│   ├── fbref/
+│   ├── whoscored/
+│   └── transfermarkt/
 └── Dockerfile       # Container definition for the API and/or scheduled scoring job
 ```
+
+**Source-folder convention:** `soccerdata/` holds anything using the `soccerdata` library, regardless of which site it's pulling from underneath. `fbref/`, `whoscored/`, and `transfermarkt/` hold custom, hand-written scraping/extraction logic for that source specifically — code written because the library doesn't cover it.
 
 ## Getting Started
 
