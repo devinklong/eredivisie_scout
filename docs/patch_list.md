@@ -12,4 +12,5 @@ Fixes to things that were built, ran, and behaved wrong — not a build plan. Se
 
 - FBref access via `soccerdata` + SeleniumBase UC mode (Cloudflare bypass) — confirmed working, `standard`/`shooting`/`misc`/`playing_time`/`keeper` categories return real data.
 - WhoScored access confirmed working for NED-Eredivisie via soccerdata (required a custom `WhoScored` entry in `league_dict.json`, same file as the FBref entry). `read_schedule()` and `read_events()` both tested successfully against real matches.
+- **`derive_possession_stats.py` penalty-area mislabeling (2026-08-28)** — script originally computed only one penalty-area zone (x ≤ 17, near the defensive goal line) but labeled it `touches_att_pen_area`. Caught via a goalkeeper sanity check: Stijn van Gassel had by far the most touches in that zone (33), which only makes sense for a defensive box. Fixed by splitting into both `touches_def_pen_area` and `touches_att_pen_area`, computed from opposite ends of the pitch (x≤17 vs x≥83). Re-ran and confirmed: keeper now correctly shows 33 in `touches_def_pen_area`, 0 in `touches_att_pen_area`.
 

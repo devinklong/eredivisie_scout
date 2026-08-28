@@ -43,3 +43,16 @@ Not yet empirically overlap-tested (assumed mutually exclusive — a pass is pla
 
 ### Unresolved — do not use until definition confirmed
 `MissHigh`, `Offensive`, `OppositeRelatedEvent` — no confirmed definition found (checked external Opta qualifier references, inconclusive). `MissHigh` in particular may be a shot-event artifact appearing on pass rows due to how soccerdata flattens `qualifiers`, not a genuine pass descriptor. Do not build features from these until verified.
+
+## Cross-event relationships
+
+Some WhoScored/Opta event types only make sense in relation to a *different* event type on the opposing player — the "win" and "loss" sides of the same real-world moment are logged as two separate event types, not one event with an outcome flag. Confirmed via Opta's own event definitions (optasports.com/news/optas-event-definitions, statsperform.com/opta-event-definitions). Building any true win/loss or "duel" style stat requires deliberately joining these pairs — pulling one event type alone will silently give you only one side of the story (see: the `Challenge` bug, 2026-08-28, where every player showed 0 wins because the win event doesn't exist under that type at all).
+
+| Event type (loss/attempt side) | Paired event type (win side) | Relationship |
+|---|---|---|
+| `Challenge` | `TakeOn` (opponent, Successful) | Defender's Challenge is always a loss; the dribbler's successful TakeOn is the corresponding win. Two different players' events. |
+| `Tackle` (outcome unsuccessful) or none | `TakeOn` (Successful) / `Dispossessed` (opponent) | A tackle attempt that fails may show up as the attacker's successful TakeOn instead. |
+| `Aerial` | `Aerial` (opponent, opposite outcome_type) | Aerial duels DO carry their own win/loss outcome directly on the same event type — this is the one pair that doesn't require cross-referencing a different type. Worth confirming directly (check `outcome_type` values on real `Aerial` rows) before assuming, given `Challenge` broke this same assumption once already. |
+| `Foul` (won) | `Foul` (conceded, opponent) | Same pattern as Aerial — likely carries outcome directly, not yet independently verified in our own data. |
+
+**Still unmapped / not yet checked:** whether `BlockedPass` attributes the blocking player anywhere (via `related_player_id` or a qualifier) — flagged as unconfirmed in `derive_defense_stats.py`'s docstring, not yet resolved.

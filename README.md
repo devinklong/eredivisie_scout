@@ -15,6 +15,10 @@ Data scoping phase — extraction sources confirmed, pipeline not yet built.
 - Final-third/penalty-area entries as SCA proxy (WhoScored-derived, cheap)
 - Transfermarkt fees/market value/bio/injury history
 
+### v1.5 (future)
+
+Composite "duel engagement" stat — Opta/WhoScored has no single event type matching the colloquial sense of "duel." It's assembled from several separate winner/loser event-type pairs across categories (`Aerial` win/loss, `Tackle` vs. `Dispossessed`/unsuccessful `TakeOn`, `Challenge` [always a loss] vs. the opponent's `TakeOn` [the win]). Building a true duel win-rate stat means combining these pairs deliberately, not pulling one column. See `docs/whoscored_qualifier_taxonomy.md`'s cross-event relationships table.
+
 ### v2
 
 xG or "advanced" metrics - deliberately deferred to test free data model's strength vs paywalled Opta-sourced data as of January 2026
