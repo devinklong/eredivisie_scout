@@ -12,17 +12,19 @@ What's still unbuilt for v1 (no xG — see README's v2 note for that scope). Thi
 
 4. **Final-third/penalty-area entry proxy** — zone-geometry check on `end_x`/`end_y` from passing/carry events. Serves as the SCA/GCA substitute for v1 (true SCA chain-attribution deferred, not planned for v1 at all).
 
-5. **Transfermarkt scraper** — transfer fees, market values, bio data, injury history. `dcaribou/transfermarkt-scraper` identified as a possible base rather than building fully from scratch.
+5. **Transfermarkt scraper — squad + recent transfers built (2026-08-29).** `pipelines/transfermarkt/extract_transfermarkt_squad.py` extracts Ajax's squad (player_id, name, position, DOB, market value) and recent transfers (player_id, counterparty club, direction, structured fee with type: permanent/paid_loan/unpaid_loan/free_transfer). Confirmed real player IDs (`spieler/{id}`) usable as an entity-resolution join key. Still not built: applying this across all 18 Eredivisie clubs (currently Ajax-only), market value *history* (not just current snapshot), bio/injury data, and multi-season historical transfers.
 
-6. **Entity resolution across sources** — FBref/soccerdata, WhoScored, and Transfermarkt each have their own player IDs and name formats; no cross-source matching logic exists yet. Flagged early as likely the single biggest time sink — budget accordingly.
+6. **Loan buy-option data point — not captured, needs its own source.** Confirmed real gap: whether a loan carries a buy-option clause isn't encoded anywhere in the squad-page fee text (e.g. Arokodare's loan to Wolves shows plain "loan transfer" despite genuinely including an option to buy). Likely only available, if at all, on each player's individual transfer-history page — a different URL, not yet scraped. Do not infer "no option" from an unpaid-loan label.
+
+7. **Entity resolution across sources** — FBref/soccerdata, WhoScored, and Transfermarkt each have their own player IDs and name formats; no cross-source matching logic exists yet. Flagged early as likely the single biggest time sink — budget accordingly. Transfermarkt's `spieler/{id}` is now a confirmed available join key on that side.
 
 ## Infrastructure
 
-7. **Postgres schema design** — needs to wait until real column structures from all three sources are settled (soccerdata's is; WhoScored-derived and Transfermarkt's aren't yet).
+8. **Postgres schema design** — needs to wait until real column structures from all three sources are settled (soccerdata's is; WhoScored-derived and Transfermarkt's aren't yet).
 
-8. **tests/ and scripts/ folder reorg** — decided (soccerdata/fbref/whoscored/transfermarkt subfolders) but not yet executed against the actual files on disk. Several scripts moved between tests/ and scripts/ over the course of tonight — verify actual current paths before running the git mv commands.
+9. **tests/ and scripts/ folder reorg** — decided (soccerdata/fbref/whoscored/transfermarkt subfolders) but not yet executed against the actual files on disk. Several scripts moved between tests/ and scripts/ over the course of tonight — verify actual current paths before running the git mv commands.
 
-9. **.gitignore model-artifact lines** — currently ignores models/*.pkl and models/*.joblib by default. Revisit once a first working model exists — decide then whether to commit a baseline model or keep ignoring.
+10. **.gitignore model-artifact lines** — currently ignores models/*.pkl and models/*.joblib by default. Revisit once a first working model exists — decide then whether to commit a baseline model or keep ignoring.
 
 ## Not yet started at all
 

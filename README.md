@@ -17,7 +17,8 @@ Data scoping phase — extraction sources confirmed, pipeline not yet built.
 
 ### v1.5 (future)
 
-Composite "duel engagement" stat — Opta/WhoScored has no single event type matching the colloquial sense of "duel." It's assembled from several separate winner/loser event-type pairs across categories (`Aerial` win/loss, `Tackle` vs. `Dispossessed`/unsuccessful `TakeOn`, `Challenge` [always a loss] vs. the opponent's `TakeOn` [the win]). Building a true duel win-rate stat means combining these pairs deliberately, not pulling one column. See `docs/whoscored_qualifier_taxonomy.md`'s cross-event relationships table.
+- Composite "duel engagement" stat — Opta/WhoScored has no single event type matching the colloquial sense of "duel." It's assembled from several separate winner/loser event-type pairs across categories (`Aerial` win/loss, `Tackle` vs. `Dispossessed`/unsuccessful `TakeOn`, `Challenge` [always a loss] vs. the opponent's `TakeOn` [the win]). Building a true duel win-rate stat means combining these pairs deliberately, not pulling one column. See `docs/whoscored_qualifier_taxonomy.md`'s cross-event relationships table.
+- Composite "successful take-on leading to a final-third/box entry" feature — a genuinely explosive, defender-beating carry is a stronger signal than an isolated `TakeOn` count or a generic final-third entry alone. Requires joining a `TakeOn` event to the same player's immediately following carry (by timestamp proximity), then checking whether that carry's end location lands in the final third/penalty area. Depends on carries existing first (see v1_roadmap.md's SPADL/carries item) — can't be built before that.
 
 ### v2
 
