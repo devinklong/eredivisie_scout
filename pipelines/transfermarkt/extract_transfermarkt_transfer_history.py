@@ -28,7 +28,9 @@ churn mid-exploration.
 """
 
 import argparse
+import json
 import re
+from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
@@ -216,11 +218,28 @@ def print_unresolved_fees(all_transfers):
         print(f"  {t['name']} ({t['direction']}, season {t['season_id']}): {t['fee']}")
 
 
+def save_to_json(all_transfers, path):
+    """Dumps the raw extracted transfer list to a JSON file. This is a
+    disposable staging checkpoint, NOT the pipeline's real destination
+    (that's Postgres, per the project's Python -> Postgres -> ... stack).
+    Useful when scraping many clubs in one run, so a failure partway
+    through doesn't force re-scraping clubs already done -- each club's
+    raw result can be dumped and re-loaded independently. Lives under
+    data/, which is already .gitignored."""
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(all_transfers, f, ensure_ascii=False, indent=2)
+    print(f"Saved {len(all_transfers)} transfers to {path}")
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--url", default=URL)
     parser.add_argument("--debug", action="store_true",
                          help="Print unrecognized-fee diagnostics.")
+    parser.add_argument("--output", default=None,
+                         help="If set, dump raw results to this JSON path "
+                              "(e.g. data/transfermarkt/psv_transfers.json).")
     args = parser.parse_args()
 
     all_transfers = extract_all_transfers(args.url)
@@ -228,6 +247,9 @@ def main():
 
     if args.debug:
         print_unresolved_fees(all_transfers)
+
+    if args.output:
+        save_to_json(all_transfers, args.output)
 
     return all_transfers
 
