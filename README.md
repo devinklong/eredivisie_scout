@@ -4,21 +4,22 @@ A Python -> Postgres -> Docker/FastAPI -> Azure -> Power BI data pipeline analyz
 
 ## Project Status
 
-Data scoping phase — extraction sources confirmed, pipeline not yet built.
+Data extraction phase — Transfermarkt and soccerdata fully scraped and loaded into Postgres. WhoScored derivation logic built and verified across 3 seasons, not yet loaded. Model training not yet started.
 
 ### v1.0 data collection/extraction map
 
-- `standard`/`shooting`/`misc`/`playing_time` (soccerdata, already working)
-- Passing completion + progression (WhoScored-derived)
-- Possession/touches by zone + take-ons (WhoScored-derived)
-- Defense: tackles/interceptions/blocks/clearances by zone (WhoScored-derived)
-- Final-third/penalty-area entries as SCA proxy (WhoScored-derived, cheap)
-- Transfermarkt fees/market value/bio/injury history
+- `standard`/`shooting`/`misc`/`playing_time`/`keeper` (soccerdata) — **done, loaded into Postgres.** All 16 seasons (2010-11 to 2025-26), `eredivisie_player_season_stats` (9,229 rows) and `eredivisie_keeper_season_stats` (589 rows).
+- Passing completion + progression (WhoScored-derived) — **done, verified across 3 seasons (2025-26, 2024-25, 2022-23), not yet loaded into Postgres.**
+- Possession/touches by zone + take-ons (WhoScored-derived) — **done, same status as above.** `carries` specifically out of scope for v1 (needs SPADL output format).
+- Defense: tackles/interceptions/clearances by zone (WhoScored-derived) — **done, same status as above.**
+- Final-third/penalty-area entries as SCA proxy (WhoScored-derived) — **done, same status as above.** Pass-based only; carries-based entries out of scope for v1.
+- Transfermarkt fees/market value/bio — **done, loaded into Postgres.** All 29 clubs that played Eredivisie since 2010-11, filtered to real Eredivisie seasons: `eredivisie_transfers` (8,060 rows), `eredivisie_club_status` (288 rows, the season-participation reference table). Market value *history* (not just current snapshot) and injury history not yet built.
 
 ### v1.5 (future)
 
 - Composite "duel engagement" stat — Opta/WhoScored has no single event type matching the colloquial sense of "duel." It's assembled from several separate winner/loser event-type pairs across categories (`Aerial` win/loss, `Tackle` vs. `Dispossessed`/unsuccessful `TakeOn`, `Challenge` [always a loss] vs. the opponent's `TakeOn` [the win]). Building a true duel win-rate stat means combining these pairs deliberately, not pulling one column. See `docs/whoscored_qualifier_taxonomy.md`'s cross-event relationships table.
 - Composite "successful take-on leading to a final-third/box entry" feature — a genuinely explosive, defender-beating carry is a stronger signal than an isolated `TakeOn` count or a generic final-third entry alone. Requires joining a `TakeOn` event to the same player's immediately following carry (by timestamp proximity), then checking whether that carry's end location lands in the final third/penalty area. Depends on carries existing first (see v1_roadmap.md's SPADL/carries item) — can't be built before that.
+- Loan buy-option/obligation-to-buy distinction — confirmed not present in any Transfermarkt data scraped so far (fee data distinguishes paid/unpaid loans, but not whether a buy option or obligation is attached). Would need each player's individual transfer-detail page, likely reported in prose rather than a structured field.
 
 ### v2
 
@@ -40,11 +41,15 @@ Borne from a strong passion for Ajax/the Eredivisie, this project determines whi
 
 ## Data Sources
 
-Still in the data-scoping phase — nothing built against these yet, this section reflects what's been confirmed feasible so far, not a finished integration.
+Two of three sources fully extracted and loaded into Postgres; the third is built and verified but not yet loaded.
 
-- **FBref** (via the `soccerdata` library): standard, shooting, misc, playing-time, and keeper stats confirmed working. Requires a Cloudflare-bypass approach (SeleniumBase UC/undetected-browser mode) — plain `requests`/`cloudscraper` are blocked. FBref's Opta-sourced advanced metrics (passing, possession, defense, goal/shot creation, and xG/xA across the board) were pulled sitewide in January 2026 after the data provider terminated FBref's license — confirmed empty for both the current and a fully completed prior season, so this isn't a scraper gap or a timing issue.
-- **Transfermarkt**: identified as the source for transfer fees, market values, bio data, and injury history. Not yet built.
-- **WhoScored**: identified as the likely path to shot-level event data (location, body part, outcome) needed to train an in-house xG model, since FBref no longer provides it. Not yet built or confirmed scrapeable end-to-end.
+- **FBref** (via the `soccerdata` library) — **done, loaded into Postgres.** standard, shooting, misc, playing-time, and keeper stats for all 16 seasons (2010-11 to 2025-26). Requires a Cloudflare-bypass approach (SeleniumBase UC/undetected-browser mode) — plain `requests`/`cloudscraper` are blocked. FBref's Opta-sourced advanced metrics (passing, possession, defense, goal/shot creation, and xG/xA across the board) were pulled sitewide in January 2026 after the data provider terminated FBref's license — confirmed empty across every season tested, so this isn't a scraper gap or a timing issue. One real data-quality bug found and fixed during loading (two FBref rows with genuinely inconsistent identity metadata for the same real player — see `docs/v1_roadmap.md`).
+- **Transfermarkt** — **done, loaded into Postgres.** All 29 clubs that played Eredivisie since 2010-11: full multi-season transfer history (fees, categorized by type: permanent/loan/free/undisclosed/historical-unknown) plus current squad data (market value, bio). Plain `requests` works — no Cloudflare bypass needed for this site. Filtered against a manually-compiled season-participation reference table so only genuine Eredivisie-season transfers are counted. Not yet built: market value *history* (only current snapshot so far), injury history, loan buy-option/obligation-to-buy terms.
+- **WhoScored** (via `soccerdata`, plus custom derivation logic on top) — **built and verified for 2020-21 through 2025-26, not yet loaded into Postgres.** Source of shot-level and general event data (location, body part, outcome) used to derive passing/possession/defense/final-third stats not otherwise available (see v1.0 map above), and the eventual path to an in-house xG model (v2). Requires the same Cloudflare-bypass approach as FBref. A confirmed library-level inefficiency (`read_events()` refetching the full season calendar on every call for an in-progress season) was root-caused and fixed with a `force_cache=True` parameter — see `docs/patch_list.md`. **Historical coverage below 2020-21 is mixed, not a clean cutoff:** 2019-20 is a genuine COVID-shortened season (season annulled mid-way, not a bug); 2015-16 through 2018-19 have real usable data but need a different parser than soccerdata's standard path provides (a working converter exists, not yet wired into the batch scraper); 2010-11 through 2014-15 appear to be largely genuine data gaps on WhoScored's own side, though not yet exhaustively confirmed. See `docs/v1_roadmap.md` and `docs/patch_list.md` for the full breakdown.
+
+## v1 Data Sources Not Yet Used
+
+- **FootyStats** — has real, confirmed Eredivisie xG/xA data from 2020/21 onward, via a paid API (~$36/month). Deliberately deferred to v2 as a one-time, bounded pull for comparing model performance with vs. without Opta-sourced advanced metrics. Their site's own Terms of Service explicitly prohibit scraping — API only.
 
 ## Folder Structure
 
@@ -63,7 +68,7 @@ eredivisie_scout/
 │   ├── soccerdata/    # Scripts using the soccerdata library (covers both FBref and WhoScored)
 │   ├── fbref/          # Custom FBref scraping, outside soccerdata's supported categories
 │   ├── whoscored/       # Custom WhoScored logic beyond soccerdata's built-in read_* methods
-│   └── transfermarkt/   # Transfermarkt scraping (not yet built)
+│   └── transfermarkt/   # Transfermarkt scraping
 ├── tests/           # Testing of scripts/schema/views and any other machine learning code
 │   ├── soccerdata/
 │   ├── fbref/
