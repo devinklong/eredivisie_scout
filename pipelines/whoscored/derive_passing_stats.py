@@ -45,10 +45,10 @@ def derive_passing_stats(events):
         & (pass_events["outcome_type"] == "Successful")
     )
 
-    grouped = pass_events.groupby("player").agg(
+    grouped = pass_events.groupby(["player", "team"]).agg(
         passes=("type", "count"),
         passes_completed=("is_completed", "sum"),
-    )
+    ).reset_index()
     grouped["passes_pct"] = (
         (grouped["passes_completed"] / grouped["passes"]) * 100
     ).round(1)

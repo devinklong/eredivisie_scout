@@ -84,14 +84,14 @@ def derive_touch_stats(events):
         lambda row: is_in_att_penalty_area(row["x"], row["y"]), axis=1
     )
 
-    grouped = touches.groupby("player").agg(
+    grouped = touches.groupby(["player", "team"]).agg(
         touches=("x", "count"),
         touches_def_3rd=("zone", lambda z: (z == "def_3rd").sum()),
         touches_mid_3rd=("zone", lambda z: (z == "mid_3rd").sum()),
         touches_att_3rd=("zone", lambda z: (z == "att_3rd").sum()),
         touches_def_pen_area=("in_def_pen_area", "sum"),
         touches_att_pen_area=("in_att_pen_area", "sum"),
-    )
+    ).reset_index()
     return grouped.sort_values("touches", ascending=False)
 
 
@@ -102,10 +102,10 @@ def derive_take_on_stats(events):
 
     take_ons["is_won"] = take_ons["outcome_type"] == "Successful"
 
-    grouped = take_ons.groupby("player").agg(
+    grouped = take_ons.groupby(["player", "team"]).agg(
         take_ons=("type", "count"),
         take_ons_won=("is_won", "sum"),
-    )
+    ).reset_index()
     grouped["take_ons_won_pct"] = (
         (grouped["take_ons_won"] / grouped["take_ons"]) * 100
     ).round(1)
@@ -116,7 +116,13 @@ def derive_dispossessed_stats(events):
     """Times a player lost the ball to an opponent's challenge."""
     dispossessed = events[events["type"] == "Dispossessed"]
     print(f"Total Dispossessed events found: {len(dispossessed)}")
-    return dispossessed.groupby("player").size().rename("dispossessed").sort_values(ascending=False)
+    return (
+        dispossessed.groupby(["player", "team"])
+        .size()
+        .rename("dispossessed")
+        .reset_index()
+        .sort_values("dispossessed", ascending=False)
+    )
 
 
 def main():

@@ -89,11 +89,8 @@ from derive_finalthird_stats import derive_finalthird_stats
 from parse_raw_whoscored_events import get_events_for_match as get_events_raw_fallback
 
 LEAGUE = "NED-Eredivisie"
-SEASONS = [
-    "2013-14", "2014-15", "2015-16", "2016-17", "2017-18", "2018-19",
-    "2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25",
-    "2025-26",
-]  # every confirmed-working season -- regenerating ALL of them since
+SEASONS = ["2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25",
+    "2025-26",]  # every confirmed-working season -- regenerating ALL of them since
    # the team-capture fix changed the JSON output format entirely.
    # Should be fast: every match's raw event data is already cached on
    # disk from the original runs, so this reprocesses locally rather

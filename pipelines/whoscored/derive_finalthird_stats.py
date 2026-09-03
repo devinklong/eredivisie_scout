@@ -56,10 +56,10 @@ def derive_finalthird_stats(events):
         lambda row: is_penalty_area_entry(row["end_x"], row["end_y"]), axis=1
     )
 
-    grouped = completed_passes.groupby("player").agg(
+    grouped = completed_passes.groupby(["player", "team"]).agg(
         final_third_entries=("is_final_third_entry", "sum"),
         pen_area_entries=("is_pen_area_entry", "sum"),
-    )
+    ).reset_index()
     return grouped.sort_values("final_third_entries", ascending=False)
 
 

@@ -55,13 +55,13 @@ def derive_tackle_stats(events):
     tackles["zone"] = tackles["x"].apply(zone_for_event)
     tackles["is_won"] = tackles["outcome_type"] == "Successful"
 
-    grouped = tackles.groupby("player").agg(
+    grouped = tackles.groupby(["player", "team"]).agg(
         tackles=("type", "count"),
         tackles_won=("is_won", "sum"),
         tackles_def_3rd=("zone", lambda z: (z == "def_3rd").sum()),
         tackles_mid_3rd=("zone", lambda z: (z == "mid_3rd").sum()),
         tackles_att_3rd=("zone", lambda z: (z == "att_3rd").sum()),
-    )
+    ).reset_index()
     return grouped.sort_values("tackles", ascending=False)
 
 
@@ -72,12 +72,12 @@ def derive_interception_stats(events):
 
     interceptions["zone"] = interceptions["x"].apply(zone_for_event)
 
-    grouped = interceptions.groupby("player").agg(
+    grouped = interceptions.groupby(["player", "team"]).agg(
         interceptions=("type", "count"),
         interceptions_def_3rd=("zone", lambda z: (z == "def_3rd").sum()),
         interceptions_mid_3rd=("zone", lambda z: (z == "mid_3rd").sum()),
         interceptions_att_3rd=("zone", lambda z: (z == "att_3rd").sum()),
-    )
+    ).reset_index()
     return grouped.sort_values("interceptions", ascending=False)
 
 
@@ -86,7 +86,13 @@ def derive_clearance_stats(events):
     zone-split clearances either, per stat_source_tracker.md)."""
     clearances = events[events["type"] == "Clearance"]
     print(f"Total Clearance events found: {len(clearances)}")
-    return clearances.groupby("player").size().rename("clearances").sort_values(ascending=False)
+    return (
+        clearances.groupby(["player", "team"])
+        .size()
+        .rename("clearances")
+        .reset_index()
+        .sort_values("clearances", ascending=False)
+    )
 
 
 def derive_challenge_stats(events):
@@ -112,14 +118,26 @@ def derive_challenge_stats(events):
     print("NOTE: Challenge is a losing-side-only event (see docstring) -- "
           "no win/loss split is computed here.")
 
-    return challenges.groupby("player").size().rename("dribbled_past").sort_values(ascending=False)
+    return (
+        challenges.groupby(["player", "team"])
+        .size()
+        .rename("dribbled_past")
+        .reset_index()
+        .sort_values("dribbled_past", ascending=False)
+    )
 
 
 def derive_error_stats(events):
     """Errors -- simple count."""
     errors = events[events["type"] == "Error"]
     print(f"Total Error events found: {len(errors)}")
-    return errors.groupby("player").size().rename("errors").sort_values(ascending=False)
+    return (
+        errors.groupby(["player", "team"])
+        .size()
+        .rename("errors")
+        .reset_index()
+        .sort_values("errors", ascending=False)
+    )
 
 
 def main():
