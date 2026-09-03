@@ -67,3 +67,31 @@ game_id, original_event_id, action_id, period_id, time_seconds, team_id, player_
 - teams: team_id, team_name
 - players: game_id, team_id, player_id, player_name, is_starter, minutes_played, jersey_number, starting_position
 - events: game_id, event_id, period_id, team_id, player_id, type_id, timestamp, minute, second, outcome, start_x, start_y, end_x, end_y, qualifiers, related_player_id, touch, goal, shot, type_name
+
+## WhoScored derived output (this project's own pipelines/whoscored/derive_*.py)
+
+Not raw source fields — this is what this project computes FROM the raw events above. Keyed `(player, team)` in every category as of the 2026-09-02 team-attribution fix (originally player-only, a real bug — see patch_list.md). Aggregated to player-season totals in `eredivisie_whoscored_player_season_stats`, keyed `(player_name, team, season_id)`.
+
+### passing
+player, team, passes, passes_completed, passes_pct
+
+### touches (possession)
+player, team, touches, touches_def_3rd, touches_mid_3rd, touches_att_3rd, touches_def_pen_area, touches_att_pen_area
+
+### take_ons
+player, team, take_ons, take_ons_won, take_ons_won_pct
+
+### dispossessed
+player, team, dispossessed (count only)
+
+### tackles
+player, team, tackles, tackles_won, tackles_def_3rd, tackles_mid_3rd, tackles_att_3rd
+
+### interceptions
+player, team, interceptions, interceptions_def_3rd, interceptions_mid_3rd, interceptions_att_3rd
+
+### clearances / dribbled_past / errors
+player, team, count only for each — `dribbled_past` is NOT a win/loss stat, see whoscored_qualifier_taxonomy.md's cross-event relationships table for why
+
+### final_third_entries
+player, team, final_third_entries, pen_area_entries — pass-based only (SCA proxy), carries out of scope for v1
