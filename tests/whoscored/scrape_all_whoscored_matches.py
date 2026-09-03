@@ -49,6 +49,16 @@ but the dramatic before/after speed difference measured earlier may not
 apply the same way to a completed season -- the first pass through each
 match should still be reasonably fast, just via ordinary caching rather
 than the specific fix confirmed for a current season.
+FALLBACK PARSER INTEGRATED (2026-09-01): for seasons where soccerdata's
+standard read_events() crashes with the confirmed casting bug
+(TypeError: cannot safely cast non-equivalent object to int64 -- affects
+2015-16 through 2018-19's related_event_id field), this script now
+automatically falls back to parse_raw_whoscored_events.py's raw-JSON
+converter instead of marking the match failed. Any OTHER exception is
+still treated as a real failure, not silently caught. Each match's
+console output notes "(via raw fallback parser)" when the fallback was
+used, and the season summary reports a total fallback count -- not yet
+validated at full-season scale, only against single matches so far.
 """
 
 import json
@@ -76,10 +86,18 @@ from derive_defense_stats import (
     derive_error_stats,
 )
 from derive_finalthird_stats import derive_finalthird_stats
+from parse_raw_whoscored_events import get_events_for_match as get_events_raw_fallback
 
 LEAGUE = "NED-Eredivisie"
-SEASONS = ["2018-19"]  # a fully completed season; extend to a full
-                        # historical list once this run is confirmed clean
+SEASONS = [
+    "2013-14", "2014-15", "2015-16", "2016-17", "2017-18", "2018-19",
+    "2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25",
+    "2025-26",
+]  # every confirmed-working season -- regenerating ALL of them since
+   # the team-capture fix changed the JSON output format entirely.
+   # Should be fast: every match's raw event data is already cached on
+   # disk from the original runs, so this reprocesses locally rather
+   # than re-scraping the web.
 DATA_DIR = Path("data/whoscored")
 
 # If non-empty, only these match_ids are processed (for retrying
@@ -89,12 +107,43 @@ DATA_DIR = Path("data/whoscored")
 MATCH_IDS_OVERRIDE = []
 
 
+def get_events_with_fallback(ws, league, season, match_id):
+    """Tries soccerdata's standard read_events() first. If it hits the
+    known casting bug (TypeError: cannot safely cast non-equivalent
+    object to int64 -- confirmed 2026-09-01 to affect 2015-16 through
+    2018-19's related_event_id field), falls back to
+    parse_raw_whoscored_events.get_events_for_match(), which bypasses
+    soccerdata's formatting entirely via output_fmt="raw".
+
+    Returns (events, used_fallback: bool). Any OTHER exception from the
+    standard path is re-raised as-is -- this fallback is deliberately
+    narrow, only for the one specific confirmed bug, not a catch-all."""
+    try:
+        events = ws.read_events(match_id=match_id, force_cache=True)
+        return events, False
+    except TypeError as e:
+        if "cannot safely cast non-equivalent object to int64" not in str(e):
+            raise  # a different TypeError -- don't silently swallow it
+        events = get_events_raw_fallback(league, season, match_id)
+        return events, True
+
+
 def process_match(events, match_id):
     """Runs every derivation function against one match's events and
-    returns a single combined dict of DataFrames, keyed by category --
-    kept as separate frames (not merged into one wide table) since each
-    has its own player population/grain, matching how they were built
-    and validated individually.
+    returns a single combined dict, keyed by category -- kept as
+    separate lists (not merged into one wide table) since each has its
+    own player population/grain, matching how they were built and
+    validated individually.
+
+    FIXED (2026-09-02): all derive_*.py functions now group by
+    ["player", "team"], not just "player" -- previously team was
+    silently dropped entirely, making it impossible to look up e.g.
+    "Ajax's 2025-26 squad" from the output. Output format changed
+    accordingly from orient="index" (a dict keyed by player name, which
+    can't hold a team field and breaks on duplicate names) to
+    orient="records" (a list of dicts, each with explicit "player" and
+    "team" keys) -- required since a JSON object key must be a single
+    string, not a (player, team) tuple.
 
     Guards against matches where WhoScored genuinely has no event data
     at all (confirmed real case: game_id=409048, 2010-11 -- WhoScored's
@@ -111,16 +160,16 @@ def process_match(events, match_id):
         )
 
     return {
-        "passing": derive_passing_stats(events).to_dict(orient="index"),
-        "touches": derive_touch_stats(events).to_dict(orient="index"),
-        "take_ons": derive_take_on_stats(events).to_dict(orient="index"),
-        "dispossessed": derive_dispossessed_stats(events).to_dict(),
-        "tackles": derive_tackle_stats(events).to_dict(orient="index"),
-        "interceptions": derive_interception_stats(events).to_dict(orient="index"),
-        "clearances": derive_clearance_stats(events).to_dict(),
-        "dribbled_past": derive_challenge_stats(events).to_dict(),
-        "errors": derive_error_stats(events).to_dict(),
-        "final_third_entries": derive_finalthird_stats(events).to_dict(orient="index"),
+        "passing": derive_passing_stats(events).to_dict(orient="records"),
+        "touches": derive_touch_stats(events).to_dict(orient="records"),
+        "take_ons": derive_take_on_stats(events).to_dict(orient="records"),
+        "dispossessed": derive_dispossessed_stats(events).to_dict(orient="records"),
+        "tackles": derive_tackle_stats(events).to_dict(orient="records"),
+        "interceptions": derive_interception_stats(events).to_dict(orient="records"),
+        "clearances": derive_clearance_stats(events).to_dict(orient="records"),
+        "dribbled_past": derive_challenge_stats(events).to_dict(orient="records"),
+        "errors": derive_error_stats(events).to_dict(orient="records"),
+        "final_third_entries": derive_finalthird_stats(events).to_dict(orient="records"),
     }
 
 
@@ -150,12 +199,13 @@ def main():
             print(f"Found {len(match_ids)} matches.")
 
         succeeded = 0
+        used_fallback_count = 0
         failed = []
 
         for i, match_id in enumerate(match_ids, start=1):
             print(f"[{i}/{len(match_ids)}] match_id={match_id}...", end=" ")
             try:
-                events = ws.read_events(match_id=match_id, force_cache=True)
+                events, used_fallback = get_events_with_fallback(ws, LEAGUE, season, match_id)
                 if events is None or len(events) == 0:
                     print("SKIPPED (no events returned)")
                     failed.append(match_id)
@@ -163,8 +213,11 @@ def main():
 
                 data = process_match(events, match_id)
                 path = save_match_json(match_id, season, data)
-                print(f"OK -> {path}")
+                fallback_note = " (via raw fallback parser)" if used_fallback else ""
+                print(f"OK{fallback_note} -> {path}")
                 succeeded += 1
+                if used_fallback:
+                    used_fallback_count += 1
             except Exception as e:
                 print(f"FAILED -- {type(e).__name__}: {e}")
                 failed.append(match_id)
@@ -173,7 +226,8 @@ def main():
             # heavy calendar refetch, but still worth not hammering.
             time.sleep(1)
 
-        print(f"\n{season} summary: {succeeded}/{len(match_ids)} succeeded")
+        print(f"\n{season} summary: {succeeded}/{len(match_ids)} succeeded"
+              f" ({used_fallback_count} via raw fallback parser)")
         if failed:
             print(f"Failed/skipped match_ids: {failed}")
 
