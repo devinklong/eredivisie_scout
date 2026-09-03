@@ -63,5 +63,6 @@ CREATE TABLE eredivisie_whoscored_player_season_stats (
     pen_area_entries               INTEGER,
     UNIQUE (player_name, team, season_id)
 );
-
-SELECT * FROM eredivisie_whoscored_player_season_stats WHERE team = 'Ajax'
+SELECT COUNT(*) FROM eredivisie_whoscored_player_season_stats;
+SELECT DISTINCT season_id FROM eredivisie_whoscored_player_season_stats ORDER BY season_id;
+SELECT * FROM eredivisie_whoscored_player_season_stats WHERE team = 'Ajax' AND season_id = 2025;
