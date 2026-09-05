@@ -55,7 +55,7 @@ def derive_tackle_stats(events):
     tackles["zone"] = tackles["x"].apply(zone_for_event)
     tackles["is_won"] = tackles["outcome_type"] == "Successful"
 
-    grouped = tackles.groupby(["player", "team"]).agg(
+    grouped = tackles.groupby(["player", "team", "player_id"]).agg(
         tackles=("type", "count"),
         tackles_won=("is_won", "sum"),
         tackles_def_3rd=("zone", lambda z: (z == "def_3rd").sum()),
@@ -72,7 +72,7 @@ def derive_interception_stats(events):
 
     interceptions["zone"] = interceptions["x"].apply(zone_for_event)
 
-    grouped = interceptions.groupby(["player", "team"]).agg(
+    grouped = interceptions.groupby(["player", "team", "player_id"]).agg(
         interceptions=("type", "count"),
         interceptions_def_3rd=("zone", lambda z: (z == "def_3rd").sum()),
         interceptions_mid_3rd=("zone", lambda z: (z == "mid_3rd").sum()),
@@ -87,7 +87,7 @@ def derive_clearance_stats(events):
     clearances = events[events["type"] == "Clearance"]
     print(f"Total Clearance events found: {len(clearances)}")
     return (
-        clearances.groupby(["player", "team"])
+        clearances.groupby(["player", "team", "player_id"])
         .size()
         .rename("clearances")
         .reset_index()
@@ -119,7 +119,7 @@ def derive_challenge_stats(events):
           "no win/loss split is computed here.")
 
     return (
-        challenges.groupby(["player", "team"])
+        challenges.groupby(["player", "team", "player_id"])
         .size()
         .rename("dribbled_past")
         .reset_index()
@@ -132,7 +132,7 @@ def derive_error_stats(events):
     errors = events[events["type"] == "Error"]
     print(f"Total Error events found: {len(errors)}")
     return (
-        errors.groupby(["player", "team"])
+        errors.groupby(["player", "team", "player_id"])
         .size()
         .rename("errors")
         .reset_index()

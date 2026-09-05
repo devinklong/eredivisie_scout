@@ -84,7 +84,7 @@ def derive_touch_stats(events):
         lambda row: is_in_att_penalty_area(row["x"], row["y"]), axis=1
     )
 
-    grouped = touches.groupby(["player", "team"]).agg(
+    grouped = touches.groupby(["player", "team", "player_id"]).agg(
         touches=("x", "count"),
         touches_def_3rd=("zone", lambda z: (z == "def_3rd").sum()),
         touches_mid_3rd=("zone", lambda z: (z == "mid_3rd").sum()),
@@ -102,7 +102,7 @@ def derive_take_on_stats(events):
 
     take_ons["is_won"] = take_ons["outcome_type"] == "Successful"
 
-    grouped = take_ons.groupby(["player", "team"]).agg(
+    grouped = take_ons.groupby(["player", "team", "player_id"]).agg(
         take_ons=("type", "count"),
         take_ons_won=("is_won", "sum"),
     ).reset_index()
@@ -117,7 +117,7 @@ def derive_dispossessed_stats(events):
     dispossessed = events[events["type"] == "Dispossessed"]
     print(f"Total Dispossessed events found: {len(dispossessed)}")
     return (
-        dispossessed.groupby(["player", "team"])
+        dispossessed.groupby(["player", "team", "player_id"])
         .size()
         .rename("dispossessed")
         .reset_index()

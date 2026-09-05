@@ -12,6 +12,17 @@ category is now a LIST of records (each a dict with "player"/"team"
 plus stats), not a dict keyed by player name -- required since a JSON
 object key can't hold a (player, team) tuple.
 
+UPDATED: now also carries WhoScored's own native player_id through into
+eredivisie_whoscored_player_season_stats.whoscored_player_id. This is
+NOT the same ID namespace as Transfermarkt's player_id -- do not join
+the two directly without going through the entity-resolution crosswalk
+table. player_id is captured once per (player, team) since it's a
+constant identity attribute, not summed like the stat fields. If two
+records for the same (player, team) within a season disagree on
+player_id, the first value seen is kept and a warning is printed --
+this should not happen for a real person and is worth investigating if
+it fires, not silencing.
+
 Percentage fields (passes_pct, take_ons_won_pct) are RECOMPUTED from the
 summed numerator/denominator across all matches, never averaged across
 per-match percentages -- averaging percentages from matches with very
@@ -71,6 +82,9 @@ def season_to_id(season):
 def aggregate_season(data_dir):
     totals = defaultdict(lambda: defaultdict(int))
     matches_seen = defaultdict(set)
+    player_ids = {}  # (player, team) -> whoscored player_id, since it's
+                      # constant per player/team, not additive like the
+                      # stat fields -- captured once, not summed
 
     files = list(data_dir.glob("*.json"))
 
@@ -89,15 +103,32 @@ def aggregate_season(data_dir):
                     continue  # e.g. a 'Start' event with no player -- skip
                 key = (player, team)
                 matches_seen[key].add(match_id)
+
+                # Capture player_id once per (player, team) -- if it's
+                # present on this record and we haven't seen it yet for
+                # this key, or if a later record disagrees with an
+                # earlier one, flag the conflict rather than silently
+                # overwriting -- same discipline as the player_id
+                # consistency check in parse_raw_whoscored_events.py.
+                record_player_id = record.get("player_id")
+                if record_player_id is not None:
+                    existing = player_ids.get(key)
+                    if existing is not None and existing != record_player_id:
+                        print(f"  WARNING: conflicting player_id for {key} -- "
+                              f"had {existing}, saw {record_player_id} in "
+                              f"match {match_id}. Keeping first value.")
+                    else:
+                        player_ids[key] = record_player_id
+
                 for field in ADDITIVE_FIELDS[category]:
                     value = record.get(field)
                     if value is not None:
                         totals[key][field] += value
 
-    return totals, matches_seen, len(files)
+    return totals, matches_seen, player_ids, len(files)
 
 
-def build_rows(totals, matches_seen, season_id):
+def build_rows(totals, matches_seen, player_ids, season_id):
     rows = []
     for (player, team), stats in totals.items():
         passes = stats.get("passes", 0)
@@ -110,6 +141,7 @@ def build_rows(totals, matches_seen, season_id):
 
         rows.append((
             player, team, season_id, len(matches_seen[(player, team)]),
+            player_ids.get((player, team)),
             passes, passes_completed, passes_pct,
             stats.get("touches", 0), stats.get("touches_def_3rd", 0),
             stats.get("touches_mid_3rd", 0), stats.get("touches_att_3rd", 0),
@@ -129,7 +161,7 @@ def build_rows(totals, matches_seen, season_id):
 
 INSERT_SQL = """
     INSERT INTO eredivisie_whoscored_player_season_stats
-        (player_name, team, season_id, matches_with_data,
+        (player_name, team, season_id, matches_with_data, whoscored_player_id,
          passes, passes_completed, passes_pct,
          touches, touches_def_3rd, touches_mid_3rd, touches_att_3rd,
          touches_def_pen_area, touches_att_pen_area,
@@ -140,7 +172,36 @@ INSERT_SQL = """
          clearances, dribbled_past, errors,
          final_third_entries, pen_area_entries)
     VALUES %s
-    ON CONFLICT (player_name, team, season_id) DO NOTHING
+    ON CONFLICT (player_name, team, season_id) DO UPDATE SET
+        matches_with_data = EXCLUDED.matches_with_data,
+        whoscored_player_id = EXCLUDED.whoscored_player_id,
+        passes = EXCLUDED.passes,
+        passes_completed = EXCLUDED.passes_completed,
+        passes_pct = EXCLUDED.passes_pct,
+        touches = EXCLUDED.touches,
+        touches_def_3rd = EXCLUDED.touches_def_3rd,
+        touches_mid_3rd = EXCLUDED.touches_mid_3rd,
+        touches_att_3rd = EXCLUDED.touches_att_3rd,
+        touches_def_pen_area = EXCLUDED.touches_def_pen_area,
+        touches_att_pen_area = EXCLUDED.touches_att_pen_area,
+        take_ons = EXCLUDED.take_ons,
+        take_ons_won = EXCLUDED.take_ons_won,
+        take_ons_won_pct = EXCLUDED.take_ons_won_pct,
+        dispossessed = EXCLUDED.dispossessed,
+        tackles = EXCLUDED.tackles,
+        tackles_won = EXCLUDED.tackles_won,
+        tackles_def_3rd = EXCLUDED.tackles_def_3rd,
+        tackles_mid_3rd = EXCLUDED.tackles_mid_3rd,
+        tackles_att_3rd = EXCLUDED.tackles_att_3rd,
+        interceptions = EXCLUDED.interceptions,
+        interceptions_def_3rd = EXCLUDED.interceptions_def_3rd,
+        interceptions_mid_3rd = EXCLUDED.interceptions_mid_3rd,
+        interceptions_att_3rd = EXCLUDED.interceptions_att_3rd,
+        clearances = EXCLUDED.clearances,
+        dribbled_past = EXCLUDED.dribbled_past,
+        errors = EXCLUDED.errors,
+        final_third_entries = EXCLUDED.final_third_entries,
+        pen_area_entries = EXCLUDED.pen_area_entries
 """
 
 
@@ -156,8 +217,8 @@ def main():
                 continue
 
             season_id = season_to_id(season)
-            totals, matches_seen, file_count = aggregate_season(data_dir)
-            rows = build_rows(totals, matches_seen, season_id)
+            totals, matches_seen, player_ids, file_count = aggregate_season(data_dir)
+            rows = build_rows(totals, matches_seen, player_ids, season_id)
 
             if rows:
                 execute_values(cur, INSERT_SQL, rows)

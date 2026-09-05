@@ -45,7 +45,7 @@ def derive_passing_stats(events):
         & (pass_events["outcome_type"] == "Successful")
     )
 
-    grouped = pass_events.groupby(["player", "team"]).agg(
+    grouped = pass_events.groupby(["player", "team", "player_id"]).agg(
         passes=("type", "count"),
         passes_completed=("is_completed", "sum"),
     ).reset_index()
