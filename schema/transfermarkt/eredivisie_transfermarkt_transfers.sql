@@ -41,3 +41,4 @@ CREATE TABLE eredivisie_transfers (
 
 SELECT COUNT(*) FROM eredivisie_transfers;  -- ~36k rows, 2026-08-29
 SELECT * FROM eredivisie_transfers WHERE player_name ILIKE '%Ziyech%' ORDER BY season_id DESC;
+SELECT * FROM eredivisie_transfers WHERE counterparty_club_name ILIKE '%PSV%' AND season_id = 2025;
