@@ -12,16 +12,28 @@ category is now a LIST of records (each a dict with "player"/"team"
 plus stats), not a dict keyed by player name -- required since a JSON
 object key can't hold a (player, team) tuple.
 
-UPDATED: now also carries WhoScored's own native player_id through into
-eredivisie_whoscored_player_season_stats.whoscored_player_id. This is
-NOT the same ID namespace as Transfermarkt's player_id -- do not join
-the two directly without going through the entity-resolution crosswalk
-table. player_id is captured once per (player, team) since it's a
-constant identity attribute, not summed like the stat fields. If two
-records for the same (player, team) within a season disagree on
+UPDATED (2026-09-04): now also carries WhoScored's own native player_id
+through into eredivisie_whoscored_player_season_stats.whoscored_player_id.
+This is NOT the same ID namespace as Transfermarkt's player_id -- do not
+join the two directly without going through the entity-resolution
+crosswalk table. player_id is captured once per (player, team) since
+it's a constant identity attribute, not summed like the stat fields. If
+two records for the same (player, team) within a season disagree on
 player_id, the first value seen is kept and a warning is printed --
 this should not happen for a real person and is worth investigating if
 it fires, not silencing.
+
+UPDATED (2026-09-05): normalizes WhoScored's team names against the
+other two sources' convention before they're used as part of the
+(player, team) key. Confirmed mismatch: WhoScored uses "PSV Eindhoven"
+where soccerdata/Transfermarkt both use "PSV". Add any further confirmed
+mismatches to TEAM_NAME_NORMALIZATION below -- check for others via:
+    SELECT DISTINCT team FROM eredivisie_whoscored_player_season_stats
+    ORDER BY team;
+compared against soccerdata's and Transfermarkt's own distinct team/
+club_name lists. This matters because team is part of the blocking key
+entity resolution will use -- a silent naming mismatch here would break
+matching for any affected club.
 
 Percentage fields (passes_pct, take_ons_won_pct) are RECOMPUTED from the
 summed numerator/denominator across all matches, never averaged across
@@ -68,6 +80,13 @@ ADDITIVE_FIELDS = {
     "errors": ["errors"],
 }
 
+# WhoScored team-name spellings that need to be normalized to match
+# soccerdata's and Transfermarkt's convention -- see module docstring.
+TEAM_NAME_NORMALIZATION = {
+    "PSV Eindhoven": "PSV",
+    # add any other confirmed mismatches here
+}
+
 
 def get_connection():
     return psycopg2.connect(dbname="postgres", host="localhost")
@@ -101,6 +120,9 @@ def aggregate_season(data_dir):
                 team = record.get("team")
                 if player is None or team is None:
                     continue  # e.g. a 'Start' event with no player -- skip
+
+                team = TEAM_NAME_NORMALIZATION.get(team, team)
+
                 key = (player, team)
                 matches_seen[key].add(match_id)
 
@@ -222,7 +244,9 @@ def main():
 
             if rows:
                 execute_values(cur, INSERT_SQL, rows)
-                inserted = cur.rowcount
+                inserted = len(rows)  # cur.rowcount under-reports with
+                                       # execute_values' internal paging --
+                                       # see docs/patch_list.md
             else:
                 inserted = 0
 
@@ -230,10 +254,10 @@ def main():
             total_rows_inserted += inserted
             print(f"{season}: {file_count} match files, "
                   f"{len(totals)} (player, team) pairs aggregated, "
-                  f"{inserted} rows inserted")
+                  f"{inserted} rows inserted/updated")
 
     conn.close()
-    print(f"\nTotal rows inserted across all seasons: {total_rows_inserted}")
+    print(f"\nTotal rows inserted/updated across all seasons: {total_rows_inserted}")
 
 
 if __name__ == "__main__":

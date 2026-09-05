@@ -65,4 +65,7 @@ CREATE TABLE eredivisie_whoscored_player_season_stats (
 );
 SELECT COUNT(*) FROM eredivisie_whoscored_player_season_stats;
 SELECT DISTINCT season_id FROM eredivisie_whoscored_player_season_stats ORDER BY season_id;
-SELECT * FROM eredivisie_whoscored_player_season_stats WHERE team = 'Ajax' AND season_id = 2025;
+SELECT * FROM eredivisie_whoscored_player_season_stats WHERE team ILIKE '%PSV%' AND season_id = 2025;
+UPDATE eredivisie_whoscored_player_season_stats
+SET team = 'PSV'
+WHERE team = 'PSV Eindhoven';

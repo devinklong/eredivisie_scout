@@ -40,3 +40,4 @@ CREATE TABLE eredivisie_keeper_season_stats (
 );
 SELECT COUNT(*) FROM eredivisie_keeper_season_stats;
 SELECT * FROM eredivisie_keeper_season_stats;
+SELECT * FROM eredivisie_keeper_season_stats WHERE team ILIKE '%PSV%' AND season_id = 2025;
