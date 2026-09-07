@@ -64,11 +64,18 @@ once Transfermarkt bio data is loaded, not before.
 
 Output:
   - cleaning_logs/entity_resolution/fbref_whoscored_candidates.csv --
-    every scored candidate pair, for full review.
+    every scored candidate pair, for full review. Fully overwritten on
+    every run -- nothing manual is ever recorded here.
   - cleaning_logs/entity_resolution/fbref_whoscored_review_queue.csv --
     just the 0.5-0.8 "genuinely ambiguous" band, isolated for focused
-    manual review (see print_diagnostics() for how that band is
-    identified each run).
+    manual review, with 'decision' and 'notes' columns for that review
+    to be recorded in directly. MERGE-SAFE: rerunning this script
+    preserves any existing decision/notes values (matched on
+    fbref_name + whoscored_name + team + season_id) rather than
+    overwriting them -- see write_review_queue()'s docstring. A pair
+    whose key no longer appears in a new run (e.g. it fell out of the
+    review band after an upstream data change) has its old decision
+    dropped, since there's no surviving row to attach it to.
 
 Nothing is written to Postgres by this script -- this is purely an
 exploration/review step, not a crosswalk-table loader. That's the next
@@ -251,6 +258,53 @@ def print_diagnostics(df):
           "scoring alone.")
 
 
+def write_review_queue(review_df):
+    """Writes the review queue, preserving any manual 'decision'/'notes'
+    values already recorded on disk for pairs that still exist in the
+    current run. Without this, rerunning match_fbref_whoscored.py (e.g.
+    after a schema/data change upstream) would silently blow away any
+    hand-adjudication work already done on
+    fbref_whoscored_review_queue.csv -- confirmed as a real risk before
+    manual review of that file had actually started (2026-09-06), fixed
+    here before it could cause real damage.
+
+    Merge key: (fbref_name, whoscored_name, team, season_id) -- the
+    same natural key identifying a candidate pair throughout this
+    script. If a pair's key no longer appears in the new run (e.g. the
+    underlying data changed enough that it fell out of the review
+    band), its old decision is simply dropped, since it's not decidable
+    which surviving pair it would have applied to."""
+    review_df = review_df.copy()
+    if "decision" not in review_df.columns:
+        review_df["decision"] = ""
+    if "notes" not in review_df.columns:
+        review_df["notes"] = ""
+
+    merge_keys = ["fbref_name", "whoscored_name", "team", "season_id"]
+
+    if REVIEW_QUEUE_FILE.exists():
+        existing = pd.read_csv(REVIEW_QUEUE_FILE)
+        if "decision" not in existing.columns:
+            existing["decision"] = ""
+        if "notes" not in existing.columns:
+            existing["notes"] = ""
+
+        existing_decisions = existing.set_index(merge_keys)[["decision", "notes"]]
+
+        review_df = review_df.set_index(merge_keys)
+        review_df.update(existing_decisions)
+        review_df = review_df.reset_index()
+
+        carried_over = existing_decisions[
+            (existing_decisions["decision"] != "") & (existing_decisions["decision"].notna())
+        ]
+        print(f"Preserved {len(carried_over)} existing manual decision(s) "
+              f"from the previous {REVIEW_QUEUE_FILE.name}.")
+
+    review_df.to_csv(REVIEW_QUEUE_FILE, index=False)
+    return review_df
+
+
 def main():
     conn = get_connection()
     rows = load_candidate_pairs(conn)
@@ -271,7 +325,7 @@ def main():
 
     review_df = df[(df["working_confidence"] >= REVIEW_BAND_LOW) &
                    (df["working_confidence"] < REVIEW_BAND_HIGH)]
-    review_df.to_csv(REVIEW_QUEUE_FILE, index=False)
+    review_df = write_review_queue(review_df)
     print(f"Wrote {len(review_df)} pairs needing manual review to {REVIEW_QUEUE_FILE}")
 
     print_diagnostics(df)
