@@ -42,6 +42,8 @@ data/
 # 4. LOGS & CLEANING DUMPS
 # ==========================================
 cleaning_logs/*.log
+*.csv
+!cleaning_logs/**/*.csv
 *.log
 logs/
 
