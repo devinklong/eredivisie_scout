@@ -51,11 +51,14 @@ anywhere in this script.
 
 classify_pair() adds a rough triage HINT (not a verdict) to help a
 human reviewer scan the ambiguous band faster, by flagging which known
-ambiguous pattern a given pair matches (substring/truncation, a
-same-surname or same-given-name collision, or a same-tokens-reordered
-case) -- see its docstring, and the "other" category's real examples
-below for why "same tokens, different order" needed adding as its own
-flagged pattern rather than being left unclassified.
+ambiguous pattern a given pair matches: substring/truncation, a
+first-and-last-token match with only a middle token differing (a
+meaningfully SAFER pattern -- see classify_pair()'s docstring), a
+same-surname or same-given-name collision (the risky single-token
+patterns), or a same-tokens-reordered case -- see its docstring, and
+the "other" category's real examples below for why "same tokens,
+different order" needed adding as its own flagged pattern rather than
+being left unclassified.
 
 NO BIRTH-YEAR SIGNAL is included anywhere in this script --
 eredivisie_whoscored_player_season_stats has no birth-year column at
@@ -170,6 +173,20 @@ def classify_pair(fbref_name, whoscored_name):
     # mononym pattern (e.g. "memphis" in "memphis depay").
     if norm_a in norm_b or norm_b in norm_a:
         return "substring_match"
+
+    # BOTH first and last token match, only middle tokens differ -- a
+    # meaningfully stronger, narrower signal than matching on just one
+    # end. Confirmed safe across every real example seen so far: catches
+    # genuine matches (Joao Carlos Teixeira/Joao Teixeira, Terry Lartey
+    # Sanniez/Terry Sanniez, Kwasi Okyere Wriedt/Kwasi Wriedt, Eric
+    # Botteghin/Eric Fernando Botteghin) while correctly staying silent
+    # on every known real collision (Frenkie de Jong/Siem de Jong differ
+    # on the first token; Youri Baas/Youri Regeer differ on the last) --
+    # those only ever match on ONE end, never both. Checked before the
+    # single-token checks below since it's the stricter, safer signal.
+    if (tokens_a and tokens_b and len(tokens_a) >= 2 and len(tokens_b) >= 2
+            and tokens_a[0] == tokens_b[0] and tokens_a[-1] == tokens_b[-1]):
+        return "given_and_surname_match_extra_middle_token"
 
     # Same surname (last token), different given name -- the
     # "de Jong x3" collision pattern.

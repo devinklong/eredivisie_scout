@@ -1,183 +1,183 @@
-fbref_name,whoscored_name,team,season_id,trgm_similarity,jaro_winkler,token_sort,working_confidence,match_hint
-Klaas-Jan Huntelaar,Klaas Jan Huntelaar,Ajax,2017,1.0,0.9567,0.7895,0.7895,same_surname_diff_given_name
-Klaas-Jan Huntelaar,Klaas Jan Huntelaar,Ajax,2018,1.0,0.9567,0.7895,0.7895,same_surname_diff_given_name
-Klaas-Jan Huntelaar,Klaas Jan Huntelaar,Ajax,2019,1.0,0.9567,0.7895,0.7895,same_surname_diff_given_name
-Klaas-Jan Huntelaar,Klaas Jan Huntelaar,Ajax,2020,1.0,0.9567,0.7895,0.7895,same_surname_diff_given_name
-Luis Manuel Orejuela,Luis Orejuela,Ajax,2017,0.7,0.8838,0.7879,0.7879,same_surname_diff_given_name
-Jerry St. Juste,Jeremiah St. Juste,Feyenoord,2017,0.55,0.9041,0.7879,0.7879,same_surname_diff_given_name
-Jerry St. Juste,Jeremiah St. Juste,Feyenoord,2018,0.55,0.9041,0.7879,0.7879,same_surname_diff_given_name
-Jerry St. Juste,Jeremiah St. Juste,Feyenoord,2019,0.55,0.9041,0.7879,0.7879,same_surname_diff_given_name
-João Carlos Teixeira,João Teixeira,Feyenoord,2020,0.6667,0.8685,0.7879,0.7879,same_surname_diff_given_name
-Peter Vindahl Jensen,Peter Vindahl,AZ Alkmaar,2021,0.6667,0.93,0.7879,0.7879,substring_match
-João Carlos Teixeira,João Teixeira,Feyenoord,2021,0.6667,0.8685,0.7879,0.7879,same_surname_diff_given_name
-Terry Lartey Sanniez,Terry Sanniez,NEC Nijmegen,2022,0.6667,0.8992,0.7879,0.7879,same_surname_diff_given_name
-Jerry St. Juste,Jeremiah St. Juste,Feyenoord,2025,0.55,0.9041,0.7879,0.7879,same_surname_diff_given_name
-Quinten Timber,Jurriën Timber,Ajax,2020,0.3043,0.7965,0.7857,0.7857,same_surname_diff_given_name
-Sékou Oumar Sylla,Sékou Sylla,Cambuur,2021,0.6471,0.893,0.7857,0.7857,same_surname_diff_given_name
-Sékou Oumar Sylla,Sékou Sylla,Cambuur,2022,0.6471,0.893,0.7857,0.7857,same_surname_diff_given_name
-Chris Nadje,Chris-Kévin Nadje,Feyenoord,2024,0.6667,0.893,0.7857,0.7857,same_surname_diff_given_name
-Chris Nadje,Chris-Kévin Nadje,Excelsior,2025,0.6667,0.893,0.7857,0.7857,same_surname_diff_given_name
-Kwasi Okyere Wriedt,Kwasi Wriedt,Willem II,2020,0.65,0.9096,0.7742,0.7742,same_surname_diff_given_name
-Joel Castro Pereira,Joel Pereira,RKC Waalwijk,2021,0.65,0.8763,0.7742,0.7742,same_surname_diff_given_name
-Kwasi Okyere Wriedt,Kwasi Wriedt,Willem II,2021,0.65,0.9096,0.7742,0.7742,same_surname_diff_given_name
-Joel Castro Pereira,Joel Pereira,RKC Waalwijk,2022,0.65,0.8763,0.7742,0.7742,same_surname_diff_given_name
-Jaydon Amauri Banel,Jaydon Banel,Ajax,2023,0.65,0.9096,0.7742,0.7742,same_surname_diff_given_name
-Jaydon Amauri Banel,Jaydon Banel,Ajax,2024,0.65,0.9096,0.7742,0.7742,same_surname_diff_given_name
-Thomas Bruns,Thomas Buitink,Vitesse,2017,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname
-Thomas Buitink,Thomas Bruns,Vitesse,2017,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname
-Thomas Bruns,Thomas Buitink,Vitesse,2018,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname
-Thomas Buitink,Thomas Bruns,Vitesse,2018,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname
-Thomas Buitink,Thomas Bruns,Vitesse,2020,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname
-Thomas Bruns,Thomas Buitink,Vitesse,2020,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname
-Jochem van de Kamp,Jochem Ritmeester van de Kamp,Telstar,2025,0.6333,0.8797,0.766,0.766,same_surname_diff_given_name
-Christian Eriksen,Christian Poulsen,Ajax,2013,0.5,0.8905,0.7647,0.7647,same_given_name_diff_surname
-Christian Poulsen,Christian Eriksen,Ajax,2013,0.5,0.8905,0.7647,0.7647,same_given_name_diff_surname
-Aliou Badara Baldé,Aliou Balde,Feyenoord,2020,0.5263,0.904,0.7586,0.7586,same_surname_diff_given_name
-Aliou Badara Baldé,Aliou Balde,Feyenoord,2021,0.5263,0.904,0.7586,0.7586,same_surname_diff_given_name
-Eric Botteghin,Eric Fernando Botteghin,Feyenoord,2015,0.625,0.8646,0.7568,0.7568,same_surname_diff_given_name
-Eric Botteghin,Eric Fernando Botteghin,Feyenoord,2016,0.625,0.8646,0.7568,0.7568,same_surname_diff_given_name
-Eric Botteghin,Eric Fernando Botteghin,Feyenoord,2017,0.625,0.8646,0.7568,0.7568,same_surname_diff_given_name
-Eric Botteghin,Eric Fernando Botteghin,Feyenoord,2018,0.625,0.8646,0.7568,0.7568,same_surname_diff_given_name
-Eric Botteghin,Eric Fernando Botteghin,Feyenoord,2019,0.625,0.8646,0.7568,0.7568,same_surname_diff_given_name
-Eric Botteghin,Eric Fernando Botteghin,Feyenoord,2020,0.625,0.8646,0.7568,0.7568,same_surname_diff_given_name
-Thomas Beelen,Thomas van den Belt,Feyenoord,2023,0.4167,0.8776,0.75,0.75,same_given_name_diff_surname
-Thomas van den Belt,Thomas Beelen,Feyenoord,2023,0.4167,0.8776,0.75,0.75,same_given_name_diff_surname
-Victor Edvardsen,Oliver Edvardsen,Go Ahead Eagles,2023,0.4167,0.7738,0.75,0.75,same_surname_diff_given_name
-Oliver Edvardsen,Victor Edvardsen,Go Ahead Eagles,2023,0.4167,0.7738,0.75,0.75,same_surname_diff_given_name
-Oliver Edvardsen,Victor Edvardsen,Go Ahead Eagles,2024,0.4167,0.7738,0.75,0.75,same_surname_diff_given_name
-Victor Edvardsen,Oliver Edvardsen,Go Ahead Eagles,2024,0.4167,0.7738,0.75,0.75,same_surname_diff_given_name
-Dauda Mohammed,Mo Dauda,Vitesse,2018,0.5,0.7321,0.7273,0.7273,other
-Enrico Dueñas,Enrico Dueñas Hernández,Vitesse,2020,0.5833,0.913,0.7222,0.7222,substring_match
-Maximilian Wöber,Max Wöber,Ajax,2017,0.5,0.8979,0.72,0.72,same_surname_diff_given_name
-Maximilian Wöber,Max Wöber,Ajax,2018,0.5,0.8979,0.72,0.72,same_surname_diff_given_name
-Philipp Max,Phillipp Mwene,PSV,2021,0.4211,0.8922,0.72,0.72,other
-Phillipp Mwene,Philipp Max,PSV,2021,0.4211,0.8922,0.72,0.72,other
-Phillipp Mwene,Philipp Max,PSV,2022,0.4211,0.8922,0.72,0.72,other
-Philipp Max,Phillipp Mwene,PSV,2022,0.4211,0.8922,0.72,0.72,other
-Jeroen Van der Lely,Jelle van der Heyden,Twente,2015,0.3667,0.8117,0.7179,0.7179,other
-Jelle van der Heyden,Jeroen van der Lely,Twente,2015,0.3667,0.8117,0.7179,0.7179,other
-Jeroen Van der Lely,Jelle van der Heyden,Twente,2016,0.3667,0.8117,0.7179,0.7179,other
-Jelle van der Heyden,Jeroen van der Lely,Twente,2016,0.3667,0.8117,0.7179,0.7179,other
-Jeroen Van der Lely,Jelle van der Heyden,Twente,2017,0.3667,0.8117,0.7179,0.7179,other
-Jelle van der Heyden,Jeroen van der Lely,Twente,2017,0.3667,0.8117,0.7179,0.7179,other
-Arian Kastrati,Arianit Ferati,Fortuna Sittard,2021,0.3636,0.8779,0.7143,0.7143,other
-Andrija Balić,Andrija Novakovich,Fortuna Sittard,2018,0.32,0.8915,0.7097,0.7097,same_given_name_diff_surname
-Andrija Novakovich,Andrija Balic,Fortuna Sittard,2018,0.32,0.8915,0.7097,0.7097,same_given_name_diff_surname
-Lisandro Magallán,Lisandro Martínez,Ajax,2019,0.44,0.8824,0.7059,0.7059,same_given_name_diff_surname
-Lisandro Magallán,Lisandro Martínez,Ajax,2021,0.44,0.8824,0.7059,0.7059,same_given_name_diff_surname
-Roel Janssen,Simon Janssen,VVV-Venlo,2018,0.4211,0.703,0.72,0.703,same_surname_diff_given_name
-Simon Janssen,Roel Janssen,VVV-Venlo,2018,0.4211,0.703,0.72,0.703,same_surname_diff_given_name
-Simon Janssen,Roel Janssen,VVV-Venlo,2019,0.4211,0.703,0.72,0.703,same_surname_diff_given_name
-Roel Janssen,Simon Janssen,VVV-Venlo,2019,0.4211,0.703,0.72,0.703,same_surname_diff_given_name
-Ioannis-Foivos Botos,Giannis Botos,Go Ahead Eagles,2021,0.4167,0.7021,0.7273,0.7021,same_surname_diff_given_name
-Memphis,Memphis Depay,PSV,2013,0.5714,0.9077,0.7,0.7,substring_match
-Memphis,Memphis Depay,PSV,2014,0.5714,0.9077,0.7,0.7,substring_match
-Abass Issah,Issah Abass,Twente,2020,1.0,0.6932,1.0,0.6932,same_tokens_reordered
-Dries Wuytens,Stijn Wuytens,Willem II,2014,0.4,0.8128,0.6923,0.6923,same_surname_diff_given_name
-Stijn Wuytens,Dries Wuytens,Willem II,2014,0.4,0.8128,0.6923,0.6923,same_surname_diff_given_name
-Dries Wuytens,Stijn Wuytens,Willem II,2015,0.4,0.8128,0.6923,0.6923,same_surname_diff_given_name
-Stijn Wuytens,Dries Wuytens,Willem II,2015,0.4,0.8128,0.6923,0.6923,same_surname_diff_given_name
-Sander Fischer,Sander Duits,Go Ahead Eagles,2016,0.35,0.8786,0.6923,0.6923,same_given_name_diff_surname
-Sander Duits,Sander Fischer,Go Ahead Eagles,2016,0.35,0.8786,0.6923,0.6923,same_given_name_diff_surname
-Lucas Oliveira Rosa,Lucas Rosa,Ajax,2024,0.55,0.8525,0.6897,0.6897,same_surname_diff_given_name
-Lucas Oliveira Rosa,Lucas Rosa,Ajax,2025,0.55,0.8525,0.6897,0.6897,same_surname_diff_given_name
-Mihai Roman,Mihai Alexandru Roman,NEC Nijmegen,2015,0.5455,0.8271,0.6875,0.6875,same_surname_diff_given_name
-Vito van Crooij,Delano van Crooij,VVV-Venlo,2017,0.5,0.7797,0.6875,0.6875,same_surname_diff_given_name
-Vito van Crooij,Delano van Crooij,VVV-Venlo,2020,0.5,0.7797,0.6875,0.6875,same_surname_diff_given_name
-Nikolai Baden,Nikolai Baden Frederiksen,Fortuna Sittard,2019,0.56,0.904,0.6842,0.6842,substring_match
-Nikolai Baden,Nikolai Baden Frederiksen,Vitesse,2021,0.56,0.904,0.6842,0.6842,substring_match
-Nikolai Baden,Nikolai Baden Frederiksen,Vitesse,2022,0.56,0.904,0.6842,0.6842,substring_match
-Guus Hupperts,Guus Joppen,Willem II,2015,0.3,0.8685,0.6667,0.6667,same_given_name_diff_surname
-Guus Joppen,Guus Hupperts,Willem II,2015,0.3,0.8685,0.6667,0.6667,same_given_name_diff_surname
-Luuk de Jong,Siem de Jong,PSV,2016,0.4444,0.7361,0.6667,0.6667,same_surname_diff_given_name
-Siem de Jong,Luuk de Jong,PSV,2016,0.4444,0.7361,0.6667,0.6667,same_surname_diff_given_name
-Emil Riis Jakobsen,Emil Riis,VVV-Venlo,2017,0.5263,0.9,0.6667,0.6667,substring_match
-Sven Nieuwpoort,Lars Nieuwpoort,De Graafschap,2018,0.5238,0.8389,0.6667,0.6667,same_surname_diff_given_name
-Lars Nieuwpoort,Sven Nieuwpoort,De Graafschap,2018,0.5238,0.8389,0.6667,0.6667,same_surname_diff_given_name
-Dylan Seys,Dylan Vente,RKC Waalwijk,2019,0.3529,0.8673,0.6667,0.6667,same_given_name_diff_surname
-Dylan Vente,Dylan Seys,RKC Waalwijk,2019,0.3529,0.8673,0.6667,0.6667,same_given_name_diff_surname
-Pedro,Pedro Ruiz,NEC Nijmegen,2021,0.5455,0.9,0.6667,0.6667,substring_match
-Fredrik Aursnes,Fredrik Bjørkan,Feyenoord,2022,0.3333,0.8752,0.6667,0.6667,same_given_name_diff_surname
-Mats Rots,Daan Rots,Twente,2022,0.3571,0.7778,0.6667,0.6667,same_surname_diff_given_name
-Younes Taha El Idrissi,Younes Taha,Twente,2023,0.5217,0.9,0.6667,0.6667,substring_match
-Daan Rots,Mats Rots,Twente,2023,0.3571,0.7778,0.6667,0.6667,same_surname_diff_given_name
-Mats Rots,Daan Rots,Twente,2023,0.3571,0.7778,0.6667,0.6667,same_surname_diff_given_name
-Younes Taha El Idrissi,Younes Taha,Twente,2024,0.5217,0.9,0.6667,0.6667,substring_match
-Mats Rots,Daan Rots,Twente,2024,0.3571,0.7778,0.6667,0.6667,same_surname_diff_given_name
-Mats Rots,Daan Rots,Twente,2025,0.3571,0.7778,0.6667,0.6667,same_surname_diff_given_name
-Daan Rots,Mats Rots,Twente,2025,0.3571,0.7778,0.6667,0.6667,same_surname_diff_given_name
-Stefan van der Lei,Jop van der Linden,Willem II,2017,0.3214,0.661,0.6667,0.661,other
-Nigel Nwankwo,Neville Ogidi Nwankwo,Telstar,2025,0.3077,0.7473,0.6471,0.6471,same_surname_diff_given_name
-Ricardo Kishna,Ricardo van Rhijn,Ajax,2013,0.3333,0.8793,0.6452,0.6452,same_given_name_diff_surname
-Ricardo van Rhijn,Ricardo Kishna,Ajax,2013,0.3333,0.8793,0.6452,0.6452,same_given_name_diff_surname
-Mitchell Schet,Mitchell de Vlugt,ADO Den Haag,2014,0.3913,0.8866,0.6452,0.6452,same_given_name_diff_surname
-Mitchell de Vlugt,Mitchell Schet,ADO Den Haag,2014,0.3913,0.8866,0.6452,0.6452,same_given_name_diff_surname
-Ricardo Kishna,Ricardo van Rhijn,Ajax,2014,0.3333,0.8793,0.6452,0.6452,same_given_name_diff_surname
-Ricardo van Rhijn,Ricardo Kishna,Ajax,2014,0.3333,0.8793,0.6452,0.6452,same_given_name_diff_surname
-Mitchel Bakker,Mitchell Dijks,Ajax,2017,0.3043,0.8571,0.6429,0.6429,other
-Mohamed Daramy,Mohammed Kudus,Ajax,2021,0.3043,0.8571,0.6429,0.6429,other
-Mohammed Kudus,Mohamed Daramy,Ajax,2021,0.3043,0.8571,0.6429,0.6429,other
-Izzy Brown,Isaiah Brown,Vitesse,2015,0.4118,0.785,0.6364,0.6364,same_surname_diff_given_name
-Dylan George,Dylan Seys,Twente,2016,0.3333,0.8567,0.6364,0.6364,same_given_name_diff_surname
-Dylan Seys,Dylan George,Twente,2016,0.3333,0.8567,0.6364,0.6364,same_given_name_diff_surname
-Dani de Wit,Mees de Wit,AZ Alkmaar,2022,0.4375,0.71,0.6364,0.6364,same_surname_diff_given_name
-Mees de Wit,Dani de Wit,AZ Alkmaar,2022,0.4375,0.71,0.6364,0.6364,same_surname_diff_given_name
-Dani de Wit,Mees de Wit,AZ Alkmaar,2023,0.4375,0.71,0.6364,0.6364,same_surname_diff_given_name
-Mees de Wit,Dani de Wit,AZ Alkmaar,2023,0.4375,0.71,0.6364,0.6364,same_surname_diff_given_name
-Bojan Krkić,Bojan,Ajax,2013,0.5,0.8909,0.625,0.625,substring_match
-Michael Mulder,Jonathan Mulder,ADO Den Haag,2020,0.3043,0.6365,0.6207,0.6207,same_surname_diff_given_name
-Bart van Rooij,Vito van Crooij,NEC Nijmegen,2024,0.3636,0.8094,0.6207,0.6207,other
-Vito van Crooij,Bart van Rooij,NEC Nijmegen,2024,0.3636,0.8094,0.6207,0.6207,other
-Javier Espinosa,Espinosa González,Twente,2019,0.36,0.6183,0.6875,0.6183,other
-Nick Hengelman,Nick Marsman,Twente,2016,0.3333,0.8226,0.6154,0.6154,same_given_name_diff_surname
-Fredrik André Bjørkan,Fredrik Aursnes,Feyenoord,2022,0.3103,0.8576,0.6111,0.6111,same_given_name_diff_surname
-Emil Hansson,Pär Hansson,Feyenoord,2016,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
-Pär Hansson,Emil Hansson,Feyenoord,2016,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
-Bas Kuipers,Nick Kuipers,ADO Den Haag,2017,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
-Nick Kuipers,Bas Kuipers,ADO Den Haag,2017,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
-Nick Kuipers,Bas Kuipers,ADO Den Haag,2018,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
-Bas Kuipers,Nick Kuipers,ADO Den Haag,2018,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
-Eduardo Carvalho,Eduardo,Vitesse,2018,0.4706,0.8875,0.6087,0.6087,substring_match
-Michael Verrips,Michael Olaitan,Twente,2015,0.3333,0.84,0.6,0.6,same_given_name_diff_surname
-Killian van Mil,Milan van Ewijk,ADO Den Haag,2019,0.3043,0.7778,0.6,0.6,other
-Juan Carlos Familia,Juan Familia-Castillo,ADO Den Haag,2020,0.5556,0.8583,0.6,0.6,same_given_name_diff_surname
-Juan Carlos Familia,Juan Familia-Castillo,AZ Alkmaar,2020,0.5556,0.8583,0.6,0.6,same_given_name_diff_surname
-Juan Carlos Familia,Juan Familia-Castillo,RKC Waalwijk,2024,0.5556,0.8583,0.6,0.6,same_given_name_diff_surname
-Robin van der Meer,Mickey van der Hart,Go Ahead Eagles,2014,0.3103,0.6827,0.5946,0.5946,other
-Jop van den Avert,Jan-Arie van der Heijden,Willem II,2020,0.3125,0.6662,0.5854,0.5854,other
-Delano van Crooy,Vito van Crooij,VVV-Venlo,2017,0.3333,0.6972,0.5806,0.5806,other
-Delano van Crooy,Vito van Crooij,VVV-Venlo,2020,0.3333,0.6972,0.5806,0.5806,other
-Jop van den Avert,Victor van den Bogert,Willem II,2020,0.3448,0.711,0.5789,0.5789,other
-Victor van den Bogert,Branco van den Boomen,Willem II,2016,0.3226,0.6984,0.5714,0.5714,other
-Sem van Duijn,Billy van Duijl,AZ Alkmaar,2025,0.3636,0.7641,0.5714,0.5714,other
-Mohammed Ihattaren,Mohammed Kudus,Ajax,2021,0.36,0.8286,0.5625,0.5625,same_given_name_diff_surname
-Thomas Kok,Thomas Meissner,Willem II,2017,0.35,0.8333,0.56,0.56,same_given_name_diff_surname
-Connor van den Berg,Victor van den Bogert,Willem II,2020,0.3226,0.743,0.55,0.55,other
-Aron Jóhannsson,Jóhann Gudmundsson,AZ Alkmaar,2013,0.36,0.7389,0.5455,0.5455,other
-Martijn van der Laan,Martijn Barto,Cambuur,2013,0.32,0.8538,0.5455,0.5455,same_given_name_diff_surname
-Martijn Barto,Martijn van der Laan,Cambuur,2013,0.32,0.8538,0.5455,0.5455,same_given_name_diff_surname
-Martijn Barto,Martijn van der Laan,Cambuur,2015,0.32,0.8538,0.5455,0.5455,same_given_name_diff_surname
-Martijn van der Laan,Martijn Barto,Cambuur,2015,0.32,0.8538,0.5455,0.5455,same_given_name_diff_surname
-Leroy George,George Cox,Fortuna Sittard,2020,0.4118,0.6659,0.5455,0.5455,other
-George Cox,Leroy George,Fortuna Sittard,2020,0.4118,0.6659,0.5455,0.5455,other
-Youri Baas,Youri Regeer,Ajax,2021,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname
-Youri Baas,Youri Regeer,Ajax,2022,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname
-Youri Regeer,Youri Baas,Ajax,2022,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname
-Youri Regeer,Youri Baas,Ajax,2024,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname
-Youri Baas,Youri Regeer,Ajax,2024,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname
-Youri Baas,Youri Regeer,Ajax,2025,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname
-Youri Regeer,Youri Baas,Ajax,2025,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname
-Nicolas Elsek,Nicolas Olsak,RKC Waalwijk,2020,0.4,0.9385,0.5385,0.5385,same_given_name_diff_surname
-Jan-Arie van der Heijden,Jop van der Avert,Willem II,2020,0.3125,0.6406,0.5366,0.5366,other
-Jóhann Berg Guðmundsson,Aron Jóhannsson,AZ Alkmaar,2013,0.3,0.7081,0.5263,0.5263,other
-Daan Blij,Daan Bovenberg,Excelsior,2014,0.3158,0.6984,0.5217,0.5217,same_given_name_diff_surname
-Frenkie de Jong,Siem de Jong,Ajax,2017,0.381,0.7667,0.5185,0.5185,same_surname_diff_given_name
-Siem de Jong,Frenkie de Jong,Ajax,2017,0.381,0.7667,0.5185,0.5185,same_surname_diff_given_name
-Abdurrahman Burak Sayın,Burak Sayin,Fortuna Sittard,2024,0.3333,0.504,0.5882,0.504,other
-Kevin van Diermen,Kevin Vermeulen,Excelsior,2014,0.4167,0.8678,0.5,0.5,same_given_name_diff_surname
-Kevin Vermeulen,Kevin van Diermen,Excelsior,2014,0.4167,0.8678,0.5,0.5,same_given_name_diff_surname
-Kevin van Diermen,Kevin Vermeulen,Excelsior,2015,0.4167,0.8678,0.5,0.5,same_given_name_diff_surname
-Kevin Vermeulen,Kevin van Diermen,Excelsior,2015,0.4167,0.8678,0.5,0.5,same_given_name_diff_surname
-Maxim Gullit,Maxim Dekker,AZ Alkmaar,2021,0.3,0.6667,0.5,0.5,same_given_name_diff_surname
-Amar Ahmed,Amar Fatah,Willem II,2024,0.3125,0.88,0.5,0.5,same_given_name_diff_surname
-Jordan Lotomba,Jordan Bos,Feyenoord,2025,0.3684,0.8863,0.5,0.5,same_given_name_diff_surname
+fbref_name,whoscored_name,team,season_id,trgm_similarity,jaro_winkler,token_sort,working_confidence,match_hint,decision,notes
+Klaas-Jan Huntelaar,Klaas Jan Huntelaar,Ajax,2017,1.0,0.9567,0.7895,0.7895,same_surname_diff_given_name,match,hyphen
+Klaas-Jan Huntelaar,Klaas Jan Huntelaar,Ajax,2018,1.0,0.9567,0.7895,0.7895,same_surname_diff_given_name,match,hyphen
+Klaas-Jan Huntelaar,Klaas Jan Huntelaar,Ajax,2019,1.0,0.9567,0.7895,0.7895,same_surname_diff_given_name,match,hyphen
+Klaas-Jan Huntelaar,Klaas Jan Huntelaar,Ajax,2020,1.0,0.9567,0.7895,0.7895,same_surname_diff_given_name,match,hyphen
+Luis Manuel Orejuela,Luis Orejuela,Ajax,2017,0.7,0.8838,0.7879,0.7879,given_and_surname_match_extra_middle_token,match,Middle name
+Jerry St. Juste,Jeremiah St. Juste,Feyenoord,2017,0.55,0.9041,0.7879,0.7879,same_surname_diff_given_name,match,nickname
+Jerry St. Juste,Jeremiah St. Juste,Feyenoord,2018,0.55,0.9041,0.7879,0.7879,same_surname_diff_given_name,match,nickname
+Jerry St. Juste,Jeremiah St. Juste,Feyenoord,2019,0.55,0.9041,0.7879,0.7879,same_surname_diff_given_name,match,nickname
+João Carlos Teixeira,João Teixeira,Feyenoord,2020,0.6667,0.8685,0.7879,0.7879,given_and_surname_match_extra_middle_token,match,Middle name
+Peter Vindahl Jensen,Peter Vindahl,AZ Alkmaar,2021,0.6667,0.93,0.7879,0.7879,substring_match,match,Full name
+João Carlos Teixeira,João Teixeira,Feyenoord,2021,0.6667,0.8685,0.7879,0.7879,given_and_surname_match_extra_middle_token,match,Middle name
+Terry Lartey Sanniez,Terry Sanniez,NEC Nijmegen,2022,0.6667,0.8992,0.7879,0.7879,given_and_surname_match_extra_middle_token,match,Middle name
+Jerry St. Juste,Jeremiah St. Juste,Feyenoord,2025,0.55,0.9041,0.7879,0.7879,same_surname_diff_given_name,match,nickname
+Quinten Timber,Jurriën Timber,Ajax,2020,0.3043,0.7965,0.7857,0.7857,same_surname_diff_given_name,No match,brothers
+Sékou Oumar Sylla,Sékou Sylla,Cambuur,2021,0.6471,0.893,0.7857,0.7857,given_and_surname_match_extra_middle_token,match,Middle name
+Sékou Oumar Sylla,Sékou Sylla,Cambuur,2022,0.6471,0.893,0.7857,0.7857,given_and_surname_match_extra_middle_token,match,Middle name
+Chris Nadje,Chris-Kévin Nadje,Feyenoord,2024,0.6667,0.893,0.7857,0.7857,same_surname_diff_given_name,match,Full first name
+Chris Nadje,Chris-Kévin Nadje,Excelsior,2025,0.6667,0.893,0.7857,0.7857,same_surname_diff_given_name,match,Full first name
+Kwasi Okyere Wriedt,Kwasi Wriedt,Willem II,2020,0.65,0.9096,0.7742,0.7742,given_and_surname_match_extra_middle_token,match,Middle name
+Joel Castro Pereira,Joel Pereira,RKC Waalwijk,2021,0.65,0.8763,0.7742,0.7742,given_and_surname_match_extra_middle_token,match,Middle name
+Kwasi Okyere Wriedt,Kwasi Wriedt,Willem II,2021,0.65,0.9096,0.7742,0.7742,given_and_surname_match_extra_middle_token,match,Middle name
+Joel Castro Pereira,Joel Pereira,RKC Waalwijk,2022,0.65,0.8763,0.7742,0.7742,given_and_surname_match_extra_middle_token,match,Middle name
+Jaydon Amauri Banel,Jaydon Banel,Ajax,2023,0.65,0.9096,0.7742,0.7742,given_and_surname_match_extra_middle_token,match,Middle name
+Jaydon Amauri Banel,Jaydon Banel,Ajax,2024,0.65,0.9096,0.7742,0.7742,given_and_surname_match_extra_middle_token,match,Middle name
+Thomas Bruns,Thomas Buitink,Vitesse,2017,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname,No match,Different people - verified thru age
+Thomas Buitink,Thomas Bruns,Vitesse,2017,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname,No match,Different people - verified thru age
+Thomas Bruns,Thomas Buitink,Vitesse,2018,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname,No match,Different people - verified thru age
+Thomas Buitink,Thomas Bruns,Vitesse,2018,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname,No match,Different people - verified thru age
+Thomas Buitink,Thomas Bruns,Vitesse,2020,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname,No match,Different people - verified thru age
+Thomas Bruns,Thomas Buitink,Vitesse,2020,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname,No match,Different people - verified thru age
+Jochem van de Kamp,Jochem Ritmeester van de Kamp,Telstar,2025,0.6333,0.8797,0.766,0.766,given_and_surname_match_extra_middle_token,match,Middle name
+Christian Eriksen,Christian Poulsen,Ajax,2013,0.5,0.8905,0.7647,0.7647,same_given_name_diff_surname,No match,Different people - verified thru age
+Christian Poulsen,Christian Eriksen,Ajax,2013,0.5,0.8905,0.7647,0.7647,same_given_name_diff_surname,No match,Different people - verified thru age
+Aliou Badara Baldé,Aliou Balde,Feyenoord,2020,0.5263,0.904,0.7586,0.7586,given_and_surname_match_extra_middle_token,match,Middle name
+Aliou Badara Baldé,Aliou Balde,Feyenoord,2021,0.5263,0.904,0.7586,0.7586,given_and_surname_match_extra_middle_token,match,Middle name
+Eric Botteghin,Eric Fernando Botteghin,Feyenoord,2015,0.625,0.8646,0.7568,0.7568,given_and_surname_match_extra_middle_token,match,Middle name
+Eric Botteghin,Eric Fernando Botteghin,Feyenoord,2016,0.625,0.8646,0.7568,0.7568,given_and_surname_match_extra_middle_token,match,Middle name
+Eric Botteghin,Eric Fernando Botteghin,Feyenoord,2017,0.625,0.8646,0.7568,0.7568,given_and_surname_match_extra_middle_token,match,Middle name
+Eric Botteghin,Eric Fernando Botteghin,Feyenoord,2018,0.625,0.8646,0.7568,0.7568,given_and_surname_match_extra_middle_token,match,Middle name
+Eric Botteghin,Eric Fernando Botteghin,Feyenoord,2019,0.625,0.8646,0.7568,0.7568,given_and_surname_match_extra_middle_token,match,Middle name
+Eric Botteghin,Eric Fernando Botteghin,Feyenoord,2020,0.625,0.8646,0.7568,0.7568,given_and_surname_match_extra_middle_token,match,Middle name
+Thomas Beelen,Thomas van den Belt,Feyenoord,2023,0.4167,0.8776,0.75,0.75,same_given_name_diff_surname,No match,Same age but verified through birthday
+Thomas van den Belt,Thomas Beelen,Feyenoord,2023,0.4167,0.8776,0.75,0.75,same_given_name_diff_surname,No match,Same age but verified through birthday
+Victor Edvardsen,Oliver Edvardsen,Go Ahead Eagles,2023,0.4167,0.7738,0.75,0.75,same_surname_diff_given_name,No match,Different people - verified thru age
+Oliver Edvardsen,Victor Edvardsen,Go Ahead Eagles,2023,0.4167,0.7738,0.75,0.75,same_surname_diff_given_name,No match,Different people - verified thru age
+Oliver Edvardsen,Victor Edvardsen,Go Ahead Eagles,2024,0.4167,0.7738,0.75,0.75,same_surname_diff_given_name,No match,Different people - verified thru age
+Victor Edvardsen,Oliver Edvardsen,Go Ahead Eagles,2024,0.4167,0.7738,0.75,0.75,same_surname_diff_given_name,No match,Different people - verified thru age
+Dauda Mohammed,Mo Dauda,Vitesse,2018,0.5,0.7321,0.7273,0.7273,other,match,nickname
+Enrico Dueñas,Enrico Dueñas Hernández,Vitesse,2020,0.5833,0.913,0.7222,0.7222,substring_match,match,Middle name
+Maximilian Wöber,Max Wöber,Ajax,2017,0.5,0.8979,0.72,0.72,same_surname_diff_given_name,match,nickname
+Maximilian Wöber,Max Wöber,Ajax,2018,0.5,0.8979,0.72,0.72,same_surname_diff_given_name,match,nickname
+Philipp Max,Phillipp Mwene,PSV,2021,0.4211,0.8922,0.72,0.72,other,No match,same age but different birthday
+Phillipp Mwene,Philipp Max,PSV,2021,0.4211,0.8922,0.72,0.72,other,No match,same age but different birthday
+Phillipp Mwene,Philipp Max,PSV,2022,0.4211,0.8922,0.72,0.72,other,No match,same age but different birthday
+Philipp Max,Phillipp Mwene,PSV,2022,0.4211,0.8922,0.72,0.72,other,No match,same age but different birthday
+Jeroen Van der Lely,Jelle van der Heyden,Twente,2015,0.3667,0.8117,0.7179,0.7179,other,No match,Different ages
+Jelle van der Heyden,Jeroen van der Lely,Twente,2015,0.3667,0.8117,0.7179,0.7179,other,No match,Different ages
+Jeroen Van der Lely,Jelle van der Heyden,Twente,2016,0.3667,0.8117,0.7179,0.7179,other,No match,Different ages
+Jelle van der Heyden,Jeroen van der Lely,Twente,2016,0.3667,0.8117,0.7179,0.7179,other,No match,Different ages
+Jeroen Van der Lely,Jelle van der Heyden,Twente,2017,0.3667,0.8117,0.7179,0.7179,other,No match,Different ages
+Jelle van der Heyden,Jeroen van der Lely,Twente,2017,0.3667,0.8117,0.7179,0.7179,other,No match,Different ages
+Arian Kastrati,Arianit Ferati,Fortuna Sittard,2021,0.3636,0.8779,0.7143,0.7143,other,No match,Different ages
+Andrija Balić,Andrija Novakovich,Fortuna Sittard,2018,0.32,0.8915,0.7097,0.7097,same_given_name_diff_surname,No match,same age but different birthday
+Andrija Novakovich,Andrija Balic,Fortuna Sittard,2018,0.32,0.8915,0.7097,0.7097,same_given_name_diff_surname,No match,same age but different birthday
+Lisandro Magallán,Lisandro Martínez,Ajax,2019,0.44,0.8824,0.7059,0.7059,same_given_name_diff_surname,No match,Different ages
+Lisandro Magallán,Lisandro Martínez,Ajax,2021,0.44,0.8824,0.7059,0.7059,same_given_name_diff_surname,No match,Different ages
+Roel Janssen,Simon Janssen,VVV-Venlo,2018,0.4211,0.703,0.72,0.703,same_surname_diff_given_name,No match,Different ages
+Simon Janssen,Roel Janssen,VVV-Venlo,2018,0.4211,0.703,0.72,0.703,same_surname_diff_given_name,No match,Different ages
+Simon Janssen,Roel Janssen,VVV-Venlo,2019,0.4211,0.703,0.72,0.703,same_surname_diff_given_name,No match,Different ages
+Roel Janssen,Simon Janssen,VVV-Venlo,2019,0.4211,0.703,0.72,0.703,same_surname_diff_given_name,No match,Different ages
+Ioannis-Foivos Botos,Giannis Botos,Go Ahead Eagles,2021,0.4167,0.7021,0.7273,0.7021,same_surname_diff_given_name,match,nickanme
+Memphis,Memphis Depay,PSV,2013,0.5714,0.9077,0.7,0.7,substring_match,match,Added last name
+Memphis,Memphis Depay,PSV,2014,0.5714,0.9077,0.7,0.7,substring_match,match,Added last name
+Abass Issah,Issah Abass,Twente,2020,1.0,0.6932,1.0,0.6932,same_tokens_reordered,match,Switched names
+Dries Wuytens,Stijn Wuytens,Willem II,2014,0.4,0.8128,0.6923,0.6923,same_surname_diff_given_name,No match,Different ages
+Stijn Wuytens,Dries Wuytens,Willem II,2014,0.4,0.8128,0.6923,0.6923,same_surname_diff_given_name,No match,Different ages
+Dries Wuytens,Stijn Wuytens,Willem II,2015,0.4,0.8128,0.6923,0.6923,same_surname_diff_given_name,No match,Different ages
+Stijn Wuytens,Dries Wuytens,Willem II,2015,0.4,0.8128,0.6923,0.6923,same_surname_diff_given_name,No match,Different ages
+Sander Fischer,Sander Duits,Go Ahead Eagles,2016,0.35,0.8786,0.6923,0.6923,same_given_name_diff_surname,No match,Different ages
+Sander Duits,Sander Fischer,Go Ahead Eagles,2016,0.35,0.8786,0.6923,0.6923,same_given_name_diff_surname,No match,Different ages
+Lucas Oliveira Rosa,Lucas Rosa,Ajax,2024,0.55,0.8525,0.6897,0.6897,given_and_surname_match_extra_middle_token,match,Middle name
+Lucas Oliveira Rosa,Lucas Rosa,Ajax,2025,0.55,0.8525,0.6897,0.6897,given_and_surname_match_extra_middle_token,match,Middle name
+Mihai Roman,Mihai Alexandru Roman,NEC Nijmegen,2015,0.5455,0.8271,0.6875,0.6875,given_and_surname_match_extra_middle_token,match,Middle name
+Vito van Crooij,Delano van Crooij,VVV-Venlo,2017,0.5,0.7797,0.6875,0.6875,same_surname_diff_given_name,No match,Different ages
+Vito van Crooij,Delano van Crooij,VVV-Venlo,2020,0.5,0.7797,0.6875,0.6875,same_surname_diff_given_name,No match,Different ages
+Nikolai Baden,Nikolai Baden Frederiksen,Fortuna Sittard,2019,0.56,0.904,0.6842,0.6842,substring_match,match,Last name
+Nikolai Baden,Nikolai Baden Frederiksen,Vitesse,2021,0.56,0.904,0.6842,0.6842,substring_match,match,Last name
+Nikolai Baden,Nikolai Baden Frederiksen,Vitesse,2022,0.56,0.904,0.6842,0.6842,substring_match,match,Last name
+Guus Hupperts,Guus Joppen,Willem II,2015,0.3,0.8685,0.6667,0.6667,same_given_name_diff_surname,No match,Different ages
+Guus Joppen,Guus Hupperts,Willem II,2015,0.3,0.8685,0.6667,0.6667,same_given_name_diff_surname,No match,Different ages
+Luuk de Jong,Siem de Jong,PSV,2016,0.4444,0.7361,0.6667,0.6667,same_surname_diff_given_name,No match,brothers
+Siem de Jong,Luuk de Jong,PSV,2016,0.4444,0.7361,0.6667,0.6667,same_surname_diff_given_name,No match,brothers
+Emil Riis Jakobsen,Emil Riis,VVV-Venlo,2017,0.5263,0.9,0.6667,0.6667,substring_match,match,Full name
+Sven Nieuwpoort,Lars Nieuwpoort,De Graafschap,2018,0.5238,0.8389,0.6667,0.6667,same_surname_diff_given_name,No match,brothers
+Lars Nieuwpoort,Sven Nieuwpoort,De Graafschap,2018,0.5238,0.8389,0.6667,0.6667,same_surname_diff_given_name,No match,brothers
+Dylan Seys,Dylan Vente,RKC Waalwijk,2019,0.3529,0.8673,0.6667,0.6667,same_given_name_diff_surname,No match,Different ages
+Dylan Vente,Dylan Seys,RKC Waalwijk,2019,0.3529,0.8673,0.6667,0.6667,same_given_name_diff_surname,No match,Different ages
+Pedro,Pedro Ruiz,NEC Nijmegen,2021,0.5455,0.9,0.6667,0.6667,substring_match,match,last name
+Fredrik Aursnes,Fredrik Bjørkan,Feyenoord,2022,0.3333,0.8752,0.6667,0.6667,same_given_name_diff_surname,No match,Different ages
+Mats Rots,Daan Rots,Twente,2022,0.3571,0.7778,0.6667,0.6667,same_surname_diff_given_name,No match,brothers
+Younes Taha El Idrissi,Younes Taha,Twente,2023,0.5217,0.9,0.6667,0.6667,substring_match,match,Full name
+Daan Rots,Mats Rots,Twente,2023,0.3571,0.7778,0.6667,0.6667,same_surname_diff_given_name,No match,brothers
+Mats Rots,Daan Rots,Twente,2023,0.3571,0.7778,0.6667,0.6667,same_surname_diff_given_name,No match,brothers
+Younes Taha El Idrissi,Younes Taha,Twente,2024,0.5217,0.9,0.6667,0.6667,substring_match,match,Full name
+Mats Rots,Daan Rots,Twente,2024,0.3571,0.7778,0.6667,0.6667,same_surname_diff_given_name,No match,brothers
+Mats Rots,Daan Rots,Twente,2025,0.3571,0.7778,0.6667,0.6667,same_surname_diff_given_name,No match,brothers
+Daan Rots,Mats Rots,Twente,2025,0.3571,0.7778,0.6667,0.6667,same_surname_diff_given_name,No match,brothers
+Stefan van der Lei,Jop van der Linden,Willem II,2017,0.3214,0.661,0.6667,0.661,other,No match,Different ages
+Nigel Nwankwo,Neville Ogidi Nwankwo,Telstar,2025,0.3077,0.7473,0.6471,0.6471,same_surname_diff_given_name,No match,brothers
+Ricardo Kishna,Ricardo van Rhijn,Ajax,2013,0.3333,0.8793,0.6452,0.6452,same_given_name_diff_surname,No match,Different ages
+Ricardo van Rhijn,Ricardo Kishna,Ajax,2013,0.3333,0.8793,0.6452,0.6452,same_given_name_diff_surname,No match,Different ages
+Mitchell Schet,Mitchell de Vlugt,ADO Den Haag,2014,0.3913,0.8866,0.6452,0.6452,same_given_name_diff_surname,No match,Different ages
+Mitchell de Vlugt,Mitchell Schet,ADO Den Haag,2014,0.3913,0.8866,0.6452,0.6452,same_given_name_diff_surname,No match,Different ages
+Ricardo Kishna,Ricardo van Rhijn,Ajax,2014,0.3333,0.8793,0.6452,0.6452,same_given_name_diff_surname,No match,Different ages
+Ricardo van Rhijn,Ricardo Kishna,Ajax,2014,0.3333,0.8793,0.6452,0.6452,same_given_name_diff_surname,No match,Different ages
+Mitchel Bakker,Mitchell Dijks,Ajax,2017,0.3043,0.8571,0.6429,0.6429,other,No match,Different ages
+Mohamed Daramy,Mohammed Kudus,Ajax,2021,0.3043,0.8571,0.6429,0.6429,other,No match,Different ages
+Mohammed Kudus,Mohamed Daramy,Ajax,2021,0.3043,0.8571,0.6429,0.6429,other,No match,Different ages
+Izzy Brown,Isaiah Brown,Vitesse,2015,0.4118,0.785,0.6364,0.6364,same_surname_diff_given_name,match,nickname
+Dylan George,Dylan Seys,Twente,2016,0.3333,0.8567,0.6364,0.6364,same_given_name_diff_surname,No match,Different ages
+Dylan Seys,Dylan George,Twente,2016,0.3333,0.8567,0.6364,0.6364,same_given_name_diff_surname,No match,Different ages
+Dani de Wit,Mees de Wit,AZ Alkmaar,2022,0.4375,0.71,0.6364,0.6364,same_surname_diff_given_name,No match,Different birthdays
+Mees de Wit,Dani de Wit,AZ Alkmaar,2022,0.4375,0.71,0.6364,0.6364,same_surname_diff_given_name,No match,Different birthdays
+Dani de Wit,Mees de Wit,AZ Alkmaar,2023,0.4375,0.71,0.6364,0.6364,same_surname_diff_given_name,No match,Different birthdays
+Mees de Wit,Dani de Wit,AZ Alkmaar,2023,0.4375,0.71,0.6364,0.6364,same_surname_diff_given_name,No match,Different birthdays
+Bojan Krkić,Bojan,Ajax,2013,0.5,0.8909,0.625,0.625,substring_match,match,nickname
+Michael Mulder,Jonathan Mulder,ADO Den Haag,2020,0.3043,0.6365,0.6207,0.6207,same_surname_diff_given_name,No match,brothers
+Bart van Rooij,Vito van Crooij,NEC Nijmegen,2024,0.3636,0.8094,0.6207,0.6207,other,No match,Different ages
+Vito van Crooij,Bart van Rooij,NEC Nijmegen,2024,0.3636,0.8094,0.6207,0.6207,other,No match,Different ages
+Javier Espinosa,Espinosa González,Twente,2019,0.36,0.6183,0.6875,0.6183,other,match,Different parts of name
+Nick Hengelman,Nick Marsman,Twente,2016,0.3333,0.8226,0.6154,0.6154,same_given_name_diff_surname,No match,Different ages
+Fredrik André Bjørkan,Fredrik Aursnes,Feyenoord,2022,0.3103,0.8576,0.6111,0.6111,same_given_name_diff_surname,No match,Different ages
+Emil Hansson,Pär Hansson,Feyenoord,2016,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name,No match,Different ages
+Pär Hansson,Emil Hansson,Feyenoord,2016,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name,No match,Different ages
+Bas Kuipers,Nick Kuipers,ADO Den Haag,2017,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name,No match,Different ages
+Nick Kuipers,Bas Kuipers,ADO Den Haag,2017,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name,No match,Different ages
+Nick Kuipers,Bas Kuipers,ADO Den Haag,2018,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name,No match,Different ages
+Bas Kuipers,Nick Kuipers,ADO Den Haag,2018,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name,No match,Different ages
+Eduardo Carvalho,Eduardo,Vitesse,2018,0.4706,0.8875,0.6087,0.6087,substring_match,match,nickname
+Michael Verrips,Michael Olaitan,Twente,2015,0.3333,0.84,0.6,0.6,same_given_name_diff_surname,No match,Different ages
+Killian van Mil,Milan van Ewijk,ADO Den Haag,2019,0.3043,0.7778,0.6,0.6,other,No match,Different ages
+Juan Carlos Familia,Juan Familia-Castillo,ADO Den Haag,2020,0.5556,0.8583,0.6,0.6,same_given_name_diff_surname,match,Full name
+Juan Carlos Familia,Juan Familia-Castillo,AZ Alkmaar,2020,0.5556,0.8583,0.6,0.6,same_given_name_diff_surname,match,Full name
+Juan Carlos Familia,Juan Familia-Castillo,RKC Waalwijk,2024,0.5556,0.8583,0.6,0.6,same_given_name_diff_surname,match,Full name
+Robin van der Meer,Mickey van der Hart,Go Ahead Eagles,2014,0.3103,0.6827,0.5946,0.5946,other,No match,Different ages
+Jop van den Avert,Jan-Arie van der Heijden,Willem II,2020,0.3125,0.6662,0.5854,0.5854,other,No match,Different ages
+Delano van Crooy,Vito van Crooij,VVV-Venlo,2017,0.3333,0.6972,0.5806,0.5806,other,No match,Different ages
+Delano van Crooy,Vito van Crooij,VVV-Venlo,2020,0.3333,0.6972,0.5806,0.5806,other,No match,Different ages
+Jop van den Avert,Victor van den Bogert,Willem II,2020,0.3448,0.711,0.5789,0.5789,other,No match,Different ages
+Victor van den Bogert,Branco van den Boomen,Willem II,2016,0.3226,0.6984,0.5714,0.5714,other,No match,Different ages
+Sem van Duijn,Billy van Duijl,AZ Alkmaar,2025,0.3636,0.7641,0.5714,0.5714,other,No match,Different ages
+Mohammed Ihattaren,Mohammed Kudus,Ajax,2021,0.36,0.8286,0.5625,0.5625,same_given_name_diff_surname,No match,Different ages
+Thomas Kok,Thomas Meissner,Willem II,2017,0.35,0.8333,0.56,0.56,same_given_name_diff_surname,No match,Different ages
+Connor van den Berg,Victor van den Bogert,Willem II,2020,0.3226,0.743,0.55,0.55,other,No match,Different ages
+Aron Jóhannsson,Jóhann Gudmundsson,AZ Alkmaar,2013,0.36,0.7389,0.5455,0.5455,other,No match,Different birthdays
+Martijn van der Laan,Martijn Barto,Cambuur,2013,0.32,0.8538,0.5455,0.5455,same_given_name_diff_surname,No match,Different ages
+Martijn Barto,Martijn van der Laan,Cambuur,2013,0.32,0.8538,0.5455,0.5455,same_given_name_diff_surname,No match,Different ages
+Martijn Barto,Martijn van der Laan,Cambuur,2015,0.32,0.8538,0.5455,0.5455,same_given_name_diff_surname,No match,Different ages
+Martijn van der Laan,Martijn Barto,Cambuur,2015,0.32,0.8538,0.5455,0.5455,same_given_name_diff_surname,No match,Different ages
+Leroy George,George Cox,Fortuna Sittard,2020,0.4118,0.6659,0.5455,0.5455,other,No match,Different ages
+George Cox,Leroy George,Fortuna Sittard,2020,0.4118,0.6659,0.5455,0.5455,other,No match,Different ages
+Youri Baas,Youri Regeer,Ajax,2021,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname,No match,Different birthdays
+Youri Baas,Youri Regeer,Ajax,2022,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname,No match,Different birthdays
+Youri Regeer,Youri Baas,Ajax,2022,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname,No match,Different birthdays
+Youri Regeer,Youri Baas,Ajax,2024,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname,No match,Different birthdays
+Youri Baas,Youri Regeer,Ajax,2024,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname,No match,Different birthdays
+Youri Baas,Youri Regeer,Ajax,2025,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname,No match,Different birthdays
+Youri Regeer,Youri Baas,Ajax,2025,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname,No match,Different birthdays
+Nicolas Elsek,Nicolas Olsak,RKC Waalwijk,2020,0.4,0.9385,0.5385,0.5385,same_given_name_diff_surname,match,Same birthday
+Jan-Arie van der Heijden,Jop van der Avert,Willem II,2020,0.3125,0.6406,0.5366,0.5366,other,No match,Different ages
+Jóhann Berg Guðmundsson,Aron Jóhannsson,AZ Alkmaar,2013,0.3,0.7081,0.5263,0.5263,other,No match,Different birthdays
+Daan Blij,Daan Bovenberg,Excelsior,2014,0.3158,0.6984,0.5217,0.5217,same_given_name_diff_surname,No match,Different ages
+Frenkie de Jong,Siem de Jong,Ajax,2017,0.381,0.7667,0.5185,0.5185,same_surname_diff_given_name,No match,Different ages
+Siem de Jong,Frenkie de Jong,Ajax,2017,0.381,0.7667,0.5185,0.5185,same_surname_diff_given_name,No match,Different ages
+Abdurrahman Burak Sayın,Burak Sayin,Fortuna Sittard,2024,0.3333,0.504,0.5882,0.504,other,match,Full name
+Kevin van Diermen,Kevin Vermeulen,Excelsior,2014,0.4167,0.8678,0.5,0.5,same_given_name_diff_surname,No match,Different ages
+Kevin Vermeulen,Kevin van Diermen,Excelsior,2014,0.4167,0.8678,0.5,0.5,same_given_name_diff_surname,No match,Different ages
+Kevin van Diermen,Kevin Vermeulen,Excelsior,2015,0.4167,0.8678,0.5,0.5,same_given_name_diff_surname,No match,Different ages
+Kevin Vermeulen,Kevin van Diermen,Excelsior,2015,0.4167,0.8678,0.5,0.5,same_given_name_diff_surname,No match,Different ages
+Maxim Gullit,Maxim Dekker,AZ Alkmaar,2021,0.3,0.6667,0.5,0.5,same_given_name_diff_surname,No match,Different ages
+Amar Ahmed,Amar Fatah,Willem II,2024,0.3125,0.88,0.5,0.5,same_given_name_diff_surname,match,Different parts of name
+Jordan Lotomba,Jordan Bos,Feyenoord,2025,0.3684,0.8863,0.5,0.5,same_given_name_diff_surname,No match,Different ages
