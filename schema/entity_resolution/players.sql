@@ -15,3 +15,11 @@ CREATE TABLE players (
 );
 
 SELECT COUNT(*) FROM players;
+
+SELECT t.season_id, COUNT(DISTINCT t.player_id) AS players,
+       COUNT(DISTINCT b.player_id) FILTER (WHERE b.height_cm IS NOT NULL) AS with_height
+FROM eredivisie_transfers t
+LEFT JOIN eredivisie_transfermarkt_player_bio b ON t.player_id = b.player_id
+WHERE t.player_id IS NOT NULL
+GROUP BY t.season_id
+ORDER BY t.season_id;
