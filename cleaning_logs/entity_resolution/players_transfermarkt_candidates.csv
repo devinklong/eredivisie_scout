@@ -1,0 +1,1563 @@
+canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,trgm_similarity,jaro_winkler,token_sort,working_confidence,match_hint
+1,Aaron Meijers,56836,Aaron Meijers,1.0,1.0,1.0,1.0,exact_after_normalize
+2,Danny Holla,45486,Danny Holla,1.0,1.0,1.0,1.0,exact_after_normalize
+3,Wilfried Kanon,163663,Wilfried Kanon,1.0,1.0,1.0,1.0,exact_after_normalize
+4,Christian Supusepa,45534,Christian Supusepa,1.0,1.0,1.0,1.0,exact_after_normalize
+6,Papito Merencia,265978,Papito Merencia,1.0,1.0,1.0,1.0,exact_after_normalize
+7,Robin Buwalda,220896,Robin Buwalda,1.0,1.0,1.0,1.0,exact_after_normalize
+8,Kevin Jansen,126421,Kevin Jansen,1.0,1.0,1.0,1.0,exact_after_normalize
+9,Malcolm Esajas,117590,Malcolm Esajas,1.0,1.0,1.0,1.0,exact_after_normalize
+10,Ninos Gouriye,190633,Ninos Gouriye,1.0,1.0,1.0,1.0,exact_after_normalize
+11,Michiel Kramer,56523,Michiel Kramer,1.0,1.0,1.0,1.0,exact_after_normalize
+12,Gino Coutinho,6931,Gino Coutinho,1.0,1.0,1.0,1.0,exact_after_normalize
+13,Jerson Cabral,126413,Jerson Cabral,1.0,1.0,1.0,1.0,exact_after_normalize
+14,Ricky van Haaren,63270,Ricky van Haaren,1.0,1.0,1.0,1.0,exact_after_normalize
+15,Vito Wormgoor,45543,Vito Wormgoor,1.0,1.0,1.0,1.0,exact_after_normalize
+16,Yanic Wildschut,151189,Yanic Wildschut,1.0,1.0,1.0,1.0,exact_after_normalize
+17,Dion Malone,84405,Dion Malone,1.0,1.0,1.0,1.0,exact_after_normalize
+18,Mike van Duinen,183397,Mike van Duinen,1.0,1.0,1.0,1.0,exact_after_normalize
+19,Mathias Gehrt,69636,Mathias Gehrt,1.0,1.0,1.0,1.0,exact_after_normalize
+20,Danny Bakker,250440,Danny Bakker,1.0,1.0,1.0,1.0,exact_after_normalize
+21,Tom Beugelsdijk,151494,Tom Beugelsdijk,1.0,1.0,1.0,1.0,exact_after_normalize
+23,Roland Alberg,64481,Roland Alberg,1.0,1.0,1.0,1.0,exact_after_normalize
+24,Mitchell Schet,29863,Mitchell Schet,1.0,1.0,1.0,1.0,exact_after_normalize
+25,Gianni Zuiverloon,27304,Gianni Zuiverloon,1.0,1.0,1.0,1.0,exact_after_normalize
+26,Toby Alderweireld,42710,Toby Alderweireld,1.0,1.0,1.0,1.0,exact_after_normalize
+27,Stefano Denswil,182923,Stefano Denswil,1.0,1.0,1.0,1.0,exact_after_normalize
+28,Niklas Moisander,5017,Niklas Moisander,1.0,1.0,1.0,1.0,exact_after_normalize
+29,Danny Hoesen,81163,Danny Hoesen,1.0,1.0,1.0,1.0,exact_after_normalize
+30,Joël Veltman,111195,Joël Veltman,1.0,1.0,1.0,1.0,exact_after_normalize
+31,Daley Blind,12282,Daley Blind,1.0,1.0,1.0,1.0,exact_after_normalize
+32,Ricardo Kishna,159026,Ricardo Kishna,1.0,1.0,1.0,1.0,exact_after_normalize
+33,Mike van der Hoorn,187105,Mike van der Hoorn,1.0,1.0,1.0,1.0,exact_after_normalize
+34,Ruben Ligeon,111185,Ruben Ligeon,1.0,1.0,1.0,1.0,exact_after_normalize
+35,Christian Eriksen,69633,Christian Eriksen,1.0,1.0,1.0,1.0,exact_after_normalize
+36,Christian Poulsen,1443,Christian Poulsen,1.0,1.0,1.0,1.0,exact_after_normalize
+37,Nicolai Boilesen,69642,Nicolai Boilesen,1.0,1.0,1.0,1.0,exact_after_normalize
+38,Lerin Duarte,92842,Lerin Duarte,1.0,1.0,1.0,1.0,exact_after_normalize
+39,Ricardo van Rhijn,124883,Ricardo van Rhijn,1.0,1.0,1.0,1.0,exact_after_normalize
+40,Siem de Jong,45509,Siem de Jong,1.0,1.0,1.0,1.0,exact_after_normalize
+41,Jasper Cillessen,146227,Jasper Cillessen,1.0,1.0,1.0,1.0,exact_after_normalize
+42,Viktor Fischer,95755,Viktor Fischer,1.0,1.0,1.0,1.0,exact_after_normalize
+43,Lesly de Sa,186858,Lesly de Sa,1.0,1.0,1.0,1.0,exact_after_normalize
+44,Davy Klaassen,182932,Davy Klaassen,1.0,1.0,1.0,1.0,exact_after_normalize
+45,Lucas Andersen,148344,Lucas Andersen,1.0,1.0,1.0,1.0,exact_after_normalize
+46,Lasse Schöne,34784,Lasse Schöne,1.0,1.0,1.0,1.0,exact_after_normalize
+47,Thulani Serero,109881,Thulani Serero,1.0,1.0,1.0,1.0,exact_after_normalize
+48,Tobias Sana,75901,Tobias Sana,1.0,1.0,1.0,1.0,exact_after_normalize
+49,Kenneth Vermeer,30290,Kenneth Vermeer,1.0,1.0,1.0,1.0,exact_after_normalize
+50,Jaïro Riedewald,241481,Jaïro Riedewald,1.0,1.0,1.0,1.0,exact_after_normalize
+52,Roy Beerens,25427,Roy Beerens,1.0,1.0,1.0,1.0,exact_after_normalize
+54,Nemanja Gudelj,74294,Nemanja Gudelj,1.0,1.0,1.0,1.0,exact_after_normalize
+55,Jeffrey Gouweleeuw,106405,Jeffrey Gouweleeuw,1.0,1.0,1.0,1.0,exact_after_normalize
+57,Donny Gorter,56534,Donny Gorter,1.0,1.0,1.0,1.0,exact_after_normalize
+60,Nick Viergever,93081,Nick Viergever,1.0,1.0,1.0,1.0,exact_after_normalize
+62,Etiënne Reijnen,56611,Etiënne Reijnen,1.0,1.0,1.0,1.0,exact_after_normalize
+63,Thom Haye,178219,Thom Haye,1.0,1.0,1.0,1.0,exact_after_normalize
+64,Ridgeciano Haps,228444,Ridgeciano Haps,1.0,1.0,1.0,1.0,exact_after_normalize
+66,Fernando Lewis,107969,Fernando Lewis,1.0,1.0,1.0,1.0,exact_after_normalize
+67,Steven Berghuis,129554,Steven Berghuis,1.0,1.0,1.0,1.0,exact_after_normalize
+68,Simon Poulsen,23097,Simon Poulsen,1.0,1.0,1.0,1.0,exact_after_normalize
+70,Willie Overtoom,80709,Willie Overtoom,1.0,1.0,1.0,1.0,exact_after_normalize
+72,Denni Avdić,41511,Denni Avdic,0.7143,1.0,1.0,1.0,exact_after_normalize
+73,Mohamed El Makrini,56375,Mohamed El Makrini,1.0,1.0,1.0,1.0,exact_after_normalize
+74,Oebele Schokker,129533,Oebele Schokker,1.0,1.0,1.0,1.0,exact_after_normalize
+75,Lucas Bijker,187283,Lucas Bijker,1.0,1.0,1.0,1.0,exact_after_normalize
+76,Wout Droste,71082,Wout Droste,1.0,1.0,1.0,1.0,exact_after_normalize
+77,Leonard Nienhuis,84913,Leonard Nienhuis,1.0,1.0,1.0,1.0,exact_after_normalize
+78,Martijn van der Laan,67245,Martijn van der Laan,1.0,1.0,1.0,1.0,exact_after_normalize
+79,Ramon Leeuwin,60317,Ramon Leeuwin,1.0,1.0,1.0,1.0,exact_after_normalize
+80,Harm Zeinstra,75221,Harm Zeinstra,1.0,1.0,1.0,1.0,exact_after_normalize
+81,Elvis Manu,198070,Elvis Manu,1.0,1.0,1.0,1.0,exact_after_normalize
+83,Jody Lukoki,165975,Jody Lukoki,1.0,1.0,1.0,1.0,exact_after_normalize
+84,Bart van Brakel,55627,Bart van Brakel,1.0,1.0,1.0,1.0,exact_after_normalize
+85,Bob Schepers,109154,Bob Schepers,1.0,1.0,1.0,1.0,exact_after_normalize
+86,Robert van Boxel,4471,Robert van Boxel,1.0,1.0,1.0,1.0,exact_after_normalize
+88,Paul Mulders,21515,Paul Mulders,1.0,1.0,1.0,1.0,exact_after_normalize
+90,Marcel Ritzmaier,84162,Marcel Ritzmaier,1.0,1.0,1.0,1.0,exact_after_normalize
+91,Kevin Brands,81346,Kevin Brands,1.0,1.0,1.0,1.0,exact_after_normalize
+92,Oliver Feldballe,69634,Oliver Feldballe,1.0,1.0,1.0,1.0,exact_after_normalize
+93,Michiel Hemmen,56317,Michiel Hemmen,1.0,1.0,1.0,1.0,exact_after_normalize
+94,Erik Bakker,56628,Erik Bakker,1.0,1.0,1.0,1.0,exact_after_normalize
+95,Bartholomew Ogbeche,5574,Bartholomew Ogbeche,1.0,1.0,1.0,1.0,exact_after_normalize
+96,Paco van Moorsel,57506,Paco van Moorsel,1.0,1.0,1.0,1.0,exact_after_normalize
+97,Alexander Christovão,253751,Alexander Christovao,0.75,1.0,1.0,1.0,exact_after_normalize
+98,Jordy Clasie,104223,Jordy Clasie,1.0,1.0,1.0,1.0,exact_after_normalize
+99,Kostas Lamprou,64352,Kostas Lamprou,1.0,1.0,1.0,1.0,exact_after_normalize
+100,Bruno Martins Indi,112052,Bruno Martins Indi,1.0,1.0,1.0,1.0,exact_after_normalize
+101,Mitchell te Vrede,79127,Mitchell Te Vrede,1.0,1.0,1.0,1.0,exact_after_normalize
+102,Sekou Cissé,22339,Sekou Cissé,1.0,1.0,1.0,1.0,exact_after_normalize
+103,Jordy van Deelen,187603,Jordy van Deelen,1.0,1.0,1.0,1.0,exact_after_normalize
+104,Ruud Vormer,45864,Ruud Vormer,1.0,1.0,1.0,1.0,exact_after_normalize
+105,Jean-Paul Boëtius,182574,Jean-Paul Boëtius,1.0,1.0,1.0,1.0,exact_after_normalize
+106,Joris Mathijsen,4563,Joris Mathijsen,1.0,1.0,1.0,1.0,exact_after_normalize
+107,Lex Immers,56371,Lex Immers,1.0,1.0,1.0,1.0,exact_after_normalize
+108,Terence Kongolo,152651,Terence Kongolo,1.0,1.0,1.0,1.0,exact_after_normalize
+110,Erwin Mulder,56631,Erwin Mulder,1.0,1.0,1.0,1.0,exact_after_normalize
+111,Samuel Armenteros,55751,Samuel Armenteros,1.0,1.0,1.0,1.0,exact_after_normalize
+112,Sven van Beek,256718,Sven van Beek,1.0,1.0,1.0,1.0,exact_after_normalize
+113,Wesley Verhoek,34129,Wesley Verhoek,1.0,1.0,1.0,1.0,exact_after_normalize
+114,Otman Bakkal,27491,Otman Bakkal,1.0,1.0,1.0,1.0,exact_after_normalize
+115,Graziano Pellè,29594,Graziano Pellè,1.0,1.0,1.0,1.0,exact_after_normalize
+116,John Goossens,35527,John Goossens,1.0,1.0,1.0,1.0,exact_after_normalize
+117,Daryl Janmaat,60744,Daryl Janmaat,1.0,1.0,1.0,1.0,exact_after_normalize
+118,Miquel Nelom,130257,Miquel Nelom,1.0,1.0,1.0,1.0,exact_after_normalize
+120,Ruben Schaken,31453,Ruben Schaken,1.0,1.0,1.0,1.0,exact_after_normalize
+121,Tonny Vilhena,182581,Tonny Vilhena,1.0,1.0,1.0,1.0,exact_after_normalize
+122,Joey Godee,71787,Joey Godee,1.0,1.0,1.0,1.0,exact_after_normalize
+123,Mawouna Amevor,170720,Mawouna Amevor,1.0,1.0,1.0,1.0,exact_after_normalize
+124,Xandro Schenk,226026,Xandro Schenk,1.0,1.0,1.0,1.0,exact_after_normalize
+125,Eloy Room,79294,Eloy Room,1.0,1.0,1.0,1.0,exact_after_normalize
+126,Sjoerd Overgoor,82939,Sjoerd Overgoor,1.0,1.0,1.0,1.0,exact_after_normalize
+127,Xander Houtkoop,71099,Xander Houtkoop,1.0,1.0,1.0,1.0,exact_after_normalize
+128,Bart Vriends,129991,Bart Vriends,1.0,1.0,1.0,1.0,exact_after_normalize
+129,Thomas Azevedo,100101,Thomas Azevedo,1.0,1.0,1.0,1.0,exact_after_normalize
+130,Lars Lambooij,110902,Lars Lambooij,1.0,1.0,1.0,1.0,exact_after_normalize
+131,Jeffrey Rijsdijk,111191,Jeffrey Rijsdijk,1.0,1.0,1.0,1.0,exact_after_normalize
+133,Erik Falkenburg,67220,Erik Falkenburg,1.0,1.0,1.0,1.0,exact_after_normalize
+136,Stephan Andersen,17880,Stephan Andersen,1.0,1.0,1.0,1.0,exact_after_normalize
+138,Doke Schmidt,195359,Doke Schmidt,1.0,1.0,1.0,1.0,exact_after_normalize
+139,Jarchinio Antonia,162672,Jarchinio Antonia,1.0,1.0,1.0,1.0,exact_after_normalize
+140,Jop van der Linden,80671,Jop van der Linden,1.0,1.0,1.0,1.0,exact_after_normalize
+142,Jordy Buijs,31111,Jordy Buijs,1.0,1.0,1.0,1.0,exact_after_normalize
+143,Anthony Lurling,4158,Anthony Lurling,1.0,1.0,1.0,1.0,exact_after_normalize
+144,Elson Hooi,229228,Elson Hooi,1.0,1.0,1.0,1.0,exact_after_normalize
+145,Alex Schalk,186228,Alex Schalk,1.0,1.0,1.0,1.0,exact_after_normalize
+146,Joey Suk,101657,Joey Suk,1.0,1.0,1.0,1.0,exact_after_normalize
+147,Rydell Poepon,43247,Rydell Poepon,1.0,1.0,1.0,1.0,exact_after_normalize
+148,Stipe Perica,245072,Stipe Perica,1.0,1.0,1.0,1.0,exact_after_normalize
+149,Boldizsár Bodor,13036,Boldizsár Bodor,1.0,1.0,1.0,1.0,exact_after_normalize
+150,Adnane Tighadouini,185570,Adnane Tighadouini,1.0,1.0,1.0,1.0,exact_after_normalize
+151,Anouar Hadouir,4533,Anouar Hadouir,1.0,1.0,1.0,1.0,exact_after_normalize
+153,Mats Seuntjens,187809,Mats Seuntjens,1.0,1.0,1.0,1.0,exact_after_normalize
+154,Peter Gommeren,228574,Peter Gommeren,1.0,1.0,1.0,1.0,exact_after_normalize
+155,Kenny van der Weg,214326,Kenny van der Weg,1.0,1.0,1.0,1.0,exact_after_normalize
+157,Gill Swerts,7970,Gill Swerts,1.0,1.0,1.0,1.0,exact_after_normalize
+158,Sepp De Roover,30741,Sepp De Roover,1.0,1.0,1.0,1.0,exact_after_normalize
+159,Henrico Drost,17313,Henrico Drost,1.0,1.0,1.0,1.0,exact_after_normalize
+160,Jeffrey Sarpong,35529,Jeffrey Sarpong,1.0,1.0,1.0,1.0,exact_after_normalize
+161,Danny Verbeek,99508,Danny Verbeek,1.0,1.0,1.0,1.0,exact_after_normalize
+162,Kees Kwakman,7949,Kees Kwakman,1.0,1.0,1.0,1.0,exact_after_normalize
+163,Uroš Matić,90885,Uros Matic,0.4667,1.0,1.0,1.0,exact_after_normalize
+164,Marcel Stutter,45930,Marcel Stutter,1.0,1.0,1.0,1.0,exact_after_normalize
+165,Navarone Foor,61612,Navarone Foor,1.0,1.0,1.0,1.0,exact_after_normalize
+166,Jordy Tutuarima,187299,Jordy Tutuarima,1.0,1.0,1.0,1.0,exact_after_normalize
+167,Jakob Jantscher,52269,Jakob Jantscher,1.0,1.0,1.0,1.0,exact_after_normalize
+168,Geoffrey Castillion,84898,Geoffrey Castillion,1.0,1.0,1.0,1.0,exact_after_normalize
+169,Danzell Gravenberch,186282,Danzell Gravenberch,1.0,1.0,1.0,1.0,exact_after_normalize
+170,Marnick Vermijl,110798,Marnick Vermijl,1.0,1.0,1.0,1.0,exact_after_normalize
+171,Youri Loen,153392,Youri Loen,1.0,1.0,1.0,1.0,exact_after_normalize
+173,Dennis Gentenaar,4513,Dennis Gentenaar,1.0,1.0,1.0,1.0,exact_after_normalize
+175,Lasse Nielsen,42913,Lasse Nielsen,1.0,1.0,1.0,1.0,exact_after_normalize
+176,Ryan Koolwijk,65256,Ryan Koolwijk,1.0,1.0,1.0,1.0,exact_after_normalize
+177,Michael Higdon,14170,Michael Higdon,1.0,1.0,1.0,1.0,exact_after_normalize
+178,Victor Pálsson,97241,Victor Pálsson,1.0,1.0,1.0,1.0,exact_after_normalize
+179,Jeffrey Leiwakabessy,4517,Jeffrey Leiwakabessy,1.0,1.0,1.0,1.0,exact_after_normalize
+180,Michel Breuer,24498,Michel Breuer,1.0,1.0,1.0,1.0,exact_after_normalize
+181,Christoph Hemlein,58030,Christoph Hemlein,1.0,1.0,1.0,1.0,exact_after_normalize
+182,Kevin Conboy,72943,Kevin Conboy,1.0,1.0,1.0,1.0,exact_after_normalize
+183,Daan Bovenberg,63334,Daan Bovenberg,1.0,1.0,1.0,1.0,exact_after_normalize
+185,Tobias Haitz,85902,Tobias Haitz,1.0,1.0,1.0,1.0,exact_after_normalize
+186,Søren Rieks,44471,Søren Rieks,1.0,1.0,1.0,1.0,exact_after_normalize
+187,Hans Mulder,45562,Hans Mulder,1.0,1.0,1.0,1.0,exact_after_normalize
+188,Cihat Çelik,275385,Cihat Çelik,1.0,1.0,1.0,1.0,exact_after_normalize
+189,Karl-Johan Johnsson,112822,Karl-Johan Johnsson,1.0,1.0,1.0,1.0,exact_after_normalize
+190,Alireza Jahanbakhsh,213268,Alireza Jahanbakhsh,1.0,1.0,1.0,1.0,exact_after_normalize
+191,Samuel Štefánik,132376,Samuel Stefanik,0.4762,1.0,1.0,1.0,exact_after_normalize
+192,Pavel Čmovš,95793,Pavel Cmovs,0.4118,1.0,1.0,1.0,exact_after_normalize
+193,Jürgen Locadia,166240,Jürgen Locadia,1.0,1.0,1.0,1.0,exact_after_normalize
+194,Bryan Ruiz,39642,Bryan Ruiz,1.0,1.0,1.0,1.0,exact_after_normalize
+195,Luciano Narsingh,72462,Luciano Narsingh,1.0,1.0,1.0,1.0,exact_after_normalize
+197,Oscar Hiljemark,158810,Oscar Hiljemark,1.0,1.0,1.0,1.0,exact_after_normalize
+198,Jetro Willems,146258,Jetro Willems,1.0,1.0,1.0,1.0,exact_after_normalize
+199,Abel Tamata,123513,Abel Tamata,1.0,1.0,1.0,1.0,exact_after_normalize
+200,Stijn Schaars,4698,Stijn Schaars,1.0,1.0,1.0,1.0,exact_after_normalize
+201,Jorrit Hendrix,205004,Jorrit Hendrix,1.0,1.0,1.0,1.0,exact_after_normalize
+202,Santiago Arias,120443,Santiago Arias,1.0,1.0,1.0,1.0,exact_after_normalize
+203,Jeffrey Bruma,88721,Jeffrey Bruma,1.0,1.0,1.0,1.0,exact_after_normalize
+204,Zakaria Bakkali,203378,Zakaria Bakkali,1.0,1.0,1.0,1.0,exact_after_normalize
+205,Adam Maher,122421,Adam Maher,1.0,1.0,1.0,1.0,exact_after_normalize
+206,Ola Toivonen,36500,Ola Toivonen,1.0,1.0,1.0,1.0,exact_after_normalize
+207,Jeroen Zoet,79045,Jeroen Zoet,1.0,1.0,1.0,1.0,exact_after_normalize
+208,Florian Jozefzoon,124873,Florian Jozefzoon,1.0,1.0,1.0,1.0,exact_after_normalize
+209,Joshua Brenet,207006,Joshua Brenet,1.0,1.0,1.0,1.0,exact_after_normalize
+210,Georginio Wijnaldum,49499,Georginio Wijnaldum,1.0,1.0,1.0,1.0,exact_after_normalize
+211,Peter van Ooijen,123521,Peter van Ooijen,1.0,1.0,1.0,1.0,exact_after_normalize
+212,Karim Rekik,182579,Karim Rekik,1.0,1.0,1.0,1.0,exact_after_normalize
+213,Tim Matavž,50303,Tim Matavz,0.6923,1.0,1.0,1.0,exact_after_normalize
+214,Jean-David Beauguel,198395,Jean-David Beauguel,1.0,1.0,1.0,1.0,exact_after_normalize
+215,Denzel Slager,225886,Denzel Slager,1.0,1.0,1.0,1.0,exact_after_normalize
+216,Robert Braber,29324,Robert Braber,1.0,1.0,1.0,1.0,exact_after_normalize
+217,Kenny Anderson,139190,Kenny Anderson,1.0,1.0,1.0,1.0,exact_after_normalize
+219,Mitch Apau,113872,Mitch Apau,1.0,1.0,1.0,1.0,exact_after_normalize
+220,Kenny Van Hoevelen,20362,Kenny Van Hoevelen,1.0,1.0,1.0,1.0,exact_after_normalize
+221,Jonas Ivens,13063,Jonas Ivens,1.0,1.0,1.0,1.0,exact_after_normalize
+222,Sander Duits,14863,Sander Duits,1.0,1.0,1.0,1.0,exact_after_normalize
+223,Imad Najah,83947,Imad Najah,1.0,1.0,1.0,1.0,exact_after_normalize
+224,Mart Lieder,211331,Mart Lieder,1.0,1.0,1.0,1.0,exact_after_normalize
+225,Evander Sno,34382,Evander Sno,1.0,1.0,1.0,1.0,exact_after_normalize
+226,Aurélien Joachim,38004,Aurélien Joachim,1.0,1.0,1.0,1.0,exact_after_normalize
+227,Romeo Castelen,6764,Romeo Castelen,1.0,1.0,1.0,1.0,exact_after_normalize
+229,Peter Jungschläger,34782,Peter Jungschläger,1.0,1.0,1.0,1.0,exact_after_normalize
+230,Ingo van Weert,272957,Ingo van Weert,1.0,1.0,1.0,1.0,exact_after_normalize
+231,Damiano Schet,122647,Damiano Schet,1.0,1.0,1.0,1.0,exact_after_normalize
+233,Michael Lamey,4344,Michael Lamey,1.0,1.0,1.0,1.0,exact_after_normalize
+234,Mickaël Tavares,45139,Mickaël Tavares,1.0,1.0,1.0,1.0,exact_after_normalize
+236,Daniël de Ridder,15894,Daniël de Ridder,1.0,1.0,1.0,1.0,exact_after_normalize
+237,Jan Šeda,44422,Jan Seda,0.5,1.0,1.0,1.0,exact_after_normalize
+238,Cuco Martina,91251,Cuco Martina,1.0,1.0,1.0,1.0,exact_after_normalize
+239,Nils Röseler,47740,Nils Röseler,1.0,1.0,1.0,1.0,exact_after_normalize
+240,Willem Janssen,19409,Willem Janssen,1.0,1.0,1.0,1.0,exact_after_normalize
+241,Jesús Corona,125165,Jesús Corona,1.0,1.0,1.0,1.0,exact_after_normalize
+242,Tim Hölscher,232500,Tim Hölscher,1.0,1.0,1.0,1.0,exact_after_normalize
+243,Felitciano Zschusschen,193904,Felitciano Zschusschen,1.0,1.0,1.0,1.0,exact_after_normalize
+245,Andreas Bjelland,56354,Andreas Bjelland,1.0,1.0,1.0,1.0,exact_after_normalize
+246,Luc Castaignos,91915,Luc Castaignos,1.0,1.0,1.0,1.0,exact_after_normalize
+247,Shadrach Eghan,261154,Shadrach Eghan,1.0,1.0,1.0,1.0,exact_after_normalize
+249,Youness Mokhtar,83946,Youness Mokhtar,1.0,1.0,1.0,1.0,exact_after_normalize
+250,Kyle Ebecilio,152642,Kyle Ebecilio,1.0,1.0,1.0,1.0,exact_after_normalize
+251,Robbert Schilder,30667,Robbert Schilder,1.0,1.0,1.0,1.0,exact_after_normalize
+252,Quincy Promes,182381,Quincy Promes,1.0,1.0,1.0,1.0,exact_after_normalize
+253,Roberto Rosales,49500,Roberto Rosales,1.0,1.0,1.0,1.0,exact_after_normalize
+254,Nick Marsman,158104,Nick Marsman,1.0,1.0,1.0,1.0,exact_after_normalize
+255,Felipe Gutiérrez,133089,Felipe Gutiérrez,1.0,1.0,1.0,1.0,exact_after_normalize
+256,Rasmus Bengtsson,37080,Rasmus Bengtsson,1.0,1.0,1.0,1.0,exact_after_normalize
+257,Torgeir Børven,129236,Torgeir Børven,1.0,1.0,1.0,1.0,exact_after_normalize
+258,Dico Koppers,111184,Dico Koppers,1.0,1.0,1.0,1.0,exact_after_normalize
+259,Tim Breukers,63356,Tim Breukers,1.0,1.0,1.0,1.0,exact_after_normalize
+260,Wout Brama,30003,Wout Brama,1.0,1.0,1.0,1.0,exact_after_normalize
+261,Dušan Tadić,36139,Dusan Tadic,0.4118,1.0,1.0,1.0,exact_after_normalize
+262,Bertrand Traoré,131996,Bertrand Traoré,1.0,1.0,1.0,1.0,exact_after_normalize
+263,Theo Janssen,4425,Theo Janssen,1.0,1.0,1.0,1.0,exact_after_normalize
+264,Renato Ibarra,191830,Renato Ibarra,1.0,1.0,1.0,1.0,exact_after_normalize
+265,Mike Havenaar,79470,Mike Havenaar,1.0,1.0,1.0,1.0,exact_after_normalize
+266,Francisco Júnior,215840,Francisco Júnior,1.0,1.0,1.0,1.0,exact_after_normalize
+267,Valeri Qazaishvili,156115,Valeri Qazaishvili,1.0,1.0,1.0,1.0,exact_after_normalize
+268,Frank van der Struijk,19061,Frank van der Struijk,1.0,1.0,1.0,1.0,exact_after_normalize
+269,Sam Hutchinson,40617,Sam Hutchinson,1.0,1.0,1.0,1.0,exact_after_normalize
+270,Gaël Kakuta,74297,Gaël Kakuta,1.0,1.0,1.0,1.0,exact_after_normalize
+271,Marcus Pedersen,41609,Marcus Pedersen,1.0,1.0,1.0,1.0,exact_after_normalize
+271,Marcus Pedersen,583404,Marcus Pedersen,1.0,1.0,1.0,1.0,exact_after_normalize
+272,Zakaria Labyad,123349,Zakaria Labyad,1.0,1.0,1.0,1.0,exact_after_normalize
+273,Piet Velthuizen,30585,Piet Velthuizen,1.0,1.0,1.0,1.0,exact_after_normalize
+274,Jonathan Reis,53444,Jonathan Reis,1.0,1.0,1.0,1.0,exact_after_normalize
+275,Davy Pröpper,79027,Davy Pröpper,1.0,1.0,1.0,1.0,exact_after_normalize
+276,Giorgi Chanturia,136397,Giorgi Chanturia,1.0,1.0,1.0,1.0,exact_after_normalize
+277,Guram Kashia,55972,Guram Kashia,1.0,1.0,1.0,1.0,exact_after_normalize
+278,Jan-Arie van der Heijden,45538,Jan-Arie van der Heijden,1.0,1.0,1.0,1.0,exact_after_normalize
+279,Kelvin Leerdam,92936,Kelvin Leerdam,1.0,1.0,1.0,1.0,exact_after_normalize
+280,Patrick van Aanholt,52119,Patrick van Aanholt,1.0,1.0,1.0,1.0,exact_after_normalize
+281,Rochdi Achenteh,61809,Rochdi Achenteh,1.0,1.0,1.0,1.0,exact_after_normalize
+282,Christian Atsu,186997,Christian Atsu,1.0,1.0,1.0,1.0,exact_after_normalize
+283,Marko Vejinović,59594,Marko Vejinović,1.0,1.0,1.0,1.0,exact_after_normalize
+284,Lucas Piazon,176485,Lucas Piazón,0.625,1.0,1.0,1.0,exact_after_normalize
+285,Wilson Eduardo,60799,Wilson Eduardo,1.0,1.0,1.0,1.0,exact_after_normalize
+286,Thomas Kristensen,23492,Thomas Kristensen,1.0,1.0,1.0,1.0,exact_after_normalize
+287,Guy Smith,317412,Guy Smith,1.0,1.0,1.0,1.0,exact_after_normalize
+290,Martin Hansen,45601,Martin Hansen,1.0,1.0,1.0,1.0,exact_after_normalize
+291,Timothy Derijck,31131,Timothy Derijck,1.0,1.0,1.0,1.0,exact_after_normalize
+292,Hector Hevel,277962,Hector Hevel,1.0,1.0,1.0,1.0,exact_after_normalize
+293,Tyronne Ebuehi,309944,Tyronne Ebuehi,1.0,1.0,1.0,1.0,exact_after_normalize
+294,Gervane Kastaneer,240752,Gervane Kastaneer,1.0,1.0,1.0,1.0,exact_after_normalize
+295,Oleksandr Yakovenko,31776,Oleksandr Yakovenko,1.0,1.0,1.0,1.0,exact_after_normalize
+296,Arkadiusz Milik,191891,Arkadiusz Milik,1.0,1.0,1.0,1.0,exact_after_normalize
+297,Kenny Tete,206746,Kenny Tete,1.0,1.0,1.0,1.0,exact_after_normalize
+298,Diederik Boer,7288,Diederik Boer,1.0,1.0,1.0,1.0,exact_after_normalize
+299,Niki Zimling,15045,Niki Zimling,1.0,1.0,1.0,1.0,exact_after_normalize
+300,Anwar El Ghazi,183720,Anwar El Ghazi,1.0,1.0,1.0,1.0,exact_after_normalize
+301,Daley Sinkgraven,215099,Daley Sinkgraven,1.0,1.0,1.0,1.0,exact_after_normalize
+302,Riechedly Bazoer,216443,Riechedly Bazoer,1.0,1.0,1.0,1.0,exact_after_normalize
+303,Queensy Menig,225339,Queensy Menig,1.0,1.0,1.0,1.0,exact_after_normalize
+304,Richairo Živković,252755,Richairo Zivkovic,0.5652,1.0,1.0,1.0,exact_after_normalize
+305,Dirk Marcellis,31025,Dirk Marcellis,1.0,1.0,1.0,1.0,exact_after_normalize
+307,Robert Mühren,186763,Robert Mühren,1.0,1.0,1.0,1.0,exact_after_normalize
+308,Mikhail Rosheuvel,64507,Mikhail Rosheuvel,1.0,1.0,1.0,1.0,exact_after_normalize
+309,Guus Hupperts,116636,Guus Hupperts,1.0,1.0,1.0,1.0,exact_after_normalize
+310,Dabney dos Santos,241500,Dabney dos Santos,1.0,1.0,1.0,1.0,exact_after_normalize
+311,Derrick Luckassen,241457,Derrick Luckassen,1.0,1.0,1.0,1.0,exact_after_normalize
+312,Djavan Anderson,215089,Djavan Anderson,1.0,1.0,1.0,1.0,exact_after_normalize
+313,Stijn Spierings,241501,Stijn Spierings,1.0,1.0,1.0,1.0,exact_after_normalize
+315,Sinan Bytyqi,186790,Sinan Bytyqi,1.0,1.0,1.0,1.0,exact_after_normalize
+316,Dejan Meleg,168942,Dejan Meleg,1.0,1.0,1.0,1.0,exact_after_normalize
+317,Albert Rusnák,43228,Albert Rusnák,1.0,1.0,1.0,1.0,exact_after_normalize
+318,Sander van de Streek,190222,Sander van de Streek,1.0,1.0,1.0,1.0,exact_after_normalize
+319,Donovan Slijngard,45531,Donovan Slijngard,1.0,1.0,1.0,1.0,exact_after_normalize
+320,Sebastian Steblecki,220976,Sebastian Steblecki,1.0,1.0,1.0,1.0,exact_after_normalize
+321,Calvin Mac-Intosch,113996,Calvin Mac-Intosch,1.0,1.0,1.0,1.0,exact_after_normalize
+323,Lars Hutten,85670,Lars Hutten,1.0,1.0,1.0,1.0,exact_after_normalize
+324,Alessandro Damen,321327,Alessandro Damen,1.0,1.0,1.0,1.0,exact_after_normalize
+325,Jurgen Mattheij,188660,Jurgen Mattheij,1.0,1.0,1.0,1.0,exact_after_normalize
+326,Cedric Badjeck,215336,Cedric Badjeck,1.0,1.0,1.0,1.0,exact_after_normalize
+327,Bas Kuipers,187188,Bas Kuipers,1.0,1.0,1.0,1.0,exact_after_normalize
+328,Khalid Karami,191395,Khalid Karami,1.0,1.0,1.0,1.0,exact_after_normalize
+329,Adil Auassar,56381,Adil Auassar,1.0,1.0,1.0,1.0,exact_after_normalize
+330,Jordan Botaka,196860,Jordan Botaka,1.0,1.0,1.0,1.0,exact_after_normalize
+331,Daryl van Mieghem,177821,Daryl van Mieghem,1.0,1.0,1.0,1.0,exact_after_normalize
+332,Kevin van Diermen,49640,Kevin van Diermen,1.0,1.0,1.0,1.0,exact_after_normalize
+333,Jeff Stans,117671,Jeff Stans,1.0,1.0,1.0,1.0,exact_after_normalize
+335,Sander Fischer,73504,Sander Fischer,1.0,1.0,1.0,1.0,exact_after_normalize
+337,Tom van Weert,95673,Tom van Weert,1.0,1.0,1.0,1.0,exact_after_normalize
+338,Kevin Vermeulen,247007,Kevin Vermeulen,1.0,1.0,1.0,1.0,exact_after_normalize
+339,Luigi Bruins,43759,Luigi Bruins,1.0,1.0,1.0,1.0,exact_after_normalize
+340,Carlo de Reuver,260650,Carlo de Reuver,1.0,1.0,1.0,1.0,exact_after_normalize
+341,Toni Varela,59645,Toni Varela,1.0,1.0,1.0,1.0,exact_after_normalize
+342,Marko Maletić,117149,Marko Maletic,0.7143,1.0,1.0,1.0,exact_after_normalize
+344,Lucas Woudenberg,221766,Lucas Woudenberg,1.0,1.0,1.0,1.0,exact_after_normalize
+345,Anass Achahbar,182554,Anass Achahbar,1.0,1.0,1.0,1.0,exact_after_normalize
+346,Calvin Verdonk,258364,Calvin Verdonk,1.0,1.0,1.0,1.0,exact_after_normalize
+347,Luke Wilkshire,3321,Luke Wilkshire,1.0,1.0,1.0,1.0,exact_after_normalize
+348,Khalid Boulahrouz,4489,Khalid Boulahrouz,1.0,1.0,1.0,1.0,exact_after_normalize
+349,Rick Karsdorp,205006,Rick Karsdorp,1.0,1.0,1.0,1.0,exact_after_normalize
+350,Jens Toornstra,134999,Jens Toornstra,1.0,1.0,1.0,1.0,exact_after_normalize
+351,Karim El Ahmadi,25523,Karim El Ahmadi,1.0,1.0,1.0,1.0,exact_after_normalize
+352,Matthew Steenvoorden,202793,Matthew Steenvoorden,1.0,1.0,1.0,1.0,exact_after_normalize
+353,Glynor Plet,80073,Glynor Plet,1.0,1.0,1.0,1.0,exact_after_normalize
+354,Giliano Wijnaldum,79121,Giliano Wijnaldum,1.0,1.0,1.0,1.0,exact_after_normalize
+355,Sven Nieuwpoort,187291,Sven Nieuwpoort,1.0,1.0,1.0,1.0,exact_after_normalize
+356,Teije ten Den,224001,Teije ten Den,1.0,1.0,1.0,1.0,exact_after_normalize
+357,Erik Cummins,173674,Erik Cummins,1.0,1.0,1.0,1.0,exact_after_normalize
+358,Nick de Bondt,182575,Nick de Bondt,1.0,1.0,1.0,1.0,exact_after_normalize
+359,Jules Reimerink,71085,Jules Reimerink,1.0,1.0,1.0,1.0,exact_after_normalize
+360,Mickey van der Hart,207048,Mickey van der Hart,1.0,1.0,1.0,1.0,exact_after_normalize
+361,Brandon Robinson,241241,Brandon Robinson,1.0,1.0,1.0,1.0,exact_after_normalize
+362,Mounir El Allouchi,273588,Mounir El Allouchi,1.0,1.0,1.0,1.0,exact_after_normalize
+363,Jesse van Bezooijen,329493,Jesse van Bezooijen,1.0,1.0,1.0,1.0,exact_after_normalize
+364,Joeri de Kamps,57303,Joeri de Kamps,1.0,1.0,1.0,1.0,exact_after_normalize
+365,Guyon Fernandez,56370,Guyon Fernandez,1.0,1.0,1.0,1.0,exact_after_normalize
+366,Hakim Borahsasar,255831,Hakim Borahsasar,1.0,1.0,1.0,1.0,exact_after_normalize
+367,Isak Ssewankambo,249118,Isak Ssewankambo,1.0,1.0,1.0,1.0,exact_after_normalize
+368,Kingsley Boateng,199243,Kingsley Boateng,1.0,1.0,1.0,1.0,exact_after_normalize
+369,Menno Koch,182578,Menno Koch,1.0,1.0,1.0,1.0,exact_after_normalize
+370,Demy de Zeeuw,19087,Demy de Zeeuw,1.0,1.0,1.0,1.0,exact_after_normalize
+371,Divine Naah,340736,Divine Naah,1.0,1.0,1.0,1.0,exact_after_normalize
+372,Aleksandar Damčevski,217918,Aleksandar Damcevski,0.75,1.0,1.0,1.0,exact_after_normalize
+373,Miloš Zukanović,304319,Milos Zukanovic,0.6,1.0,1.0,1.0,exact_after_normalize
+374,Steven Bergwijn,284165,Steven Bergwijn,1.0,1.0,1.0,1.0,exact_after_normalize
+375,Remko Pasveer,25520,Remko Pasveer,1.0,1.0,1.0,1.0,exact_after_normalize
+376,Rai Vloet,205023,Rai Vloet,1.0,1.0,1.0,1.0,exact_after_normalize
+377,Andrés Guardado,20506,Andrés Guardado,1.0,1.0,1.0,1.0,exact_after_normalize
+378,Nicolas Isimat-Mirin,147846,Nicolas Isimat-Mirin,1.0,1.0,1.0,1.0,exact_after_normalize
+379,Luuk de Jong,72522,Luuk de Jong,1.0,1.0,1.0,1.0,exact_after_normalize
+381,Hakim Ziyech,217111,Hakim Ziyech,1.0,1.0,1.0,1.0,exact_after_normalize
+382,Jelle van der Heyden,330930,Jelle van der Heyden,1.0,1.0,1.0,1.0,exact_after_normalize
+383,Peet Bijen,263553,Peet Bijen,1.0,1.0,1.0,1.0,exact_after_normalize
+384,Joachim Andersen,260827,Joachim Andersen,1.0,1.0,1.0,1.0,exact_after_normalize
+385,Ryo Miyaichi,129688,Ryo Miyaichi,1.0,1.0,1.0,1.0,exact_after_normalize
+386,Darryl Lachman,93393,Darryl Lachman,1.0,1.0,1.0,1.0,exact_after_normalize
+387,Renato Tapia,277137,Renato Tapia,1.0,1.0,1.0,1.0,exact_after_normalize
+388,Orlando Engelaar,4451,Orlando Engelaar,1.0,1.0,1.0,1.0,exact_after_normalize
+389,Bilal Ould-Chikh,241324,Bilal Ould-Chikh,1.0,1.0,1.0,1.0,exact_after_normalize
+390,Jari Oosterwijk,250471,Jari Oosterwijk,1.0,1.0,1.0,1.0,exact_after_normalize
+391,Sonny Stevens,160361,Sonny Stevens,1.0,1.0,1.0,1.0,exact_after_normalize
+392,Kamohelo Mokotjo,108601,Kamohelo Mokotjo,1.0,1.0,1.0,1.0,exact_after_normalize
+393,Chris David,187285,Chris David,1.0,1.0,1.0,1.0,exact_after_normalize
+394,Hidde ter Avest,258519,Hidde ter Avest,1.0,1.0,1.0,1.0,exact_after_normalize
+395,Kasper Kusk,102134,Kasper Kusk,1.0,1.0,1.0,1.0,exact_after_normalize
+396,Wallace Oliveira,181779,Wallace Oliveira,1.0,1.0,1.0,1.0,exact_after_normalize
+397,Josh McEachran,128905,Josh McEachran,1.0,1.0,1.0,1.0,exact_after_normalize
+398,Kevin Diks,335209,Kevin Diks,1.0,1.0,1.0,1.0,exact_after_normalize
+399,Marvelous Nakamba,324882,Marvelous Nakamba,1.0,1.0,1.0,1.0,exact_after_normalize
+400,Abiola Dauda,69651,Abiola Dauda,1.0,1.0,1.0,1.0,exact_after_normalize
+401,Arnold Kruiswijk,4634,Arnold Kruiswijk,1.0,1.0,1.0,1.0,exact_after_normalize
+402,Gino Bosz,272687,Gino Bosz,1.0,1.0,1.0,1.0,exact_after_normalize
+403,Stijn Wuytens,60971,Stijn Wuytens,1.0,1.0,1.0,1.0,exact_after_normalize
+405,Tim Cornelisse,4415,Tim Cornelisse,1.0,1.0,1.0,1.0,exact_after_normalize
+406,Jordens Peters,31880,Jordens Peters,1.0,1.0,1.0,1.0,exact_after_normalize
+407,Frenkie de Jong,326330,Frenkie de Jong,1.0,1.0,1.0,1.0,exact_after_normalize
+408,Fabian Sporkslede,187601,Fabian Sporkslede,1.0,1.0,1.0,1.0,exact_after_normalize
+409,Mitchell Dijks,187245,Mitchell Dijks,1.0,1.0,1.0,1.0,exact_after_normalize
+410,Ricardo Ippel,152517,Ricardo Ippel,1.0,1.0,1.0,1.0,exact_after_normalize
+411,Renan Zanelli,282073,Renan Zanelli,1.0,1.0,1.0,1.0,exact_after_normalize
+415,Ali Messaoud,79193,Ali Messaoud,1.0,1.0,1.0,1.0,exact_after_normalize
+416,Dries Wuytens,83951,Dries Wuytens,1.0,1.0,1.0,1.0,exact_after_normalize
+417,Wiljan Pluim,81497,Wiljan Pluim,1.0,1.0,1.0,1.0,exact_after_normalize
+418,Terell Ondaan,187598,Terell Ondaan,1.0,1.0,1.0,1.0,exact_after_normalize
+420,Ben Sahar,40436,Ben Sahar,1.0,1.0,1.0,1.0,exact_after_normalize
+421,Bruno Andrade,80756,Bruno Andrade,1.0,1.0,1.0,1.0,exact_after_normalize
+422,Ludcinio Marengo,215648,Ludcinio Marengo,1.0,1.0,1.0,1.0,exact_after_normalize
+423,Dennis van der Heijden,350193,Dennis van der Heijden,1.0,1.0,1.0,1.0,exact_after_normalize
+424,Giovanni Korte,234910,Giovanni Korte,1.0,1.0,1.0,1.0,exact_after_normalize
+425,Kenji Gorré,374889,Kenji Gorré,1.0,1.0,1.0,1.0,exact_after_normalize
+426,Édouard Duplan,57249,Édouard Duplan,1.0,1.0,1.0,1.0,exact_after_normalize
+427,John Heitinga,4315,John Heitinga,1.0,1.0,1.0,1.0,exact_after_normalize
+428,Yaya Sanogo,127194,Yaya Sanogo,1.0,1.0,1.0,1.0,exact_after_normalize
+429,Donny van de Beek,288255,Donny van de Beek,1.0,1.0,1.0,1.0,exact_after_normalize
+430,Sam Hendriks,225716,Sam Hendriks,1.0,1.0,1.0,1.0,exact_after_normalize
+431,Amin Younes,96167,Amin Younes,1.0,1.0,1.0,1.0,exact_after_normalize
+435,Joris van Overeem,182582,Joris van Overeem,1.0,1.0,1.0,1.0,exact_after_normalize
+437,Ben Rienstra,64506,Ben Rienstra,1.0,1.0,1.0,1.0,exact_after_normalize
+441,Mounir El Hamdaoui,21490,Mounir El Hamdaoui,1.0,1.0,1.0,1.0,exact_after_normalize
+442,Thomas Ouwejan,241477,Thomas Ouwejan,1.0,1.0,1.0,1.0,exact_after_normalize
+443,Levi Garcia,354587,Levi García,0.6,1.0,1.0,1.0,exact_after_normalize
+445,Marvin Peersman,125769,Marvin Peersman,1.0,1.0,1.0,1.0,exact_after_normalize
+446,Jack Byrne,217757,Jack Byrne,1.0,1.0,1.0,1.0,exact_after_normalize
+448,Tom Hiariej,62064,Tom Hiariej,1.0,1.0,1.0,1.0,exact_after_normalize
+449,Valmir Berisha,226146,Valmir Berisha,1.0,1.0,1.0,1.0,exact_after_normalize
+450,Jamiro Monteiro,272930,Jamiro Monteiro,1.0,1.0,1.0,1.0,exact_after_normalize
+451,Kevin van Veen,159894,Kevin van Veen,1.0,1.0,1.0,1.0,exact_after_normalize
+453,Ron Janzen,273051,Ron Janzen,1.0,1.0,1.0,1.0,exact_after_normalize
+454,Kai Heerings,86270,Kai Heerings,1.0,1.0,1.0,1.0,exact_after_normalize
+455,Wessel Dammers,250450,Wessel Dammers,1.0,1.0,1.0,1.0,exact_after_normalize
+456,Jergé Hoefdraad,57333,Jergé Hoefdraad,1.0,1.0,1.0,1.0,exact_after_normalize
+457,Dominik Mašek,126770,Dominik Masek,0.6471,1.0,1.0,1.0,exact_after_normalize
+458,Erik Quekel,56379,Erik Quekel,1.0,1.0,1.0,1.0,exact_after_normalize
+460,Hidde Jurjus,215551,Hidde Jurjus,1.0,1.0,1.0,1.0,exact_after_normalize
+461,Youssef El Jebli,324921,Youssef El Jebli,1.0,1.0,1.0,1.0,exact_after_normalize
+462,Bryan Smeets,119066,Bryan Smeets,1.0,1.0,1.0,1.0,exact_after_normalize
+463,Vincent Vermeij,273054,Vincent Vermeij,1.0,1.0,1.0,1.0,exact_after_normalize
+464,Ted van de Pavert,129551,Ted van de Pavert,1.0,1.0,1.0,1.0,exact_after_normalize
+465,Robin Pröpper,202788,Robin Pröpper,1.0,1.0,1.0,1.0,exact_after_normalize
+466,Tim Linthorst,275507,Tim Linthorst,1.0,1.0,1.0,1.0,exact_after_normalize
+469,Lion Kaak,129543,Lion Kaak,1.0,1.0,1.0,1.0,exact_after_normalize
+470,Nathan Kabasele,110812,Nathan Kabasele,1.0,1.0,1.0,1.0,exact_after_normalize
+472,Alexander Bannink,88387,Alexander Bannink,1.0,1.0,1.0,1.0,exact_after_normalize
+473,Cas Peters,187295,Cas Peters,1.0,1.0,1.0,1.0,exact_after_normalize
+475,Thijs Bouma,128168,Thijs Bouma,1.0,1.0,1.0,1.0,exact_after_normalize
+476,Jeroen Tesselaar,64511,Jeroen Tesselaar,1.0,1.0,1.0,1.0,exact_after_normalize
+477,Tom Menting,275946,Tom Menting,1.0,1.0,1.0,1.0,exact_after_normalize
+478,Mark Diemers,187507,Mark Diemers,1.0,1.0,1.0,1.0,exact_after_normalize
+480,Piotr Parzyszek,155202,Piotr Parzyszek,1.0,1.0,1.0,1.0,exact_after_normalize
+481,Nathaniël Will,45542,Nathaniel Will,0.6667,1.0,1.0,1.0,exact_after_normalize
+482,Tolgahan Çiçek,279480,Tolgahan Çiçek,1.0,1.0,1.0,1.0,exact_after_normalize
+483,Tom Muyters,40412,Tom Muyters,1.0,1.0,1.0,1.0,exact_after_normalize
+484,Danilho Doekhi,387047,Danilho Doekhi,1.0,1.0,1.0,1.0,exact_after_normalize
+485,Stanley Elbers,188905,Stanley Elbers,1.0,1.0,1.0,1.0,exact_after_normalize
+486,Tom Overtoom,124889,Tom Overtoom,1.0,1.0,1.0,1.0,exact_after_normalize
+487,Brandley Kuwas,232219,Brandley Kuwas,1.0,1.0,1.0,1.0,exact_after_normalize
+488,Filip Kurto,104376,Filip Kurto,1.0,1.0,1.0,1.0,exact_after_normalize
+489,Nigel Hasselbaink,88212,Nigel Hasselbaink,1.0,1.0,1.0,1.0,exact_after_normalize
+490,Yoell van Nieff,187301,Yoëll van Nieff,0.6842,1.0,1.0,1.0,exact_after_normalize
+491,Bart Nieuwkoop,257987,Bart Nieuwkoop,1.0,1.0,1.0,1.0,exact_after_normalize
+492,Simon Gustafson,255474,Simon Gustafson,1.0,1.0,1.0,1.0,exact_after_normalize
+494,Jari Schuurman,264857,Jari Schuurman,1.0,1.0,1.0,1.0,exact_after_normalize
+495,Eljero Elia,27805,Eljero Elia,1.0,1.0,1.0,1.0,exact_after_normalize
+496,Mikael Dyrestam,96043,Mikael Dyrestam,1.0,1.0,1.0,1.0,exact_after_normalize
+497,Janio Bikel,288121,Janio Bikel,1.0,1.0,1.0,1.0,exact_after_normalize
+498,Joey Sleegers,207043,Joey Sleegers,1.0,1.0,1.0,1.0,exact_after_normalize
+499,Marco van Duin,43249,Marco van Duin,1.0,1.0,1.0,1.0,exact_after_normalize
+500,Anthony Limbombe,140803,Anthony Limbombe,1.0,1.0,1.0,1.0,exact_after_normalize
+501,Gregor Breinburg,133372,Gregor Breinburg,1.0,1.0,1.0,1.0,exact_after_normalize
+502,Sjoerd Ars,12115,Sjoerd Ars,1.0,1.0,1.0,1.0,exact_after_normalize
+503,Todd Kane,154287,Todd Kane,1.0,1.0,1.0,1.0,exact_after_normalize
+504,Bart Buysse,38963,Bart Buysse,1.0,1.0,1.0,1.0,exact_after_normalize
+505,Benjamin Kirsten,29903,Benjamin Kirsten,1.0,1.0,1.0,1.0,exact_after_normalize
+506,Sam Lundholm,220432,Sam Lundholm,1.0,1.0,1.0,1.0,exact_after_normalize
+507,Jay-Roy Grot,360517,Jay-Roy Grot,1.0,1.0,1.0,1.0,exact_after_normalize
+508,Mohamed Rayhi,273432,Mohamed Rayhi,1.0,1.0,1.0,1.0,exact_after_normalize
+510,Wojciech Golla,161314,Wojciech Golla,1.0,1.0,1.0,1.0,exact_after_normalize
+513,Gastón Pereiro,264116,Gastón Pereiro,1.0,1.0,1.0,1.0,exact_after_normalize
+514,Héctor Moreno,51046,Héctor Moreno,1.0,1.0,1.0,1.0,exact_after_normalize
+515,Marco van Ginkel,147034,Marco van Ginkel,1.0,1.0,1.0,1.0,exact_after_normalize
+516,Maxime Lestienne,96454,Maxime Lestienne,1.0,1.0,1.0,1.0,exact_after_normalize
+517,Jordy de Wijs,215096,Jordy de Wijs,1.0,1.0,1.0,1.0,exact_after_normalize
+519,Chinedu Ede,26486,Chinedu Ede,1.0,1.0,1.0,1.0,exact_after_normalize
+520,Bruno Uvini,147396,Bruno Uvini,1.0,1.0,1.0,1.0,exact_after_normalize
+521,Oskar Zawada,232015,Oskar Zawada,1.0,1.0,1.0,1.0,exact_after_normalize
+522,Stefan Thesker,175709,Stefan Thesker,1.0,1.0,1.0,1.0,exact_after_normalize
+523,Thomas Agyepong,384807,Thomas Agyepong,1.0,1.0,1.0,1.0,exact_after_normalize
+524,Michael Olaitan,179481,Michael Olaitan,1.0,1.0,1.0,1.0,exact_after_normalize
+525,Alessio da Cruz,337670,Alessio Da Cruz,1.0,1.0,1.0,1.0,exact_after_normalize
+526,Jeroen Van der Lely,328959,Jeroen van der Lely,1.0,1.0,1.0,1.0,exact_after_normalize
+527,Zakaria El Azzouzi,260664,Zakaria El Azzouzi,1.0,1.0,1.0,1.0,exact_after_normalize
+528,Joel Drommel,333640,Joël Drommel,0.6667,1.0,1.0,1.0,exact_after_normalize
+529,Kosuke Ota,110911,Kosuke Ota,1.0,1.0,1.0,1.0,exact_after_normalize
+530,Maikel van der Werff,81778,Maikel van der Werff,1.0,1.0,1.0,1.0,exact_after_normalize
+532,Mitchell van Bergen,393239,Mitchell van Bergen,1.0,1.0,1.0,1.0,exact_after_normalize
+533,Lewis Baker,198589,Lewis Baker,1.0,1.0,1.0,1.0,exact_after_normalize
+534,Dominic Solanke,258889,Dominic Solanke,1.0,1.0,1.0,1.0,exact_after_normalize
+535,Sheran Yeini,58342,Sheran Yeini,1.0,1.0,1.0,1.0,exact_after_normalize
+536,Julian Lelieveld,337673,Julian Lelieveld,1.0,1.0,1.0,1.0,exact_after_normalize
+537,Thomas Oude Kotte,347038,Thomas Oude Kotte,1.0,1.0,1.0,1.0,exact_after_normalize
+538,Mohammed Osman,273431,Mohammed Osman,1.0,1.0,1.0,1.0,exact_after_normalize
+539,Milot Rashica,291739,Milot Rashica,1.0,1.0,1.0,1.0,exact_after_normalize
+540,Nathan,294798,Nathan,1.0,1.0,1.0,1.0,exact_after_normalize
+541,Danilo Pantić,222830,Danilo Pantic,0.75,1.0,1.0,1.0,exact_after_normalize
+542,Anouar Kali,185566,Anouar Kali,1.0,1.0,1.0,1.0,exact_after_normalize
+543,Funso Ojo,60951,Funso Ojo,1.0,1.0,1.0,1.0,exact_after_normalize
+544,Jordy Vleugels,272844,Jordy Vleugels,1.0,1.0,1.0,1.0,exact_after_normalize
+545,Adam Nemec,55210,Adam Nemec,1.0,1.0,1.0,1.0,exact_after_normalize
+546,Nick van der Velden,24819,Nick van der Velden,1.0,1.0,1.0,1.0,exact_after_normalize
+547,Andy Kawaya,203342,Andy Kawaya,1.0,1.0,1.0,1.0,exact_after_normalize
+548,Guus Joppen,61446,Guus Joppen,1.0,1.0,1.0,1.0,exact_after_normalize
+549,Justin Mathieu,247595,Justin Mathieu,1.0,1.0,1.0,1.0,exact_after_normalize
+550,Trevor David,342013,Trevor David,1.0,1.0,1.0,1.0,exact_after_normalize
+551,Sheraldo Becker,188888,Sheraldo Becker,1.0,1.0,1.0,1.0,exact_after_normalize
+552,Tom Trybull,93831,Tom Trybull,1.0,1.0,1.0,1.0,exact_after_normalize
+553,Aschraf El Mahdioui,295764,Aschraf El Mahdioui,1.0,1.0,1.0,1.0,exact_after_normalize
+555,José San Román,45655,José San Román,1.0,1.0,1.0,1.0,exact_after_normalize
+556,Randy Wolters,68947,Randy Wolters,1.0,1.0,1.0,1.0,exact_after_normalize
+557,Jerdy Schouten,347900,Jerdy Schouten,1.0,1.0,1.0,1.0,exact_after_normalize
+559,Hennos Asmelash,339323,Hennos Asmelash,1.0,1.0,1.0,1.0,exact_after_normalize
+560,Ernestas Šetkus,147028,Ernestas Setkus,0.6842,1.0,1.0,1.0,exact_after_normalize
+561,Mateo Cassierra,362667,Mateo Cassierra,1.0,1.0,1.0,1.0,exact_after_normalize
+562,David Neres,469822,David Neres,1.0,1.0,1.0,1.0,exact_after_normalize
+563,André Onana,234509,André Onana,1.0,1.0,1.0,1.0,exact_after_normalize
+564,Davinson Sánchez,341429,Davinson Sánchez,1.0,1.0,1.0,1.0,exact_after_normalize
+565,Kasper Dolberg,283196,Kasper Dolberg,1.0,1.0,1.0,1.0,exact_after_normalize
+566,Matthijs de Ligt,326031,Matthijs de Ligt,1.0,1.0,1.0,1.0,exact_after_normalize
+567,Abdelhak Nouri,258353,Abdelhak Nouri,1.0,1.0,1.0,1.0,exact_after_normalize
+568,Deyovaisio Zeefuik,338032,Deyovaisio Zeefuik,1.0,1.0,1.0,1.0,exact_after_normalize
+569,Heiko Westermann,1726,Heiko Westermann,1.0,1.0,1.0,1.0,exact_after_normalize
+570,Justin Kluivert,330659,Justin Kluivert,1.0,1.0,1.0,1.0,exact_after_normalize
+571,Pelle Clement,297693,Pelle Clement,1.0,1.0,1.0,1.0,exact_after_normalize
+572,Calvin Stengs,409344,Calvin Stengs,1.0,1.0,1.0,1.0,exact_after_normalize
+574,Guus Til,372267,Guus Til,1.0,1.0,1.0,1.0,exact_after_normalize
+576,Iliass Bel Hassani,160431,Iliass Bel Hassani,1.0,1.0,1.0,1.0,exact_after_normalize
+578,Wout Weghorst,228645,Wout Weghorst,1.0,1.0,1.0,1.0,exact_after_normalize
+579,Owen Wijndal,339328,Owen Wijndal,1.0,1.0,1.0,1.0,exact_after_normalize
+581,Fredy,87854,Fredy,1.0,1.0,1.0,1.0,exact_after_normalize
+582,Leeroy Owusu,257988,Leeroy Owusu,1.0,1.0,1.0,1.0,exact_after_normalize
+583,Dogucan Haspolat,387143,Doğucan Haspolat,0.7,1.0,1.0,1.0,exact_after_normalize
+584,Arghus,190168,Arghus,1.0,1.0,1.0,1.0,exact_after_normalize
+585,Hicham Faik,228572,Hicham Faik,1.0,1.0,1.0,1.0,exact_after_normalize
+586,Warner Hahn,111180,Warner Hahn,1.0,1.0,1.0,1.0,exact_after_normalize
+587,Milan Massop,237426,Milan Massop,1.0,1.0,1.0,1.0,exact_after_normalize
+588,Jeffry Fortes,102660,Jeffry Fortes,1.0,1.0,1.0,1.0,exact_after_normalize
+589,Pär Hansson,37217,Pär Hansson,1.0,1.0,1.0,1.0,exact_after_normalize
+590,Gustavo Hamer,322985,Gustavo Hamer,1.0,1.0,1.0,1.0,exact_after_normalize
+591,Nicolai Jørgensen,100399,Nicolai Jørgensen,1.0,1.0,1.0,1.0,exact_after_normalize
+592,Emil Hansson,276002,Emil Hansson,1.0,1.0,1.0,1.0,exact_after_normalize
+593,Pedro Chirivella,242273,Pedro Chirivella,1.0,1.0,1.0,1.0,exact_after_normalize
+595,Henrik Ojamaa,61666,Henrik Ojamaa,1.0,1.0,1.0,1.0,exact_after_normalize
+596,Lum Rexhepi,146281,Lum Rexhepi,1.0,1.0,1.0,1.0,exact_after_normalize
+598,Norichio Nieveld,31116,Norichio Nieveld,1.0,1.0,1.0,1.0,exact_after_normalize
+599,Tom Daemen,21482,Tom Daemen,1.0,1.0,1.0,1.0,exact_after_normalize
+600,Theo Zwarthoed,4538,Theo Zwarthoed,1.0,1.0,1.0,1.0,exact_after_normalize
+601,Darren Maatsen,190874,Darren Maatsen,1.0,1.0,1.0,1.0,exact_after_normalize
+602,Leon de Kogel,162694,Leon de Kogel,1.0,1.0,1.0,1.0,exact_after_normalize
+603,Kenny Teijsse,199380,Kenny Teijsse,1.0,1.0,1.0,1.0,exact_after_normalize
+604,Robin van der Meer,203939,Robin van der Meer,1.0,1.0,1.0,1.0,exact_after_normalize
+606,Sébastien Locigno,168162,Sébastien Locigno,1.0,1.0,1.0,1.0,exact_after_normalize
+607,André Fomitschow,56510,André Fomitschow,1.0,1.0,1.0,1.0,exact_after_normalize
+608,Quincy Owusu-Abeyie,14551,Quincy Owusu-Abeyie,1.0,1.0,1.0,1.0,exact_after_normalize
+609,Taiwo Awoniyi,295313,Taiwo Awoniyi,1.0,1.0,1.0,1.0,exact_after_normalize
+610,Kévin Mayi,198473,Kévin Mayi,1.0,1.0,1.0,1.0,exact_after_normalize
+611,Joris Delle,56778,Joris Delle,1.0,1.0,1.0,1.0,exact_after_normalize
+612,Michael Heinloth,93535,Michael Heinloth,1.0,1.0,1.0,1.0,exact_after_normalize
+613,Lorenzo Burnet,124866,Lorenzo Burnet,1.0,1.0,1.0,1.0,exact_after_normalize
+614,Frank Sturing,302611,Frank Sturing,1.0,1.0,1.0,1.0,exact_after_normalize
+615,Stefan Mauk,189231,Stefan Mauk,1.0,1.0,1.0,1.0,exact_after_normalize
+617,Jordan Larsson,308552,Jordan Larsson,1.0,1.0,1.0,1.0,exact_after_normalize
+618,Julian von Haacke,117484,Julian von Haacke,1.0,1.0,1.0,1.0,exact_after_normalize
+619,Fabian Gmeiner,189098,Fabian Gmeiner,1.0,1.0,1.0,1.0,exact_after_normalize
+620,Arnaut Danjuma,355861,Arnaut Danjuma,1.0,1.0,1.0,1.0,exact_after_normalize
+621,Sam Lammers,386914,Sam Lammers,1.0,1.0,1.0,1.0,exact_after_normalize
+622,Oleksandr Zinchenko,203853,Oleksandr Zinchenko,1.0,1.0,1.0,1.0,exact_after_normalize
+624,Bart Ramselaar,326701,Bart Ramselaar,1.0,1.0,1.0,1.0,exact_after_normalize
+625,Daniel Schwaab,38434,Daniel Schwaab,1.0,1.0,1.0,1.0,exact_after_normalize
+626,Enis Bunjaki,261943,Enis Bunjaki,1.0,1.0,1.0,1.0,exact_after_normalize
+627,Dylan George,406891,Dylan George,1.0,1.0,1.0,1.0,exact_after_normalize
+628,Jos Hooiveld,4624,Jos Hooiveld,1.0,1.0,1.0,1.0,exact_after_normalize
+629,Bersant Celina,229695,Bersant Celina,1.0,1.0,1.0,1.0,exact_after_normalize
+630,Enes Ünal,251106,Enes Ünal,1.0,1.0,1.0,1.0,exact_after_normalize
+631,Oussama Assaidi,57275,Oussama Assaidi,1.0,1.0,1.0,1.0,exact_after_normalize
+632,Fredrik Jensen,249157,Fredrik Jensen,1.0,1.0,1.0,1.0,exact_after_normalize
+633,Dylan Seys,323788,Dylan Seys,1.0,1.0,1.0,1.0,exact_after_normalize
+634,Dejan Trajkovski,190048,Dejan Trajkovski,1.0,1.0,1.0,1.0,exact_after_normalize
+635,Mateusz Klich,92738,Mateusz Klich,1.0,1.0,1.0,1.0,exact_after_normalize
+636,Yaw Yeboah,358985,Yaw Yeboah,1.0,1.0,1.0,1.0,exact_after_normalize
+639,Lassana Faye,315129,Lassana Faye,1.0,1.0,1.0,1.0,exact_after_normalize
+640,Matt Miazga,245893,Matt Miazga,1.0,1.0,1.0,1.0,exact_after_normalize
+641,Ricky van Wolfswinkel,41355,Ricky van Wolfswinkel,1.0,1.0,1.0,1.0,exact_after_normalize
+642,Michael Tørnes,43075,Michael Tørnes,1.0,1.0,1.0,1.0,exact_after_normalize
+643,Mukhtar Ali,258911,Mukhtar Ali,1.0,1.0,1.0,1.0,exact_after_normalize
+644,Alexander Büttner,38003,Alexander Büttner,1.0,1.0,1.0,1.0,exact_after_normalize
+645,Pele van Anholt,106634,Pelé van Anholt,0.7778,1.0,1.0,1.0,exact_after_normalize
+646,Elmo Lieftink,272707,Elmo Lieftink,1.0,1.0,1.0,1.0,exact_after_normalize
+647,Thomas Kok,396106,Thomas Kok,1.0,1.0,1.0,1.0,exact_after_normalize
+648,Asumah Abubakar,408438,Asumah Abubakar,1.0,1.0,1.0,1.0,exact_after_normalize
+650,Branco van den Boomen,203938,Branco van den Boomen,1.0,1.0,1.0,1.0,exact_after_normalize
+651,Fran Sol,164292,Fran Sol,1.0,1.0,1.0,1.0,exact_after_normalize
+652,Jordy Croux,129581,Jordy Croux,1.0,1.0,1.0,1.0,exact_after_normalize
+653,Derrick Tshimanga,78507,Derrick Tshimanga,1.0,1.0,1.0,1.0,exact_after_normalize
+654,Obbi Oulare,314959,Obbi Oulare,1.0,1.0,1.0,1.0,exact_after_normalize
+655,Mats van Kins,517619,Mats van Kins,1.0,1.0,1.0,1.0,exact_after_normalize
+656,Nick Kuipers,159032,Nick Kuipers,1.0,1.0,1.0,1.0,exact_after_normalize
+657,Bjørn Johnsen,250686,Bjørn Johnsen,1.0,1.0,1.0,1.0,exact_after_normalize
+658,Tim Coremans,119061,Tim Coremans,1.0,1.0,1.0,1.0,exact_after_normalize
+659,Delano Ladan,435088,Delano Ladan,1.0,1.0,1.0,1.0,exact_after_normalize
+660,Melvyn Lorenzen,143121,Melvyn Lorenzen,1.0,1.0,1.0,1.0,exact_after_normalize
+661,Thijmen Goppel,342240,Thijmen Goppel,1.0,1.0,1.0,1.0,exact_after_normalize
+662,Indy Groothuizen,241389,Indy Groothuizen,1.0,1.0,1.0,1.0,exact_after_normalize
+663,Shaquille Pinas,446248,Shaquille Pinas,1.0,1.0,1.0,1.0,exact_after_normalize
+664,Dennis Johnsen,406042,Dennis Johnsen,1.0,1.0,1.0,1.0,exact_after_normalize
+665,Azor Matusiwa,315145,Azor Matusiwa,1.0,1.0,1.0,1.0,exact_after_normalize
+666,Dani de Wit,340459,Dani de Wit,1.0,1.0,1.0,1.0,exact_after_normalize
+667,Jurgen Ekkelenkamp,361068,Jurgen Ekkelenkamp,1.0,1.0,1.0,1.0,exact_after_normalize
+669,Nicolás Tagliafico,131225,Nicolás Tagliafico,1.0,1.0,1.0,1.0,exact_after_normalize
+670,Noussair Mazraoui,340456,Noussair Mazraoui,1.0,1.0,1.0,1.0,exact_after_normalize
+671,Carel Eiting,315128,Carel Eiting,1.0,1.0,1.0,1.0,exact_after_normalize
+672,Oussama Idrissi,241391,Oussama Idrissi,1.0,1.0,1.0,1.0,exact_after_normalize
+673,Marco Bizot,124884,Marco Bizot,1.0,1.0,1.0,1.0,exact_after_normalize
+674,Mees Hoedemakers,315233,Mees Hoedemakers,1.0,1.0,1.0,1.0,exact_after_normalize
+677,Ferdy Druijf,360519,Ferdy Druijf,1.0,1.0,1.0,1.0,exact_after_normalize
+678,Tijjani Reijnders,460939,Tijjani Reijnders,1.0,1.0,1.0,1.0,exact_after_normalize
+680,Ögmundur Kristinsson,103444,Ögmundur Kristinsson,1.0,1.0,1.0,1.0,exact_after_normalize
+681,Jinty Caenepeel,235234,Jinty Caenepeel,1.0,1.0,1.0,1.0,exact_after_normalize
+682,Shane O'Neill,229912,Shane O'Neill,1.0,1.0,1.0,1.0,exact_after_normalize
+683,Desevio Payne,273570,Desevio Payne,1.0,1.0,1.0,1.0,exact_after_normalize
+685,Wout Faes,292808,Wout Faes,1.0,1.0,1.0,1.0,exact_after_normalize
+686,Sam Larsson,159668,Sam Larsson,1.0,1.0,1.0,1.0,exact_after_normalize
+688,Tyrell Malacia,339340,Tyrell Malacia,1.0,1.0,1.0,1.0,exact_after_normalize
+689,Sofyan Amrabat,287579,Sofyan Amrabat,1.0,1.0,1.0,1.0,exact_after_normalize
+690,Dylan Vente,369319,Dylan Vente,1.0,1.0,1.0,1.0,exact_after_normalize
+691,Robin van Persie,4380,Robin van Persie,1.0,1.0,1.0,1.0,exact_after_normalize
+692,Justin Bijlow,315121,Justin Bijlow,1.0,1.0,1.0,1.0,exact_after_normalize
+694,Karol Niemczycki,521634,Karol Niemczycki,1.0,1.0,1.0,1.0,exact_after_normalize
+695,Pablo Marí,210178,Pablo Marí,1.0,1.0,1.0,1.0,exact_after_normalize
+696,Angeliño,277179,Angeliño,1.0,1.0,1.0,1.0,exact_after_normalize
+698,Karol Mets,139304,Karol Mets,1.0,1.0,1.0,1.0,exact_after_normalize
+700,Lucas Schoofs,323602,Lucas Schoofs,1.0,1.0,1.0,1.0,exact_after_normalize
+702,Arno Verschueren,250591,Arno Verschueren,1.0,1.0,1.0,1.0,exact_after_normalize
+703,Thomas Enevoldsen,37221,Thomas Enevoldsen,1.0,1.0,1.0,1.0,exact_after_normalize
+704,Mark Birighitti,80702,Mark Birighitti,1.0,1.0,1.0,1.0,exact_after_normalize
+705,Richelor Sprangers,396005,Richelor Sprangers,1.0,1.0,1.0,1.0,exact_after_normalize
+706,Diego Snepvangers,464142,Diego Snepvangers,1.0,1.0,1.0,1.0,exact_after_normalize
+707,James Horsfield,210202,James Horsfield,1.0,1.0,1.0,1.0,exact_after_normalize
+708,Nigel Bertrams,187594,Nigel Bertrams,1.0,1.0,1.0,1.0,exact_after_normalize
+709,Umar Sadiq,337715,Umar Sadiq,1.0,1.0,1.0,1.0,exact_after_normalize
+710,Paolo Fernandes,284876,Paolo Fernandes,1.0,1.0,1.0,1.0,exact_after_normalize
+711,Thierry Ambrose,265763,Thierry Ambrose,1.0,1.0,1.0,1.0,exact_after_normalize
+712,Andries Noppert,276853,Andries Noppert,1.0,1.0,1.0,1.0,exact_after_normalize
+713,Hirving Lozano,316889,Hirving Lozano,1.0,1.0,1.0,1.0,exact_after_normalize
+714,Dante Rigo,314974,Dante Rigo,1.0,1.0,1.0,1.0,exact_after_normalize
+715,Armando Obispo,339337,Armando Obispo,1.0,1.0,1.0,1.0,exact_after_normalize
+716,Pablo Rosario,370791,Pablo Rosario,1.0,1.0,1.0,1.0,exact_after_normalize
+717,Kenneth Paal,247596,Kenneth Paal,1.0,1.0,1.0,1.0,exact_after_normalize
+718,Mauro Júnior,323910,Mauro Júnior,1.0,1.0,1.0,1.0,exact_after_normalize
+719,Donyell Malen,326029,Donyell Malen,1.0,1.0,1.0,1.0,exact_after_normalize
+720,Thomas Lam,131821,Thomas Lam,1.0,1.0,1.0,1.0,exact_after_normalize
+721,Cristián Cuevas,186863,Cristian Cuevas,0.6667,1.0,1.0,1.0,exact_after_normalize
+722,Michael Liendl,17057,Michael Liendl,1.0,1.0,1.0,1.0,exact_after_normalize
+723,Jorn Brondeel,277242,Jorn Brondeel,1.0,1.0,1.0,1.0,exact_after_normalize
+724,Tom Boere,124863,Tom Boere,1.0,1.0,1.0,1.0,exact_after_normalize
+725,Alexander Laukart,251327,Alexander Laukart,1.0,1.0,1.0,1.0,exact_after_normalize
+726,Michaël Maria,308356,Michaël Maria,1.0,1.0,1.0,1.0,exact_after_normalize
+727,Isaac Buckley-Ricketts,332323,Isaac Buckley-Ricketts,1.0,1.0,1.0,1.0,exact_after_normalize
+728,Richard Jensen,214078,Richard Jensen,1.0,1.0,1.0,1.0,exact_after_normalize
+729,Nikola Gjorgjev,237673,Nikola Gjorgjev,1.0,1.0,1.0,1.0,exact_after_normalize
+730,Luciano Slagveer,187298,Luciano Slagveer,1.0,1.0,1.0,1.0,exact_after_normalize
+731,Marko Kvasina,240778,Marko Kvasina,1.0,1.0,1.0,1.0,exact_after_normalize
+732,Rashaan Fernandes,315130,Rashaan Fernandes,1.0,1.0,1.0,1.0,exact_after_normalize
+734,Haris Vučkić,76560,Haris Vuckic,0.4444,1.0,1.0,1.0,exact_after_normalize
+735,Mason Mount,346483,Mason Mount,1.0,1.0,1.0,1.0,exact_after_normalize
+736,Jeroen Houwen,257980,Jeroen Houwen,1.0,1.0,1.0,1.0,exact_after_normalize
+737,Bryan Linssen,82410,Bryan Linssen,1.0,1.0,1.0,1.0,exact_after_normalize
+738,Charlie Colkett,236496,Charlie Colkett,1.0,1.0,1.0,1.0,exact_after_normalize
+740,Fankaty Dabo,186926,Fankaty Dabo,1.0,1.0,1.0,1.0,exact_after_normalize
+741,Thomas Bruns,172202,Thomas Bruns,1.0,1.0,1.0,1.0,exact_after_normalize
+742,Thomas Buitink,357826,Thomas Buitink,1.0,1.0,1.0,1.0,exact_after_normalize
+745,Roel Janssen,168787,Roel Janssen,1.0,1.0,1.0,1.0,exact_after_normalize
+747,Lars Unnerstall,53696,Lars Unnerstall,1.0,1.0,1.0,1.0,exact_after_normalize
+748,Lennart Thy,23553,Lennart Thy,1.0,1.0,1.0,1.0,exact_after_normalize
+752,Leroy Labylle,163665,Leroy Labylle,1.0,1.0,1.0,1.0,exact_after_normalize
+753,Vito van Crooij,312493,Vito van Crooij,1.0,1.0,1.0,1.0,exact_after_normalize
+754,Clint Leemans,250464,Clint Leemans,1.0,1.0,1.0,1.0,exact_after_normalize
+760,Jens Janse,37738,Jens Janse,1.0,1.0,1.0,1.0,exact_after_normalize
+763,Damil Dankerlui,295624,Damil Dankerlui,1.0,1.0,1.0,1.0,exact_after_normalize
+764,Eyong Enoh,47344,Eyong Enoh,1.0,1.0,1.0,1.0,exact_after_normalize
+765,Mattijs Branderhorst,205128,Mattijs Branderhorst,1.0,1.0,1.0,1.0,exact_after_normalize
+767,Ismail Azzaoui,289507,Ismail Azzaoui,1.0,1.0,1.0,1.0,exact_after_normalize
+768,Karim Coulibaly,205519,Karim Coulibaly,1.0,1.0,1.0,1.0,exact_after_normalize
+769,Timon Wellenreuther,196829,Timon Wellenreuther,1.0,1.0,1.0,1.0,exact_after_normalize
+770,Etien Velikonja,50384,Etien Velikonja,1.0,1.0,1.0,1.0,exact_after_normalize
+771,Kristófer Kristinsson,400174,Kristófer Kristinsson,1.0,1.0,1.0,1.0,exact_after_normalize
+772,Mike Havekotte,206743,Mike Havekotte,1.0,1.0,1.0,1.0,exact_after_normalize
+774,Giovanni Troupée,360514,Giovanni Troupée,1.0,1.0,1.0,1.0,exact_after_normalize
+775,Tomáš Necid,39665,Tomas Necid,0.6,1.0,1.0,1.0,exact_after_normalize
+776,Perr Schuurs,418543,Perr Schuurs,1.0,1.0,1.0,1.0,exact_after_normalize
+777,Ryan Gravenberch,478573,Ryan Gravenberch,1.0,1.0,1.0,1.0,exact_after_normalize
+778,Kaj Sierhuis,315283,Kaj Sierhuis,1.0,1.0,1.0,1.0,exact_after_normalize
+779,Lisandro Magallán,66736,Lisandro Magallán,1.0,1.0,1.0,1.0,exact_after_normalize
+780,Noa Lang,339332,Noa Lang,1.0,1.0,1.0,1.0,exact_after_normalize
+781,Kenzo Goudmijn,412943,Kenzo Goudmijn,1.0,1.0,1.0,1.0,exact_after_normalize
+782,Myron Boadu,412932,Myron Boadu,1.0,1.0,1.0,1.0,exact_after_normalize
+784,Leon Bergsma,228478,Leon Bergsma,1.0,1.0,1.0,1.0,exact_after_normalize
+785,Lars Nieuwpoort,266414,Lars Nieuwpoort,1.0,1.0,1.0,1.0,exact_after_normalize
+787,Stef Nijland,57087,Stef Nijland,1.0,1.0,1.0,1.0,exact_after_normalize
+788,Agil Etemadi,55756,Agil Etemadi,1.0,1.0,1.0,1.0,exact_after_normalize
+789,Myenty Abena,254003,Myenty Abena,1.0,1.0,1.0,1.0,exact_after_normalize
+790,Jordy Thomassen,266332,Jordy Thomassen,1.0,1.0,1.0,1.0,exact_after_normalize
+791,Delano Burgzorg,436585,Delano Burgzorg,1.0,1.0,1.0,1.0,exact_after_normalize
+792,Charlison Benschop,66783,Charlison Benschop,1.0,1.0,1.0,1.0,exact_after_normalize
+793,Javier Vet,274640,Javier Vet,1.0,1.0,1.0,1.0,exact_after_normalize
+795,Nabil Bahoui,93184,Nabil Bahoui,1.0,1.0,1.0,1.0,exact_after_normalize
+798,Denis Mahmudov,56415,Denis Mahmudov,1.0,1.0,1.0,1.0,exact_after_normalize
+800,Siebe Horemans,314915,Siebe Horemans,1.0,1.0,1.0,1.0,exact_after_normalize
+801,Marcus Edwards,314367,Marcus Edwards,1.0,1.0,1.0,1.0,exact_after_normalize
+802,Hervé Matthys,203558,Hervé Matthys,1.0,1.0,1.0,1.0,exact_after_normalize
+803,Elías Már Ómarsson,205655,Elías Már Ómarsson,1.0,1.0,1.0,1.0,exact_after_normalize
+804,Mikael Anderson,403673,Mikael Anderson,1.0,1.0,1.0,1.0,exact_after_normalize
+805,Yassin Ayoub,182573,Yassin Ayoub,1.0,1.0,1.0,1.0,exact_after_normalize
+806,Wouter Burger,412953,Wouter Burger,1.0,1.0,1.0,1.0,exact_after_normalize
+807,Luis Sinisterra,512385,Luis Sinisterra,1.0,1.0,1.0,1.0,exact_after_normalize
+808,Lutsharel Geertruida,420210,Lutsharel Geertruida,1.0,1.0,1.0,1.0,exact_after_normalize
+809,Orkun Kökçü,454567,Orkun Kökçü,1.0,1.0,1.0,1.0,exact_after_normalize
+811,Áron Dobos,487353,Áron Dobos,1.0,1.0,1.0,1.0,exact_after_normalize
+812,Mahamadou Dembélé,394326,Mahamadou Dembélé,1.0,1.0,1.0,1.0,exact_after_normalize
+813,Ahmed El Messaoudi,303939,Ahmed El Messaoudi,1.0,1.0,1.0,1.0,exact_after_normalize
+814,Andrija Novakovich,336160,Andrija Novakovich,1.0,1.0,1.0,1.0,exact_after_normalize
+816,Finn Stokkers,241486,Finn Stokkers,1.0,1.0,1.0,1.0,exact_after_normalize
+817,Lisandro Semedo,225431,Lisandro Semedo,1.0,1.0,1.0,1.0,exact_after_normalize
+818,Amadou Ciss,526784,Amadou Ciss,1.0,1.0,1.0,1.0,exact_after_normalize
+819,Djibril Dianessy,355368,Djibril Dianessy,1.0,1.0,1.0,1.0,exact_after_normalize
+820,Anthony Syhre,146167,Anthony Syhre,1.0,1.0,1.0,1.0,exact_after_normalize
+821,Agim Zeka,342824,Agim Zeka,1.0,1.0,1.0,1.0,exact_after_normalize
+823,Rubén Ramírez,308810,Rubén Ramírez,1.0,1.0,1.0,1.0,exact_after_normalize
+824,José Rodríguez,165012,José Rodríguez,1.0,1.0,1.0,1.0,exact_after_normalize
+825,André Vidigal,426624,André Vidigal,1.0,1.0,1.0,1.0,exact_after_normalize
+828,Jorrit Smeets,275949,Jorrit Smeets,1.0,1.0,1.0,1.0,exact_after_normalize
+829,Alessandro Ciranni,338680,Alessandro Ciranni,1.0,1.0,1.0,1.0,exact_after_normalize
+830,Andrija Balić,316111,Andrija Balic,0.75,1.0,1.0,1.0,exact_after_normalize
+831,Branislav Niňaj,260979,Branislav Ninaj,0.6842,1.0,1.0,1.0,exact_after_normalize
+832,Alexei Koșelev,136109,Alexei Koselev,0.6667,1.0,1.0,1.0,exact_after_normalize
+834,Arijanet Muric,371021,Arijanet Murić,0.7647,1.0,1.0,1.0,exact_after_normalize
+835,Jurich Carolina,338031,Jurich Carolina,1.0,1.0,1.0,1.0,exact_after_normalize
+836,Dorian Dervite,32029,Dorian Dervite,1.0,1.0,1.0,1.0,exact_after_normalize
+837,Jordan van der Gaag,377725,Jordan van der Gaag,1.0,1.0,1.0,1.0,exact_after_normalize
+838,Marwin Reuvers,470910,Marwin Reuvers,1.0,1.0,1.0,1.0,exact_after_normalize
+839,Greg Leigh,201586,Greg Leigh,1.0,1.0,1.0,1.0,exact_after_normalize
+840,Daan Klomp,400671,Daan Klomp,1.0,1.0,1.0,1.0,exact_after_normalize
+841,Erik Palmer-Brown,282199,Erik Palmer-Brown,1.0,1.0,1.0,1.0,exact_after_normalize
+842,Jethro Mashart,479431,Jethro Mashart,1.0,1.0,1.0,1.0,exact_after_normalize
+843,Benjamin van Leer,123520,Benjamin van Leer,1.0,1.0,1.0,1.0,exact_after_normalize
+844,Sullay Kaikai,244130,Sullay Kaikai,1.0,1.0,1.0,1.0,exact_after_normalize
+845,Sydney van Hooijdonk,439292,Sydney van Hooijdonk,1.0,1.0,1.0,1.0,exact_after_normalize
+846,Alex Gersbach,331017,Alex Gersbach,1.0,1.0,1.0,1.0,exact_after_normalize
+848,Luka Ilić,429790,Luka Ilic,0.6667,1.0,1.0,1.0,exact_after_normalize
+849,Aziz Behich,136834,Aziz Behich,1.0,1.0,1.0,1.0,exact_after_normalize
+851,Denzel Dumfries,321528,Denzel Dumfries,1.0,1.0,1.0,1.0,exact_after_normalize
+852,Trent Sainsbury,145840,Trent Sainsbury,1.0,1.0,1.0,1.0,exact_after_normalize
+853,Michal Sadílek,321204,Michal Sadílek,1.0,1.0,1.0,1.0,exact_after_normalize
+854,Cody Gakpo,434675,Cody Gakpo,1.0,1.0,1.0,1.0,exact_after_normalize
+857,Jordan Teze,364245,Jordan Teze,1.0,1.0,1.0,1.0,exact_after_normalize
+858,Erick Gutiérrez,298796,Érick Gutiérrez,0.6842,1.0,1.0,1.0,exact_after_normalize
+859,Jake Clarke-Salter,316551,Jake Clarke-Salter,1.0,1.0,1.0,1.0,exact_after_normalize
+860,Richonell Margaret,465326,Richonell Margaret,1.0,1.0,1.0,1.0,exact_after_normalize
+862,Martin Ødegaard,316264,Martin Ødegaard,1.0,1.0,1.0,1.0,exact_after_normalize
+863,Oussama Darfalou,321182,Oussama Darfalou,1.0,1.0,1.0,1.0,exact_after_normalize
+864,Hilary Gong,477306,Hilary Gong,1.0,1.0,1.0,1.0,exact_after_normalize
+865,Rasmus Thelander,129092,Rasmus Thelander,1.0,1.0,1.0,1.0,exact_after_normalize
+866,Max Clark,183291,Max Clark,1.0,1.0,1.0,1.0,exact_after_normalize
+867,Matúš Bero,204047,Matus Bero,0.5714,1.0,1.0,1.0,exact_after_normalize
+869,Patrick Joosten,317593,Patrick Joosten,1.0,1.0,1.0,1.0,exact_after_normalize
+870,Simon Janssen,457092,Simon Janssen,1.0,1.0,1.0,1.0,exact_after_normalize
+871,Sem Steijn,593519,Sem Steijn,1.0,1.0,1.0,1.0,exact_after_normalize
+872,Evert Linthorst,361112,Evert Linthorst,1.0,1.0,1.0,1.0,exact_after_normalize
+873,Christian Kum,37850,Christian Kum,1.0,1.0,1.0,1.0,exact_after_normalize
+874,Josimar Lima,71103,Josimar Lima,1.0,1.0,1.0,1.0,exact_after_normalize
+878,Atakan Akkaynak,327542,Atakan Akkaynak,1.0,1.0,1.0,1.0,exact_after_normalize
+879,Donis Avdijaj,196227,Donis Avdijaj,1.0,1.0,1.0,1.0,exact_after_normalize
+881,Victor van den Bogert,417827,Victor van den Bogert,1.0,1.0,1.0,1.0,exact_after_normalize
+882,James McGarry,345343,James McGarry,1.0,1.0,1.0,1.0,exact_after_normalize
+883,Michael Woud,350347,Michael Woud,1.0,1.0,1.0,1.0,exact_after_normalize
+884,Alexander Isak,349066,Alexander Isak,1.0,1.0,1.0,1.0,exact_after_normalize
+885,Vangelis Pavlidis,324503,Vangelis Pavlidis,1.0,1.0,1.0,1.0,exact_after_normalize
+886,Vurnon Anita,30670,Vurnon Anita,1.0,1.0,1.0,1.0,exact_after_normalize
+887,Aras Özbiliz,124891,Aras Özbiliz,1.0,1.0,1.0,1.0,exact_after_normalize
+888,Diego Palacios,425567,Diego Palacios,1.0,1.0,1.0,1.0,exact_after_normalize
+889,Pol Llonch,205276,Pol Llonch,1.0,1.0,1.0,1.0,exact_after_normalize
+890,Robin Polley,438689,Robin Polley,1.0,1.0,1.0,1.0,exact_after_normalize
+891,Mick van Buren,189053,Mick van Buren,1.0,1.0,1.0,1.0,exact_after_normalize
+892,Dehninio Muringen,453525,Dehninio Muringen,1.0,1.0,1.0,1.0,exact_after_normalize
+893,George Thomas,298240,George Thomas,1.0,1.0,1.0,1.0,exact_after_normalize
+894,Aleksandar Bjelica,273004,Aleksandar Bjelica,1.0,1.0,1.0,1.0,exact_after_normalize
+895,Mark Duffy,105565,Mark Duffy,1.0,1.0,1.0,1.0,exact_after_normalize
+896,Sam Stubbs,425872,Sam Stubbs,1.0,1.0,1.0,1.0,exact_after_normalize
+897,Jordan Spence,61588,Jordan Spence,1.0,1.0,1.0,1.0,exact_after_normalize
+898,Milan van Ewijk,587335,Milan van Ewijk,1.0,1.0,1.0,1.0,exact_after_normalize
+899,Laurens De Bock,110668,Laurens De Bock,1.0,1.0,1.0,1.0,exact_after_normalize
+900,Luuk Koopmans,235108,Luuk Koopmans,1.0,1.0,1.0,1.0,exact_after_normalize
+901,Crysencio Summerville,474701,Crysencio Summerville,1.0,1.0,1.0,1.0,exact_after_normalize
+902,Lorenzo van Kleef,412951,Lorenzo van Kleef,1.0,1.0,1.0,1.0,exact_after_normalize
+903,Omar Bogle,134657,Omar Bogle,1.0,1.0,1.0,1.0,exact_after_normalize
+904,Tudor Băluță,433976,Tudor Băluță,1.0,1.0,1.0,1.0,exact_after_normalize
+905,Sontje Hansen,485582,Sontje Hansen,1.0,1.0,1.0,1.0,exact_after_normalize
+906,Lisandro Martínez,480762,Lisandro Martínez,1.0,1.0,1.0,1.0,exact_after_normalize
+907,Jurriën Timber,420243,Jurriën Timber,1.0,1.0,1.0,1.0,exact_after_normalize
+908,Sergiño Dest,361104,Sergiño Dest,1.0,1.0,1.0,1.0,exact_after_normalize
+909,Edson Álvarez,401356,Edson Álvarez,1.0,1.0,1.0,1.0,exact_after_normalize
+910,Bruno Varela,182722,Bruno Varela,1.0,1.0,1.0,1.0,exact_after_normalize
+911,Ryan Babel,16135,Ryan Babel,1.0,1.0,1.0,1.0,exact_after_normalize
+912,Danilo,519731,Danilo,1.0,1.0,1.0,1.0,exact_after_normalize
+913,Răzvan Marin,295183,Răzvan Marin,1.0,1.0,1.0,1.0,exact_after_normalize
+914,Joris Kramer,326329,Joris Kramer,1.0,1.0,1.0,1.0,exact_after_normalize
+918,Naoufal Bannis,430800,Naoufal Bannis,1.0,1.0,1.0,1.0,exact_after_normalize
+919,Edgar Ié,191987,Edgar Ié,1.0,1.0,1.0,1.0,exact_after_normalize
+920,Liam Kelly,252986,Liam Kelly,1.0,1.0,1.0,1.0,exact_after_normalize
+921,Leroy Fer,63342,Leroy Fer,1.0,1.0,1.0,1.0,exact_after_normalize
+922,Marouan Azarkan,412959,Marouan Azarkan,1.0,1.0,1.0,1.0,exact_after_normalize
+923,Marcos Senesi,469781,Marcos Senesi,1.0,1.0,1.0,1.0,exact_after_normalize
+924,Oğuzhan Özyakup,77966,Oğuzhan Özyakup,1.0,1.0,1.0,1.0,exact_after_normalize
+925,Róbert Boženík,454576,Róbert Boženík,1.0,1.0,1.0,1.0,exact_after_normalize
+926,Cian Harries,319300,Cian Harries,1.0,1.0,1.0,1.0,exact_after_normalize
+927,Bassala Sambou,406924,Bassala Sambou,1.0,1.0,1.0,1.0,exact_after_normalize
+928,Àlex Carbonell,262389,Àlex Carbonell,1.0,1.0,1.0,1.0,exact_after_normalize
+929,Rasmus Karjalainen,273383,Rasmus Karjalainen,1.0,1.0,1.0,1.0,exact_after_normalize
+930,George Cox,359692,George Cox,1.0,1.0,1.0,1.0,exact_after_normalize
+931,Tesfaldet Tekie,283185,Tesfaldet Tekie,1.0,1.0,1.0,1.0,exact_after_normalize
+932,Martin Angha,122695,Martin Angha,1.0,1.0,1.0,1.0,exact_after_normalize
+933,Patrik Raitanen,397497,Patrik Raitanen,1.0,1.0,1.0,1.0,exact_after_normalize
+934,Dimitrios Ioannidis,565673,Dimitrios Ioannidis,1.0,1.0,1.0,1.0,exact_after_normalize
+935,Nassim El Ablak,562275,Nassim el Ablak,1.0,1.0,1.0,1.0,exact_after_normalize
+936,Felix Passlack,274461,Felix Passlack,1.0,1.0,1.0,1.0,exact_after_normalize
+937,Jacky Donkor,553217,Jacky Donkor,1.0,1.0,1.0,1.0,exact_after_normalize
+938,Leandro Fernandes,339335,Leandro Fernandes,1.0,1.0,1.0,1.0,exact_after_normalize
+939,Adnan Ugur,409515,Adnan Uğur,0.5714,1.0,1.0,1.0,exact_after_normalize
+940,Vitalie Damașcan,354136,Vitalie Damascan,0.7,1.0,1.0,1.0,exact_after_normalize
+941,Gregoire Amiot,182879,Grégoire Amiot,0.6667,1.0,1.0,1.0,exact_after_normalize
+942,Robbin Ruiter,81775,Robbin Ruiter,1.0,1.0,1.0,1.0,exact_after_normalize
+943,Bruma,139396,Bruma,1.0,1.0,1.0,1.0,exact_after_normalize
+944,Ritsu Doan,358504,Ritsu Doan,1.0,1.0,1.0,1.0,exact_after_normalize
+945,Ricardo Rodríguez,86784,Ricardo Rodríguez,1.0,1.0,1.0,1.0,exact_after_normalize
+946,Noni Madueke,503987,Noni Madueke,1.0,1.0,1.0,1.0,exact_after_normalize
+947,Ryan Thomas,203357,Ryan Thomas,1.0,1.0,1.0,1.0,exact_after_normalize
+948,Olivier Boscagli,318508,Olivier Boscagli,1.0,1.0,1.0,1.0,exact_after_normalize
+949,Ibrahim Afellay,15760,Ibrahim Afellay,1.0,1.0,1.0,1.0,exact_after_normalize
+950,Timo Baumgartl,187491,Timo Baumgartl,1.0,1.0,1.0,1.0,exact_after_normalize
+951,Stefan Velkov,227352,Stefan Velkov,1.0,1.0,1.0,1.0,exact_after_normalize
+954,Melle Meulensteen,426280,Melle Meulensteen,1.0,1.0,1.0,1.0,exact_after_normalize
+956,Etienne Vaessen,387197,Etienne Vaessen,1.0,1.0,1.0,1.0,exact_after_normalize
+958,Lennerd Daneels,292805,Lennerd Daneels,1.0,1.0,1.0,1.0,exact_after_normalize
+959,Richard van der Venne,376675,Richard van der Venne,1.0,1.0,1.0,1.0,exact_after_normalize
+960,Sylla Sow,343184,Sylla Sow,1.0,1.0,1.0,1.0,exact_after_normalize
+963,Hannes Delcroix,338635,Hannes Delcroix,1.0,1.0,1.0,1.0,exact_after_normalize
+964,Anas Tahiri,308265,Anas Tahiri,1.0,1.0,1.0,1.0,exact_after_normalize
+966,Giorgi Aburjania,186848,Giorgi Aburjania,1.0,1.0,1.0,1.0,exact_after_normalize
+968,Godfried Roemeratoe,393241,Godfried Roemeratoe,1.0,1.0,1.0,1.0,exact_after_normalize
+969,Lindon Selahi,340172,Lindon Selahi,1.0,1.0,1.0,1.0,exact_after_normalize
+971,Julio Pleguezuelo,251885,Julio Pleguezuelo,1.0,1.0,1.0,1.0,exact_after_normalize
+972,Paul Verhaegh,18021,Paul Verhaegh,1.0,1.0,1.0,1.0,exact_after_normalize
+973,Jesse Bosch,524043,Jesse Bosch,1.0,1.0,1.0,1.0,exact_after_normalize
+974,Emil Berggreen,234375,Emil Berggreen,1.0,1.0,1.0,1.0,exact_after_normalize
+975,Keito Nakamura,405397,Keito Nakamura,1.0,1.0,1.0,1.0,exact_after_normalize
+976,Jose Matos,268957,José Matos,0.6923,1.0,1.0,1.0,exact_after_normalize
+977,Joël Latibeaudière,412823,Joel Latibeaudiere,0.52,1.0,1.0,1.0,exact_after_normalize
+978,Eli Dasa,163847,Eli Dasa,1.0,1.0,1.0,1.0,exact_after_normalize
+979,Keisuke Honda,66521,Keisuke Honda,1.0,1.0,1.0,1.0,exact_after_normalize
+980,Oussama Tannane,235540,Oussama Tannane,1.0,1.0,1.0,1.0,exact_after_normalize
+981,Patrick Vroegh,433805,Patrick Vroegh,1.0,1.0,1.0,1.0,exact_after_normalize
+982,Yassin Oukili,566911,Yassin Oukili,1.0,1.0,1.0,1.0,exact_after_normalize
+983,Sondre Tronstad,210348,Sondre Tronstad,1.0,1.0,1.0,1.0,exact_after_normalize
+984,Nouha Dicko,173750,Nouha Dicko,1.0,1.0,1.0,1.0,exact_after_normalize
+987,Samuel Scheimann,72799,Samuel Scheimann,1.0,1.0,1.0,1.0,exact_after_normalize
+990,John Yeboah,439914,John Yeboah,1.0,1.0,1.0,1.0,exact_after_normalize
+998,Rick Zuijderwijk,619736,Rick Zuijderwijk,1.0,1.0,1.0,1.0,exact_after_normalize
+1000,Justin Ogenia,415085,Justin Ogenia,1.0,1.0,1.0,1.0,exact_after_normalize
+1001,Mats Köhlert,288067,Mats Köhlert,1.0,1.0,1.0,1.0,exact_after_normalize
+1002,Mike Trésor,381963,Mike Tresor,0.6,1.0,1.0,1.0,exact_after_normalize
+1003,Sebastian Holmén,222320,Sebastian Holmén,1.0,1.0,1.0,1.0,exact_after_normalize
+1004,Ché Nunnely,326030,Ché Nunnely,1.0,1.0,1.0,1.0,exact_after_normalize
+1005,Elton Kabangu,396847,Elton Kabangu,1.0,1.0,1.0,1.0,exact_after_normalize
+1006,Paul Gladon,180843,Paul Gladon,1.0,1.0,1.0,1.0,exact_after_normalize
+1007,Görkem Sağlam,251345,Görkem Sağlam,1.0,1.0,1.0,1.0,exact_after_normalize
+1008,Martin Fraisl,277607,Martin Fraisl,1.0,1.0,1.0,1.0,exact_after_normalize
+1009,Boy Kemper,428502,Boy Kemper,1.0,1.0,1.0,1.0,exact_after_normalize
+1010,Jamal Amofa,289651,Jamal Amofa,1.0,1.0,1.0,1.0,exact_after_normalize
+1011,Vicente Besuijen,412954,Vicente Besuijen,1.0,1.0,1.0,1.0,exact_after_normalize
+1012,Tomislav Gomelt,210983,Tomislav Gomelt,1.0,1.0,1.0,1.0,exact_after_normalize
+1013,Bobby Adekanye,331514,Bobby Adekanye,1.0,1.0,1.0,1.0,exact_after_normalize
+1014,Andrei Ratiu,527966,Andrei Rațiu,0.625,1.0,1.0,1.0,exact_after_normalize
+1015,Ravel Morrison,128907,Ravel Morrison,1.0,1.0,1.0,1.0,exact_after_normalize
+1017,Samy Bourard,235230,Samy Bourard,1.0,1.0,1.0,1.0,exact_after_normalize
+1019,Dario Del Fabro,110475,Dario Del Fabro,1.0,1.0,1.0,1.0,exact_after_normalize
+1020,David Philipp,342165,David Philipp,1.0,1.0,1.0,1.0,exact_after_normalize
+1021,Kees De Boer,361121,Kees de Boer,1.0,1.0,1.0,1.0,exact_after_normalize
+1023,Ilay Elmkies,443752,Ilay Elmkies,1.0,1.0,1.0,1.0,exact_after_normalize
+1024,Jonas Arweiler,246044,Jonas Arweiler,1.0,1.0,1.0,1.0,exact_after_normalize
+1026,Amar Ćatić,450195,Amar Catic,0.375,1.0,1.0,1.0,exact_after_normalize
+1027,Kjell Scherpen,463527,Kjell Scherpen,1.0,1.0,1.0,1.0,exact_after_normalize
+1028,Victor Jensen,400548,Victor Jensen,1.0,1.0,1.0,1.0,exact_after_normalize
+1029,Sean Klaiber,268113,Sean Klaiber,1.0,1.0,1.0,1.0,exact_after_normalize
+1030,Kenneth Taylor,470394,Kenneth Taylor,1.0,1.0,1.0,1.0,exact_after_normalize
+1031,Antony,602105,Antony,1.0,1.0,1.0,1.0,exact_after_normalize
+1032,Mohammed Kudus,543499,Mohammed Kudus,1.0,1.0,1.0,1.0,exact_after_normalize
+1033,Devyne Rensch,557407,Devyne Rensch,1.0,1.0,1.0,1.0,exact_after_normalize
+1034,Maarten Stekelenburg,4311,Maarten Stekelenburg,1.0,1.0,1.0,1.0,exact_after_normalize
+1035,Brian Brobbey,473169,Brian Brobbey,1.0,1.0,1.0,1.0,exact_after_normalize
+1036,Sébastien Haller,181375,Sébastien Haller,1.0,1.0,1.0,1.0,exact_after_normalize
+1040,Timo Letschert,231378,Timo Letschert,1.0,1.0,1.0,1.0,exact_after_normalize
+1041,Jesper Karlsson,367992,Jesper Karlsson,1.0,1.0,1.0,1.0,exact_after_normalize
+1042,Lucas Pratto,59596,Lucas Pratto,1.0,1.0,1.0,1.0,exact_after_normalize
+1044,George Johnston,318549,George Johnston,1.0,1.0,1.0,1.0,exact_after_normalize
+1045,Christian Conteh,530298,Christian Conteh,1.0,1.0,1.0,1.0,exact_after_normalize
+1046,Achraf El Bouchataoui,361122,Achraf El Bouchataoui,1.0,1.0,1.0,1.0,exact_after_normalize
+1047,Uroš Spajić,160222,Uros Spajic,0.5,1.0,1.0,1.0,exact_after_normalize
+1048,Leroy George,49591,Leroy George,1.0,1.0,1.0,1.0,exact_after_normalize
+1049,Yanick van Osch,258362,Yanick van Osch,1.0,1.0,1.0,1.0,exact_after_normalize
+1050,Sebastian Polter,60957,Sebastian Polter,1.0,1.0,1.0,1.0,exact_after_normalize
+1051,Zian Flemming,411537,Zian Flemming,1.0,1.0,1.0,1.0,exact_after_normalize
+1053,Mickaël Tirpan,201248,Mickaël Tirpan,1.0,1.0,1.0,1.0,exact_after_normalize
+1054,Dario Van den Buijs,235274,Dario Van den Buijs,1.0,1.0,1.0,1.0,exact_after_normalize
+1055,Thibaud Verlinden,338673,Thibaud Verlinden,1.0,1.0,1.0,1.0,exact_after_normalize
+1056,Samuel Moutoussamy,353403,Samuel Moutoussamy,1.0,1.0,1.0,1.0,exact_after_normalize
+1057,Arian Kastrati,548185,Arian Kastrati,1.0,1.0,1.0,1.0,exact_after_normalize
+1058,Mike van Beijnen,540271,Mike van Beijnen,1.0,1.0,1.0,1.0,exact_after_normalize
+1059,Mathias Kjølø,528652,Mathias Kjølø,1.0,1.0,1.0,1.0,exact_after_normalize
+1060,Shurandy Sambo,412937,Shurandy Sambo,1.0,1.0,1.0,1.0,exact_after_normalize
+1061,Philipp Max,111275,Philipp Max,1.0,1.0,1.0,1.0,exact_after_normalize
+1062,Jeremy Antonisse,594273,Jeremy Antonisse,1.0,1.0,1.0,1.0,exact_after_normalize
+1063,Joël Piroe,369962,Joël Piroe,1.0,1.0,1.0,1.0,exact_after_normalize
+1064,Ismael Saibari,702869,Ismael Saibari,1.0,1.0,1.0,1.0,exact_after_normalize
+1065,Adrian Fein,379979,Adrian Fein,1.0,1.0,1.0,1.0,exact_after_normalize
+1066,Yorbe Vertessen,409517,Yorbe Vertessen,1.0,1.0,1.0,1.0,exact_after_normalize
+1067,Mario Götze,74842,Mario Götze,1.0,1.0,1.0,1.0,exact_after_normalize
+1068,Eran Zahavi,85093,Eran Zahavi,1.0,1.0,1.0,1.0,exact_after_normalize
+1069,Yvon Mvogo,147051,Yvon Mvogo,1.0,1.0,1.0,1.0,exact_after_normalize
+1070,Ibrahim Sangaré,375885,Ibrahim Sangaré,1.0,1.0,1.0,1.0,exact_after_normalize
+1071,Fredrik Oppegard,539665,Fredrik Oppegård,0.7,1.0,1.0,1.0,exact_after_normalize
+1072,Morad El Haddouti,410859,Morad El Haddouti,1.0,1.0,1.0,1.0,exact_after_normalize
+1073,Sebbe Augustijns,674261,Sebbe Augustijns,1.0,1.0,1.0,1.0,exact_after_normalize
+1074,James Efmorfidis,261071,James Efmorfidis,1.0,1.0,1.0,1.0,exact_after_normalize
+1075,David Min,604813,David Min,1.0,1.0,1.0,1.0,exact_after_normalize
+1076,Ayman Azhil,452068,Ayman Azhil,1.0,1.0,1.0,1.0,exact_after_normalize
+1077,Luuk Wouters,451297,Luuk Wouters,1.0,1.0,1.0,1.0,exact_after_normalize
+1078,Cyril Ngonge,358032,Cyril Ngonge,1.0,1.0,1.0,1.0,exact_after_normalize
+1079,Thijs Oosting,441216,Thijs Oosting,1.0,1.0,1.0,1.0,exact_after_normalize
+1080,Ahmed Touba,325924,Ahmed Touba,1.0,1.0,1.0,1.0,exact_after_normalize
+1081,Ola John,124550,Ola John,1.0,1.0,1.0,1.0,exact_after_normalize
+1082,Shawn Adewoye,358021,Shawn Adewoye,1.0,1.0,1.0,1.0,exact_after_normalize
+1083,Thierry Lutonda,416802,Thierry Lutonda,1.0,1.0,1.0,1.0,exact_after_normalize
+1084,Casper Staring,596158,Casper Staring,1.0,1.0,1.0,1.0,exact_after_normalize
+1085,Ramiz Zerrouki,416660,Ramiz Zerrouki,1.0,1.0,1.0,1.0,exact_after_normalize
+1086,Max Bruns,618086,Max Bruns,1.0,1.0,1.0,1.0,exact_after_normalize
+1087,Kik Pierie,361207,Kik Pierie,1.0,1.0,1.0,1.0,exact_after_normalize
+1088,Mees Hilgers,562702,Mees Hilgers,1.0,1.0,1.0,1.0,exact_after_normalize
+1089,Alexander Jeremejeff,205760,Alexander Jeremejeff,1.0,1.0,1.0,1.0,exact_after_normalize
+1090,Daan Rots,591363,Daan Rots,1.0,1.0,1.0,1.0,exact_after_normalize
+1091,Gijs Smal,374212,Gijs Smal,1.0,1.0,1.0,1.0,exact_after_normalize
+1092,Thijs van Leeuwen,524033,Thijs van Leeuwen,1.0,1.0,1.0,1.0,exact_after_normalize
+1093,Jayden Oosterwolde,591361,Jayden Oosterwolde,1.0,1.0,1.0,1.0,exact_after_normalize
+1094,Halil Dervişoğlu,465606,Halil Dervişoğlu,1.0,1.0,1.0,1.0,exact_after_normalize
+1095,Enzo Cornelisse,607164,Enzo Cornelisse,1.0,1.0,1.0,1.0,exact_after_normalize
+1096,Idrissa Touré,335516,Idrissa Touré,1.0,1.0,1.0,1.0,exact_after_normalize
+1097,Maximilian Wittek,196793,Maximilian Wittek,1.0,1.0,1.0,1.0,exact_after_normalize
+1098,Jacob Rasmussen,283233,Jacob Rasmussen,1.0,1.0,1.0,1.0,exact_after_normalize
+1099,Million Manhoef,564449,Million Manhoef,1.0,1.0,1.0,1.0,exact_after_normalize
+1100,Noah Ohio,557410,Noah Ohio,1.0,1.0,1.0,1.0,exact_after_normalize
+1101,Daan Huisman,564448,Daan Huisman,1.0,1.0,1.0,1.0,exact_after_normalize
+1102,Loïs Openda,368887,Loïs Openda,1.0,1.0,1.0,1.0,exact_after_normalize
+1103,Armando Broja,571743,Armando Broja,1.0,1.0,1.0,1.0,exact_after_normalize
+1104,Tomáš Hájek,181469,Tomas Hajek,0.3333,1.0,1.0,1.0,exact_after_normalize
+1106,Jafar Arias,326997,Jafar Arias,1.0,1.0,1.0,1.0,exact_after_normalize
+1115,Leon Guwara,201135,Leon Guwara,1.0,1.0,1.0,1.0,exact_after_normalize
+1118,Vincent Schippers,420219,Vincent Schippers,1.0,1.0,1.0,1.0,exact_after_normalize
+1119,Jasper Dahlhaus,576682,Jasper Dahlhaus,1.0,1.0,1.0,1.0,exact_after_normalize
+1120,Derrick Köhn,391780,Derrick Köhn,1.0,1.0,1.0,1.0,exact_after_normalize
+1121,Wesley Spieringhs,673344,Wesley Spieringhs,1.0,1.0,1.0,1.0,exact_after_normalize
+1122,Ole Romeny,361070,Ole Romeny,1.0,1.0,1.0,1.0,exact_after_normalize
+1123,Ian Smeulers,361083,Ian Smeulers,1.0,1.0,1.0,1.0,exact_after_normalize
+1124,Mohamed Daramy,574385,Mohamed Daramy,1.0,1.0,1.0,1.0,exact_after_normalize
+1125,Youri Regeer,559324,Youri Regeer,1.0,1.0,1.0,1.0,exact_after_normalize
+1126,Liam van Gelderen,412933,Liam van Gelderen,1.0,1.0,1.0,1.0,exact_after_normalize
+1127,Anass Salah-Eddine,485584,Anass Salah-Eddine,1.0,1.0,1.0,1.0,exact_after_normalize
+1128,Jay Gorter,480453,Jay Gorter,1.0,1.0,1.0,1.0,exact_after_normalize
+1131,Zico Buurmeester,595940,Zico Buurmeester,1.0,1.0,1.0,1.0,exact_after_normalize
+1135,Kamal Sowah,564489,Kamal Sowah,1.0,1.0,1.0,1.0,exact_after_normalize
+1136,Peer Koopmeiners,361074,Peer Koopmeiners,1.0,1.0,1.0,1.0,exact_after_normalize
+1137,Mohamed Taabouni,485591,Mohamed Taabouni,1.0,1.0,1.0,1.0,exact_after_normalize
+1143,Filip Krastev,486814,Filip Krastev,1.0,1.0,1.0,1.0,exact_after_normalize
+1144,Milan Smit,703772,Milan Smit,1.0,1.0,1.0,1.0,exact_after_normalize
+1145,Jhondly van der Meer,766810,Jhondly van der Meer,1.0,1.0,1.0,1.0,exact_after_normalize
+1149,Marco Tol,371461,Marco Tol,1.0,1.0,1.0,1.0,exact_after_normalize
+1150,Robin Maulun,250030,Robin Maulun,1.0,1.0,1.0,1.0,exact_after_normalize
+1151,Issa Kallon,212191,Issa Kallon,1.0,1.0,1.0,1.0,exact_after_normalize
+1153,Michael Breij,258511,Michael Breij,1.0,1.0,1.0,1.0,exact_after_normalize
+1154,Tamás Kiss,451282,Tamás Kiss,1.0,1.0,1.0,1.0,exact_after_normalize
+1155,Maxim Gullit,501640,Maxim Gullit,1.0,1.0,1.0,1.0,exact_after_normalize
+1156,Jasper Ter Heide,339331,Jasper ter Heide,1.0,1.0,1.0,1.0,exact_after_normalize
+1157,Roberts Uldriķis,342152,Roberts Uldrikis,0.7,1.0,1.0,1.0,exact_after_normalize
+1158,Fredrik Aursnes,223367,Fredrik Aursnes,1.0,1.0,1.0,1.0,exact_after_normalize
+1159,Patrik Wålemark,721470,Patrik Wålemark,1.0,1.0,1.0,1.0,exact_after_normalize
+1160,Ofir Marciano,112008,Ofir Marciano,1.0,1.0,1.0,1.0,exact_after_normalize
+1162,Philippe Sandler,340460,Philippe Sandler,1.0,1.0,1.0,1.0,exact_after_normalize
+1163,Reiss Nelson,340325,Reiss Nelson,1.0,1.0,1.0,1.0,exact_after_normalize
+1164,Denzel Hall,412949,Denzel Hall,1.0,1.0,1.0,1.0,exact_after_normalize
+1165,Cole Bassett,605144,Cole Bassett,1.0,1.0,1.0,1.0,exact_after_normalize
+1166,Cyriel Dessers,317806,Cyriel Dessers,1.0,1.0,1.0,1.0,exact_after_normalize
+1167,Gernot Trauner,59145,Gernot Trauner,1.0,1.0,1.0,1.0,exact_after_normalize
+1168,Ramon Hendriks,436064,Ramon Hendriks,1.0,1.0,1.0,1.0,exact_after_normalize
+1169,Arianit Ferati,247380,Arianit Ferati,1.0,1.0,1.0,1.0,exact_after_normalize
+1170,Andreas Samaris,140032,Andreas Samaris,1.0,1.0,1.0,1.0,exact_after_normalize
+1171,Nigel Lonwijk,566043,Nigel Lonwijk,1.0,1.0,1.0,1.0,exact_after_normalize
+1172,Toshio Lake,514290,Toshio Lake,1.0,1.0,1.0,1.0,exact_after_normalize
+1173,Michael Verrips,288259,Michael Verrips,1.0,1.0,1.0,1.0,exact_after_normalize
+1174,Tijjani Noslin,457736,Tijjani Noslin,1.0,1.0,1.0,1.0,exact_after_normalize
+1175,Samy Baghdadi,511454,Samy Baghdadi,1.0,1.0,1.0,1.0,exact_after_normalize
+1176,Ivo Pinto,82281,Ivo Pinto,1.0,1.0,1.0,1.0,exact_after_normalize
+1177,Deroy Duarte,432852,Deroy Duarte,1.0,1.0,1.0,1.0,exact_after_normalize
+1178,Ryan Johansson,351071,Ryan Johansson,1.0,1.0,1.0,1.0,exact_after_normalize
+1180,Ogechika Heil,448257,Ogechika Heil,1.0,1.0,1.0,1.0,exact_after_normalize
+1181,Isac Lidberg,322073,Isac Lidberg,1.0,1.0,1.0,1.0,exact_after_normalize
+1183,Iñigo Córdoba,251848,Iñigo Córdoba,1.0,1.0,1.0,1.0,exact_after_normalize
+1184,Luuk Brouwers,369552,Luuk Brouwers,1.0,1.0,1.0,1.0,exact_after_normalize
+1185,Justin Bakker,313729,Justin Bakker,1.0,1.0,1.0,1.0,exact_after_normalize
+1186,Martijn Berden,258335,Martijn Berden,1.0,1.0,1.0,1.0,exact_after_normalize
+1189,Gerrit Nauber,85904,Gerrit Nauber,1.0,1.0,1.0,1.0,exact_after_normalize
+1191,Yacine Bourhane,525131,Yacine Bourhane,1.0,1.0,1.0,1.0,exact_after_normalize
+1192,Marc Cardona,443222,Marc Cardona,1.0,1.0,1.0,1.0,exact_after_normalize
+1193,Ragnar Oratmangoen,410854,Ragnar Oratmangoen,1.0,1.0,1.0,1.0,exact_after_normalize
+1195,Philippe Rommens,340791,Philippe Rommens,1.0,1.0,1.0,1.0,exact_after_normalize
+1196,Mats Deijl,369554,Mats Deijl,1.0,1.0,1.0,1.0,exact_after_normalize
+1198,Ali Akman,555719,Ali Akman,1.0,1.0,1.0,1.0,exact_after_normalize
+1199,Ibrahim Cissoko,575693,Ibrahim Cissoko,1.0,1.0,1.0,1.0,exact_after_normalize
+1200,Ilias Bronkhorst,491292,Ilias Bronkhorst,1.0,1.0,1.0,1.0,exact_after_normalize
+1201,Jordy Bruijn,241378,Jordy Bruijn,1.0,1.0,1.0,1.0,exact_after_normalize
+1202,Mikkel Duelund,320265,Mikkel Duelund,1.0,1.0,1.0,1.0,exact_after_normalize
+1205,Iván Márquez,296227,Iván Márquez,1.0,1.0,1.0,1.0,exact_after_normalize
+1206,Rodrigo Guth,492313,Rodrigo Guth,1.0,1.0,1.0,1.0,exact_after_normalize
+1207,Souffian El Karouani,541134,Souffian El Karouani,1.0,1.0,1.0,1.0,exact_after_normalize
+1208,Bart van Rooij,547499,Bart van Rooij,1.0,1.0,1.0,1.0,exact_after_normalize
+1210,Magnus Mattsson,489929,Magnus Mattsson,1.0,1.0,1.0,1.0,exact_after_normalize
+1211,Elayis Tavsan,462086,Elayis Tavsan,1.0,1.0,1.0,1.0,exact_after_normalize
+1212,Thomas Beekman,361089,Thomas Beekman,1.0,1.0,1.0,1.0,exact_after_normalize
+1213,Wilfried Bony,81808,Wilfried Bony,1.0,1.0,1.0,1.0,exact_after_normalize
+1217,Joey Veerman,408574,Joey Veerman,1.0,1.0,1.0,1.0,exact_after_normalize
+1218,Carlos Vinícius,525287,Carlos Vinícius,1.0,1.0,1.0,1.0,exact_after_normalize
+1219,Johan Bakayoko,565424,Johan Bakayoko,1.0,1.0,1.0,1.0,exact_after_normalize
+1220,Dennis Vos,412939,Dennis Vos,1.0,1.0,1.0,1.0,exact_after_normalize
+1221,Phillipp Mwene,127573,Phillipp Mwene,1.0,1.0,1.0,1.0,exact_after_normalize
+1222,André Ramalho,175792,André Ramalho,1.0,1.0,1.0,1.0,exact_after_normalize
+1223,Issam El Maach,430475,Issam El Maach,1.0,1.0,1.0,1.0,exact_after_normalize
+1224,Jens Odgaard,345590,Jens Odgaard,1.0,1.0,1.0,1.0,exact_after_normalize
+1225,Roy Kuijpers,469082,Roy Kuijpers,1.0,1.0,1.0,1.0,exact_after_normalize
+1226,Virgil Misidjan,214346,Virgil Misidjan,1.0,1.0,1.0,1.0,exact_after_normalize
+1227,Jeffrey De Lange,315253,Jeffrey de Lange,1.0,1.0,1.0,1.0,exact_after_normalize
+1228,Luca Everink,588744,Luca Everink,1.0,1.0,1.0,1.0,exact_after_normalize
+1229,Denilho Cleonise,582131,Denilho Cleonise,1.0,1.0,1.0,1.0,exact_after_normalize
+1230,Michel Vlap,342702,Michel Vlap,1.0,1.0,1.0,1.0,exact_after_normalize
+1231,Manfred Ugalde,645173,Manfred Ugalde,1.0,1.0,1.0,1.0,exact_after_normalize
+1232,Toni Domgjoni,344649,Toni Domgjoni,1.0,1.0,1.0,1.0,exact_after_normalize
+1233,Romaric Yapi,536521,Romaric Yapi,1.0,1.0,1.0,1.0,exact_after_normalize
+1234,Simon Van Duivenbooden,602597,Simon van Duivenbooden,1.0,1.0,1.0,1.0,exact_after_normalize
+1235,Yann Gboho,463613,Yann Gboho,1.0,1.0,1.0,1.0,exact_after_normalize
+1236,Julian von Moos,500762,Julian Von Moos,1.0,1.0,1.0,1.0,exact_after_normalize
+1237,Markus Schubert,296741,Markus Schubert,1.0,1.0,1.0,1.0,exact_after_normalize
+1238,Miliano Jonathans,723008,Miliano Jonathans,1.0,1.0,1.0,1.0,exact_after_normalize
+1239,Gyan de Regt,747243,Gyan de Regt,1.0,1.0,1.0,1.0,exact_after_normalize
+1241,Adrian Grbić,167342,Adrian Grbic,0.7333,1.0,1.0,1.0,exact_after_normalize
+1243,Connor van den Berg,477476,Connor van den Berg,1.0,1.0,1.0,1.0,exact_after_normalize
+1244,Kilian Ludewig,361516,Kilian Ludewig,1.0,1.0,1.0,1.0,exact_after_normalize
+1246,Ringo Meerveld,577455,Ringo Meerveld,1.0,1.0,1.0,1.0,exact_after_normalize
+1247,Emil Bergström,142208,Emil Bergström,1.0,1.0,1.0,1.0,exact_after_normalize
+1248,Max Svensson,367981,Max Svensson,1.0,1.0,1.0,1.0,exact_after_normalize
+1249,Jizz Hornkamp,185817,Jizz Hornkamp,1.0,1.0,1.0,1.0,exact_after_normalize
+1250,Ulrik Yttergård Jenssen,239044,Ulrik Yttergård Jenssen,1.0,1.0,1.0,1.0,exact_after_normalize
+1251,Lorenzo Lucca,572265,Lorenzo Lucca,1.0,1.0,1.0,1.0,exact_after_normalize
+1252,Calvin Bassey,461883,Calvin Bassey,1.0,1.0,1.0,1.0,exact_after_normalize
+1253,Mika Godts,748804,Mika Godts,1.0,1.0,1.0,1.0,exact_after_normalize
+1254,Jorrel Hato,904802,Jorrel Hato,1.0,1.0,1.0,1.0,exact_after_normalize
+1255,Gerónimo Rulli,229604,Gerónimo Rulli,1.0,1.0,1.0,1.0,exact_after_normalize
+1256,Florian Grillitsch,195736,Florian Grillitsch,1.0,1.0,1.0,1.0,exact_after_normalize
+1257,Francisco Conceição,487474,Francisco Conceição,1.0,1.0,1.0,1.0,exact_after_normalize
+1258,Youri Baas,559327,Youri Baas,1.0,1.0,1.0,1.0,exact_after_normalize
+1259,Jorge Sánchez,356044,Jorge Sánchez,1.0,1.0,1.0,1.0,exact_after_normalize
+1260,Lucas Ocampos,189441,Lucas Ocampos,1.0,1.0,1.0,1.0,exact_after_normalize
+1261,Kian Fitz-Jim,559333,Kian Fitz-Jim,1.0,1.0,1.0,1.0,exact_after_normalize
+1262,Christian Rasmussen,610429,Christian Rasmussen,1.0,1.0,1.0,1.0,exact_after_normalize
+1263,Silvano Vos,738476,Silvano Vos,1.0,1.0,1.0,1.0,exact_after_normalize
+1268,Mexx Meerdink,678546,Mexx Meerdink,1.0,1.0,1.0,1.0,exact_after_normalize
+1272,Mees de Wit,315254,Mees de Wit,1.0,1.0,1.0,1.0,exact_after_normalize
+1273,Felix Mambimbi,507496,Felix Mambimbi,1.0,1.0,1.0,1.0,exact_after_normalize
+1274,Mimoun Mahi,216815,Mimoun Mahi,1.0,1.0,1.0,1.0,exact_after_normalize
+1275,Vincent Pichel,766807,Vincent Pichel,1.0,1.0,1.0,1.0,exact_after_normalize
+1277,Remco Balk,412940,Remco Balk,1.0,1.0,1.0,1.0,exact_after_normalize
+1278,Daniël van Kaam,377720,Daniël van Kaam,1.0,1.0,1.0,1.0,exact_after_normalize
+1279,João Virgínia,329813,João Virgínia,1.0,1.0,1.0,1.0,exact_after_normalize
+1280,Floris Smand,899710,Floris Smand,1.0,1.0,1.0,1.0,exact_after_normalize
+1281,Silvester van der Water,386164,Silvester van der Water,1.0,1.0,1.0,1.0,exact_after_normalize
+1282,Sai van Wermeskerken,172779,Sai van Wermeskerken,1.0,1.0,1.0,1.0,exact_after_normalize
+1284,Luuk Admiraal,736014,Luuk Admiraal,1.0,1.0,1.0,1.0,exact_after_normalize
+1285,Norbert Alblas,278938,Norbert Alblas,1.0,1.0,1.0,1.0,exact_after_normalize
+1286,Raphaël Eyongo,808646,Raphaël Eyongo,1.0,1.0,1.0,1.0,exact_after_normalize
+1287,Maxime Awoudja,312218,Maxime Awoudja,1.0,1.0,1.0,1.0,exact_after_normalize
+1288,Noah Naujoks,578544,Noah Naujoks,1.0,1.0,1.0,1.0,exact_after_normalize
+1289,Nikolas Agrafiotis,477274,Nikolas Agrafiotis,1.0,1.0,1.0,1.0,exact_after_normalize
+1290,Couhaib Driouech,593837,Couhaib Driouech,1.0,1.0,1.0,1.0,exact_after_normalize
+1291,Reda Kharchouch,482826,Reda Kharchouch,1.0,1.0,1.0,1.0,exact_after_normalize
+1292,Stijn van Gassel,301696,Stijn van Gassel,1.0,1.0,1.0,1.0,exact_after_normalize
+1294,Nathan Tjoe-A-On,606023,Nathan Tjoe-A-On,1.0,1.0,1.0,1.0,exact_after_normalize
+1296,Redouan El Yaakoubi,480730,Redouan El Yaakoubi,1.0,1.0,1.0,1.0,exact_after_normalize
+1297,Arthur Zagre,536477,Arthur Zagré,0.7333,1.0,1.0,1.0,exact_after_normalize
+1298,Antoni Milambo,683620,Antoni Milambo,1.0,1.0,1.0,1.0,exact_after_normalize
+1299,Mimeirhel Benita,591880,Mimeirhel Benita,1.0,1.0,1.0,1.0,exact_after_normalize
+1300,Neraysho Kasanwirjo,503640,Neraysho Kasanwirjo,1.0,1.0,1.0,1.0,exact_after_normalize
+1301,Quinten Timber,420213,Quinten Timber,1.0,1.0,1.0,1.0,exact_after_normalize
+1302,Quilindschy Hartman,514285,Quilindschy Hartman,1.0,1.0,1.0,1.0,exact_after_normalize
+1303,Dávid Hancko,404418,Dávid Hancko,1.0,1.0,1.0,1.0,exact_after_normalize
+1304,Marcos López,432175,Marcos López,1.0,1.0,1.0,1.0,exact_after_normalize
+1305,Mats Wieffer,415381,Mats Wieffer,1.0,1.0,1.0,1.0,exact_after_normalize
+1306,Javairô Dilrosun,315125,Javairô Dilrosun,1.0,1.0,1.0,1.0,exact_after_normalize
+1307,Igor Paixão,653610,Igor Paixão,1.0,1.0,1.0,1.0,exact_after_normalize
+1308,Santiago Giménez,552955,Santiago Gimenez,0.7,1.0,1.0,1.0,exact_after_normalize
+1309,Ezequiel Bullaude,627068,Ezequiel Bullaude,1.0,1.0,1.0,1.0,exact_after_normalize
+1310,Sebastian Szymański,320748,Sebastian Szymański,1.0,1.0,1.0,1.0,exact_after_normalize
+1311,Rémy Vita,805835,Rémy Vita,1.0,1.0,1.0,1.0,exact_after_normalize
+1312,Úmaro Embaló,409886,Úmaro Embaló,1.0,1.0,1.0,1.0,exact_after_normalize
+1313,Ximo Navarro,184767,Ximo Navarro,1.0,1.0,1.0,1.0,exact_after_normalize
+1314,Gianmarco Cangiano,496270,Gianmarco Cangiano,1.0,1.0,1.0,1.0,exact_after_normalize
+1315,Ivor Pandur,371013,Ivor Pandur,1.0,1.0,1.0,1.0,exact_after_normalize
+1316,Kristijan Bistrović,375857,Kristijan Bistrovic,0.8095,1.0,1.0,1.0,exact_after_normalize
+1317,Stipe Radić,371002,Stipe Radic,0.7143,1.0,1.0,1.0,exact_after_normalize
+1318,Doğan Erdoğan,239733,Doğan Erdoğan,1.0,1.0,1.0,1.0,exact_after_normalize
+1319,Oliver Edvardsen,374326,Oliver Edvardsen,1.0,1.0,1.0,1.0,exact_after_normalize
+1320,Pim Saathof,624698,Pim Saathof,1.0,1.0,1.0,1.0,exact_after_normalize
+1321,José Fontán,609361,José Fontán,1.0,1.0,1.0,1.0,exact_after_normalize
+1322,Enric Llansana,412945,Enric Llansana,1.0,1.0,1.0,1.0,exact_after_normalize
+1323,Xander Blomme,496873,Xander Blomme,1.0,1.0,1.0,1.0,exact_after_normalize
+1324,Jahnoah Markelo,677382,Jahnoah Markelo,1.0,1.0,1.0,1.0,exact_after_normalize
+1325,Federico Mattiello,200194,Federico Mattiello,1.0,1.0,1.0,1.0,exact_after_normalize
+1326,Darío Serra,834768,Darío Serra,1.0,1.0,1.0,1.0,exact_after_normalize
+1327,Pedro Marques,404383,Pedro Marques,1.0,1.0,1.0,1.0,exact_after_normalize
+1328,Anthony Musaba,511401,Anthony Musaba,1.0,1.0,1.0,1.0,exact_after_normalize
+1329,Landry Dimata,311489,Landry Dimata,1.0,1.0,1.0,1.0,exact_after_normalize
+1330,Thorgan Hazard,102226,Thorgan Hazard,1.0,1.0,1.0,1.0,exact_after_normalize
+1331,Fábio Silva,505653,Fábio Silva,1.0,1.0,1.0,1.0,exact_after_normalize
+1332,Jarrad Branthwaite,661053,Jarrad Branthwaite,1.0,1.0,1.0,1.0,exact_after_normalize
+1333,Walter Benítez,296802,Walter Benítez,1.0,1.0,1.0,1.0,exact_after_normalize
+1334,Fodé Fofana,594039,Fodé Fofana,1.0,1.0,1.0,1.0,exact_after_normalize
+1335,Ki-Jana Hoever,485583,Ki-Jana Hoever,1.0,1.0,1.0,1.0,exact_after_normalize
+1336,Sávio,743591,Sávio,1.0,1.0,1.0,1.0,exact_after_normalize
+1337,Xavi Simons,566931,Xavi Simons,1.0,1.0,1.0,1.0,exact_after_normalize
+1338,Mika Biereth,565821,Mika Biereth,1.0,1.0,1.0,1.0,exact_after_normalize
+1339,Kevin Felida,433933,Kevin Felida,1.0,1.0,1.0,1.0,exact_after_normalize
+1340,Julen Lobete,625654,Julen Lobete,1.0,1.0,1.0,1.0,exact_after_normalize
+1341,Chris Lokesa,671675,Chris Lokesa,1.0,1.0,1.0,1.0,exact_after_normalize
+1343,Alfons Sampsted,332530,Alfons Sampsted,1.0,1.0,1.0,1.0,exact_after_normalize
+1344,Christos Tzolis,451677,Christos Tzolis,1.0,1.0,1.0,1.0,exact_after_normalize
+1345,Gabriel Vidovic,604327,Gabriel Vidovic,1.0,1.0,1.0,1.0,exact_after_normalize
+1346,Daan Reiziger,412946,Daan Reiziger,1.0,1.0,1.0,1.0,exact_after_normalize
+1347,Mohamed Sankoh,572919,Mohamed Sankoh,1.0,1.0,1.0,1.0,exact_after_normalize
+1348,Carlens Arcus,371686,Carlens Arcus,1.0,1.0,1.0,1.0,exact_after_normalize
+1349,Ryan Flamingo,586429,Ryan Flamingo,1.0,1.0,1.0,1.0,exact_after_normalize
+1350,Ahmetcan Kaplan,662131,Ahmetcan Kaplan,1.0,1.0,1.0,1.0,exact_after_normalize
+1351,Chuba Akpom,197642,Chuba Akpom,1.0,1.0,1.0,1.0,exact_after_normalize
+1353,Tristan Gooijer,656800,Tristan Gooijer,1.0,1.0,1.0,1.0,exact_after_normalize
+1355,Anton Gaaei,701055,Anton Gaaei,1.0,1.0,1.0,1.0,exact_after_normalize
+1356,Gastón Ávila,748601,Gastón Ávila,1.0,1.0,1.0,1.0,exact_after_normalize
+1357,Benjamin Tahirovic,787907,Benjamin Tahirović,0.8095,1.0,1.0,1.0,exact_after_normalize
+1358,Georges Mikautadze,729814,Georges Mikautadze,1.0,1.0,1.0,1.0,exact_after_normalize
+1359,Diant Ramaj,448705,Diant Ramaj,1.0,1.0,1.0,1.0,exact_after_normalize
+1360,Carlos Forbs,742451,Carlos Forbs,1.0,1.0,1.0,1.0,exact_after_normalize
+1361,Borna Sosa,293194,Borna Sosa,1.0,1.0,1.0,1.0,exact_after_normalize
+1362,Sivert Mannsverk,510310,Sivert Mannsverk,1.0,1.0,1.0,1.0,exact_after_normalize
+1363,Jordan Henderson,61651,Jordan Henderson,1.0,1.0,1.0,1.0,exact_after_normalize
+1364,Jakov Medić,488755,Jakov Medic,0.7143,1.0,1.0,1.0,exact_after_normalize
+1365,Josip Šutalo,371001,Josip Sutalo,0.625,1.0,1.0,1.0,exact_after_normalize
+1366,Lequincio Zeefuik,728864,Lequincio Zeefuik,1.0,1.0,1.0,1.0,exact_after_normalize
+1368,Ruben van Bommel,735701,Ruben van Bommel,1.0,1.0,1.0,1.0,exact_after_normalize
+1370,Dave Kwakman,747017,Dave Kwakman,1.0,1.0,1.0,1.0,exact_after_normalize
+1378,Finn Stam,665541,Finn Stam,1.0,1.0,1.0,1.0,exact_after_normalize
+1379,Lance Duijvestijn,378316,Lance Duijvestijn,1.0,1.0,1.0,1.0,exact_after_normalize
+1380,Cisse Sandra,632088,Cisse Sandra,1.0,1.0,1.0,1.0,exact_after_normalize
+1381,Casper Widell,605395,Casper Widell,1.0,1.0,1.0,1.0,exact_after_normalize
+1382,Lennard Hartjes,595238,Lennard Hartjes,1.0,1.0,1.0,1.0,exact_after_normalize
+1385,Oscar Uddenäs,585334,Oscar Uddenäs,1.0,1.0,1.0,1.0,exact_after_normalize
+1386,Troy Parrott,552655,Troy Parrott,1.0,1.0,1.0,1.0,exact_after_normalize
+1387,Richie Omorowa,764863,Richie Omorowa,1.0,1.0,1.0,1.0,exact_after_normalize
+1388,Leo Sauer,710886,Leo Sauer,1.0,1.0,1.0,1.0,exact_after_normalize
+1389,Ayase Ueda,589128,Ayase Ueda,1.0,1.0,1.0,1.0,exact_after_normalize
+1390,Yankuba Minteh,1012534,Yankuba Minteh,1.0,1.0,1.0,1.0,exact_after_normalize
+1391,Thomas van den Belt,412941,Thomas van den Belt,1.0,1.0,1.0,1.0,exact_after_normalize
+1392,Thomas Beelen,593862,Thomas Beelen,1.0,1.0,1.0,1.0,exact_after_normalize
+1393,Gjivai Zechiël,571149,Gjivai Zechiël,1.0,1.0,1.0,1.0,exact_after_normalize
+1394,Luka Ivanušec,387105,Luka Ivanušec,1.0,1.0,1.0,1.0,exact_after_normalize
+1395,Ondřej Lingr,321195,Ondrej Lingr,0.625,1.0,1.0,1.0,exact_after_normalize
+1396,Sadik Fofana,644613,Sadik Fofana,1.0,1.0,1.0,1.0,exact_after_normalize
+1397,Loreintz Rosier,586855,Loreintz Rosier,1.0,1.0,1.0,1.0,exact_after_normalize
+1398,Jayden Braaf,470391,Jayden Braaf,1.0,1.0,1.0,1.0,exact_after_normalize
+1399,Siemen Voet,460845,Siemen Voet,1.0,1.0,1.0,1.0,exact_after_normalize
+1400,Kristoffer Peterson,186704,Kristoffer Peterson,1.0,1.0,1.0,1.0,exact_after_normalize
+1401,Tom Hendriks,687560,Tom Hendriks,1.0,1.0,1.0,1.0,exact_after_normalize
+1402,Milan Robberechts,913022,Milan Robberechts,1.0,1.0,1.0,1.0,exact_after_normalize
+1403,Mouhamed Belkheir,394127,Mouhamed Belkheir,1.0,1.0,1.0,1.0,exact_after_normalize
+1404,Justin Lonwijk,357917,Justin Lonwijk,1.0,1.0,1.0,1.0,exact_after_normalize
+1405,Iman Griffith,515396,Iman Griffith,1.0,1.0,1.0,1.0,exact_after_normalize
+1406,Alen Halilović,226074,Alen Halilovic,0.7647,1.0,1.0,1.0,exact_after_normalize
+1407,Marko Lazetić,698548,Marko Lazetić,1.0,1.0,1.0,1.0,exact_after_normalize
+1408,Jakob Breum,657957,Jakob Breum,1.0,1.0,1.0,1.0,exact_after_normalize
+1409,Thibo Baeten,486043,Thibo Baeten,1.0,1.0,1.0,1.0,exact_after_normalize
+1410,Victor Edvardsen,265324,Victor Edvardsen,1.0,1.0,1.0,1.0,exact_after_normalize
+1411,Søren Tengstedt,541601,Søren Tengstedt,1.0,1.0,1.0,1.0,exact_after_normalize
+1412,Dean James,529223,Dean James,1.0,1.0,1.0,1.0,exact_after_normalize
+1413,Lars Olden Larsen,432682,Lars Olden Larsen,1.0,1.0,1.0,1.0,exact_after_normalize
+1414,Mathias Ross,545331,Mathias Ross,1.0,1.0,1.0,1.0,exact_after_normalize
+1415,Yvandro Borges Sanches,586659,Yvandro Borges Sanches,1.0,1.0,1.0,1.0,exact_after_normalize
+1416,D'Leanu Arts,625169,D'Leanu Arts,1.0,1.0,1.0,1.0,exact_after_normalize
+1417,Bram Nuytinck,104597,Bram Nuytinck,1.0,1.0,1.0,1.0,exact_after_normalize
+1418,Robin Roefs,646991,Robin Roefs,1.0,1.0,1.0,1.0,exact_after_normalize
+1419,Luc Netten,747019,Luc Netten,1.0,1.0,1.0,1.0,exact_after_normalize
+1420,Bas Dost,56331,Bas Dost,1.0,1.0,1.0,1.0,exact_after_normalize
+1421,Tjaronn Chery,76326,Tjaronn Chery,1.0,1.0,1.0,1.0,exact_after_normalize
+1422,Nils Rossen,694039,Nils Rossen,1.0,1.0,1.0,1.0,exact_after_normalize
+1423,Kodai Sano,957544,Kodai Sano,1.0,1.0,1.0,1.0,exact_after_normalize
+1424,Brayann Pereira,620317,Brayann Pereira,1.0,1.0,1.0,1.0,exact_after_normalize
+1425,Kōki Ogawa,351567,Koki Ogawa,0.5714,1.0,1.0,1.0,exact_after_normalize
+1427,Tygo Land,816974,Tygo Land,1.0,1.0,1.0,1.0,exact_after_normalize
+1428,Malik Tillman,467437,Malik Tillman,1.0,1.0,1.0,1.0,exact_after_normalize
+1429,Ricardo Pepi,627207,Ricardo Pepi,1.0,1.0,1.0,1.0,exact_after_normalize
+1430,Isaac Babadi,813437,Isaac Babadi,1.0,1.0,1.0,1.0,exact_after_normalize
+1431,Boy Waterman,4391,Boy Waterman,1.0,1.0,1.0,1.0,exact_after_normalize
+1432,Raz Meir,247633,Raz Meir,1.0,1.0,1.0,1.0,exact_after_normalize
+1433,Daouda Weidmann,808578,Daouda Weidmann,1.0,1.0,1.0,1.0,exact_after_normalize
+1434,Mark Spenkelink,383705,Mark Spenkelink,1.0,1.0,1.0,1.0,exact_after_normalize
+1435,Filip Stevanovic,627750,Filip Stevanovic,1.0,1.0,1.0,1.0,exact_after_normalize
+1436,Ilias Takidine,488768,Ilias Takidine,1.0,1.0,1.0,1.0,exact_after_normalize
+1437,Reuven Niemeijer,443308,Reuven Niemeijer,1.0,1.0,1.0,1.0,exact_after_normalize
+1438,Mats Rots,983677,Mats Rots,1.0,1.0,1.0,1.0,exact_after_normalize
+1439,Alec Van Hoorenbeeck,405892,Alec Van Hoorenbeeck,1.0,1.0,1.0,1.0,exact_after_normalize
+1440,Naci Ünüvar,508639,Naci Ünüvar,1.0,1.0,1.0,1.0,exact_after_normalize
+1441,Gijs Besselink,704075,Gijs Besselink,1.0,1.0,1.0,1.0,exact_after_normalize
+1442,Julien Mesbahi,895089,Juliën Mesbahi,0.6667,1.0,1.0,1.0,exact_after_normalize
+1443,Mats Egbring,1030525,Mats Egbring,1.0,1.0,1.0,1.0,exact_after_normalize
+1444,Saïd Hamulic,652996,Said Hamulic,0.625,1.0,1.0,1.0,exact_after_normalize
+1445,Jordi Altena,607173,Jordi Altena,1.0,1.0,1.0,1.0,exact_after_normalize
+1446,Giovanni van Zwam,805149,Giovanni van Zwam,1.0,1.0,1.0,1.0,exact_after_normalize
+1447,Andy Visser,1096365,Andy Visser,1.0,1.0,1.0,1.0,exact_after_normalize
+1448,Mathijs Tielemans,608889,Mathijs Tielemans,1.0,1.0,1.0,1.0,exact_after_normalize
+1449,Adrian Mazilu,723835,Adrian Mazilu,1.0,1.0,1.0,1.0,exact_after_normalize
+1450,Paxten Aaronson,795738,Paxten Aaronson,1.0,1.0,1.0,1.0,exact_after_normalize
+1451,Anis Hadj Moussa,917911,Anis Hadj Moussa,1.0,1.0,1.0,1.0,exact_after_normalize
+1452,Joel Voelkerling Persson,647534,Joel Voelkerling Persson,1.0,1.0,1.0,1.0,exact_after_normalize
+1453,Amine Boutrah,651977,Amine Boutrah,1.0,1.0,1.0,1.0,exact_after_normalize
+1454,Sean Steur,1111063,Sean Steur,1.0,1.0,1.0,1.0,exact_after_normalize
+1455,Rayane Bounida,598491,Rayane Bounida,1.0,1.0,1.0,1.0,exact_after_normalize
+1456,Jorthy Mokio,1105532,Jorthy Mokio,1.0,1.0,1.0,1.0,exact_after_normalize
+1457,Dies Janse,765743,Dies Janse,1.0,1.0,1.0,1.0,exact_after_normalize
+1458,Matheus,177547,Matheus,1.0,1.0,1.0,1.0,exact_after_normalize
+1459,Don-Angelo Konadu,981693,Don-Angelo Konadu,1.0,1.0,1.0,1.0,exact_after_normalize
+1460,Daniele Rugani,162959,Daniele Rugani,1.0,1.0,1.0,1.0,exact_after_normalize
+1464,Ibrahim Osman,1110406,Ibrahim Osman,1.0,1.0,1.0,1.0,exact_after_normalize
+1465,Stephano Carrillo,955224,Stéphano Carrillo,0.7143,1.0,1.0,1.0,exact_after_normalize
+1466,Shiloh 't Zand,595247,Shiloh 't Zand,1.0,1.0,1.0,1.0,exact_after_normalize
+1467,Jeyland Mitchell,856068,Jeyland Mitchell,1.0,1.0,1.0,1.0,exact_after_normalize
+1468,Julián Carranza,491707,Julián Carranza,1.0,1.0,1.0,1.0,exact_after_normalize
+1469,Hugo Bueno,698678,Hugo Bueno,1.0,1.0,1.0,1.0,exact_after_normalize
+1470,Aymen Sliti,775257,Aymen Sliti,1.0,1.0,1.0,1.0,exact_after_normalize
+1472,Oussama Targhalline,667965,Oussama Targhalline,1.0,1.0,1.0,1.0,exact_after_normalize
+1473,Givairo Read,997903,Givairo Read,1.0,1.0,1.0,1.0,exact_after_normalize
+1474,Jordan Lotomba,313094,Jordan Lotomba,1.0,1.0,1.0,1.0,exact_after_normalize
+1475,Jan Plug,745625,Jan Plug,1.0,1.0,1.0,1.0,exact_after_normalize
+1476,Jakub Moder,384461,Jakub Moder,1.0,1.0,1.0,1.0,exact_after_normalize
+1478,Plamen Andreev,859218,Plamen Andreev,1.0,1.0,1.0,1.0,exact_after_normalize
+1480,Tristan Schenkhuizen,1135967,Tristan Schenkhuizen,1.0,1.0,1.0,1.0,exact_after_normalize
+1481,Ante Erceg,131303,Ante Erceg,1.0,1.0,1.0,1.0,exact_after_normalize
+1482,Makan Aiko,813152,Makan Aïko,0.5714,1.0,1.0,1.0,exact_after_normalize
+1484,Bojan Radulovic,516407,Bojan Radulović,0.7778,1.0,1.0,1.0,exact_after_normalize
+1485,Hasip Korkmazyürek,835546,Hasip Korkmazyürek,1.0,1.0,1.0,1.0,exact_after_normalize
+1486,Samuel Bastien,289510,Samuel Bastien,1.0,1.0,1.0,1.0,exact_after_normalize
+1487,Syb Van Ottele,485586,Syb van Ottele,1.0,1.0,1.0,1.0,exact_after_normalize
+1488,Ryan Fosso,620832,Ryan Fosso,1.0,1.0,1.0,1.0,exact_after_normalize
+1489,Josip Mitrović,464332,Josip Mitrovic,0.7647,1.0,1.0,1.0,exact_after_normalize
+1490,Luka Tunjić,915445,Luka Tunjic,0.7143,1.0,1.0,1.0,exact_after_normalize
+1491,Edouard Michut,659521,Edouard Michut,1.0,1.0,1.0,1.0,exact_after_normalize
+1492,Oliver Antman,527896,Oliver Antman,1.0,1.0,1.0,1.0,exact_after_normalize
+1493,Ofosu Boakye,1184614,Ofosu Boakye,1.0,1.0,1.0,1.0,exact_after_normalize
+1494,Calvin Twigt,612758,Calvin Twigt,1.0,1.0,1.0,1.0,exact_after_normalize
+1495,Mathis Suray,422760,Mathis Suray,1.0,1.0,1.0,1.0,exact_after_normalize
+1496,Jari De Busser,426849,Jari De Busser,1.0,1.0,1.0,1.0,exact_after_normalize
+1497,Robbin Weijenberg,690665,Robbin Weijenberg,1.0,1.0,1.0,1.0,exact_after_normalize
+1498,Oscar Pettersson,577816,Oscar Pettersson,1.0,1.0,1.0,1.0,exact_after_normalize
+1499,Julius Dirksen,566930,Julius Dirksen,1.0,1.0,1.0,1.0,exact_after_normalize
+1500,Luca Plogmann,335997,Luca Plogmann,1.0,1.0,1.0,1.0,exact_after_normalize
+1501,Aske Adelgaard,656132,Aske Adelgaard,1.0,1.0,1.0,1.0,exact_after_normalize
+1502,Max Balard,849428,Max Balard,1.0,1.0,1.0,1.0,exact_after_normalize
+1503,Dion Versluis,678666,Dion Versluis,1.0,1.0,1.0,1.0,exact_after_normalize
+1504,Martin Koscelník,382204,Martin Koscelník,1.0,1.0,1.0,1.0,exact_after_normalize
+1506,Kacper Kostorz,510459,Kacper Kostorz,1.0,1.0,1.0,1.0,exact_after_normalize
+1507,Raul Paula,716756,Raul Paula,1.0,1.0,1.0,1.0,exact_after_normalize
+1508,Saná Fernandes,1026255,Saná Fernandes,1.0,1.0,1.0,1.0,exact_after_normalize
+1509,Daniel Bielica,463233,Daniel Bielica,1.0,1.0,1.0,1.0,exact_after_normalize
+1511,Maxime Busi,570817,Maxime Busi,1.0,1.0,1.0,1.0,exact_after_normalize
+1512,Leo Greiml,434110,Leo Greiml,1.0,1.0,1.0,1.0,exact_after_normalize
+1514,Cherrion Valerius,936581,Cherrion Valerius,1.0,1.0,1.0,1.0,exact_after_normalize
+1515,Enes Mahmutovic,329055,Enes Mahmutovic,1.0,1.0,1.0,1.0,exact_after_normalize
+1516,Lars Mol,824000,Lars Mol,1.0,1.0,1.0,1.0,exact_after_normalize
+1519,Yousri Sbai,576096,Yousri Sbai,1.0,1.0,1.0,1.0,exact_after_normalize
+1520,Kento Shiogai,1144627,Kento Shiogai,1.0,1.0,1.0,1.0,exact_after_normalize
+1521,Argyris Darelas,814533,Argyris Darelas,1.0,1.0,1.0,1.0,exact_after_normalize
+1523,Adamo Nagalo,800976,Adamo Nagalo,1.0,1.0,1.0,1.0,exact_after_normalize
+1524,Lucas Pérez,73185,Lucas Pérez,1.0,1.0,1.0,1.0,exact_after_normalize
+1525,Esmir Bajraktarevic,925862,Esmir Bajraktarevic,1.0,1.0,1.0,1.0,exact_after_normalize
+1528,Matteo Dams,654918,Matteo Dams,1.0,1.0,1.0,1.0,exact_after_normalize
+1529,Ivan Perišić,42460,Ivan Perisic,0.5294,1.0,1.0,1.0,exact_after_normalize
+1530,Alexander Jakobsen,255172,Alexander Jakobsen,1.0,1.0,1.0,1.0,exact_after_normalize
+1531,Tim van de Loo,886260,Tim van de Loo,1.0,1.0,1.0,1.0,exact_after_normalize
+1532,Roshon van Eijma,401029,Roshon van Eijma,1.0,1.0,1.0,1.0,exact_after_normalize
+1533,Joey Kesting,471691,Joey Kesting,1.0,1.0,1.0,1.0,exact_after_normalize
+1534,Faissal Al Mazyani,829819,Faissal Al Mazyani,1.0,1.0,1.0,1.0,exact_after_normalize
+1535,Sayfallah Ltaief,388220,Sayfallah Ltaief,1.0,1.0,1.0,1.0,exact_after_normalize
+1536,Gustaf Lagerbielke,485395,Gustaf Lagerbielke,1.0,1.0,1.0,1.0,exact_after_normalize
+1537,Taylor Booth,513963,Taylor Booth,1.0,1.0,1.0,1.0,exact_after_normalize
+1538,Gerald Alders,891854,Gerald Alders,1.0,1.0,1.0,1.0,exact_after_normalize
+1539,Lucas Vennegoor of Hesselink,997646,Lucas Vennegoor of Hesselink,1.0,1.0,1.0,1.0,exact_after_normalize
+1541,Khaled Razak,892531,Khaled Razak,1.0,1.0,1.0,1.0,exact_after_normalize
+1542,Per Van Loon,1003716,Per van Loon,1.0,1.0,1.0,1.0,exact_after_normalize
+1543,Boris lambert,585711,Boris Lambert,1.0,1.0,1.0,1.0,exact_after_normalize
+1545,Tommy St. Jago,458734,Tommy St. Jago,1.0,1.0,1.0,1.0,exact_after_normalize
+1547,Emilio Kehrer,527279,Emilio Kehrer,1.0,1.0,1.0,1.0,exact_after_normalize
+1549,Youssuf Sylla,667903,Youssuf Sylla,1.0,1.0,1.0,1.0,exact_after_normalize
+1550,Valentino Vermeulen,540928,Valentino Vermeulen,1.0,1.0,1.0,1.0,exact_after_normalize
+1551,Miodrag Pivas,908890,Miodrag Pivaš,0.75,1.0,1.0,1.0,exact_after_normalize
+1552,Jens Mathijsen,1175838,Jens Mathijsen,1.0,1.0,1.0,1.0,exact_after_normalize
+1553,Dennis Kaygin,829257,Dennis Kaygin,1.0,1.0,1.0,1.0,exact_after_normalize
+1554,Kyan Vaesen,687630,Kyan Vaesen,1.0,1.0,1.0,1.0,exact_after_normalize
+1555,Uriel van Aalst,1052795,Uriël van Aalst,0.6842,1.0,1.0,1.0,exact_after_normalize
+1556,Takehiro Tomiyasu,331560,Takehiro Tomiyasu,1.0,1.0,1.0,1.0,exact_after_normalize
+1557,Maher Carrizo,1162160,Maher Carrizo,1.0,1.0,1.0,1.0,exact_after_normalize
+1558,Ko Itakura,355816,Ko Itakura,1.0,1.0,1.0,1.0,exact_after_normalize
+1559,Raúl Moro,624942,Raúl Moro,1.0,1.0,1.0,1.0,exact_after_normalize
+1560,Maarten Paes,396077,Maarten Paes,1.0,1.0,1.0,1.0,exact_after_normalize
+1561,James McConnell,845289,James McConnell,1.0,1.0,1.0,1.0,exact_after_normalize
+1563,Aaron Bouwman,987366,Aaron Bouwman,1.0,1.0,1.0,1.0,exact_after_normalize
+1564,Oscar Gloukh,930571,Oscar Gloukh,1.0,1.0,1.0,1.0,exact_after_normalize
+1565,Vitezslav Jaros,486604,Vitezslav Jaros,1.0,1.0,1.0,1.0,exact_after_normalize
+1571,Billy van Duijl,1008564,Billy van Duijl,1.0,1.0,1.0,1.0,exact_after_normalize
+1577,Stijn Middendorp,1299824,Stijn Middendorp,1.0,1.0,1.0,1.0,exact_after_normalize
+1579,Zach Booth,746838,Zach Booth,1.0,1.0,1.0,1.0,exact_after_normalize
+1580,Nolan Martens,720189,Nolan Martens,1.0,1.0,1.0,1.0,exact_after_normalize
+1581,Adam Carlén,675844,Adam Carlén,1.0,1.0,1.0,1.0,exact_after_normalize
+1582,Calvin Raatsie,485588,Calvin Raatsie,1.0,1.0,1.0,1.0,exact_after_normalize
+1585,Tijmen Holla,1088035,Tijmen Holla,1.0,1.0,1.0,1.0,exact_after_normalize
+1587,Rick Meissen,596178,Rick Meissen,1.0,1.0,1.0,1.0,exact_after_normalize
+1588,Irakli Yegoian,806245,Irakli Yegoian,1.0,1.0,1.0,1.0,exact_after_normalize
+1589,Lewis Schouten,801031,Lewis Schouten,1.0,1.0,1.0,1.0,exact_after_normalize
+1590,Stan Henderikx,675981,Stan Henderikx,1.0,1.0,1.0,1.0,exact_after_normalize
+1591,Stefan Mitrović,726526,Stefan Mitrović,1.0,1.0,1.0,1.0,exact_after_normalize
+1593,Gaoussou Diarra,1233996,Gaoussou Diarra,1.0,1.0,1.0,1.0,exact_after_normalize
+1594,Raheem Sterling,134425,Raheem Sterling,1.0,1.0,1.0,1.0,exact_after_normalize
+1596,Tsuyoshi Watanabe,598791,Tsuyoshi Watanabe,1.0,1.0,1.0,1.0,exact_after_normalize
+1597,Steven Benda,381469,Steven Benda,1.0,1.0,1.0,1.0,exact_after_normalize
+1598,Gonçalo Borges,479649,Gonçalo Borges,1.0,1.0,1.0,1.0,exact_after_normalize
+1599,Casper Tengstedt,464598,Casper Tengstedt,1.0,1.0,1.0,1.0,exact_after_normalize
+1600,Luciano Valente,601495,Luciano Valente,1.0,1.0,1.0,1.0,exact_after_normalize
+1601,Cyle Larin,343463,Cyle Larin,1.0,1.0,1.0,1.0,exact_after_normalize
+1602,Thijs Kraaijeveld,987370,Thijs Kraaijeveld,1.0,1.0,1.0,1.0,exact_after_normalize
+1603,Jaden Slory,727480,Jaden Slory,1.0,1.0,1.0,1.0,exact_after_normalize
+1604,Malcolm Jeng,1126894,Malcolm Jeng,1.0,1.0,1.0,1.0,exact_after_normalize
+1606,Anel Ahmedhodžić,377468,Anel Ahmedhodzic,0.6,1.0,1.0,1.0,exact_after_normalize
+1607,Justin Hubner,678641,Justin Hubner,1.0,1.0,1.0,1.0,exact_after_normalize
+1608,Houboulang Mendes,442552,Houboulang Mendes,1.0,1.0,1.0,1.0,exact_after_normalize
+1612,Marko Kerkez,938431,Marko Kerkez,1.0,1.0,1.0,1.0,exact_after_normalize
+1613,Philip Brittijn,900072,Philip Brittijn,1.0,1.0,1.0,1.0,exact_after_normalize
+1614,Yassir Salah Rahmouni,1088311,Yassir Salah Rahmouni,1.0,1.0,1.0,1.0,exact_after_normalize
+1615,Eus Waayers,921306,Eus Waayers,1.0,1.0,1.0,1.0,exact_after_normalize
+1616,Jayden Candelaria,571150,Jayden Candelaria,1.0,1.0,1.0,1.0,exact_after_normalize
+1617,Amine Salama,980576,Amine Salama,1.0,1.0,1.0,1.0,exact_after_normalize
+1618,Rio Hillen,559334,Rio Hillen,1.0,1.0,1.0,1.0,exact_after_normalize
+1619,Mohamed Nassoh,640565,Mohamed Nassoh,1.0,1.0,1.0,1.0,exact_after_normalize
+1620,Juho Talvitie,741587,Juho Talvitie,1.0,1.0,1.0,1.0,exact_after_normalize
+1621,Denis Odoi,59641,Denis Odoi,1.0,1.0,1.0,1.0,exact_after_normalize
+1622,Moussa Soumano,1053240,Moussa Soumano,1.0,1.0,1.0,1.0,exact_after_normalize
+1623,André Ayew,45403,André Ayew,1.0,1.0,1.0,1.0,exact_after_normalize
+1624,Pepijn Reulen,1409754,Pepijn Reulen,1.0,1.0,1.0,1.0,exact_after_normalize
+1625,Brahim Ghalidi,743390,Brahim Ghalidi,1.0,1.0,1.0,1.0,exact_after_normalize
+1626,Lewis Holtby,55508,Lewis Holtby,1.0,1.0,1.0,1.0,exact_after_normalize
+1627,Daan van Reeuwijk,1078945,Daan van Reeuwijk,1.0,1.0,1.0,1.0,exact_after_normalize
+1628,Charles-Andréas Brym,595028,Charles-Andreas Brym,0.75,1.0,1.0,1.0,exact_after_normalize
+1629,Rijk Janse,593163,Rijk Janse,1.0,1.0,1.0,1.0,exact_after_normalize
+1631,Youssef El Kachati,444380,Youssef El Kachati,1.0,1.0,1.0,1.0,exact_after_normalize
+1632,Isak Hansen-Aarøen,670116,Isak Hansen-Aarøen,1.0,1.0,1.0,1.0,exact_after_normalize
+1633,Deveron Fonville,708989,Deveron Fonville,1.0,1.0,1.0,1.0,exact_after_normalize
+1634,Noé Lebreton,926389,Noé Lebreton,1.0,1.0,1.0,1.0,exact_after_normalize
+1635,Gonzalo Crettaz,631049,Gonzalo Crettaz,1.0,1.0,1.0,1.0,exact_after_normalize
+1636,Sam de Laat,1052803,Sam de Laat,1.0,1.0,1.0,1.0,exact_after_normalize
+1637,Darko Nejašmić,526566,Darko Nejasmic,0.5,1.0,1.0,1.0,exact_after_normalize
+1638,Alassane Pléa,167329,Alassane Pléa,1.0,1.0,1.0,1.0,exact_after_normalize
+1641,Dennis Man,397486,Dennis Man,1.0,1.0,1.0,1.0,exact_after_normalize
+1644,Paul Wanner,900909,Paul Wanner,1.0,1.0,1.0,1.0,exact_after_normalize
+1645,Noah Fernandez,1095107,Noah Fernandez,1.0,1.0,1.0,1.0,exact_after_normalize
+1646,Kiliann Sildillia,548348,Kiliann Sildillia,1.0,1.0,1.0,1.0,exact_after_normalize
+1647,Niek Schiks,723005,Niek Schiks,1.0,1.0,1.0,1.0,exact_after_normalize
+1648,Yarek Gasiorowski,895334,Yarek Gasiorowski,1.0,1.0,1.0,1.0,exact_after_normalize
+1649,Nick Olij,215094,Nick Olij,1.0,1.0,1.0,1.0,exact_after_normalize
+1651,Matej Kovar,550829,Matej Kovar,1.0,1.0,1.0,1.0,exact_after_normalize
+1652,Cedric Hatenboer,682568,Cedric Hatenboer,1.0,1.0,1.0,1.0,exact_after_normalize
+1653,Milan Zonneveld,818445,Milan Zonneveld,1.0,1.0,1.0,1.0,exact_after_normalize
+1655,Sem van Duijn,926491,Sem van Duijn,1.0,1.0,1.0,1.0,exact_after_normalize
+1656,Rojendro Oudsten,1104231,Rojendro Oudsten,1.0,1.0,1.0,1.0,exact_after_normalize
+1658,Kay Tejan,442885,Kay Tejan,1.0,1.0,1.0,1.0,exact_after_normalize
+1659,Remi van Ekeris,806463,Remi van Ekeris,1.0,1.0,1.0,1.0,exact_after_normalize
+1662,Jeff Hardeveld,263555,Jeff Hardeveld,1.0,1.0,1.0,1.0,exact_after_normalize
+1663,Sebastiaan Hagedoorn,804906,Sebastiaan Hagedoorn,1.0,1.0,1.0,1.0,exact_after_normalize
+1664,Jelani Seedorf,943592,Jelani Seedorf,1.0,1.0,1.0,1.0,exact_after_normalize
+1665,Neville Ogidi Nwankwo,951398,Neville Ogidi Nwankwo,1.0,1.0,1.0,1.0,exact_after_normalize
+1666,Patrick Brouwer,593824,Patrick Brouwer,1.0,1.0,1.0,1.0,exact_after_normalize
+1669,Dylan Mertens,322616,Dylan Mertens,1.0,1.0,1.0,1.0,exact_after_normalize
+1670,Sondre Ørjasæter,1002305,Sondre Ørjasæter,1.0,1.0,1.0,1.0,exact_after_normalize
+1671,Marko Pjaca,205940,Marko Pjaca,1.0,1.0,1.0,1.0,exact_after_normalize
+1672,Stav Lemkin,761326,Stav Lemkin,1.0,1.0,1.0,1.0,exact_after_normalize
+1673,Nigel Groenewald,1274531,Nigel Groenewald,1.0,1.0,1.0,1.0,exact_after_normalize
+1674,Guilherme Peixoto,983553,Guilherme Peixoto,1.0,1.0,1.0,1.0,exact_after_normalize
+1675,Ruud Nijstad,1189172,Ruud Nijstad,1.0,1.0,1.0,1.0,exact_after_normalize
+1676,Klaas-Jan Huntelaar,4357,Klaas-Jan Huntelaar,1.0,1.0,1.0,1.0,exact_after_normalize
+1679,João Carlos Teixeira,132214,João Carlos Teixeira,1.0,1.0,1.0,1.0,exact_after_normalize
+1681,Terry Lartey Sanniez,241483,Terry Lartey Sanniez,1.0,1.0,1.0,1.0,exact_after_normalize
+1690,Enrico Dueñas,494283,Enrico Dueñas,1.0,1.0,1.0,1.0,exact_after_normalize
+1691,Maximilian Wöber,263361,Maximilian Wöber,1.0,1.0,1.0,1.0,exact_after_normalize
+1696,Mihai Roman,135566,Mihai Roman,1.0,1.0,1.0,1.0,exact_after_normalize
+1701,Izzy Brown,245805,Izzy Brown,1.0,1.0,1.0,1.0,exact_after_normalize
+1702,Bojan Krkić,44675,Bojan Krkic,0.7143,1.0,1.0,1.0,exact_after_normalize
+1710,Eric Botteghin,56601,Eric Botteghin,1.0,1.0,1.0,1.0,exact_after_normalize
+649,Andreas Calcan,244548,Andreias Calcan,0.7222,0.9867,0.9655,0.9655,same_surname_diff_given_name
+1052,Dimitris Emmanouilidis,468036,Dimitrios Emmanouilidis,0.84,0.964,0.9778,0.964,same_surname_diff_given_name
+343,Colin Kazim-Richards,36802,Colin Kazım-Richards,0.75,0.9589,0.95,0.95,same_given_name_diff_surname
+1187,Aventis Aventisian,451673,Aventis Aventisyan,0.6,0.9778,0.9444,0.9444,same_given_name_diff_surname
+880,Dimitris Kolovos,162261,Dimitrios Kolovos,0.7895,0.9382,0.9697,0.9382,same_surname_diff_given_name
+616,Ferdi Kadioglu,369316,Ferdi Kadıoğlu,0.5,0.9714,0.9286,0.9286,same_given_name_diff_surname
+1197,Turan Tuzlacik,436063,Turan Tuzlacık,0.625,0.9714,0.9286,0.9286,same_given_name_diff_surname
+815,Lazaros Lamprou,292356,Lazaros Labrou,0.5882,0.959,0.8966,0.8966,same_given_name_diff_surname
+810,Michael Pinto,177866,Mica Pinto,0.5625,0.9462,0.8696,0.8696,same_surname_diff_given_name
+1665,Neville Ogidi Nwankwo,399350,Nigel Ogidi Nwankwo,0.5385,0.8914,0.85,0.85,same_surname_diff_given_name
+970,Oriol Busquets,282721,Uri Busquets,0.4737,0.9008,0.8462,0.8462,same_surname_diff_given_name
+467,Andrew Driver,42967,Andy Driver,0.625,0.8549,0.8333,0.8333,same_surname_diff_given_name
+766,Kostas Tsimikas,338070,Konstantinos Tsimikas,0.48,0.8705,0.8333,0.8333,same_surname_diff_given_name
+668,Rasmus Kristensen,369684,Rasmus Nissen Kristensen,0.7826,0.8946,0.8293,0.8293,given_and_surname_match_extra_middle_token
+232,Prince-Désir Gouano,171410,Prince Gouano,0.7,0.9368,0.8125,0.8125,same_surname_diff_given_name
+33,Mike van der Hoorn,207048,Mickey van der Hart,0.3929,0.8994,0.8108,0.8108,other
+623,Ramon Lundqvist,238084,Ramon Pascal Lundqvist,0.6957,0.883,0.8108,0.8108,given_and_surname_match_extra_middle_token
+67,Steven Berghuis,284165,Steven Bergwijn,0.5238,0.92,0.8,0.8,same_given_name_diff_surname
+437,Ben Rienstra,277772,Daan Rienstra,0.5,0.8675,0.8,0.8,same_surname_diff_given_name
+962,Daan Rienstra,64506,Ben Rienstra,0.5,0.8675,0.8,0.8,same_surname_diff_given_name
+1242,Anargyros Kampetsis,369103,Argyris Kabetsis,0.3846,0.7978,0.8,0.7978,other
+1677,Luis Manuel Orejuela,331057,Luis Orejuela,0.7,0.8838,0.7879,0.7879,given_and_surname_match_extra_middle_token
+1678,Jerry St. Juste,288253,Jeremiah St. Juste,0.55,0.9041,0.7879,0.7879,same_surname_diff_given_name
+23,Roland Alberg,124761,Roland Bergkamp,0.4286,0.9113,0.7857,0.7857,same_given_name_diff_surname
+1301,Quinten Timber,420243,Jurriën Timber,0.3043,0.7965,0.7857,0.7857,same_surname_diff_given_name
+1682,Sékou Oumar Sylla,587333,Sekou Sylla,0.4,0.893,0.7857,0.7857,given_and_surname_match_extra_middle_token
+1683,Chris Nadje,1057565,Chris-Kévin Nadje,0.6667,0.893,0.7857,0.7857,same_surname_diff_given_name
+1684,Kwasi Okyere Wriedt,154819,Kwasi Wriedt,0.65,0.9096,0.7742,0.7742,given_and_surname_match_extra_middle_token
+1685,Joel Castro Pereira,192611,Joel Pereira,0.65,0.8763,0.7742,0.7742,given_and_surname_match_extra_middle_token
+741,Thomas Bruns,357826,Thomas Buitink,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname
+742,Thomas Buitink,172202,Thomas Bruns,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname
+1687,Jochem van de Kamp,865281,Jochem Ritmeester van de Kamp,0.6333,0.8797,0.766,0.766,given_and_surname_match_extra_middle_token
+35,Christian Eriksen,1443,Christian Poulsen,0.5,0.8905,0.7647,0.7647,same_given_name_diff_surname
+36,Christian Poulsen,69633,Christian Eriksen,0.5,0.8905,0.7647,0.7647,same_given_name_diff_surname
+1688,Aliou Badara Baldé,666977,Aliou Baldé,0.7059,0.904,0.7586,0.7586,given_and_surname_match_extra_middle_token
+1217,Joey Veerman,271743,Henk Veerman,0.4444,0.8333,0.75,0.75,same_surname_diff_given_name
+1319,Oliver Edvardsen,265324,Victor Edvardsen,0.4167,0.7738,0.75,0.75,same_surname_diff_given_name
+1391,Thomas van den Belt,593862,Thomas Beelen,0.4167,0.8776,0.75,0.75,same_given_name_diff_surname
+1392,Thomas Beelen,412941,Thomas van den Belt,0.4167,0.8776,0.75,0.75,same_given_name_diff_surname
+1410,Victor Edvardsen,374326,Oliver Edvardsen,0.4167,0.7738,0.75,0.75,same_surname_diff_given_name
+184,Seydina Diarra,168172,Bahnou Seydina Diarra,0.6818,0.746,0.8,0.746,substring_match
+1278,Daniël van Kaam,503642,Joël van Kaam,0.5,0.7386,0.7857,0.7386,same_surname_diff_given_name
+1052,Dimitris Emmanouilidis,565673,Dimitrios Ioannidis,0.3125,0.8982,0.7317,0.7317,other
+1689,Dauda Mohammed,360711,Mo Dauda,0.5,0.7321,0.7273,0.7273,other
+890,Robin Polley,202788,Robin Pröpper,0.35,0.8885,0.72,0.72,same_given_name_diff_surname
+1061,Philipp Max,127573,Phillipp Mwene,0.4211,0.8922,0.72,0.72,other
+1221,Phillipp Mwene,111275,Philipp Max,0.4211,0.8922,0.72,0.72,other
+382,Jelle van der Heyden,328959,Jeroen van der Lely,0.3667,0.8117,0.7179,0.7179,other
+526,Jeroen Van der Lely,330930,Jelle van der Heyden,0.3667,0.8117,0.7179,0.7179,other
+873,Christian Kum,36189,Christian Dorda,0.5,0.8872,0.7143,0.7143,same_given_name_diff_surname
+1057,Arian Kastrati,247380,Arianit Ferati,0.3636,0.8779,0.7143,0.7143,other
+1169,Arianit Ferati,548185,Arian Kastrati,0.3636,0.8779,0.7143,0.7143,other
+4,Christian Supusepa,37850,Christian Kum,0.4348,0.8915,0.7097,0.7097,same_given_name_diff_surname
+814,Andrija Novakovich,316111,Andrija Balic,0.32,0.8915,0.7097,0.7097,same_given_name_diff_surname
+830,Andrija Balić,336160,Andrija Novakovich,0.32,0.8915,0.7097,0.7097,same_given_name_diff_surname
+873,Christian Kum,45534,Christian Supusepa,0.4348,0.8915,0.7097,0.7097,same_given_name_diff_surname
+779,Lisandro Magallán,480762,Lisandro Martínez,0.44,0.8824,0.7059,0.7059,same_given_name_diff_surname
+906,Lisandro Martínez,66736,Lisandro Magallán,0.44,0.8824,0.7059,0.7059,same_given_name_diff_surname
+1693,Memphis,167850,Memphis Depay,0.5714,0.9077,0.7,0.7,substring_match
+720,Thomas Lam,593862,Thomas Beelen,0.3889,0.8831,0.6957,0.6957,same_given_name_diff_surname
+1392,Thomas Beelen,131821,Thomas Lam,0.3889,0.8831,0.6957,0.6957,same_given_name_diff_surname
+1081,Ola John,60312,Joshua John,0.3571,0.6943,0.7368,0.6943,same_surname_diff_given_name
+1694,Abass Issah,482145,Issah Abass,1.0,0.6932,1.0,0.6932,same_tokens_reordered
+222,Sander Duits,73504,Sander Fischer,0.35,0.8786,0.6923,0.6923,same_given_name_diff_surname
+240,Willem Janssen,4425,Theo Janssen,0.4,0.7976,0.6923,0.6923,same_surname_diff_given_name
+416,Dries Wuytens,60971,Stijn Wuytens,0.4,0.8128,0.6923,0.6923,same_surname_diff_given_name
+1695,Lucas Oliveira Rosa,468309,Lucas Rosa,0.55,0.8525,0.6897,0.6897,given_and_surname_match_extra_middle_token
+645,Pele van Anholt,262613,Pelle van Amersfoort,0.3214,0.86,0.6857,0.6857,other
+1391,Thomas van den Belt,640556,Rav van den Berg,0.3704,0.7661,0.6857,0.6857,other
+1697,Nikolai Baden,400550,Nikolai Baden Frederiksen,0.56,0.904,0.6842,0.6842,substring_match
+309,Guus Hupperts,61446,Guus Joppen,0.3,0.8685,0.6667,0.6667,same_given_name_diff_surname
+379,Luuk de Jong,45509,Siem de Jong,0.4444,0.7361,0.6667,0.6667,same_surname_diff_given_name
+548,Guus Joppen,116636,Guus Hupperts,0.3,0.8685,0.6667,0.6667,same_given_name_diff_surname
+633,Dylan Seys,369319,Dylan Vente,0.3529,0.8673,0.6667,0.6667,same_given_name_diff_surname
+690,Dylan Vente,323788,Dylan Seys,0.3529,0.8673,0.6667,0.6667,same_given_name_diff_surname
+1090,Daan Rots,983677,Mats Rots,0.3571,0.7778,0.6667,0.6667,same_surname_diff_given_name
+1158,Fredrik Aursnes,364938,Fredrik Bjørkan,0.3333,0.8752,0.6667,0.6667,same_given_name_diff_surname
+1414,Mathias Ross,490383,Mathias De Wolf,0.381,0.87,0.6667,0.6667,same_given_name_diff_surname
+1699,Pedro,523998,Pedro Ruiz,0.5455,0.9,0.6667,0.6667,substring_match
+1700,Younes Taha El Idrissi,866328,Younes Taha,0.5217,0.9,0.6667,0.6667,substring_match
+140,Jop van der Linden,187300,Stefan van der Lei,0.3214,0.661,0.6667,0.661,other
+39,Ricardo van Rhijn,159026,Ricardo Kishna,0.3333,0.8793,0.6452,0.6452,same_given_name_diff_surname
+1124,Mohamed Daramy,503638,Mohamed Ihattaren,0.32,0.8684,0.6452,0.6452,same_given_name_diff_surname
+1032,Mohammed Kudus,574385,Mohamed Daramy,0.3043,0.8571,0.6429,0.6429,other
+627,Dylan George,323788,Dylan Seys,0.3333,0.8567,0.6364,0.6364,same_given_name_diff_surname
+720,Thomas Lam,172202,Thomas Bruns,0.4118,0.8567,0.6364,0.6364,same_given_name_diff_surname
+78,Martijn van der Laan,187300,Stefan van der Lei,0.3103,0.7651,0.6316,0.6316,other
+703,Thomas Enevoldsen,396003,Thomas Marijnissen,0.3214,0.8335,0.6286,0.6286,same_given_name_diff_surname
+195,Luciano Narsingh,187298,Luciano Slagveer,0.3077,0.8667,0.625,0.625,same_given_name_diff_surname
+389,Bilal Ould-Chikh,597104,Walid Ould-Chikh,0.4783,0.869,0.625,0.625,same_surname_diff_given_name
+730,Luciano Slagveer,72462,Luciano Narsingh,0.3077,0.8667,0.625,0.625,same_given_name_diff_surname
+103,Jordy van Deelen,64439,Jordy Deckers,0.3478,0.851,0.6207,0.6207,same_given_name_diff_surname
+753,Vito van Crooij,547499,Bart van Rooij,0.3636,0.8094,0.6207,0.6207,other
+1208,Bart van Rooij,312493,Vito van Crooij,0.3636,0.8094,0.6207,0.6207,other
+78,Martijn van der Laan,178220,Marco van der Heide,0.3793,0.6883,0.6154,0.6154,other
+176,Ryan Koolwijk,153415,Ryan van Dijk,0.35,0.8462,0.6154,0.6154,same_given_name_diff_surname
+196,Park Ji-sung,4592,Ji-sung Park,1.0,0.6111,1.0,0.6111,same_tokens_reordered
+531,Zhang Yuning,264429,Yuning Zhang,1.0,0.6111,1.0,0.6111,same_tokens_reordered
+327,Bas Kuipers,159032,Nick Kuipers,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
+589,Pär Hansson,276002,Emil Hansson,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
+592,Emil Hansson,37217,Pär Hansson,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
+656,Nick Kuipers,187188,Bas Kuipers,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
+1704,Eduardo Carvalho,34159,Eduardo,0.4706,0.8875,0.6087,0.6087,substring_match
+1173,Michael Verrips,179481,Michael Olaitan,0.3333,0.84,0.6,0.6,same_given_name_diff_surname
+1705,Juan Carlos Familia,349567,Juan Familia-Castillo,0.5556,0.8583,0.6,0.6,same_given_name_diff_surname
+360,Mickey van der Hart,203939,Robin van der Meer,0.3103,0.6827,0.5946,0.5946,other
+604,Robin van der Meer,207048,Mickey van der Hart,0.3103,0.6827,0.5946,0.5946,other
+647,Thomas Kok,72505,Thomas Meißner,0.3684,0.84,0.5833,0.5833,same_given_name_diff_surname
+720,Thomas Lam,357826,Thomas Buitink,0.3684,0.84,0.5833,0.5833,same_given_name_diff_surname
+742,Thomas Buitink,131821,Thomas Lam,0.3684,0.84,0.5833,0.5833,same_given_name_diff_surname
+947,Ryan Thomas,593862,Thomas Beelen,0.3684,0.5821,0.6667,0.5821,other
+650,Branco van den Boomen,34785,Joey van den Berg,0.3103,0.648,0.5789,0.5789,other
+881,Victor van den Bogert,203938,Branco van den Boomen,0.3226,0.6984,0.5714,0.5714,other
+947,Ryan Thomas,357826,Thomas Buitink,0.35,0.5693,0.64,0.5693,other
+282,Christian Atsu,186863,Cristian Cuevas,0.3043,0.8721,0.5517,0.5517,other
+766,Kostas Tsimikas,64352,Kostas Lamprou,0.3043,0.8263,0.5517,0.5517,same_given_name_diff_surname
+881,Victor van den Bogert,477476,Connor van den Berg,0.3226,0.743,0.55,0.55,other
+1243,Connor van den Berg,417827,Victor van den Bogert,0.3226,0.743,0.55,0.55,other
+82,Martijn Barto,67245,Martijn van der Laan,0.32,0.8538,0.5455,0.5455,same_given_name_diff_surname
+690,Dylan Vente,502289,Dylan Mbayo,0.3333,0.697,0.5455,0.5455,same_given_name_diff_surname
+930,George Cox,49591,Leroy George,0.4118,0.6659,0.5455,0.5455,other
+930,George Cox,337278,George Mells,0.4118,0.8567,0.5455,0.5455,same_given_name_diff_surname
+1048,Leroy George,359692,George Cox,0.4118,0.6659,0.5455,0.5455,other
+1125,Youri Regeer,559327,Youri Baas,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname
+1258,Youri Baas,559324,Youri Regeer,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname
+113,Wesley Verhoek,75295,John Verhoek,0.4,0.621,0.5385,0.5385,same_surname_diff_given_name
+1706,Nicolas Elsek,422158,Nicolas Olsak,0.4,0.9385,0.5385,0.5385,same_given_name_diff_surname
+947,Ryan Thomas,412941,Thomas van den Belt,0.3333,0.6158,0.5333,0.5333,other
+472,Alexander Bannink,458017,Alexander Afoussi,0.4,0.8824,0.5294,0.5294,same_given_name_diff_surname
+554,Abdenasser El Khayati,88968,Nasser El Khayati,0.6667,0.7993,0.5263,0.5263,substring_match
+183,Daan Bovenberg,228048,Daan Blij,0.3158,0.6984,0.5217,0.5217,same_given_name_diff_surname
+40,Siem de Jong,326330,Frenkie de Jong,0.381,0.7667,0.5185,0.5185,same_surname_diff_given_name
+407,Frenkie de Jong,45509,Siem de Jong,0.381,0.7667,0.5185,0.5185,same_surname_diff_given_name
+748,Lennart Thy,309393,Lennart Czyborra,0.381,0.8761,0.5185,0.5185,same_given_name_diff_surname
+720,Thomas Lam,203357,Ryan Thomas,0.4375,0.5045,0.7619,0.5045,other
+947,Ryan Thomas,131821,Thomas Lam,0.4375,0.5045,0.7619,0.5045,other
+337,Tom van Weert,420189,Tom van de Looi,0.3636,0.8585,0.5,0.5,same_given_name_diff_surname
+338,Kevin Vermeulen,49640,Kevin van Diermen,0.4167,0.8678,0.5,0.5,same_given_name_diff_surname
+538,Mohammed Osman,549954,Mohamed Amissi,0.3043,0.8597,0.5,0.5,other
+949,Ibrahim Afellay,62337,Ibrahim Rabiu,0.3636,0.8585,0.5,0.5,same_given_name_diff_surname
+1474,Jordan Lotomba,855731,Jordan Bos,0.3684,0.8863,0.5,0.5,same_given_name_diff_surname
+1708,Amar Ahmed,931841,Amar Fatah,0.3125,0.88,0.5,0.5,same_given_name_diff_surname
+1477,Hwang In-beom,365394,In-beom Hwang,1.0,0.4872,1.0,0.4872,same_tokens_reordered
+1173,Michael Verrips,158540,Michael Chacón,0.3636,0.821,0.4828,0.4828,same_given_name_diff_surname
+1304,Marcos López,469781,Marcos Senesi,0.35,0.8564,0.48,0.48,same_given_name_diff_surname
+741,Thomas Bruns,207273,Sander Thomas,0.35,0.4671,0.64,0.4671,other
+631,Oussama Assaidi,235540,Oussama Tannane,0.3478,0.8667,0.4667,0.4667,same_given_name_diff_surname
+980,Oussama Tannane,57275,Oussama Assaidi,0.3478,0.8667,0.4667,0.4667,same_given_name_diff_surname
+1070,Ibrahim Sangaré,15760,Ibrahim Afellay,0.3333,0.8752,0.4667,0.4667,same_given_name_diff_surname
+8,Kevin Jansen,184686,Kevin Tano,0.3333,0.8933,0.4545,0.4545,same_given_name_diff_surname
+863,Oussama Darfalou,235540,Oussama Tannane,0.32,0.8583,0.4516,0.4516,same_given_name_diff_surname
+980,Oussama Tannane,321182,Oussama Darfalou,0.32,0.8583,0.4516,0.4516,same_given_name_diff_surname
+1173,Michael Verrips,110906,Michael de Leeuw,0.32,0.8325,0.4516,0.4516,same_given_name_diff_surname
+1404,Justin Lonwijk,411287,Justin Hoogma,0.3182,0.8374,0.4444,0.4444,same_given_name_diff_surname
+1404,Justin Lonwijk,678641,Justin Hubner,0.3182,0.8374,0.4444,0.4444,same_given_name_diff_surname
+1607,Justin Hubner,357917,Justin Lonwijk,0.3182,0.8374,0.4444,0.4444,same_given_name_diff_surname
+2,Danny Holla,250440,Danny Bakker,0.3158,0.8439,0.4348,0.4348,same_given_name_diff_surname
+20,Danny Bakker,45486,Danny Holla,0.3158,0.8439,0.4348,0.4348,same_given_name_diff_surname
+536,Julian Lelieveld,341434,Julian Calor,0.3043,0.8333,0.4286,0.4286,same_given_name_diff_surname
+632,Fredrik Jensen,214078,Richard Jensen,0.3043,0.8268,0.4286,0.4286,same_surname_diff_given_name
+862,Martin Ødegaard,45601,Martin Hansen,0.3043,0.8362,0.4286,0.4286,same_given_name_diff_surname
+8,Kevin Jansen,151540,Kevin Visser,0.3,0.8667,0.4167,0.4167,same_given_name_diff_surname
