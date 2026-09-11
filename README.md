@@ -4,7 +4,7 @@ A Python -> Postgres -> Docker/FastAPI -> Azure -> Power BI data pipeline analyz
 
 ## Project Status
 
-All three data sources (Transfermarkt, soccerdata, WhoScored) fully extracted, verified, and loaded into Postgres. Extraction phase complete. Entity resolution across sources is the next major task. Model training not yet started.
+All three data sources (Transfermarkt, soccerdata, WhoScored) fully extracted, verified, and loaded into Postgres. Extraction phase complete. Entity resolution across all three sources is underway: FBref<->WhoScored and Transfermarkt matching both built and mostly loaded, with a few review bands still pending (see `docs/v1_roadmap.md`). One real identity-merge bug (two different real people silently matched as one) found and fixed along the way, plus a systemic audit confirming it was isolated. Model training not yet started.
 
 ### v1.0 data collection/extraction map
 
