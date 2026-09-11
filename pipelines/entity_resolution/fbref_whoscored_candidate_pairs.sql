@@ -27,7 +27,7 @@ SELECT
     f.team AS team,
     f.season_id AS season_id,
     similarity(f.player_name, w.player_name) AS trgm_similarity
-FROM eredivisie_player_season_stats f
+FROM eredivisie_soccerdata_player_season_stats f
 JOIN eredivisie_whoscored_player_season_stats w
     ON f.season_id = w.season_id AND f.team = w.team
 WHERE similarity(f.player_name, w.player_name) > 0.3

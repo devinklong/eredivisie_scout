@@ -100,6 +100,7 @@ SQL_FILE = Path(__file__).parent / "fbref_whoscored_candidate_pairs.sql"
 OUTPUT_DIR = Path("cleaning_logs/entity_resolution")
 CANDIDATES_FILE = OUTPUT_DIR / "fbref_whoscored_candidates.csv"
 REVIEW_QUEUE_FILE = OUTPUT_DIR / "fbref_whoscored_review_queue.csv"
+HIGH_CONFIDENCE_FILE = OUTPUT_DIR / "fbref_whoscored_high_confidence_review.csv"
 
 # The "genuinely ambiguous, needs a human" band -- confirmed via a real
 # batch review (2026-09-05) that this range mixes true matches and true
@@ -275,22 +276,23 @@ def print_diagnostics(df):
           "scoring alone.")
 
 
-def write_review_queue(review_df):
-    """Writes the review queue, preserving any manual 'decision'/'notes'
-    values already recorded on disk for pairs that still exist in the
-    current run. Without this, rerunning match_fbref_whoscored.py (e.g.
-    after a schema/data change upstream) would silently blow away any
-    hand-adjudication work already done on
-    fbref_whoscored_review_queue.csv -- confirmed as a real risk before
-    manual review of that file had actually started (2026-09-06), fixed
-    here before it could cause real damage.
+def write_review_queue(review_df, target_file=REVIEW_QUEUE_FILE):
+    """Writes a review queue (either the 0.5-0.8 ambiguous band or the
+    0.8-1.0 high-confidence-but-not-exact band -- see
+    write_high_confidence_queue()), preserving any manual 'decision'/
+    'notes' values already recorded on disk for pairs that still exist
+    in the current run. Without this, rerunning match_fbref_whoscored.py
+    (e.g. after a schema/data change upstream) would silently blow away
+    any hand-adjudication work already done -- confirmed as a real risk
+    before manual review of the 0.5-0.8 file had actually started
+    (2026-09-06), fixed here before it could cause real damage.
 
     Merge key: (fbref_name, whoscored_name, team, season_id) -- the
     same natural key identifying a candidate pair throughout this
     script. If a pair's key no longer appears in the new run (e.g. the
-    underlying data changed enough that it fell out of the review
-    band), its old decision is simply dropped, since it's not decidable
-    which surviving pair it would have applied to."""
+    underlying data changed enough that it fell out of this band), its
+    old decision is simply dropped, since it's not decidable which
+    surviving pair it would have applied to."""
     review_df = review_df.copy()
     if "decision" not in review_df.columns:
         review_df["decision"] = ""
@@ -299,8 +301,8 @@ def write_review_queue(review_df):
 
     merge_keys = ["fbref_name", "whoscored_name", "team", "season_id"]
 
-    if REVIEW_QUEUE_FILE.exists():
-        existing = pd.read_csv(REVIEW_QUEUE_FILE)
+    if target_file.exists():
+        existing = pd.read_csv(target_file)
         if "decision" not in existing.columns:
             existing["decision"] = ""
         if "notes" not in existing.columns:
@@ -316,10 +318,22 @@ def write_review_queue(review_df):
             (existing_decisions["decision"] != "") & (existing_decisions["decision"].notna())
         ]
         print(f"Preserved {len(carried_over)} existing manual decision(s) "
-              f"from the previous {REVIEW_QUEUE_FILE.name}.")
+              f"from the previous {target_file.name}.")
 
-    review_df.to_csv(REVIEW_QUEUE_FILE, index=False)
+    review_df.to_csv(target_file, index=False)
     return review_df
+
+
+def write_high_confidence_queue(df):
+    """The 0.8-1.0 "high confidence, not exact" band -- deliberately
+    EXCLUDED from build_players_crosswalk.py (not yet individually
+    spot-checked, per docs/v1_roadmap.md). Likely mostly safe given the
+    higher scores, but "likely" isn't "verified" -- same review process
+    as the 0.5-0.8 queue, just a different confidence slice. Reuses
+    write_review_queue()'s merge-safe logic so a rerun doesn't destroy
+    manual review work here either."""
+    high_conf_df = df[(df["working_confidence"] >= 0.8) & (df["working_confidence"] < 1.0)]
+    return write_review_queue(high_conf_df, target_file=HIGH_CONFIDENCE_FILE)
 
 
 def main():
@@ -344,6 +358,10 @@ def main():
                    (df["working_confidence"] < REVIEW_BAND_HIGH)]
     review_df = write_review_queue(review_df)
     print(f"Wrote {len(review_df)} pairs needing manual review to {REVIEW_QUEUE_FILE}")
+
+    high_conf_df = write_high_confidence_queue(df)
+    print(f"Wrote {len(high_conf_df)} high-confidence (0.8-1.0) pairs needing "
+          f"a lighter spot-check to {HIGH_CONFIDENCE_FILE}")
 
     print_diagnostics(df)
 

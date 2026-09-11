@@ -53,11 +53,11 @@ Markus Henriksen,Markus Henriksen,AZ Alkmaar,2013,1.0,1.0,1.0,1.0,exact_after_no
 Roy Beerens,Roy Beerens,AZ Alkmaar,2013,1.0,1.0,1.0,1.0,exact_after_normalize
 Mattias Johansson,Mattias Johansson,AZ Alkmaar,2013,1.0,1.0,1.0,1.0,exact_after_normalize
 Nemanja Gudelj,Nemanja Gudelj,AZ Alkmaar,2013,1.0,1.0,1.0,1.0,exact_after_normalize
-Jeffrey Gouweleeuw,Jeffrey Gouweleeuw,AZ Alkmaar,2013,1.0,1.0,1.0,1.0,exact_after_normalize
 Aron Jóhannsson,Aron Jóhannsson,AZ Alkmaar,2013,1.0,1.0,1.0,1.0,exact_after_normalize
 Donny Gorter,Donny Gorter,AZ Alkmaar,2013,1.0,1.0,1.0,1.0,exact_after_normalize
 Esteban Alvarado,Esteban Alvarado,AZ Alkmaar,2013,1.0,1.0,1.0,1.0,exact_after_normalize
 Wesley Hoedt,Wesley Hoedt,AZ Alkmaar,2013,1.0,1.0,1.0,1.0,exact_after_normalize
+Jeffrey Gouweleeuw,Jeffrey Gouweleeuw,AZ Alkmaar,2013,1.0,1.0,1.0,1.0,exact_after_normalize
 Nick Viergever,Nick Viergever,AZ Alkmaar,2013,1.0,1.0,1.0,1.0,exact_after_normalize
 Jan Wuytens,Jan Wuytens,AZ Alkmaar,2013,1.0,1.0,1.0,1.0,exact_after_normalize
 Etiënne Reijnen,Etiënne Reijnen,AZ Alkmaar,2013,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -4180,8 +4180,8 @@ Ricardo Kishna,Ricardo van Rhijn,Ajax,2013,0.3333,0.8793,0.6452,0.6452,same_give
 Ricardo van Rhijn,Ricardo Kishna,Ajax,2013,0.3333,0.8793,0.6452,0.6452,same_given_name_diff_surname
 Mitchell Schet,Mitchell de Vlugt,ADO Den Haag,2014,0.3913,0.8866,0.6452,0.6452,same_given_name_diff_surname
 Mitchell de Vlugt,Mitchell Schet,ADO Den Haag,2014,0.3913,0.8866,0.6452,0.6452,same_given_name_diff_surname
-Ricardo Kishna,Ricardo van Rhijn,Ajax,2014,0.3333,0.8793,0.6452,0.6452,same_given_name_diff_surname
 Ricardo van Rhijn,Ricardo Kishna,Ajax,2014,0.3333,0.8793,0.6452,0.6452,same_given_name_diff_surname
+Ricardo Kishna,Ricardo van Rhijn,Ajax,2014,0.3333,0.8793,0.6452,0.6452,same_given_name_diff_surname
 Mitchel Bakker,Mitchell Dijks,Ajax,2017,0.3043,0.8571,0.6429,0.6429,other
 Mohamed Daramy,Mohammed Kudus,Ajax,2021,0.3043,0.8571,0.6429,0.6429,other
 Mohammed Kudus,Mohamed Daramy,Ajax,2021,0.3043,0.8571,0.6429,0.6429,other
@@ -4222,8 +4222,8 @@ Mohammed Ihattaren,Mohammed Kudus,Ajax,2021,0.36,0.8286,0.5625,0.5625,same_given
 Thomas Kok,Thomas Meissner,Willem II,2017,0.35,0.8333,0.56,0.56,same_given_name_diff_surname
 Connor van den Berg,Victor van den Bogert,Willem II,2020,0.3226,0.743,0.55,0.55,other
 Aron Jóhannsson,Jóhann Gudmundsson,AZ Alkmaar,2013,0.36,0.7389,0.5455,0.5455,other
-Martijn van der Laan,Martijn Barto,Cambuur,2013,0.32,0.8538,0.5455,0.5455,same_given_name_diff_surname
 Martijn Barto,Martijn van der Laan,Cambuur,2013,0.32,0.8538,0.5455,0.5455,same_given_name_diff_surname
+Martijn van der Laan,Martijn Barto,Cambuur,2013,0.32,0.8538,0.5455,0.5455,same_given_name_diff_surname
 Martijn Barto,Martijn van der Laan,Cambuur,2015,0.32,0.8538,0.5455,0.5455,same_given_name_diff_surname
 Martijn van der Laan,Martijn Barto,Cambuur,2015,0.32,0.8538,0.5455,0.5455,same_given_name_diff_surname
 Leroy George,George Cox,Fortuna Sittard,2020,0.4118,0.6659,0.5455,0.5455,other
