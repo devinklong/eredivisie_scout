@@ -47,6 +47,7 @@ import psycopg2
 
 CANDIDATES_FILE = Path("cleaning_logs/entity_resolution/players_transfermarkt_candidates.csv")
 REVIEW_QUEUE_FILE = Path("cleaning_logs/entity_resolution/players_transfermarkt_review_queue.csv")
+HIGH_CONFIDENCE_FILE = Path("cleaning_logs/entity_resolution/players_transfermarkt_high_confidence_review.csv")
 
 
 def get_connection():
@@ -72,8 +73,12 @@ def load_exact_matches():
     return pairs
 
 
-def load_reviewed_matches():
-    df = pd.read_csv(REVIEW_QUEUE_FILE)
+def load_reviewed_matches(review_file):
+    """Works for either review_file -- the 0.5-0.8 ambiguous band
+    (REVIEW_QUEUE_FILE) or the 0.8-1.0 high-confidence band
+    (HIGH_CONFIDENCE_FILE, added 2026-09-11) -- both share the same
+    column shape."""
+    df = pd.read_csv(review_file)
     df["decision_normalized"] = df["decision"].astype(str).str.strip().str.lower()
     matched = df[df["decision_normalized"] == "match"]
     deduped = matched.drop_duplicates(subset=["canonical_player_id", "transfermarkt_player_id"])
@@ -130,11 +135,13 @@ INSERT_SQL = """
 
 def main():
     exact_pairs = load_exact_matches()
-    reviewed_pairs = load_reviewed_matches()
+    reviewed_pairs = load_reviewed_matches(REVIEW_QUEUE_FILE)
+    high_confidence_pairs = load_reviewed_matches(HIGH_CONFIDENCE_FILE)
     print(f"{len(exact_pairs)} exact-normalized pairs, "
-          f"{len(reviewed_pairs)} manually-reviewed 'match' pairs.")
+          f"{len(reviewed_pairs)} manually-reviewed 'match' pairs (0.5-0.8 band), "
+          f"{len(high_confidence_pairs)} manually-reviewed 'match' pairs (0.8-1.0 band).")
 
-    all_pairs = exact_pairs + reviewed_pairs
+    all_pairs = exact_pairs + reviewed_pairs + high_confidence_pairs
     skip_canonical_ids, skip_tm_ids = check_for_contradictions(all_pairs)
     all_pairs = [
         p for p in all_pairs
