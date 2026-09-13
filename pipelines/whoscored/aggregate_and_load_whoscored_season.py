@@ -61,7 +61,7 @@ DATA_ROOT = Path("data/whoscored")
 
 MULTI_STAT_CATEGORIES = [
     "passing", "touches", "take_ons", "tackles", "interceptions",
-    "final_third_entries",
+    "final_third_entries", "aerials",
 ]
 SINGLE_STAT_CATEGORIES = ["dispossessed", "clearances", "dribbled_past", "errors"]
 
@@ -74,6 +74,7 @@ ADDITIVE_FIELDS = {
     "interceptions": ["interceptions", "interceptions_def_3rd", "interceptions_mid_3rd",
                        "interceptions_att_3rd"],
     "final_third_entries": ["final_third_entries", "pen_area_entries"],
+    "aerials": ["aerials", "aerials_won"],
     "dispossessed": ["dispossessed"],
     "clearances": ["clearances"],
     "dribbled_past": ["dribbled_past"],
@@ -161,6 +162,10 @@ def build_rows(totals, matches_seen, player_ids, season_id):
         take_ons_won = stats.get("take_ons_won", 0)
         take_ons_won_pct = round((take_ons_won / take_ons) * 100, 1) if take_ons else None
 
+        aerials = stats.get("aerials", 0)
+        aerials_won = stats.get("aerials_won", 0)
+        aerials_won_pct = round((aerials_won / aerials) * 100, 1) if aerials else None
+
         rows.append((
             player, team, season_id, len(matches_seen[(player, team)]),
             player_ids.get((player, team)),
@@ -177,6 +182,7 @@ def build_rows(totals, matches_seen, player_ids, season_id):
             stats.get("interceptions_mid_3rd", 0), stats.get("interceptions_att_3rd", 0),
             stats.get("clearances", 0), stats.get("dribbled_past", 0), stats.get("errors", 0),
             stats.get("final_third_entries", 0), stats.get("pen_area_entries", 0),
+            aerials, aerials_won, aerials_won_pct,
         ))
     return rows
 
@@ -192,7 +198,8 @@ INSERT_SQL = """
          tackles, tackles_won, tackles_def_3rd, tackles_mid_3rd, tackles_att_3rd,
          interceptions, interceptions_def_3rd, interceptions_mid_3rd, interceptions_att_3rd,
          clearances, dribbled_past, errors,
-         final_third_entries, pen_area_entries)
+         final_third_entries, pen_area_entries,
+         aerials, aerials_won, aerials_won_pct)
     VALUES %s
     ON CONFLICT (player_name, team, season_id) DO UPDATE SET
         matches_with_data = EXCLUDED.matches_with_data,
@@ -223,7 +230,10 @@ INSERT_SQL = """
         dribbled_past = EXCLUDED.dribbled_past,
         errors = EXCLUDED.errors,
         final_third_entries = EXCLUDED.final_third_entries,
-        pen_area_entries = EXCLUDED.pen_area_entries
+        pen_area_entries = EXCLUDED.pen_area_entries,
+        aerials = EXCLUDED.aerials,
+        aerials_won = EXCLUDED.aerials_won,
+        aerials_won_pct = EXCLUDED.aerials_won_pct
 """
 
 

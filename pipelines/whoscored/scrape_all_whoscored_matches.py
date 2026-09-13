@@ -1,52 +1,90 @@
 """
-scrape_all_whoscored_matches.py (cache-only rewrite)
+Season-scale WhoScored batch extraction: loops every match in the
+Eredivisie schedule, pulls events for each (force_cache=True per the
+confirmed fix in patch_list.md -- ~1000x speedup, 129-229s/match down
+to 0.1-0.2s/match), and runs all four derivation functions (passing,
+possession, defense, final-third) built and validated earlier this
+project.
 
-Regenerates per-match derived JSON (data/whoscored/{season}/{match_id}.json)
-purely from soccerdata's own on-disk WhoScored cache -- NO network calls,
-NO sd.WhoScored() instantiation, NO Selenium/Chrome launch, in any season.
+Dumps each match's raw derived stats to its own JSON file immediately
+(data/whoscored/{season}/{match_id}.json) -- same safety-checkpoint
+pattern used for the 29-club Transfermarkt batch: a failure partway
+through doesn't require re-processing matches already done.
 
-WHY THIS REWRITE: sd.WhoScored()'s constructor appears to launch a
-SeleniumBase UC-mode Chrome window on instantiation regardless of whether
-force_cache=True ends up serving every individual request from disk --
-observed directly (Chrome windows popped up during a supposedly
-cache-only rerun of the original script, across seasons that should have
-been fully cached already). Since the actual goal here is a pure
-reprocessing pass -- recomputing derived stats (now including
-whoscored_player_id) from already-cached raw events, not fetching
-anything new -- this version reads soccerdata's cache files directly
-with plain file I/O and never touches the sd.WhoScored class at all.
+ASSUMPTION FLAGGED: imports the four derive_*_stats functions directly
+from their existing tests/whoscored/ files, assuming their current
+signatures still match what was last confirmed working (each takes
+`events` as its only argument and returns a DataFrame or dict). Not
+re-verified against the live file contents at the time this script was
+written -- if an import or call fails, check the actual current
+function signature in the corresponding derive_*.py file before
+assuming this batch script's logic is wrong.
 
-CACHE LOCATION: soccerdata stores each match's full raw JSON response at
-~/soccerdata/data/WhoScored/events/{league}_{season_code}/{match_id}.json
--- confirmed via this project's own tests/whoscored/check_cache_file_path.py
-and the console log showing "Saving cached data to
-/Users/devinlong/soccerdata/data/WhoScored". season_code is soccerdata's
-compact numeric form (e.g. '2015-16' -> '1516'), per
-parse_raw_whoscored_events.py's season_to_compact_code() -- reused here
-directly rather than redefined.
+Season-participation filtering (which club/season pairs are genuinely
+Eredivisie) is NOT applied here -- WhoScored's own schedule is already
+scoped to real Eredivisie matches for the season/league passed to
+WhoScored(), unlike Transfermarkt's club-history pages which needed the
+separate eredivisie_club_status filter.
 
-ASSUMPTION FLAGGED, NOT independently confirmed here: the cached JSON's
-top-level shape is assumed to be {"events": [...], "home": {...},
-"away": {...}, "playerIdNameDictionary": {...}} -- consistent with
-WhoScored's known public API response shape, and with what
-parse_raw_whoscored_events.py already reads from this exact same file
-(playerIdNameDictionary, home/away). The "events" key name itself is
-inferred, not verified against this project's own real cached files.
+CONFIRMED (2026-08-31): 2025-26's schedule includes 3 promotion/
+relegation playoff matches (game_ids 1980233/1980234/1980235) alongside
+the 306 real regular-season matches. These 3 failed/were skipped during
+extraction -- confirmed this is expected, not a bug: playoff matches are
+a structurally different competition (involving non-Eredivisie Eerste
+Divisie clubs) and are out of scope for this project's thesis anyway,
+which is built around regular-season performance. 306/309 (100% of the
+real regular-season matches) is the correct, complete result for this
+season. MATCH_IDS_OVERRIDE is not needed for these 3 -- do not keep
+retrying them.
 
-RUN verify_cache_shape() BELOW AGAINST ONE REAL CACHED FILE BEFORE
-TRUSTING THIS AT FULL SCALE. If the key is named differently than
-"events", only the RAW_EVENTS_KEY constant needs to change -- everything
-else in this script is unaffected.
+NOTE on force_cache and season choice: the confirmed 1000x speedup was
+measured against 2026-27, an in-progress season -- soccerdata's own
+caching logic (no_cache = current_season and not force_cache) only
+skips its cache for a season it considers "current" (incomplete). For
+2025-26 (a fully completed season), current_season is already False, so
+no_cache is False regardless of force_cache -- meaning the cache should
+already be used by default here, independent of the force_cache flag.
+force_cache=True is still passed below since it's harmless either way,
+but the dramatic before/after speed difference measured earlier may not
+apply the same way to a completed season -- the first pass through each
+match should still be reasonably fast, just via ordinary caching rather
+than the specific fix confirmed for a current season.
+FALLBACK PARSER INTEGRATED (2026-09-01): for seasons where soccerdata's
+standard read_events() crashes with the confirmed casting bug
+(TypeError: cannot safely cast non-equivalent object to int64 -- affects
+2015-16 through 2018-19's related_event_id field), this script now
+automatically falls back to parse_raw_whoscored_events.py's raw-JSON
+converter instead of marking the match failed. Any OTHER exception is
+still treated as a real failure, not silently caught. Each match's
+console output notes "(via raw fallback parser)" when the fallback was
+used, and the season summary reports a total fallback count -- not yet
+validated at full-season scale, only against single matches so far.
 
-If a match's cache file is missing entirely, it is skipped and logged --
-this script will NEVER fall back to a live fetch, no exceptions. A
-missing file means that match genuinely isn't cached (unexpected, given
-the original extraction already succeeded for these seasons) -- not
-something to silently paper over by allowing a live request through.
+NOTE FOR A FRESH CLONE/FORK: this script calls out to soccerdata/
+WhoScored normally -- on a machine with no existing soccerdata cache,
+every match will genuinely fetch live (via SeleniumBase UC mode, which
+will visibly open a Chrome window per read_events() call -- this is
+expected on a first run, not a bug; see patch_list.md's note on leaving
+that window alone until the script finishes). Once a match has been
+fetched once, force_cache=True lets subsequent reprocessing runs reuse
+the local cache instead of re-fetching. If you're re-running this on a
+machine that ALREADY has a full cache from a prior run purely to
+regenerate derived output (e.g. after changing what a derive_*.py
+function computes), a separate cache-only script that reads soccerdata's
+cache files directly and never instantiates WhoScored() is more
+appropriate -- see project notes for that variant.
 """
 
 import json
+import time
 from pathlib import Path
+
+import soccerdata as sd
+
+# Import the derivation functions built and validated earlier this
+# project. See module docstring's ASSUMPTION note.
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
 
 from derive_passing_stats import derive_passing_stats
 from derive_possession_stats import (
@@ -62,81 +100,80 @@ from derive_defense_stats import (
     derive_error_stats,
 )
 from derive_finalthird_stats import derive_finalthird_stats
-from parse_raw_whoscored_events import parse_raw_events, season_to_compact_code
+from derive_aerial_stats import derive_aerial_stats
+from parse_raw_whoscored_events import get_events_for_match as get_events_raw_fallback
 
 LEAGUE = "NED-Eredivisie"
-SEASONS = [
-    "2013-14", "2014-15", "2015-16", "2016-17", "2017-18", "2018-19",
+SEASONS = ["2013-14", "2014-15", "2015-16", "2016-17", "2017-18", "2018-19",
     "2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25",
-    "2025-26",
-]
-OUTPUT_DIR = Path("data/whoscored")
+    "2025-26",]  # every confirmed-working season (per v1_roadmap.md, 2026-09-02)
+DATA_DIR = Path("data/whoscored")
 
-# soccerdata's own on-disk cache root -- confirmed via console log output
-# and check_cache_file_path.py, NOT a documented/stable public API. If a
-# future soccerdata version changes its cache layout, this path breaks
-# and needs updating by hand.
-CACHE_ROOT = Path.home() / "soccerdata" / "data" / "WhoScored"
-
-# See ASSUMPTION note in module docstring -- verify this against a real
-# file via verify_cache_shape() before trusting the rest of this script.
-RAW_EVENTS_KEY = "events"
+# If non-empty, only these match_ids are processed (for retrying
+# specific failures) instead of the full season schedule. Confirmed
+# 2026-08-31: 1980233/1980234/1980235 are promotion/relegation playoff
+# matches, not regular-season games -- out of scope, do not retry.
+MATCH_IDS_OVERRIDE = []
 
 
-def verify_cache_shape(league, season, match_id):
-    """Run this FIRST, against one known-good match_id, before running
-    main() at full scale. Prints the top-level keys of a real cached
-    file so you can confirm RAW_EVENTS_KEY is actually correct."""
-    season_code = season_to_compact_code(season)
-    filepath = CACHE_ROOT / "events" / f"{league}_{season_code}" / f"{match_id}.json"
-    if not filepath.exists():
-        print(f"No cache file found at {filepath}")
-        return
-    with open(filepath, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    print(f"Top-level keys in {filepath.name}: {list(data.keys())}")
-    if RAW_EVENTS_KEY in data:
-        print(f"'{RAW_EVENTS_KEY}' found -- contains "
-              f"{len(data[RAW_EVENTS_KEY])} events. Looks correct.")
-    else:
-        print(f"'{RAW_EVENTS_KEY}' NOT found in this file -- "
-              f"update RAW_EVENTS_KEY to match one of the keys printed "
-              f"above before running main().")
+def get_events_with_fallback(ws, league, season, match_id):
+    """Tries soccerdata's standard read_events() first. If it hits the
+    known casting bug (TypeError: cannot safely cast non-equivalent
+    object to int64 -- confirmed 2026-09-01 to affect 2015-16 through
+    2018-19's related_event_id field), falls back to
+    parse_raw_whoscored_events.get_events_for_match(), which bypasses
+    soccerdata's formatting entirely via output_fmt="raw".
 
-
-def load_cached_match(league, season, match_id):
-    """Reads one match's cached JSON directly from disk -- no
-    sd.WhoScored() instantiation, no network, no Selenium. Returns a
-    parsed events DataFrame via parse_raw_whoscored_events.parse_raw_events
-    (already built and validated for the fallback-parser seasons, reused
-    here for every season), or None if the cache file doesn't exist."""
-    season_code = season_to_compact_code(season)
-    filepath = CACHE_ROOT / "events" / f"{league}_{season_code}" / f"{match_id}.json"
-    if not filepath.exists():
-        return None
-
-    with open(filepath, "r", encoding="utf-8") as f:
-        full_json = json.load(f)
-
-    raw_events = full_json.get(RAW_EVENTS_KEY)
-    if raw_events is None:
-        return None
-
-    player_names = {int(k): v for k, v in full_json.get("playerIdNameDictionary", {}).items()}
-    team_names = {
-        int(full_json[side]["teamId"]): full_json[side]["name"]
-        for side in ["home", "away"] if side in full_json
-    }
-
-    return parse_raw_events(raw_events, player_names, team_names)
+    Returns (events, used_fallback: bool). Any OTHER exception from the
+    standard path is re-raised as-is -- this fallback is deliberately
+    narrow, only for the one specific confirmed bug, not a catch-all."""
+    try:
+        events = ws.read_events(match_id=match_id, force_cache=True)
+        return events, False
+    except TypeError as e:
+        if "cannot safely cast non-equivalent object to int64" not in str(e):
+            raise  # a different TypeError -- don't silently swallow it
+        events = get_events_raw_fallback(league, season, match_id)
+        return events, True
 
 
 def process_match(events, match_id):
-    """Unchanged from the original script's logic -- runs every
-    derivation function (now including player_id in each groupby) and
-    returns a single combined dict, keyed by category."""
+    """Runs every derivation function against one match's events and
+    returns a single combined dict, keyed by category -- kept as
+    separate lists (not merged into one wide table) since each has its
+    own player population/grain, matching how they were built and
+    validated individually.
+
+    FIXED (2026-09-02): all derive_*.py functions now group by
+    ["player", "team"], not just "player" -- previously team was
+    silently dropped entirely, making it impossible to look up e.g.
+    "Ajax's 2025-26 squad" from the output. Output format changed
+    accordingly from orient="index" (a dict keyed by player name, which
+    can't hold a team field and breaks on duplicate names) to
+    orient="records" (a list of dicts, each with explicit "player" and
+    "team" keys) -- required since a JSON object key must be a single
+    string, not a (player, team) tuple.
+
+    UPDATED (2026-09-04): all derive_*.py functions now also group by
+    player_id -- carried straight through from soccerdata's raw events
+    (confirmed present in the standard read_events() output) and from
+    parse_raw_whoscored_events.py's fallback path (already captured
+    playerId -> player_id from the start). Each record in the output
+    below now includes player_id alongside player/team.
+
+    Guards against matches where WhoScored genuinely has no event data
+    at all (confirmed real case: game_id=409048, 2010-11 -- WhoScored's
+    own log says "No events found for game 409048"). In that case
+    events comes back with no 'type' column, and every derive_* function
+    would raise a KeyError. Treated as a clean skip, not a crash --
+    matches the same "older seasons have real data gaps" pattern already
+    seen in Transfermarkt's '?' fees for old transfers."""
     if events is None or len(events) == 0 or "type" not in events.columns:
-        raise ValueError(f"No usable event data for match_id={match_id}.")
+        raise ValueError(
+            f"No usable event data for match_id={match_id} -- "
+            "WhoScored has no events for this match (common for older "
+            "seasons, e.g. 2010-11). Not a processing bug."
+        )
 
     return {
         "passing": derive_passing_stats(events).to_dict(orient="records"),
@@ -149,11 +186,12 @@ def process_match(events, match_id):
         "dribbled_past": derive_challenge_stats(events).to_dict(orient="records"),
         "errors": derive_error_stats(events).to_dict(orient="records"),
         "final_third_entries": derive_finalthird_stats(events).to_dict(orient="records"),
+        "aerials": derive_aerial_stats(events).to_dict(orient="records"),
     }
 
 
 def save_match_json(match_id, season, data):
-    season_dir = OUTPUT_DIR / season
+    season_dir = DATA_DIR / season
     season_dir.mkdir(parents=True, exist_ok=True)
     path = season_dir / f"{match_id}.json"
     with open(path, "w", encoding="utf-8") as f:
@@ -164,46 +202,52 @@ def save_match_json(match_id, season, data):
 def main():
     for season in SEASONS:
         print(f"\n{'=' * 60}\nSeason: {season}\n{'=' * 60}")
-        season_code = season_to_compact_code(season)
-        cache_dir = CACHE_ROOT / "events" / f"{LEAGUE}_{season_code}"
+        ws = sd.WhoScored(LEAGUE, season)
 
-        if not cache_dir.exists():
-            print(f"No cache directory found at {cache_dir} -- skipping "
-                  f"this season entirely (unexpected for a previously "
-                  f"extracted season -- worth investigating, not just "
-                  f"moving on).")
-            continue
+        print("Fetching schedule (force_cache=True)...")
+        schedule = ws.read_schedule(force_cache=True)
 
-        match_files = list(cache_dir.glob("*.json"))
-        print(f"Found {len(match_files)} cached match files.")
+        if MATCH_IDS_OVERRIDE:
+            match_ids = MATCH_IDS_OVERRIDE
+            print(f"Using MATCH_IDS_OVERRIDE -- retrying {len(match_ids)} "
+                  f"specific match(es) instead of the full schedule.")
+        else:
+            match_ids = schedule["game_id"].tolist()
+            print(f"Found {len(match_ids)} matches.")
 
         succeeded = 0
+        used_fallback_count = 0
         failed = []
 
-        for i, match_file in enumerate(match_files, start=1):
-            match_id = match_file.stem
-            print(f"[{i}/{len(match_files)}] match_id={match_id}...", end=" ")
+        for i, match_id in enumerate(match_ids, start=1):
+            print(f"[{i}/{len(match_ids)}] match_id={match_id}...", end=" ")
             try:
-                events = load_cached_match(LEAGUE, season, match_id)
+                events, used_fallback = get_events_with_fallback(ws, LEAGUE, season, match_id)
                 if events is None or len(events) == 0:
-                    print("SKIPPED (no cached data)")
+                    print("SKIPPED (no events returned)")
                     failed.append(match_id)
                     continue
 
                 data = process_match(events, match_id)
                 path = save_match_json(match_id, season, data)
-                print(f"OK -> {path}")
+                fallback_note = " (via raw fallback parser)" if used_fallback else ""
+                print(f"OK{fallback_note} -> {path}")
                 succeeded += 1
+                if used_fallback:
+                    used_fallback_count += 1
             except Exception as e:
                 print(f"FAILED -- {type(e).__name__}: {e}")
                 failed.append(match_id)
 
-        print(f"\n{season} summary: {succeeded}/{len(match_files)} succeeded")
+            # Politeness delay -- cheap now that force_cache avoids the
+            # heavy calendar refetch, but still worth not hammering.
+            time.sleep(1)
+
+        print(f"\n{season} summary: {succeeded}/{len(match_ids)} succeeded"
+              f" ({used_fallback_count} via raw fallback parser)")
         if failed:
             print(f"Failed/skipped match_ids: {failed}")
 
 
 if __name__ == "__main__":
-    # verify_cache_shape() confirmed RAW_EVENTS_KEY = "events" is correct
-    # (2026-09-04) -- proceeding straight to the full regeneration.
     main()
