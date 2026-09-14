@@ -100,11 +100,32 @@ def season_to_id(season):
 
 
 def aggregate_season(data_dir):
+    """
+    UPDATED (2026-09-14): keys aggregation by (identity_key, team),
+    where identity_key is the record's player_id if present, falling
+    back to the player name string only if player_id is ever missing.
+    This fixes a REAL, RECURRING bug: keying by (player, team) alone
+    let Eric Botteghin's 2019 Feyenoord season split into two separate
+    rows every time this script ran, since WhoScored used two
+    different spellings within that one season and the old key treated
+    them as two different identities. A one-off SQL fix
+    (fix_eric_botteghin_2019_season_split.sql) patched the DATA once,
+    but every subsequent rerun of this script silently regenerated the
+    same split from scratch, since the script's own logic was never
+    fixed -- confirmed the hard way (2026-09-14) when the aerial-stats
+    re-run recreated the exact same 2019 duplication.
+
+    Since whoscored_player_id is WhoScored's own stable native ID, key
+    on that instead -- both of Eric Botteghin's spellings share the
+    same ID (24260), so they now correctly aggregate into ONE row
+    regardless of which spelling WhoScored used in a given match.
+    Tracks every name spelling seen per identity_key so the most
+    common one can be used for the final player_name (see build_rows).
+    """
     totals = defaultdict(lambda: defaultdict(int))
     matches_seen = defaultdict(set)
-    player_ids = {}  # (player, team) -> whoscored player_id, since it's
-                      # constant per player/team, not additive like the
-                      # stat fields -- captured once, not summed
+    player_ids = {}  # (identity_key, team) -> whoscored player_id
+    name_counts = defaultdict(lambda: defaultdict(int))  # (identity_key, team) -> {name: count}
 
     files = list(data_dir.glob("*.json"))
 
@@ -122,18 +143,36 @@ def aggregate_season(data_dir):
                 if player is None or team is None:
                     continue  # e.g. a 'Start' event with no player -- skip
 
+                # Defensive guard against a real, previously-seen bug:
+                # some records carry a numeric-looking value (e.g.
+                # 298844.0) instead of a real name string -- confirmed
+                # months ago as a genuine data artifact (not this
+                # project's own bug at the time, root cause never fully
+                # identified), previously cleaned up with a one-off
+                # DELETE after the fact. Recurred here (2026-09-14)
+                # because the 13-season re-run regenerated all per-match
+                # JSON from scratch, recreating whatever produces it.
+                # Skip defensively rather than crash or silently load
+                # garbage -- same check as find_numeric_player_names.py.
+                try:
+                    float(str(player))
+                    print(f"  WARNING: skipping numeric-looking player "
+                          f"name {player!r} in match {f.stem}, category "
+                          f"{category} -- known data artifact, not a "
+                          f"real player.")
+                    continue
+                except ValueError:
+                    pass  # not numeric -- a real name, proceed normally
+
                 team = TEAM_NAME_NORMALIZATION.get(team, team)
 
-                key = (player, team)
-                matches_seen[key].add(match_id)
-
-                # Capture player_id once per (player, team) -- if it's
-                # present on this record and we haven't seen it yet for
-                # this key, or if a later record disagrees with an
-                # earlier one, flag the conflict rather than silently
-                # overwriting -- same discipline as the player_id
-                # consistency check in parse_raw_whoscored_events.py.
                 record_player_id = record.get("player_id")
+                identity_key = record_player_id if record_player_id is not None else player
+                key = (identity_key, team)
+
+                matches_seen[key].add(match_id)
+                name_counts[key][player] += 1
+
                 if record_player_id is not None:
                     existing = player_ids.get(key)
                     if existing is not None and existing != record_player_id:
@@ -148,12 +187,14 @@ def aggregate_season(data_dir):
                     if value is not None:
                         totals[key][field] += value
 
-    return totals, matches_seen, player_ids, len(files)
+    return totals, matches_seen, player_ids, name_counts, len(files)
 
 
-def build_rows(totals, matches_seen, player_ids, season_id):
+def build_rows(totals, matches_seen, player_ids, name_counts, season_id):
     rows = []
-    for (player, team), stats in totals.items():
+    for (identity_key, team), stats in totals.items():
+        display_name = max(name_counts[(identity_key, team)].items(), key=lambda item: item[1])[0]
+
         passes = stats.get("passes", 0)
         passes_completed = stats.get("passes_completed", 0)
         passes_pct = round((passes_completed / passes) * 100, 1) if passes else None
@@ -167,8 +208,8 @@ def build_rows(totals, matches_seen, player_ids, season_id):
         aerials_won_pct = round((aerials_won / aerials) * 100, 1) if aerials else None
 
         rows.append((
-            player, team, season_id, len(matches_seen[(player, team)]),
-            player_ids.get((player, team)),
+            display_name, team, season_id, len(matches_seen[(identity_key, team)]),
+            player_ids.get((identity_key, team)),
             passes, passes_completed, passes_pct,
             stats.get("touches", 0), stats.get("touches_def_3rd", 0),
             stats.get("touches_mid_3rd", 0), stats.get("touches_att_3rd", 0),
@@ -237,9 +278,16 @@ INSERT_SQL = """
 """
 
 
+CLEANUP_ORPHAN_SQL = """
+    DELETE FROM eredivisie_whoscored_player_season_stats
+    WHERE whoscored_player_id = %s AND team = %s AND season_id = %s AND player_name != %s
+"""
+
+
 def main():
     conn = get_connection()
     total_rows_inserted = 0
+    total_orphans_removed = 0
 
     with conn.cursor() as cur:
         for season in SEASONS:
@@ -249,10 +297,30 @@ def main():
                 continue
 
             season_id = season_to_id(season)
-            totals, matches_seen, player_ids, file_count = aggregate_season(data_dir)
-            rows = build_rows(totals, matches_seen, player_ids, season_id)
+            totals, matches_seen, player_ids, name_counts, file_count = aggregate_season(data_dir)
+            rows = build_rows(totals, matches_seen, player_ids, name_counts, season_id)
 
+            orphans_this_season = 0
             if rows:
+                # BEFORE loading: remove any stale row sharing the same
+                # whoscored_player_id/team/season but a DIFFERENT
+                # player_name -- a real, confirmed leftover from before
+                # this script keyed by whoscored_player_id (2026-09-14).
+                # ON CONFLICT (player_name, team, season_id) can only
+                # ever update the row matching the CURRENT run's chosen
+                # display_name -- it has no way to know an old row
+                # under a different spelling for the same real person
+                # is now obsolete. Skipped for rows with no
+                # whoscored_player_id (nothing to identify an orphan by
+                # in that case).
+                for row in rows:
+                    display_name, team, row_season_id = row[0], row[1], row[2]
+                    whoscored_player_id = row[4]
+                    if whoscored_player_id is not None:
+                        cur.execute(CLEANUP_ORPHAN_SQL,
+                                    (whoscored_player_id, team, row_season_id, display_name))
+                        orphans_this_season += cur.rowcount
+
                 execute_values(cur, INSERT_SQL, rows)
                 inserted = len(rows)  # cur.rowcount under-reports with
                                        # execute_values' internal paging --
@@ -262,12 +330,15 @@ def main():
 
             conn.commit()
             total_rows_inserted += inserted
+            total_orphans_removed += orphans_this_season
             print(f"{season}: {file_count} match files, "
                   f"{len(totals)} (player, team) pairs aggregated, "
-                  f"{inserted} rows inserted/updated")
+                  f"{inserted} rows inserted/updated, "
+                  f"{orphans_this_season} orphaned rows removed")
 
     conn.close()
     print(f"\nTotal rows inserted/updated across all seasons: {total_rows_inserted}")
+    print(f"Total orphaned rows removed: {total_orphans_removed}")
 
 
 if __name__ == "__main__":
