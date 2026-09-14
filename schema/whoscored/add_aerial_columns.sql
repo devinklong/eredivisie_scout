@@ -7,3 +7,9 @@
 ALTER TABLE eredivisie_whoscored_player_season_stats ADD COLUMN aerials INTEGER;
 ALTER TABLE eredivisie_whoscored_player_season_stats ADD COLUMN aerials_won INTEGER;
 ALTER TABLE eredivisie_whoscored_player_season_stats ADD COLUMN aerials_won_pct NUMERIC(5,1);
+
+SELECT player_id, team, season_id, COUNT(*)
+FROM master_player_season_stats
+WHERE player_id IS NOT NULL
+GROUP BY player_id, team, season_id
+HAVING COUNT(*) > 1;

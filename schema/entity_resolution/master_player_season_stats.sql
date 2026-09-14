@@ -58,7 +58,8 @@
 -- lines within the existing blocks, don't introduce blank lines to
 -- "space things out."
 
-CREATE OR REPLACE VIEW master_player_season_stats AS
+DROP VIEW IF EXISTS master_player_season_stats;
+CREATE VIEW master_player_season_stats AS
 SELECT
     COALESCE(p.canonical_name, fbref.player_name) AS canonical_name,
     p.player_id,
@@ -159,13 +160,57 @@ SELECT
     ws.errors AS ws_errors,
     ws.final_third_entries AS ws_final_third_entries,
     ws.pen_area_entries AS ws_pen_area_entries,
+    ws.aerials AS ws_aerials,
+    ws.aerials_won AS ws_aerials_won,
+    ws.aerials_won_pct AS ws_aerial_duel_win_pct,
+    ROUND(((COALESCE(ws.tackles_won, 0) + COALESCE(ws.take_ons_won, 0))::numeric / NULLIF(COALESCE(ws.tackles, 0) + COALESCE(ws.dribbled_past, 0) + COALESCE(ws.take_ons, 0), 0)) * 100, 1) AS ws_ground_duel_win_pct,
     tm_bio.height_cm AS tm_height_cm,
-    tm_bio.foot AS tm_foot
+    tm_bio.foot AS tm_foot,
+    ROUND(fbref.yellow_cards / NULLIF(fbref.nineties, 0), 2) AS fbref_yellow_cards_per90,
+    ROUND(fbref.red_cards / NULLIF(fbref.nineties, 0), 2) AS fbref_red_cards_per90,
+    ROUND(fbref.second_yellow_cards / NULLIF(fbref.nineties, 0), 2) AS fbref_second_yellow_cards_per90,
+    ROUND(fbref.fouls_committed / NULLIF(fbref.nineties, 0), 2) AS fbref_fouls_committed_per90,
+    ROUND(fbref.fouls_drawn / NULLIF(fbref.nineties, 0), 2) AS fbref_fouls_drawn_per90,
+    ROUND(fbref.offsides / NULLIF(fbref.nineties, 0), 2) AS fbref_offsides_per90,
+    ROUND(fbref.crosses / NULLIF(fbref.nineties, 0), 2) AS fbref_crosses_per90,
+    ROUND(fbref.interceptions / NULLIF(fbref.nineties, 0), 2) AS fbref_interceptions_per90,
+    ROUND(fbref.tackles_won / NULLIF(fbref.nineties, 0), 2) AS fbref_tackles_won_per90,
+    ROUND(fbref.penalty_kicks_won / NULLIF(fbref.nineties, 0), 2) AS fbref_penalty_kicks_won_per90,
+    ROUND(fbref.penalty_kicks_conceded / NULLIF(fbref.nineties, 0), 2) AS fbref_penalty_kicks_conceded_per90,
+    ROUND(fbref.own_goals / NULLIF(fbref.nineties, 0), 2) AS fbref_own_goals_per90,
+    ROUND(gk.saves / NULLIF(fbref.nineties, 0), 2) AS gk_saves_per90,
+    ROUND(ws.passes / NULLIF(fbref.nineties, 0), 2) AS ws_passes_per90,
+    ROUND(ws.passes_completed / NULLIF(fbref.nineties, 0), 2) AS ws_passes_completed_per90,
+    ROUND(ws.touches / NULLIF(fbref.nineties, 0), 2) AS ws_touches_per90,
+    ROUND(ws.touches_def_3rd / NULLIF(fbref.nineties, 0), 2) AS ws_touches_def_3rd_per90,
+    ROUND(ws.touches_mid_3rd / NULLIF(fbref.nineties, 0), 2) AS ws_touches_mid_3rd_per90,
+    ROUND(ws.touches_att_3rd / NULLIF(fbref.nineties, 0), 2) AS ws_touches_att_3rd_per90,
+    ROUND(ws.touches_def_pen_area / NULLIF(fbref.nineties, 0), 2) AS ws_touches_def_pen_area_per90,
+    ROUND(ws.touches_att_pen_area / NULLIF(fbref.nineties, 0), 2) AS ws_touches_att_pen_area_per90,
+    ROUND(ws.take_ons / NULLIF(fbref.nineties, 0), 2) AS ws_take_ons_per90,
+    ROUND(ws.take_ons_won / NULLIF(fbref.nineties, 0), 2) AS ws_take_ons_won_per90,
+    ROUND(ws.dispossessed / NULLIF(fbref.nineties, 0), 2) AS ws_dispossessed_per90,
+    ROUND(ws.tackles / NULLIF(fbref.nineties, 0), 2) AS ws_tackles_per90,
+    ROUND(ws.tackles_won / NULLIF(fbref.nineties, 0), 2) AS ws_tackles_won_per90,
+    ROUND(ws.tackles_def_3rd / NULLIF(fbref.nineties, 0), 2) AS ws_tackles_def_3rd_per90,
+    ROUND(ws.tackles_mid_3rd / NULLIF(fbref.nineties, 0), 2) AS ws_tackles_mid_3rd_per90,
+    ROUND(ws.tackles_att_3rd / NULLIF(fbref.nineties, 0), 2) AS ws_tackles_att_3rd_per90,
+    ROUND(ws.interceptions / NULLIF(fbref.nineties, 0), 2) AS ws_interceptions_per90,
+    ROUND(ws.interceptions_def_3rd / NULLIF(fbref.nineties, 0), 2) AS ws_interceptions_def_3rd_per90,
+    ROUND(ws.interceptions_mid_3rd / NULLIF(fbref.nineties, 0), 2) AS ws_interceptions_mid_3rd_per90,
+    ROUND(ws.interceptions_att_3rd / NULLIF(fbref.nineties, 0), 2) AS ws_interceptions_att_3rd_per90,
+    ROUND(ws.clearances / NULLIF(fbref.nineties, 0), 2) AS ws_clearances_per90,
+    ROUND(ws.dribbled_past / NULLIF(fbref.nineties, 0), 2) AS ws_dribbled_past_per90,
+    ROUND(ws.errors / NULLIF(fbref.nineties, 0), 2) AS ws_errors_per90,
+    ROUND(ws.final_third_entries / NULLIF(fbref.nineties, 0), 2) AS ws_final_third_entries_per90,
+    ROUND(ws.pen_area_entries / NULLIF(fbref.nineties, 0), 2) AS ws_pen_area_entries_per90,
+    ROUND(ws.aerials / NULLIF(fbref.nineties, 0), 2) AS ws_aerials_per90,
+    ROUND(ws.aerials_won / NULLIF(fbref.nineties, 0), 2) AS ws_aerials_won_per90
 FROM eredivisie_soccerdata_player_season_stats fbref
 LEFT JOIN (SELECT psc.source_name, psc.player_id, pl.canonical_born FROM player_source_crosswalk psc JOIN players pl ON pl.player_id = psc.player_id WHERE psc.source = 'fbref') fbref_x ON fbref_x.source_name = fbref.player_name AND (fbref_x.canonical_born IS NULL OR fbref_x.canonical_born = fbref.born)
 LEFT JOIN players p ON p.player_id = fbref_x.player_id
 LEFT JOIN eredivisie_keeper_season_stats gk ON gk.player_name = fbref.player_name AND gk.team = fbref.team AND gk.season_id = fbref.season_id AND (p.canonical_born IS NULL OR p.canonical_born = gk.born)
-LEFT JOIN (SELECT psc.player_id, w.team, w.season_id, w.whoscored_player_id, w.matches_with_data, w.passes, w.passes_completed, w.passes_pct, w.touches, w.touches_def_3rd, w.touches_mid_3rd, w.touches_att_3rd, w.touches_def_pen_area, w.touches_att_pen_area, w.take_ons, w.take_ons_won, w.take_ons_won_pct, w.dispossessed, w.tackles, w.tackles_won, w.tackles_def_3rd, w.tackles_mid_3rd, w.tackles_att_3rd, w.interceptions, w.interceptions_def_3rd, w.interceptions_mid_3rd, w.interceptions_att_3rd, w.clearances, w.dribbled_past, w.errors, w.final_third_entries, w.pen_area_entries FROM player_source_crosswalk psc JOIN eredivisie_whoscored_player_season_stats w ON w.player_name = psc.source_name JOIN players pl ON pl.player_id = psc.player_id WHERE psc.source = 'whoscored' AND (pl.canonical_whoscored_player_id IS NULL OR pl.canonical_whoscored_player_id = w.whoscored_player_id)) ws ON ws.player_id = p.player_id AND ws.team = fbref.team AND ws.season_id = fbref.season_id
+LEFT JOIN (SELECT psc.player_id, w.team, w.season_id, w.whoscored_player_id, w.matches_with_data, w.passes, w.passes_completed, w.passes_pct, w.touches, w.touches_def_3rd, w.touches_mid_3rd, w.touches_att_3rd, w.touches_def_pen_area, w.touches_att_pen_area, w.take_ons, w.take_ons_won, w.take_ons_won_pct, w.dispossessed, w.tackles, w.tackles_won, w.tackles_def_3rd, w.tackles_mid_3rd, w.tackles_att_3rd, w.interceptions, w.interceptions_def_3rd, w.interceptions_mid_3rd, w.interceptions_att_3rd, w.clearances, w.dribbled_past, w.errors, w.final_third_entries, w.pen_area_entries, w.aerials, w.aerials_won, w.aerials_won_pct FROM player_source_crosswalk psc JOIN eredivisie_whoscored_player_season_stats w ON w.player_name = psc.source_name JOIN players pl ON pl.player_id = psc.player_id WHERE psc.source = 'whoscored' AND (pl.canonical_whoscored_player_id IS NULL OR pl.canonical_whoscored_player_id = w.whoscored_player_id)) ws ON ws.player_id = p.player_id AND ws.team = fbref.team AND ws.season_id = fbref.season_id
 LEFT JOIN player_source_crosswalk tm_x ON tm_x.player_id = p.player_id AND tm_x.source = 'transfermarkt'
 LEFT JOIN eredivisie_transfermarkt_player_bio tm_bio ON tm_bio.player_id = tm_x.source_native_id;
 
@@ -173,9 +218,4 @@ LEFT JOIN eredivisie_transfermarkt_player_bio tm_bio ON tm_bio.player_id = tm_x.
 SELECT COUNT(*) FROM master_player_season_stats;
 SELECT COUNT(*) FROM master_player_season_stats WHERE ws_whoscored_player_id IS NOT NULL;
 SELECT COUNT(*) FROM master_player_season_stats WHERE tm_height_cm IS NOT NULL;
-
-SELECT player_id, team, season_id, COUNT(*) AS num_rows
-FROM master_player_season_stats
-WHERE player_id IS NOT NULL
-GROUP BY player_id, team, season_id
-HAVING COUNT(*) > 1;
+SELECT * FROM master_player_season_stats WHERE player_id IN (271, 999) ORDER BY player_id, season_id;
