@@ -1398,27 +1398,90 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1701,Izzy Brown,245805,Izzy Brown,1.0,1.0,1.0,1.0,exact_after_normalize
 1702,Bojan Krkić,44675,Bojan Krkic,0.7143,1.0,1.0,1.0,exact_after_normalize
 1710,Eric Botteghin,56601,Eric Botteghin,1.0,1.0,1.0,1.0,exact_after_normalize
+1712,Jhonny Quiñónez,437842,Jhonny Quiñónez,1.0,1.0,1.0,1.0,exact_after_normalize
+1724,Joshua John,60312,Joshua John,1.0,1.0,1.0,1.0,exact_after_normalize
+1728,Bilal Başaçıkoğlu,224256,Bilal Başaçıkoğlu,1.0,1.0,1.0,1.0,exact_after_normalize
+1735,Kacper Kozłowski,554284,Kacper Kozłowski,1.0,1.0,1.0,1.0,exact_after_normalize
+1738,Bartosz Białek,535551,Bartosz Białek,1.0,1.0,1.0,1.0,exact_after_normalize
+1740,Denys Oliynyk,57895,Denys Oliynyk,1.0,1.0,1.0,1.0,exact_after_normalize
+1742,Jarosław Jach,327755,Jarosław Jach,1.0,1.0,1.0,1.0,exact_after_normalize
+1743,Burak Yılmaz,34987,Burak Yılmaz,1.0,1.0,1.0,1.0,exact_after_normalize
+1751,Nikolaos Michelis,584452,Nikolaos Michelis,1.0,1.0,1.0,1.0,exact_after_normalize
+1757,Thomas Meißner,72505,Thomas Meißner,1.0,1.0,1.0,1.0,exact_after_normalize
+1759,Facundo González,825199,Facundo González,1.0,1.0,1.0,1.0,exact_after_normalize
+1764,Dan Mori,112674,Dan Mori,1.0,1.0,1.0,1.0,exact_after_normalize
+1765,Charly Musonda Jr.,177862,Charly Musonda Jr.,1.0,1.0,1.0,1.0,exact_after_normalize
+1766,Nathan Markelo,451576,Nathan Markelo,1.0,1.0,1.0,1.0,exact_after_normalize
+1767,Brad Jones,4042,Brad Jones,1.0,1.0,1.0,1.0,exact_after_normalize
+1771,Furdjel Narsingh,64355,Furdjel Narsingh,1.0,1.0,1.0,1.0,exact_after_normalize
+1772,Dirk Kuyt,4010,Dirk Kuyt,1.0,1.0,1.0,1.0,exact_after_normalize
+1782,Andri Fannar Baldursson,464446,Andri Fannar Baldursson,1.0,1.0,1.0,1.0,exact_after_normalize
+1784,Reagy Ofosu,83253,Reagy Ofosu,1.0,1.0,1.0,1.0,exact_after_normalize
+1713,Amourrichio van Axel Dongen,704773,Amourricho van Axel Dongen,0.8276,0.9926,0.9811,0.9811,same_surname_diff_given_name
+1714,Mohamed El Hankouri,384587,Mohammed El Hankouri,0.8636,0.99,0.9744,0.9744,same_surname_diff_given_name
+1715,Vyacheslav Karavayev,170620,Vyacheslav Karavaev,0.7826,0.99,0.9744,0.9744,same_given_name_diff_surname
+1716,Mohammed Ihattaren,503638,Mohamed Ihattaren,0.85,0.9889,0.9714,0.9714,same_surname_diff_given_name
+1717,Leftheris Lyratzis,390125,Lefteris Lyratzis,0.7368,0.9889,0.9714,0.9714,same_surname_diff_given_name
+1734,Vasileios Sourlis,554398,Vasilios Sourlis,0.75,0.9882,0.9697,0.9697,same_surname_diff_given_name
 649,Andreas Calcan,244548,Andreias Calcan,0.7222,0.9867,0.9655,0.9655,same_surname_diff_given_name
+1719,Mitchell Paulissen,213671,Mitchel Paulissen,0.85,0.9654,0.9714,0.9654,same_surname_diff_given_name
 1052,Dimitris Emmanouilidis,468036,Dimitrios Emmanouilidis,0.84,0.964,0.9778,0.964,same_surname_diff_given_name
+1720,Dries Saddiki,370042,Driess Saddiki,0.8125,0.9703,0.963,0.963,same_surname_diff_given_name
+1722,Dimitris Siovas,52403,Dimitrios Siovas,0.7368,0.9608,0.9677,0.9608,same_surname_diff_given_name
+1723,Llazaros Rota,483916,Lazaros Rota,0.8,0.9769,0.96,0.96,substring_match
+1780,Stefán Ingi Sigurðarson,464454,Stefán Ingi Sigurdarson,0.7692,0.9826,0.9565,0.9565,same_given_name_diff_surname
 343,Colin Kazim-Richards,36802,Colin Kazım-Richards,0.75,0.9589,0.95,0.95,same_given_name_diff_surname
+1725,Armel Bella Kotchap,467563,Armel Bella-Kotchap,1.0,0.9789,0.9474,0.9474,same_given_name_diff_surname
 1187,Aventis Aventisian,451673,Aventis Aventisyan,0.6,0.9778,0.9444,0.9444,same_given_name_diff_surname
+1726,Albert Guðmundsson,305947,Albert Gudmundsson,0.7273,0.9542,0.9444,0.9444,same_given_name_diff_surname
+1727,Marious Vrousai,395632,Marios Vrousai,0.7647,0.9438,0.9655,0.9438,same_surname_diff_given_name
+1730,Szymon Włodarczyk,554282,Szymon Wlodarczyk,0.7143,0.9765,0.9412,0.9412,same_given_name_diff_surname
+1731,Dario Grujcic,307769,Darijo Grujcic,0.7059,0.9396,0.963,0.9396,same_surname_diff_given_name
 880,Dimitris Kolovos,162261,Dimitrios Kolovos,0.7895,0.9382,0.9697,0.9382,same_surname_diff_given_name
+1732,Dimitris Limnios,324344,Dimitrios Limnios,0.8333,0.9382,0.9697,0.9382,same_surname_diff_given_name
+1733,Przemysław Tytoń,33210,Przemyslaw Tyton,0.5455,0.975,0.9375,0.9375,same_surname_diff_given_name
+1737,Roberto González,505675,Rober González,0.7778,0.9607,0.9333,0.9333,same_surname_diff_given_name
+1753,Hannes Þór Halldórsson,103440,Hannes Thór Halldórsson,0.72,0.9545,0.9333,0.9333,given_and_surname_match_extra_middle_token
 616,Ferdi Kadioglu,369316,Ferdi Kadıoğlu,0.5,0.9714,0.9286,0.9286,same_given_name_diff_surname
 1197,Turan Tuzlacik,436063,Turan Tuzlacık,0.625,0.9714,0.9286,0.9286,same_given_name_diff_surname
+1739,Kolbeinn Sigþórsson,52246,Kolbeinn Sigthórsson,0.7083,0.9695,0.9231,0.9231,same_given_name_diff_surname
+1741,Paweł Cibicki,223849,Pawel Cibicki,0.75,0.9692,0.9231,0.9231,same_surname_diff_given_name
+1746,Rémi Amieux,125693,Rémy Amieux,0.7143,0.9109,0.9091,0.9091,same_surname_diff_given_name
+1747,Dario Đumić,78818,Dario Dumic,0.4375,0.9636,0.9091,0.9091,same_given_name_diff_surname
+1748,Giorgos Katsikas,96778,Georgios Katsikas,0.5909,0.9449,0.9091,0.9091,same_surname_diff_given_name
+1752,Nökkvi Þórisson,381349,Nökkvi Thórisson,0.65,0.9617,0.9032,0.9032,same_given_name_diff_surname
+1755,Vytas Andriuškevičius,120034,Vytautas Andriuskevicius,0.5333,0.8988,0.9333,0.8988,same_surname_diff_given_name
 815,Lazaros Lamprou,292356,Lazaros Labrou,0.5882,0.959,0.8966,0.8966,same_given_name_diff_surname
+1756,Joeri Schroyen,159375,Joeri Schroijen,0.6316,0.959,0.8966,0.8966,same_given_name_diff_surname
+1758,Nikos Karelis,63487,Nikolaos Karelis,0.7222,0.9163,0.8966,0.8966,same_surname_diff_given_name
+1762,Daniel Crowley,223225,Dan Crowley,0.6875,0.8864,0.88,0.88,same_surname_diff_given_name
 810,Michael Pinto,177866,Mica Pinto,0.5625,0.9462,0.8696,0.8696,same_surname_diff_given_name
+1769,Richy Ledezma,575367,Richard Ledezma,0.6667,0.9113,0.8571,0.8571,same_surname_diff_given_name
+1770,Thomas Didillon,182891,Thomas Didillon-Hödl,0.7619,0.95,0.8571,0.8571,substring_match
 1665,Neville Ogidi Nwankwo,399350,Nigel Ogidi Nwankwo,0.5385,0.8914,0.85,0.85,same_surname_diff_given_name
 970,Oriol Busquets,282721,Uri Busquets,0.4737,0.9008,0.8462,0.8462,same_surname_diff_given_name
+1773,Kostas Mitroglou,34944,Konstantinos Mitroglou,0.4815,0.8439,0.8421,0.8421,same_surname_diff_given_name
+1774,Manu Royo,351216,Manel Royo,0.6154,0.9274,0.8421,0.8421,same_surname_diff_given_name
+1775,Jordy Bos,855731,Jordan Bos,0.6154,0.9378,0.8421,0.8421,same_surname_diff_given_name
 467,Andrew Driver,42967,Andy Driver,0.625,0.8549,0.8333,0.8333,same_surname_diff_given_name
 766,Kostas Tsimikas,338070,Konstantinos Tsimikas,0.48,0.8705,0.8333,0.8333,same_surname_diff_given_name
+1776,Fredrik André Bjørkan,364938,Fredrik Bjørkan,0.7273,0.9029,0.8333,0.8333,given_and_surname_match_extra_middle_token
+1777,Oskar Siira Sivertsen,715510,Oskar Sivertsen,0.8,0.9162,0.8333,0.8333,given_and_surname_match_extra_middle_token
 668,Rasmus Kristensen,369684,Rasmus Nissen Kristensen,0.7826,0.8946,0.8293,0.8293,given_and_surname_match_extra_middle_token
+1779,Kristian Nökkvi Hlynsson,694186,Kristian Hlynsson,0.72,0.8946,0.8293,0.8293,given_and_surname_match_extra_middle_token
+1745,Yoon Doyong,1015959,Do-young Yoon,0.5,0.8275,0.9167,0.8275,other
+1781,Derensili Fernandes,608407,Derensili Sanches Fernandes,0.7407,0.8986,0.8261,0.8261,given_and_surname_match_extra_middle_token
+1783,Mo Hamdaoui,272698,Mohamed Hamdaoui,0.6471,0.8682,0.8148,0.8148,same_surname_diff_given_name
 232,Prince-Désir Gouano,171410,Prince Gouano,0.7,0.9368,0.8125,0.8125,same_surname_diff_given_name
 33,Mike van der Hoorn,207048,Mickey van der Hart,0.3929,0.8994,0.8108,0.8108,other
 623,Ramon Lundqvist,238084,Ramon Pascal Lundqvist,0.6957,0.883,0.8108,0.8108,given_and_surname_match_extra_middle_token
+1785,Filip Delaveris,502561,Filip Møller Delaveris,0.6957,0.8964,0.8108,0.8108,given_and_surname_match_extra_middle_token
 67,Steven Berghuis,284165,Steven Bergwijn,0.5238,0.92,0.8,0.8,same_given_name_diff_surname
 437,Ben Rienstra,277772,Daan Rienstra,0.5,0.8675,0.8,0.8,same_surname_diff_given_name
 962,Daan Rienstra,64506,Ben Rienstra,0.5,0.8675,0.8,0.8,same_surname_diff_given_name
+1786,Lassina Franck Traoré,551695,Lassina Traoré,0.6818,0.9048,0.8,0.8,given_and_surname_match_extra_middle_token
 1242,Anargyros Kampetsis,369103,Argyris Kabetsis,0.3846,0.7978,0.8,0.7978,other
+1760,Willum Þór Willumsson,455127,Willum Thór Willumsson,0.65,0.9723,0.7907,0.7907,given_and_surname_match_extra_middle_token
 1677,Luis Manuel Orejuela,331057,Luis Orejuela,0.7,0.8838,0.7879,0.7879,given_and_surname_match_extra_middle_token
 1678,Jerry St. Juste,288253,Jeremiah St. Juste,0.55,0.9041,0.7879,0.7879,same_surname_diff_given_name
 23,Roland Alberg,124761,Roland Bergkamp,0.4286,0.9113,0.7857,0.7857,same_given_name_diff_surname
@@ -1429,6 +1492,7 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1685,Joel Castro Pereira,192611,Joel Pereira,0.65,0.8763,0.7742,0.7742,given_and_surname_match_extra_middle_token
 741,Thomas Bruns,357826,Thomas Buitink,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname
 742,Thomas Buitink,172202,Thomas Bruns,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname
+999,Marcus Holmgren Pedersen,583404,Marcus Pedersen,0.6667,0.885,0.7692,0.7692,given_and_surname_match_extra_middle_token
 1687,Jochem van de Kamp,865281,Jochem Ritmeester van de Kamp,0.6333,0.8797,0.766,0.766,given_and_surname_match_extra_middle_token
 35,Christian Eriksen,1443,Christian Poulsen,0.5,0.8905,0.7647,0.7647,same_given_name_diff_surname
 36,Christian Poulsen,69633,Christian Eriksen,0.5,0.8905,0.7647,0.7647,same_given_name_diff_surname
@@ -1496,6 +1560,7 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 176,Ryan Koolwijk,153415,Ryan van Dijk,0.35,0.8462,0.6154,0.6154,same_given_name_diff_surname
 196,Park Ji-sung,4592,Ji-sung Park,1.0,0.6111,1.0,0.6111,same_tokens_reordered
 531,Zhang Yuning,264429,Yuning Zhang,1.0,0.6111,1.0,0.6111,same_tokens_reordered
+1776,Fredrik André Bjørkan,223367,Fredrik Aursnes,0.3103,0.8576,0.6111,0.6111,same_given_name_diff_surname
 327,Bas Kuipers,159032,Nick Kuipers,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
 589,Pär Hansson,276002,Emil Hansson,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
 592,Emil Hansson,37217,Pär Hansson,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
@@ -1505,9 +1570,12 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1705,Juan Carlos Familia,349567,Juan Familia-Castillo,0.5556,0.8583,0.6,0.6,same_given_name_diff_surname
 360,Mickey van der Hart,203939,Robin van der Meer,0.3103,0.6827,0.5946,0.5946,other
 604,Robin van der Meer,207048,Mickey van der Hart,0.3103,0.6827,0.5946,0.5946,other
+1729,Jop van den Avert,45538,Jan-Arie van der Heijden,0.3125,0.6662,0.5854,0.5854,other
+1736,Tobias Elshout Van Den,412941,Thomas van den Belt,0.303,0.7944,0.5854,0.5854,other
 647,Thomas Kok,72505,Thomas Meißner,0.3684,0.84,0.5833,0.5833,same_given_name_diff_surname
 720,Thomas Lam,357826,Thomas Buitink,0.3684,0.84,0.5833,0.5833,same_given_name_diff_surname
 742,Thomas Buitink,131821,Thomas Lam,0.3684,0.84,0.5833,0.5833,same_given_name_diff_surname
+1757,Thomas Meißner,396106,Thomas Kok,0.3684,0.84,0.5833,0.5833,same_given_name_diff_surname
 947,Ryan Thomas,593862,Thomas Beelen,0.3684,0.5821,0.6667,0.5821,other
 650,Branco van den Boomen,34785,Joey van den Berg,0.3103,0.648,0.5789,0.5789,other
 881,Victor van den Bogert,203938,Branco van den Boomen,0.3226,0.6984,0.5714,0.5714,other
@@ -1541,6 +1609,7 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1474,Jordan Lotomba,855731,Jordan Bos,0.3684,0.8863,0.5,0.5,same_given_name_diff_surname
 1708,Amar Ahmed,931841,Amar Fatah,0.3125,0.88,0.5,0.5,same_given_name_diff_surname
 1477,Hwang In-beom,365394,In-beom Hwang,1.0,0.4872,1.0,0.4872,same_tokens_reordered
+1719,Mitchell Paulissen,45511,Mitchell Donald,0.3462,0.8767,0.4848,0.4848,same_given_name_diff_surname
 1173,Michael Verrips,158540,Michael Chacón,0.3636,0.821,0.4828,0.4828,same_given_name_diff_surname
 1304,Marcos López,469781,Marcos Senesi,0.35,0.8564,0.48,0.48,same_given_name_diff_surname
 741,Thomas Bruns,207273,Sander Thomas,0.35,0.4671,0.64,0.4671,other

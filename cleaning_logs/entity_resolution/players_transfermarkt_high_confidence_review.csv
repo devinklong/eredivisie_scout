@@ -1,21 +1,64 @@
-canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,trgm_similarity,jaro_winkler,token_sort,working_confidence,match_hint,decision,notes
-649,Andreas Calcan,244548,Andreias Calcan,0.7222,0.9867,0.9655,0.9655,same_surname_diff_given_name,match,nickaname
-1052,Dimitris Emmanouilidis,468036,Dimitrios Emmanouilidis,0.84,0.964,0.9778,0.964,same_surname_diff_given_name,match,nickaname
-343,Colin Kazim-Richards,36802,Colin Kazım-Richards,0.75,0.9589,0.95,0.95,same_given_name_diff_surname,match,nickaname
-1187,Aventis Aventisian,451673,Aventis Aventisyan,0.6,0.9778,0.9444,0.9444,same_given_name_diff_surname,match,nickaname
-880,Dimitris Kolovos,162261,Dimitrios Kolovos,0.7895,0.9382,0.9697,0.9382,same_surname_diff_given_name,match,nickaname
-616,Ferdi Kadioglu,369316,Ferdi Kadıoğlu,0.5,0.9714,0.9286,0.9286,same_given_name_diff_surname,match,nickaname
-1197,Turan Tuzlacik,436063,Turan Tuzlacık,0.625,0.9714,0.9286,0.9286,same_given_name_diff_surname,match,nickaname
-815,Lazaros Lamprou,292356,Lazaros Labrou,0.5882,0.959,0.8966,0.8966,same_given_name_diff_surname,match,nickaname
-810,Michael Pinto,177866,Mica Pinto,0.5625,0.9462,0.8696,0.8696,same_surname_diff_given_name,match,nickaname
-1665,Neville Ogidi Nwankwo,399350,Nigel Ogidi Nwankwo,0.5385,0.8914,0.85,0.85,same_surname_diff_given_name,No match ,brothers
-970,Oriol Busquets,282721,Uri Busquets,0.4737,0.9008,0.8462,0.8462,same_surname_diff_given_name,match,nickaname
-467,Andrew Driver,42967,Andy Driver,0.625,0.8549,0.8333,0.8333,same_surname_diff_given_name,match,nickaname
-766,Kostas Tsimikas,338070,Konstantinos Tsimikas,0.48,0.8705,0.8333,0.8333,same_surname_diff_given_name,match,nickaname
-668,Rasmus Kristensen,369684,Rasmus Nissen Kristensen,0.7826,0.8946,0.8293,0.8293,given_and_surname_match_extra_middle_token,match,nickaname
-232,Prince-Désir Gouano,171410,Prince Gouano,0.7,0.9368,0.8125,0.8125,same_surname_diff_given_name,match,nickaname
-33,Mike van der Hoorn,207048,Mickey van der Hart,0.3929,0.8994,0.8108,0.8108,other,No match,Different ages
-623,Ramon Lundqvist,238084,Ramon Pascal Lundqvist,0.6957,0.883,0.8108,0.8108,given_and_surname_match_extra_middle_token,match,nickaname
-67,Steven Berghuis,284165,Steven Bergwijn,0.5238,0.92,0.8,0.8,same_given_name_diff_surname,No match,Different ages
-437,Ben Rienstra,277772,Daan Rienstra,0.5,0.8675,0.8,0.8,same_surname_diff_given_name,No match,Different ages
-962,Daan Rienstra,64506,Ben Rienstra,0.5,0.8675,0.8,0.8,same_surname_diff_given_name,No match,Different ages
+canonical_player_id,transfermarkt_player_id,canonical_name,transfermarkt_name,trgm_similarity,jaro_winkler,token_sort,working_confidence,match_hint,decision,notes
+1713,704773,Amourrichio van Axel Dongen,Amourricho van Axel Dongen,0.8276,0.9926,0.9811,0.9811,same_surname_diff_given_name,,
+1714,384587,Mohamed El Hankouri,Mohammed El Hankouri,0.8636,0.99,0.9744,0.9744,same_surname_diff_given_name,,
+1715,170620,Vyacheslav Karavayev,Vyacheslav Karavaev,0.7826,0.99,0.9744,0.9744,same_given_name_diff_surname,,
+1716,503638,Mohammed Ihattaren,Mohamed Ihattaren,0.85,0.9889,0.9714,0.9714,same_surname_diff_given_name,,
+1717,390125,Leftheris Lyratzis,Lefteris Lyratzis,0.7368,0.9889,0.9714,0.9714,same_surname_diff_given_name,,
+1734,554398,Vasileios Sourlis,Vasilios Sourlis,0.75,0.9882,0.9697,0.9697,same_surname_diff_given_name,,
+649,244548,Andreas Calcan,Andreias Calcan,0.7222,0.9867,0.9655,0.9655,same_surname_diff_given_name,match,nickaname
+1719,213671,Mitchell Paulissen,Mitchel Paulissen,0.85,0.9654,0.9714,0.9654,same_surname_diff_given_name,,
+1052,468036,Dimitris Emmanouilidis,Dimitrios Emmanouilidis,0.84,0.964,0.9778,0.964,same_surname_diff_given_name,match,nickaname
+1720,370042,Dries Saddiki,Driess Saddiki,0.8125,0.9703,0.963,0.963,same_surname_diff_given_name,,
+1722,52403,Dimitris Siovas,Dimitrios Siovas,0.7368,0.9608,0.9677,0.9608,same_surname_diff_given_name,,
+1723,483916,Llazaros Rota,Lazaros Rota,0.8,0.9769,0.96,0.96,substring_match,,
+1780,464454,Stefán Ingi Sigurðarson,Stefán Ingi Sigurdarson,0.7692,0.9826,0.9565,0.9565,same_given_name_diff_surname,,
+343,36802,Colin Kazim-Richards,Colin Kazım-Richards,0.75,0.9589,0.95,0.95,same_given_name_diff_surname,match,nickaname
+1725,467563,Armel Bella Kotchap,Armel Bella-Kotchap,1.0,0.9789,0.9474,0.9474,same_given_name_diff_surname,,
+1187,451673,Aventis Aventisian,Aventis Aventisyan,0.6,0.9778,0.9444,0.9444,same_given_name_diff_surname,match,nickaname
+1726,305947,Albert Guðmundsson,Albert Gudmundsson,0.7273,0.9542,0.9444,0.9444,same_given_name_diff_surname,,
+1727,395632,Marious Vrousai,Marios Vrousai,0.7647,0.9438,0.9655,0.9438,same_surname_diff_given_name,,
+1730,554282,Szymon Włodarczyk,Szymon Wlodarczyk,0.7143,0.9765,0.9412,0.9412,same_given_name_diff_surname,,
+1731,307769,Dario Grujcic,Darijo Grujcic,0.7059,0.9396,0.963,0.9396,same_surname_diff_given_name,,
+880,162261,Dimitris Kolovos,Dimitrios Kolovos,0.7895,0.9382,0.9697,0.9382,same_surname_diff_given_name,match,nickaname
+1732,324344,Dimitris Limnios,Dimitrios Limnios,0.8333,0.9382,0.9697,0.9382,same_surname_diff_given_name,,
+1733,33210,Przemysław Tytoń,Przemyslaw Tyton,0.5455,0.975,0.9375,0.9375,same_surname_diff_given_name,,
+1737,505675,Roberto González,Rober González,0.7778,0.9607,0.9333,0.9333,same_surname_diff_given_name,,
+1753,103440,Hannes Þór Halldórsson,Hannes Thór Halldórsson,0.72,0.9545,0.9333,0.9333,given_and_surname_match_extra_middle_token,,
+616,369316,Ferdi Kadioglu,Ferdi Kadıoğlu,0.5,0.9714,0.9286,0.9286,same_given_name_diff_surname,match,nickaname
+1197,436063,Turan Tuzlacik,Turan Tuzlacık,0.625,0.9714,0.9286,0.9286,same_given_name_diff_surname,match,nickaname
+1739,52246,Kolbeinn Sigþórsson,Kolbeinn Sigthórsson,0.7083,0.9695,0.9231,0.9231,same_given_name_diff_surname,,
+1741,223849,Paweł Cibicki,Pawel Cibicki,0.75,0.9692,0.9231,0.9231,same_surname_diff_given_name,,
+1746,125693,Rémi Amieux,Rémy Amieux,0.7143,0.9109,0.9091,0.9091,same_surname_diff_given_name,,
+1747,78818,Dario Đumić,Dario Dumic,0.4375,0.9636,0.9091,0.9091,same_given_name_diff_surname,,
+1748,96778,Giorgos Katsikas,Georgios Katsikas,0.5909,0.9449,0.9091,0.9091,same_surname_diff_given_name,,
+1752,381349,Nökkvi Þórisson,Nökkvi Thórisson,0.65,0.9617,0.9032,0.9032,same_given_name_diff_surname,,
+1755,120034,Vytas Andriuškevičius,Vytautas Andriuskevicius,0.5333,0.8988,0.9333,0.8988,same_surname_diff_given_name,,
+815,292356,Lazaros Lamprou,Lazaros Labrou,0.5882,0.959,0.8966,0.8966,same_given_name_diff_surname,match,nickaname
+1756,159375,Joeri Schroyen,Joeri Schroijen,0.6316,0.959,0.8966,0.8966,same_given_name_diff_surname,,
+1758,63487,Nikos Karelis,Nikolaos Karelis,0.7222,0.9163,0.8966,0.8966,same_surname_diff_given_name,,
+1762,223225,Daniel Crowley,Dan Crowley,0.6875,0.8864,0.88,0.88,same_surname_diff_given_name,,
+810,177866,Michael Pinto,Mica Pinto,0.5625,0.9462,0.8696,0.8696,same_surname_diff_given_name,match,nickaname
+1769,575367,Richy Ledezma,Richard Ledezma,0.6667,0.9113,0.8571,0.8571,same_surname_diff_given_name,,
+1770,182891,Thomas Didillon,Thomas Didillon-Hödl,0.7619,0.95,0.8571,0.8571,substring_match,,
+1665,399350,Neville Ogidi Nwankwo,Nigel Ogidi Nwankwo,0.5385,0.8914,0.85,0.85,same_surname_diff_given_name,No match ,brothers
+970,282721,Oriol Busquets,Uri Busquets,0.4737,0.9008,0.8462,0.8462,same_surname_diff_given_name,match,nickaname
+1773,34944,Kostas Mitroglou,Konstantinos Mitroglou,0.4815,0.8439,0.8421,0.8421,same_surname_diff_given_name,,
+1774,351216,Manu Royo,Manel Royo,0.6154,0.9274,0.8421,0.8421,same_surname_diff_given_name,,
+1775,855731,Jordy Bos,Jordan Bos,0.6154,0.9378,0.8421,0.8421,same_surname_diff_given_name,,
+467,42967,Andrew Driver,Andy Driver,0.625,0.8549,0.8333,0.8333,same_surname_diff_given_name,match,nickaname
+766,338070,Kostas Tsimikas,Konstantinos Tsimikas,0.48,0.8705,0.8333,0.8333,same_surname_diff_given_name,match,nickaname
+1776,364938,Fredrik André Bjørkan,Fredrik Bjørkan,0.7273,0.9029,0.8333,0.8333,given_and_surname_match_extra_middle_token,,
+1777,715510,Oskar Siira Sivertsen,Oskar Sivertsen,0.8,0.9162,0.8333,0.8333,given_and_surname_match_extra_middle_token,,
+668,369684,Rasmus Kristensen,Rasmus Nissen Kristensen,0.7826,0.8946,0.8293,0.8293,given_and_surname_match_extra_middle_token,match,nickaname
+1779,694186,Kristian Nökkvi Hlynsson,Kristian Hlynsson,0.72,0.8946,0.8293,0.8293,given_and_surname_match_extra_middle_token,,
+1745,1015959,Yoon Doyong,Do-young Yoon,0.5,0.8275,0.9167,0.8275,other,,
+1781,608407,Derensili Fernandes,Derensili Sanches Fernandes,0.7407,0.8986,0.8261,0.8261,given_and_surname_match_extra_middle_token,,
+1783,272698,Mo Hamdaoui,Mohamed Hamdaoui,0.6471,0.8682,0.8148,0.8148,same_surname_diff_given_name,,
+232,171410,Prince-Désir Gouano,Prince Gouano,0.7,0.9368,0.8125,0.8125,same_surname_diff_given_name,match,nickaname
+33,207048,Mike van der Hoorn,Mickey van der Hart,0.3929,0.8994,0.8108,0.8108,other,No match,Different ages
+623,238084,Ramon Lundqvist,Ramon Pascal Lundqvist,0.6957,0.883,0.8108,0.8108,given_and_surname_match_extra_middle_token,match,nickaname
+1785,502561,Filip Delaveris,Filip Møller Delaveris,0.6957,0.8964,0.8108,0.8108,given_and_surname_match_extra_middle_token,,
+67,284165,Steven Berghuis,Steven Bergwijn,0.5238,0.92,0.8,0.8,same_given_name_diff_surname,No match,Different ages
+437,277772,Ben Rienstra,Daan Rienstra,0.5,0.8675,0.8,0.8,same_surname_diff_given_name,No match,Different ages
+962,64506,Daan Rienstra,Ben Rienstra,0.5,0.8675,0.8,0.8,same_surname_diff_given_name,No match,Different ages
+1786,551695,Lassina Franck Traoré,Lassina Traoré,0.6818,0.9048,0.8,0.8,given_and_surname_match_extra_middle_token,,

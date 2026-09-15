@@ -1,5 +1,6 @@
 canonical_player_id,transfermarkt_player_id,canonical_name,transfermarkt_name,trgm_similarity,jaro_winkler,token_sort,working_confidence,match_hint,decision,notes
 1242,369103,Anargyros Kampetsis,Argyris Kabetsis,0.3846,0.7978,0.8,0.7978,other,match,nickname
+1760,455127,Willum Þór Willumsson,Willum Thór Willumsson,0.65,0.9723,0.7907,0.7907,given_and_surname_match_extra_middle_token,,
 1677,331057,Luis Manuel Orejuela,Luis Orejuela,0.7,0.8838,0.7879,0.7879,given_and_surname_match_extra_middle_token,match,nickname
 1678,288253,Jerry St. Juste,Jeremiah St. Juste,0.55,0.9041,0.7879,0.7879,same_surname_diff_given_name,match,nickname
 23,124761,Roland Alberg,Roland Bergkamp,0.4286,0.9113,0.7857,0.7857,same_given_name_diff_surname,No match,Different ages
@@ -10,6 +11,7 @@ canonical_player_id,transfermarkt_player_id,canonical_name,transfermarkt_name,tr
 1685,192611,Joel Castro Pereira,Joel Pereira,0.65,0.8763,0.7742,0.7742,given_and_surname_match_extra_middle_token,match,nickname
 741,357826,Thomas Bruns,Thomas Buitink,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname,No match,Different ages
 742,172202,Thomas Buitink,Thomas Bruns,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname,No match,Different ages
+999,583404,Marcus Holmgren Pedersen,Marcus Pedersen,0.6667,0.885,0.7692,0.7692,given_and_surname_match_extra_middle_token,,
 1687,865281,Jochem van de Kamp,Jochem Ritmeester van de Kamp,0.6333,0.8797,0.766,0.766,given_and_surname_match_extra_middle_token,match,nickname
 35,1443,Christian Eriksen,Christian Poulsen,0.5,0.8905,0.7647,0.7647,same_given_name_diff_surname,No match,Different ages
 36,69633,Christian Poulsen,Christian Eriksen,0.5,0.8905,0.7647,0.7647,same_given_name_diff_surname,No match,Different ages
@@ -77,6 +79,7 @@ canonical_player_id,transfermarkt_player_id,canonical_name,transfermarkt_name,tr
 176,153415,Ryan Koolwijk,Ryan van Dijk,0.35,0.8462,0.6154,0.6154,same_given_name_diff_surname,No match,Different ages
 196,4592,Park Ji-sung,Ji-sung Park,1.0,0.6111,1.0,0.6111,same_tokens_reordered,match,nickname
 531,264429,Zhang Yuning,Yuning Zhang,1.0,0.6111,1.0,0.6111,same_tokens_reordered,match,nickname
+1776,223367,Fredrik André Bjørkan,Fredrik Aursnes,0.3103,0.8576,0.6111,0.6111,same_given_name_diff_surname,,
 327,159032,Bas Kuipers,Nick Kuipers,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name,No match,Different ages
 589,276002,Pär Hansson,Emil Hansson,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name,No match,Different ages
 592,37217,Emil Hansson,Pär Hansson,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name,No match,Different ages
@@ -86,9 +89,12 @@ canonical_player_id,transfermarkt_player_id,canonical_name,transfermarkt_name,tr
 1705,349567,Juan Carlos Familia,Juan Familia-Castillo,0.5556,0.8583,0.6,0.6,same_given_name_diff_surname,match,nickname
 360,203939,Mickey van der Hart,Robin van der Meer,0.3103,0.6827,0.5946,0.5946,other,No match,Different ages
 604,207048,Robin van der Meer,Mickey van der Hart,0.3103,0.6827,0.5946,0.5946,other,No match,Different ages
+1729,45538,Jop van den Avert,Jan-Arie van der Heijden,0.3125,0.6662,0.5854,0.5854,other,,
+1736,412941,Tobias Elshout Van Den,Thomas van den Belt,0.303,0.7944,0.5854,0.5854,other,,
 647,72505,Thomas Kok,Thomas Meißner,0.3684,0.84,0.5833,0.5833,same_given_name_diff_surname,No match,Different ages
 720,357826,Thomas Lam,Thomas Buitink,0.3684,0.84,0.5833,0.5833,same_given_name_diff_surname,No match,Different ages
 742,131821,Thomas Buitink,Thomas Lam,0.3684,0.84,0.5833,0.5833,same_given_name_diff_surname,No match,Different ages
+1757,396106,Thomas Meißner,Thomas Kok,0.3684,0.84,0.5833,0.5833,same_given_name_diff_surname,,
 947,593862,Ryan Thomas,Thomas Beelen,0.3684,0.5821,0.6667,0.5821,other,No match,Different ages
 650,34785,Branco van den Boomen,Joey van den Berg,0.3103,0.648,0.5789,0.5789,other,No match,Different ages
 881,203938,Victor van den Bogert,Branco van den Boomen,0.3226,0.6984,0.5714,0.5714,other,No match,Different ages
