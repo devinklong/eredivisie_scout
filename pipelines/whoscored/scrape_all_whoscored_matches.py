@@ -7,9 +7,18 @@ possession, defense, final-third) built and validated earlier this
 project.
 
 Dumps each match's raw derived stats to its own JSON file immediately
-(data/whoscored/{season}/{match_id}.json) -- same safety-checkpoint
-pattern used for the 29-club Transfermarkt batch: a failure partway
-through doesn't require re-processing matches already done.
+(data/whoscored/{season}/{match_id}.json). FIXED (2026-09-14): this
+script previously had NO real resume-safety despite the docstring
+implying otherwise -- restarting after an interruption reprocessed
+every match from scratch. Now checks whether a match's output file
+already exists and skips it if so, so a restart only does the work
+still remaining.
+
+Also removed (2026-09-14) an unnecessary time.sleep(1) after every
+match -- a "politeness delay" appropriate for the original live
+scrape, but pure wasted time (~65 minutes across a full 13-season
+run) once this became a force_cache=True local-cache reprocessing
+run with no live server being hit.
 
 ASSUMPTION FLAGGED: imports the four derive_*_stats functions directly
 from their existing tests/whoscored/ files, assuming their current
@@ -76,7 +85,6 @@ appropriate -- see project notes for that variant.
 """
 
 import json
-import time
 from pathlib import Path
 
 import soccerdata as sd
@@ -101,6 +109,7 @@ from derive_defense_stats import (
 )
 from derive_finalthird_stats import derive_finalthird_stats
 from derive_aerial_stats import derive_aerial_stats
+from derive_shots_stats import derive_shot_stats
 from parse_raw_whoscored_events import get_events_for_match as get_events_raw_fallback
 
 LEAGUE = "NED-Eredivisie"
@@ -187,6 +196,7 @@ def process_match(events, match_id):
         "errors": derive_error_stats(events).to_dict(orient="records"),
         "final_third_entries": derive_finalthird_stats(events).to_dict(orient="records"),
         "aerials": derive_aerial_stats(events).to_dict(orient="records"),
+        "shots": derive_shot_stats(events, verbose=False).to_dict(orient="records"),
     }
 
 
@@ -216,10 +226,16 @@ def main():
             print(f"Found {len(match_ids)} matches.")
 
         succeeded = 0
+        skipped_already_done = 0
         used_fallback_count = 0
         failed = []
 
         for i, match_id in enumerate(match_ids, start=1):
+            output_path = DATA_DIR / season / f"{match_id}.json"
+            if output_path.exists():
+                skipped_already_done += 1
+                continue
+
             print(f"[{i}/{len(match_ids)}] match_id={match_id}...", end=" ")
             try:
                 events, used_fallback = get_events_with_fallback(ws, LEAGUE, season, match_id)
@@ -239,12 +255,9 @@ def main():
                 print(f"FAILED -- {type(e).__name__}: {e}")
                 failed.append(match_id)
 
-            # Politeness delay -- cheap now that force_cache avoids the
-            # heavy calendar refetch, but still worth not hammering.
-            time.sleep(1)
-
         print(f"\n{season} summary: {succeeded}/{len(match_ids)} succeeded"
-              f" ({used_fallback_count} via raw fallback parser)")
+              f" ({used_fallback_count} via raw fallback parser, "
+              f"{skipped_already_done} already done, skipped)")
         if failed:
             print(f"Failed/skipped match_ids: {failed}")
 
