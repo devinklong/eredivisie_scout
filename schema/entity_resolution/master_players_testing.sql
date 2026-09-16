@@ -132,24 +132,6 @@ SELECT canonical_name, team, season_id, 'ws_aerials_won > ws_aerials' FROM maste
 UNION ALL
 SELECT canonical_name, team, season_id, 'gk_saves > gk_shots_on_target_against' FROM master_player_season_stats WHERE gk_saves > gk_shots_on_target_against;
 
-SELECT team, season_id, COUNT(*) AS num_failures
-FROM master_player_season_stats
-WHERE fbref_shots_on_target > fbref_shots
-GROUP BY team, season_id
-ORDER BY num_failures DESC
-LIMIT 30;
-
-SELECT canonical_name, team, season_id, fbref_shots, fbref_shots_on_target, (fbref_shots_on_target - fbref_shots) AS diff
-FROM master_player_season_stats
-WHERE fbref_shots_on_target > fbref_shots AND season_id IN (2016, 2017)
-ORDER BY diff DESC
-LIMIT 20
-
-SELECT canonical_name, team, season_id, fbref_shots, fbref_shots_on_target, fbref_shots_per90, fbref_goals_per_shot, fbref_shots_on_target_pct
-FROM master_player_season_stats
-WHERE fbref_shots = 0 AND fbref_shots_on_target > 0 AND season_id IN (2016, 2017)
-LIMIT 10;
-
 -- SECTION 6: Per-90 sanity bounds -- catches a bad denominator or a
 -- units error (e.g. a stat accidentally left un-divided).
 -- Healthy: ZERO rows returned. Thresholds here are deliberately loose

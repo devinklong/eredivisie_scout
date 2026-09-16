@@ -53,10 +53,8 @@ import psycopg2
 from psycopg2.extras import execute_values
 
 SEASONS = [
-    "2013-14", "2014-15", "2015-16", "2016-17", "2017-18", "2018-19",
-    "2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25",
-    "2025-26",
-]  # every confirmed-working season (per v1_roadmap.md, 2026-09-02)
+    "2016-17", "2017-18",
+] 
 DATA_ROOT = Path("data/whoscored")
 
 MULTI_STAT_CATEGORIES = [
@@ -85,6 +83,21 @@ ADDITIVE_FIELDS = {
 # soccerdata's and Transfermarkt's convention -- see module docstring.
 TEAM_NAME_NORMALIZATION = {
     "PSV Eindhoven": "PSV",
+    # Confirmed 2026-09-15: the fallback parser used for 2016-17/2017-18
+    # (parse_raw_whoscored_events.py, wired in via get_events_with_fallback())
+    # outputs WhoScored's full/official club names, which don't match
+    # FBref's shorter convention used elsewhere in this project. Found via
+    # fix_shots_with_whoscored_derivation.sql's sanity check 3 (256
+    # shots_on_target > shots violations, isolated to exactly these two
+    # seasons); confirmed complete via check_team_name_mismatches.sql's
+    # query 4 (zero remaining mismatches once these 7 are applied).
+    "FC Groningen": "Groningen",
+    "FC Utrecht": "Utrecht",
+    "PEC Zwolle": "Zwolle",
+    "SC Heerenveen": "Heerenveen",
+    "Heracles": "Heracles Almelo",
+    "Roda": "Roda JC",
+    "Sparta Rotterdam": "Sparta R.",
     # add any other confirmed mismatches here
 }
 
@@ -283,6 +296,22 @@ CLEANUP_ORPHAN_SQL = """
     WHERE whoscored_player_id = %s AND team = %s AND season_id = %s AND player_name != %s
 """
 
+# 2026-09-15: a SECOND orphan case, distinct from the one above. team is
+# part of the ON CONFLICT key (player_name, team, season_id) -- when
+# TEAM_NAME_NORMALIZATION changes a player's stored team (e.g. "FC
+# Groningen" -> "Groningen"), the new row's conflict key no longer
+# matches the OLD row's key at all, so ON CONFLICT treats it as a brand
+# new row instead of an update. The old row (still under the
+# un-normalized name) is silently left behind rather than replaced.
+# Confirmed via check_team_name_mismatches.sql query 1 still showing all
+# 7 pairs after a supposedly-fixed load. Delete any row still sitting
+# under one of the OLD (pre-normalization) team names for this
+# whoscored_player_id/season before inserting the corrected one.
+CLEANUP_RENAMED_TEAM_SQL = """
+    DELETE FROM eredivisie_whoscored_player_season_stats
+    WHERE whoscored_player_id = %s AND team = %s AND season_id = %s
+"""
+
 
 def main():
     conn = get_connection()
@@ -320,6 +349,15 @@ def main():
                         cur.execute(CLEANUP_ORPHAN_SQL,
                                     (whoscored_player_id, team, row_season_id, display_name))
                         orphans_this_season += cur.rowcount
+
+                        # Also clean up any row still sitting under an OLD,
+                        # un-normalized team name for this same player --
+                        # see CLEANUP_RENAMED_TEAM_SQL comment above.
+                        old_names = [old for old, new in TEAM_NAME_NORMALIZATION.items() if new == team]
+                        for old_team in old_names:
+                            cur.execute(CLEANUP_RENAMED_TEAM_SQL,
+                                        (whoscored_player_id, old_team, row_season_id))
+                            orphans_this_season += cur.rowcount
 
                 execute_values(cur, INSERT_SQL, rows)
                 inserted = len(rows)  # cur.rowcount under-reports with
