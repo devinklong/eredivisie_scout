@@ -197,76 +197,7 @@ FROM master_player_season_stats m
 LEFT JOIN players p ON p.player_id = m.player_id
 WHERE m.player_id IS NOT NULL AND p.player_id IS NULL;
 
-SELECT fbref.player_name, fbref.team, fbref.season_id
-FROM eredivisie_soccerdata_player_season_stats fbref
-WHERE fbref.shots_on_target > fbref.shots
-AND NOT EXISTS (
-    SELECT 1 FROM player_source_crosswalk fbref_x
-    JOIN players p ON p.player_id = fbref_x.player_id
-    JOIN player_source_crosswalk ws_x ON ws_x.player_id = p.player_id AND ws_x.source = 'whoscored'
-    WHERE fbref_x.source = 'fbref' AND fbref_x.source_name = fbref.player_name
-)
-ORDER BY fbref.team, fbref.player_name;
-
-SELECT fbref.player_name, fbref.team, fbref.season_id,
-  EXISTS (
-    SELECT 1 FROM eredivisie_whoscored_player_season_stats ws
-    WHERE ws.player_name = fbref.player_name
-  ) AS name_exists_anywhere_in_whoscored
-FROM eredivisie_soccerdata_player_season_stats fbref
-WHERE fbref.shots_on_target > fbref.shots
-AND NOT EXISTS (
-    SELECT 1 FROM player_source_crosswalk fbref_x
-    JOIN players p ON p.player_id = fbref_x.player_id
-    JOIN player_source_crosswalk ws_x ON ws_x.player_id = p.player_id AND ws_x.source = 'whoscored'
-    WHERE fbref_x.source = 'fbref' AND fbref_x.source_name = fbref.player_name
-)
-ORDER BY name_exists_anywhere_in_whoscored, fbref.team;
-
-SELECT fbref.player_name AS fbref_name, ws.player_name AS whoscored_name, fbref.team, fbref.season_id
-FROM eredivisie_soccerdata_player_season_stats fbref
-JOIN eredivisie_whoscored_player_season_stats ws
-  ON ws.player_name ILIKE '%' || split_part(fbref.player_name, ' ', -1) || '%'  -- loose match on last name
-WHERE fbref.shots_on_target > fbref.shots
-  AND fbref.team IN ('Groningen','Zwolle','Utrecht','Sparta R.','Roda JC','Heracles Almelo','Heerenveen')
-  AND fbref.season_id IN (2016, 2017)
-  AND NOT EXISTS (
-    SELECT 1 FROM player_source_crosswalk fbref_x
-    JOIN players p ON p.player_id = fbref_x.player_id
-    JOIN player_source_crosswalk ws_x ON ws_x.player_id = p.player_id AND ws_x.source = 'whoscored'
-    WHERE fbref_x.source = 'fbref' AND fbref_x.source_name = fbref.player_name
-  )
-ORDER BY fbref.team, fbref.player_name
-LIMIT 20;
-
-SELECT source_name, source, player_id
-FROM player_source_crosswalk
-WHERE source_name IN ('Ajdin Hrustic', 'Alexander Sørloth', 'Django Warmerdam')
-ORDER BY source_name, source;
-
-SELECT player_name, team, season_id, whoscored_player_id
+SELECT *
 FROM eredivisie_whoscored_player_season_stats
-WHERE player_name IN ('Ajdin Hrustic', 'Alexander Sørloth', 'Django Warmerdam')
-  AND season_id IN (2016, 2017);
-
-SELECT fbref.team, fbref.season_id,
-  COUNT(DISTINCT fbref.player_name) AS total_players,
-  COUNT(DISTINCT CASE WHEN fbref_x.source_name IS NOT NULL THEN fbref.player_name END) AS in_crosswalk
-FROM eredivisie_soccerdata_player_season_stats fbref
-LEFT JOIN player_source_crosswalk fbref_x
-  ON fbref_x.source = 'fbref' AND fbref_x.source_name = fbref.player_name
-WHERE fbref.team IN ('Groningen','Zwolle','Utrecht','Sparta R.','Roda JC','Heracles Almelo','Heerenveen')
-  AND fbref.season_id IN (2016, 2017)
-GROUP BY fbref.team, fbref.season_id
-ORDER BY fbref.team, fbref.season_id;
-
-SELECT fbref.team, fbref.season_id,
-  COUNT(DISTINCT fbref.player_name) AS total_players,
-  COUNT(DISTINCT CASE WHEN fbref_x.source_name IS NOT NULL THEN fbref.player_name END) AS in_crosswalk
-FROM eredivisie_soccerdata_player_season_stats fbref
-LEFT JOIN player_source_crosswalk fbref_x
-  ON fbref_x.source = 'fbref' AND fbref_x.source_name = fbref.player_name
-WHERE fbref.team IN ('Groningen','Zwolle','Utrecht','Sparta R.','Roda JC','Heracles Almelo','Heerenveen')
-  AND fbref.season_id IN (2016, 2017)
-GROUP BY fbref.team, fbref.season_id
-ORDER BY fbref.team, fbref.season_id;
+WHERE game_id = 1982244 AND type = 'BlockedPass'
+LIMIT 5;
