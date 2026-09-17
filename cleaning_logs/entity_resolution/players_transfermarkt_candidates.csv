@@ -47,18 +47,26 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 48,Tobias Sana,75901,Tobias Sana,1.0,1.0,1.0,1.0,exact_after_normalize
 49,Kenneth Vermeer,30290,Kenneth Vermeer,1.0,1.0,1.0,1.0,exact_after_normalize
 50,Jaïro Riedewald,241481,Jaïro Riedewald,1.0,1.0,1.0,1.0,exact_after_normalize
+51,Markus Henriksen,122011,Markus Henriksen,1.0,1.0,1.0,1.0,exact_after_normalize
 52,Roy Beerens,25427,Roy Beerens,1.0,1.0,1.0,1.0,exact_after_normalize
+53,Mattias Johansson,132014,Mattias Johansson,1.0,1.0,1.0,1.0,exact_after_normalize
 54,Nemanja Gudelj,74294,Nemanja Gudelj,1.0,1.0,1.0,1.0,exact_after_normalize
 55,Jeffrey Gouweleeuw,106405,Jeffrey Gouweleeuw,1.0,1.0,1.0,1.0,exact_after_normalize
+56,Aron Jóhannsson,119169,Aron Jóhannsson,1.0,1.0,1.0,1.0,exact_after_normalize
 57,Donny Gorter,56534,Donny Gorter,1.0,1.0,1.0,1.0,exact_after_normalize
+58,Esteban Alvarado,128502,Esteban Alvarado,1.0,1.0,1.0,1.0,exact_after_normalize
+59,Wesley Hoedt,253765,Wesley Hoedt,1.0,1.0,1.0,1.0,exact_after_normalize
 60,Nick Viergever,93081,Nick Viergever,1.0,1.0,1.0,1.0,exact_after_normalize
+61,Jan Wuytens,28815,Jan Wuytens,1.0,1.0,1.0,1.0,exact_after_normalize
 62,Etiënne Reijnen,56611,Etiënne Reijnen,1.0,1.0,1.0,1.0,exact_after_normalize
 63,Thom Haye,178219,Thom Haye,1.0,1.0,1.0,1.0,exact_after_normalize
 64,Ridgeciano Haps,228444,Ridgeciano Haps,1.0,1.0,1.0,1.0,exact_after_normalize
 66,Fernando Lewis,107969,Fernando Lewis,1.0,1.0,1.0,1.0,exact_after_normalize
 67,Steven Berghuis,129554,Steven Berghuis,1.0,1.0,1.0,1.0,exact_after_normalize
 68,Simon Poulsen,23097,Simon Poulsen,1.0,1.0,1.0,1.0,exact_after_normalize
+69,Maarten Martens,9602,Maarten Martens,1.0,1.0,1.0,1.0,exact_after_normalize
 70,Willie Overtoom,80709,Willie Overtoom,1.0,1.0,1.0,1.0,exact_after_normalize
+71,Viktor Elm,36391,Viktor Elm,1.0,1.0,1.0,1.0,exact_after_normalize
 72,Denni Avdić,41511,Denni Avdic,0.7143,1.0,1.0,1.0,exact_after_normalize
 73,Mohamed El Makrini,56375,Mohamed El Makrini,1.0,1.0,1.0,1.0,exact_after_normalize
 74,Oebele Schokker,129533,Oebele Schokker,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -148,6 +156,7 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 170,Marnick Vermijl,110798,Marnick Vermijl,1.0,1.0,1.0,1.0,exact_after_normalize
 171,Youri Loen,153392,Youri Loen,1.0,1.0,1.0,1.0,exact_after_normalize
 173,Dennis Gentenaar,4513,Dennis Gentenaar,1.0,1.0,1.0,1.0,exact_after_normalize
+174,Rens van Eijden,61846,Rens van Eijden,1.0,1.0,1.0,1.0,exact_after_normalize
 175,Lasse Nielsen,42913,Lasse Nielsen,1.0,1.0,1.0,1.0,exact_after_normalize
 176,Ryan Koolwijk,65256,Ryan Koolwijk,1.0,1.0,1.0,1.0,exact_after_normalize
 177,Michael Higdon,14170,Michael Higdon,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -237,6 +246,7 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 269,Sam Hutchinson,40617,Sam Hutchinson,1.0,1.0,1.0,1.0,exact_after_normalize
 270,Gaël Kakuta,74297,Gaël Kakuta,1.0,1.0,1.0,1.0,exact_after_normalize
 271,Marcus Pedersen,41609,Marcus Pedersen,1.0,1.0,1.0,1.0,exact_after_normalize
+271,Marcus Pedersen,583404,Marcus Pedersen,1.0,1.0,1.0,1.0,exact_after_normalize
 272,Zakaria Labyad,123349,Zakaria Labyad,1.0,1.0,1.0,1.0,exact_after_normalize
 273,Piet Velthuizen,30585,Piet Velthuizen,1.0,1.0,1.0,1.0,exact_after_normalize
 274,Jonathan Reis,53444,Jonathan Reis,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -269,6 +279,7 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 303,Queensy Menig,225339,Queensy Menig,1.0,1.0,1.0,1.0,exact_after_normalize
 304,Richairo Živković,252755,Richairo Zivkovic,0.5652,1.0,1.0,1.0,exact_after_normalize
 305,Dirk Marcellis,31025,Dirk Marcellis,1.0,1.0,1.0,1.0,exact_after_normalize
+306,Sergio Rochet,264014,Sergio Rochet,1.0,1.0,1.0,1.0,exact_after_normalize
 307,Robert Mühren,186763,Robert Mühren,1.0,1.0,1.0,1.0,exact_after_normalize
 308,Mikhail Rosheuvel,64507,Mikhail Rosheuvel,1.0,1.0,1.0,1.0,exact_after_normalize
 309,Guus Hupperts,116636,Guus Hupperts,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -276,6 +287,7 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 311,Derrick Luckassen,241457,Derrick Luckassen,1.0,1.0,1.0,1.0,exact_after_normalize
 312,Djavan Anderson,215089,Djavan Anderson,1.0,1.0,1.0,1.0,exact_after_normalize
 313,Stijn Spierings,241501,Stijn Spierings,1.0,1.0,1.0,1.0,exact_after_normalize
+314,Muamer Tanković,198513,Muamer Tankovic,0.7778,1.0,1.0,1.0,exact_after_normalize
 315,Sinan Bytyqi,186790,Sinan Bytyqi,1.0,1.0,1.0,1.0,exact_after_normalize
 316,Dejan Meleg,168942,Dejan Meleg,1.0,1.0,1.0,1.0,exact_after_normalize
 317,Albert Rusnák,43228,Albert Rusnák,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -383,11 +395,15 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 429,Donny van de Beek,288255,Donny van de Beek,1.0,1.0,1.0,1.0,exact_after_normalize
 430,Sam Hendriks,225716,Sam Hendriks,1.0,1.0,1.0,1.0,exact_after_normalize
 431,Amin Younes,96167,Amin Younes,1.0,1.0,1.0,1.0,exact_after_normalize
+434,Ron Vlaar,30697,Ron Vlaar,1.0,1.0,1.0,1.0,exact_after_normalize
 435,Joris van Overeem,182582,Joris van Overeem,1.0,1.0,1.0,1.0,exact_after_normalize
+436,Pantelis Hatzidiakos,144244,Pantelis Hatzidiakos,1.0,1.0,1.0,1.0,exact_after_normalize
 437,Ben Rienstra,64506,Ben Rienstra,1.0,1.0,1.0,1.0,exact_after_normalize
+438,Vincent Janssen,207015,Vincent Janssen,1.0,1.0,1.0,1.0,exact_after_normalize
 441,Mounir El Hamdaoui,21490,Mounir El Hamdaoui,1.0,1.0,1.0,1.0,exact_after_normalize
 442,Thomas Ouwejan,241477,Thomas Ouwejan,1.0,1.0,1.0,1.0,exact_after_normalize
 443,Levi Garcia,354587,Levi García,0.6,1.0,1.0,1.0,exact_after_normalize
+444,Rajko Brežančić,60289,Rajko Brezancic,0.3913,1.0,1.0,1.0,exact_after_normalize
 445,Marvin Peersman,125769,Marvin Peersman,1.0,1.0,1.0,1.0,exact_after_normalize
 446,Jack Byrne,217757,Jack Byrne,1.0,1.0,1.0,1.0,exact_after_normalize
 448,Tom Hiariej,62064,Tom Hiariej,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -500,10 +516,14 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 570,Justin Kluivert,330659,Justin Kluivert,1.0,1.0,1.0,1.0,exact_after_normalize
 571,Pelle Clement,297693,Pelle Clement,1.0,1.0,1.0,1.0,exact_after_normalize
 572,Calvin Stengs,409344,Calvin Stengs,1.0,1.0,1.0,1.0,exact_after_normalize
+573,Fred Friday,282783,Fred Friday,1.0,1.0,1.0,1.0,exact_after_normalize
 574,Guus Til,372267,Guus Til,1.0,1.0,1.0,1.0,exact_after_normalize
+575,Jonas Svensson,136184,Jonas Svensson,1.0,1.0,1.0,1.0,exact_after_normalize
 576,Iliass Bel Hassani,160431,Iliass Bel Hassani,1.0,1.0,1.0,1.0,exact_after_normalize
+577,Tim Krul,33027,Tim Krul,1.0,1.0,1.0,1.0,exact_after_normalize
 578,Wout Weghorst,228645,Wout Weghorst,1.0,1.0,1.0,1.0,exact_after_normalize
 579,Owen Wijndal,339328,Owen Wijndal,1.0,1.0,1.0,1.0,exact_after_normalize
+580,Jeremy Helmer,276135,Jeremy Helmer,1.0,1.0,1.0,1.0,exact_after_normalize
 581,Fredy,87854,Fredy,1.0,1.0,1.0,1.0,exact_after_normalize
 582,Leeroy Owusu,257988,Leeroy Owusu,1.0,1.0,1.0,1.0,exact_after_normalize
 583,Dogucan Haspolat,387143,Doğucan Haspolat,0.7,1.0,1.0,1.0,exact_after_normalize
@@ -589,8 +609,11 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 672,Oussama Idrissi,241391,Oussama Idrissi,1.0,1.0,1.0,1.0,exact_after_normalize
 673,Marco Bizot,124884,Marco Bizot,1.0,1.0,1.0,1.0,exact_after_normalize
 674,Mees Hoedemakers,315233,Mees Hoedemakers,1.0,1.0,1.0,1.0,exact_after_normalize
+675,Fredrik Midtsjø,136180,Fredrik Midtsjø,1.0,1.0,1.0,1.0,exact_after_normalize
+676,Teun Koopmeiners,360518,Teun Koopmeiners,1.0,1.0,1.0,1.0,exact_after_normalize
 677,Ferdy Druijf,360519,Ferdy Druijf,1.0,1.0,1.0,1.0,exact_after_normalize
 678,Tijjani Reijnders,460939,Tijjani Reijnders,1.0,1.0,1.0,1.0,exact_after_normalize
+679,Ondřej Mihálik,265051,Ondrej Mihalik,0.4286,1.0,1.0,1.0,exact_after_normalize
 680,Ögmundur Kristinsson,103444,Ögmundur Kristinsson,1.0,1.0,1.0,1.0,exact_after_normalize
 681,Jinty Caenepeel,235234,Jinty Caenepeel,1.0,1.0,1.0,1.0,exact_after_normalize
 682,Shane O'Neill,229912,Shane O'Neill,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -649,10 +672,17 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 745,Roel Janssen,168787,Roel Janssen,1.0,1.0,1.0,1.0,exact_after_normalize
 747,Lars Unnerstall,53696,Lars Unnerstall,1.0,1.0,1.0,1.0,exact_after_normalize
 748,Lennart Thy,23553,Lennart Thy,1.0,1.0,1.0,1.0,exact_after_normalize
+749,Damian van Bruggen,241420,Damian van Bruggen,1.0,1.0,1.0,1.0,exact_after_normalize
+751,Evren Korkmaz,349796,Evren Korkmaz,1.0,1.0,1.0,1.0,exact_after_normalize
 752,Leroy Labylle,163665,Leroy Labylle,1.0,1.0,1.0,1.0,exact_after_normalize
 753,Vito van Crooij,312493,Vito van Crooij,1.0,1.0,1.0,1.0,exact_after_normalize
 754,Clint Leemans,250464,Clint Leemans,1.0,1.0,1.0,1.0,exact_after_normalize
+756,Torino Hunte,267116,Torino Hunte,1.0,1.0,1.0,1.0,exact_after_normalize
+758,Etienne Amenyido,271103,Etienne Amenyido,1.0,1.0,1.0,1.0,exact_after_normalize
+759,Kelechi Nwakali,383153,Kelechi Nwakali,1.0,1.0,1.0,1.0,exact_after_normalize
 760,Jens Janse,37738,Jens Janse,1.0,1.0,1.0,1.0,exact_after_normalize
+761,Tarik Tissoudali,245228,Tarik Tissoudali,1.0,1.0,1.0,1.0,exact_after_normalize
+762,Ralf Seuntjens,96472,Ralf Seuntjens,1.0,1.0,1.0,1.0,exact_after_normalize
 763,Damil Dankerlui,295624,Damil Dankerlui,1.0,1.0,1.0,1.0,exact_after_normalize
 764,Eyong Enoh,47344,Eyong Enoh,1.0,1.0,1.0,1.0,exact_after_normalize
 765,Mattijs Branderhorst,205128,Mattijs Branderhorst,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -671,6 +701,7 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 780,Noa Lang,339332,Noa Lang,1.0,1.0,1.0,1.0,exact_after_normalize
 781,Kenzo Goudmijn,412943,Kenzo Goudmijn,1.0,1.0,1.0,1.0,exact_after_normalize
 782,Myron Boadu,412932,Myron Boadu,1.0,1.0,1.0,1.0,exact_after_normalize
+783,Dorin Rotariu,250573,Dorin Rotariu,1.0,1.0,1.0,1.0,exact_after_normalize
 784,Leon Bergsma,228478,Leon Bergsma,1.0,1.0,1.0,1.0,exact_after_normalize
 785,Lars Nieuwpoort,266414,Lars Nieuwpoort,1.0,1.0,1.0,1.0,exact_after_normalize
 787,Stef Nijland,57087,Stef Nijland,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -725,6 +756,7 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 846,Alex Gersbach,331017,Alex Gersbach,1.0,1.0,1.0,1.0,exact_after_normalize
 848,Luka Ilić,429790,Luka Ilic,0.6667,1.0,1.0,1.0,exact_after_normalize
 849,Aziz Behich,136834,Aziz Behich,1.0,1.0,1.0,1.0,exact_after_normalize
+850,Zakaria Aboukhlal,393238,Zakaria Aboukhlal,1.0,1.0,1.0,1.0,exact_after_normalize
 851,Denzel Dumfries,321528,Denzel Dumfries,1.0,1.0,1.0,1.0,exact_after_normalize
 852,Trent Sainsbury,145840,Trent Sainsbury,1.0,1.0,1.0,1.0,exact_after_normalize
 853,Michal Sadílek,321204,Michal Sadílek,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -739,12 +771,16 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 865,Rasmus Thelander,129092,Rasmus Thelander,1.0,1.0,1.0,1.0,exact_after_normalize
 866,Max Clark,183291,Max Clark,1.0,1.0,1.0,1.0,exact_after_normalize
 867,Matúš Bero,204047,Matus Bero,0.5714,1.0,1.0,1.0,exact_after_normalize
+868,Axel Borgmann,119032,Axel Borgmann,1.0,1.0,1.0,1.0,exact_after_normalize
 869,Patrick Joosten,317593,Patrick Joosten,1.0,1.0,1.0,1.0,exact_after_normalize
 870,Simon Janssen,457092,Simon Janssen,1.0,1.0,1.0,1.0,exact_after_normalize
 871,Sem Steijn,593519,Sem Steijn,1.0,1.0,1.0,1.0,exact_after_normalize
 872,Evert Linthorst,361112,Evert Linthorst,1.0,1.0,1.0,1.0,exact_after_normalize
 873,Christian Kum,37850,Christian Kum,1.0,1.0,1.0,1.0,exact_after_normalize
 874,Josimar Lima,71103,Josimar Lima,1.0,1.0,1.0,1.0,exact_after_normalize
+875,Martin Samuelsen,234807,Martin Samuelsen,1.0,1.0,1.0,1.0,exact_after_normalize
+876,Peniel Mlapa,70280,Peniel Mlapa,1.0,1.0,1.0,1.0,exact_after_normalize
+877,Tino-Sven Sušić,140790,Tino-Sven Susic,0.5789,1.0,1.0,1.0,exact_after_normalize
 878,Atakan Akkaynak,327542,Atakan Akkaynak,1.0,1.0,1.0,1.0,exact_after_normalize
 879,Donis Avdijaj,196227,Donis Avdijaj,1.0,1.0,1.0,1.0,exact_after_normalize
 881,Victor van den Bogert,417827,Victor van den Bogert,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -781,6 +817,9 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 912,Danilo,519731,Danilo,1.0,1.0,1.0,1.0,exact_after_normalize
 913,Răzvan Marin,295183,Răzvan Marin,1.0,1.0,1.0,1.0,exact_after_normalize
 914,Joris Kramer,326329,Joris Kramer,1.0,1.0,1.0,1.0,exact_after_normalize
+915,Yukinari Sugawara,405385,Yukinari Sugawara,1.0,1.0,1.0,1.0,exact_after_normalize
+916,Håkon Evjen,394688,Håkon Evjen,1.0,1.0,1.0,1.0,exact_after_normalize
+917,Rody de Boer,342012,Rody de Boer,1.0,1.0,1.0,1.0,exact_after_normalize
 918,Naoufal Bannis,430800,Naoufal Bannis,1.0,1.0,1.0,1.0,exact_after_normalize
 919,Edgar Ié,191987,Edgar Ié,1.0,1.0,1.0,1.0,exact_after_normalize
 920,Liam Kelly,252986,Liam Kelly,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -817,6 +856,7 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 951,Stefan Velkov,227352,Stefan Velkov,1.0,1.0,1.0,1.0,exact_after_normalize
 954,Melle Meulensteen,426280,Melle Meulensteen,1.0,1.0,1.0,1.0,exact_after_normalize
 956,Etienne Vaessen,387197,Etienne Vaessen,1.0,1.0,1.0,1.0,exact_after_normalize
+957,Saïd Bakari,524687,Saïd Bakari,1.0,1.0,1.0,1.0,exact_after_normalize
 958,Lennerd Daneels,292805,Lennerd Daneels,1.0,1.0,1.0,1.0,exact_after_normalize
 959,Richard van der Venne,376675,Richard van der Venne,1.0,1.0,1.0,1.0,exact_after_normalize
 960,Sylla Sow,343184,Sylla Sow,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -839,8 +879,19 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 982,Yassin Oukili,566911,Yassin Oukili,1.0,1.0,1.0,1.0,exact_after_normalize
 983,Sondre Tronstad,210348,Sondre Tronstad,1.0,1.0,1.0,1.0,exact_after_normalize
 984,Nouha Dicko,173750,Nouha Dicko,1.0,1.0,1.0,1.0,exact_after_normalize
+985,Richard Neudecker,228953,Richard Neudecker,1.0,1.0,1.0,1.0,exact_after_normalize
+986,Lee Cattermole,37363,Lee Cattermole,1.0,1.0,1.0,1.0,exact_after_normalize
 987,Samuel Scheimann,72799,Samuel Scheimann,1.0,1.0,1.0,1.0,exact_after_normalize
+988,Roy Gelmi,282520,Roy Gelmi,1.0,1.0,1.0,1.0,exact_after_normalize
+989,Jerome Sinclair,236513,Jerome Sinclair,1.0,1.0,1.0,1.0,exact_after_normalize
 990,John Yeboah,439914,John Yeboah,1.0,1.0,1.0,1.0,exact_after_normalize
+991,Thorsten Kirschbaum,38346,Thorsten Kirschbaum,1.0,1.0,1.0,1.0,exact_after_normalize
+992,Tobias Pachonik,161549,Tobias Pachonik,1.0,1.0,1.0,1.0,exact_after_normalize
+993,Steffen Schäfer,119291,Steffen Schäfer,1.0,1.0,1.0,1.0,exact_after_normalize
+994,Haji Wright,315291,Haji Wright,1.0,1.0,1.0,1.0,exact_after_normalize
+995,Aaron Bastiaans,578459,Aaron Bastiaans,1.0,1.0,1.0,1.0,exact_after_normalize
+996,Stan van Dijck,457090,Stan van Dijck,1.0,1.0,1.0,1.0,exact_after_normalize
+997,Elia Soriano,50674,Elia Soriano,1.0,1.0,1.0,1.0,exact_after_normalize
 998,Rick Zuijderwijk,619736,Rick Zuijderwijk,1.0,1.0,1.0,1.0,exact_after_normalize
 1000,Justin Ogenia,415085,Justin Ogenia,1.0,1.0,1.0,1.0,exact_after_normalize
 1001,Mats Köhlert,288067,Mats Köhlert,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -875,6 +926,8 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1034,Maarten Stekelenburg,4311,Maarten Stekelenburg,1.0,1.0,1.0,1.0,exact_after_normalize
 1035,Brian Brobbey,473169,Brian Brobbey,1.0,1.0,1.0,1.0,exact_after_normalize
 1036,Sébastien Haller,181375,Sébastien Haller,1.0,1.0,1.0,1.0,exact_after_normalize
+1037,Jelle Duin,339327,Jelle Duin,1.0,1.0,1.0,1.0,exact_after_normalize
+1038,Hobie Verhulst,116471,Hobie Verhulst,1.0,1.0,1.0,1.0,exact_after_normalize
 1040,Timo Letschert,231378,Timo Letschert,1.0,1.0,1.0,1.0,exact_after_normalize
 1041,Jesper Karlsson,367992,Jesper Karlsson,1.0,1.0,1.0,1.0,exact_after_normalize
 1042,Lucas Pratto,59596,Lucas Pratto,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -939,7 +992,17 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1103,Armando Broja,571743,Armando Broja,1.0,1.0,1.0,1.0,exact_after_normalize
 1104,Tomáš Hájek,181469,Tomas Hajek,0.3333,1.0,1.0,1.0,exact_after_normalize
 1106,Jafar Arias,326997,Jafar Arias,1.0,1.0,1.0,1.0,exact_after_normalize
+1107,Arjan Swinkels,34556,Arjan Swinkels,1.0,1.0,1.0,1.0,exact_after_normalize
+1108,Christos Donis,212432,Christos Donis,1.0,1.0,1.0,1.0,exact_after_normalize
+1109,Yahcuroo Roemer,539547,Yahcuroo Roemer,1.0,1.0,1.0,1.0,exact_after_normalize
+1110,Wassim Essanoussi,739745,Wassim Essanoussi,1.0,1.0,1.0,1.0,exact_after_normalize
+1111,Zinédine Machach,146143,Zinédine Machach,1.0,1.0,1.0,1.0,exact_after_normalize
+1112,Anastasios Donis,243606,Anastasios Donis,1.0,1.0,1.0,1.0,exact_after_normalize
+1113,Meritan Shabani,379980,Meritan Shabani,1.0,1.0,1.0,1.0,exact_after_normalize
+1114,Lukas Schmitz,49867,Lukas Schmitz,1.0,1.0,1.0,1.0,exact_after_normalize
 1115,Leon Guwara,201135,Leon Guwara,1.0,1.0,1.0,1.0,exact_after_normalize
+1116,Kristopher Da Graca,322061,Kristopher Da Graca,1.0,1.0,1.0,1.0,exact_after_normalize
+1117,Ante Ćorić,96630,Ante Coric,0.375,1.0,1.0,1.0,exact_after_normalize
 1118,Vincent Schippers,420219,Vincent Schippers,1.0,1.0,1.0,1.0,exact_after_normalize
 1119,Jasper Dahlhaus,576682,Jasper Dahlhaus,1.0,1.0,1.0,1.0,exact_after_normalize
 1120,Derrick Köhn,391780,Derrick Köhn,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -951,10 +1014,16 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1126,Liam van Gelderen,412933,Liam van Gelderen,1.0,1.0,1.0,1.0,exact_after_normalize
 1127,Anass Salah-Eddine,485584,Anass Salah-Eddine,1.0,1.0,1.0,1.0,exact_after_normalize
 1128,Jay Gorter,480453,Jay Gorter,1.0,1.0,1.0,1.0,exact_after_normalize
+1129,Aslak Witry,313944,Aslak Witry,1.0,1.0,1.0,1.0,exact_after_normalize
 1131,Zico Buurmeester,595940,Zico Buurmeester,1.0,1.0,1.0,1.0,exact_after_normalize
+1132,Maxim Dekker,646704,Maxim Dekker,1.0,1.0,1.0,1.0,exact_after_normalize
+1133,Milos Kerkez,730861,Milos Kerkez,1.0,1.0,1.0,1.0,exact_after_normalize
+1134,Sam Beukema,433984,Sam Beukema,1.0,1.0,1.0,1.0,exact_after_normalize
 1135,Kamal Sowah,564489,Kamal Sowah,1.0,1.0,1.0,1.0,exact_after_normalize
 1136,Peer Koopmeiners,361074,Peer Koopmeiners,1.0,1.0,1.0,1.0,exact_after_normalize
 1137,Mohamed Taabouni,485591,Mohamed Taabouni,1.0,1.0,1.0,1.0,exact_after_normalize
+1138,Ernest Poku,718303,Ernest Poku,1.0,1.0,1.0,1.0,exact_after_normalize
+1139,Myron van Brederode,650712,Myron van Brederode,1.0,1.0,1.0,1.0,exact_after_normalize
 1143,Filip Krastev,486814,Filip Krastev,1.0,1.0,1.0,1.0,exact_after_normalize
 1144,Milan Smit,703772,Milan Smit,1.0,1.0,1.0,1.0,exact_after_normalize
 1145,Jhondly van der Meer,766810,Jhondly van der Meer,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -1055,7 +1124,13 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1261,Kian Fitz-Jim,559333,Kian Fitz-Jim,1.0,1.0,1.0,1.0,exact_after_normalize
 1262,Christian Rasmussen,610429,Christian Rasmussen,1.0,1.0,1.0,1.0,exact_after_normalize
 1263,Silvano Vos,738476,Silvano Vos,1.0,1.0,1.0,1.0,exact_after_normalize
+1265,Djordje Mihailovic,484756,Djordje Mihailovic,1.0,1.0,1.0,1.0,exact_after_normalize
+1266,Zinho Vanheusden,338672,Zinho Vanheusden,1.0,1.0,1.0,1.0,exact_after_normalize
+1267,Mathew Ryan,128969,Mathew Ryan,1.0,1.0,1.0,1.0,exact_after_normalize
 1268,Mexx Meerdink,678546,Mexx Meerdink,1.0,1.0,1.0,1.0,exact_after_normalize
+1269,Wouter Goes,646707,Wouter Goes,1.0,1.0,1.0,1.0,exact_after_normalize
+1270,Mayckel Lahdo,795274,Mayckel Lahdo,1.0,1.0,1.0,1.0,exact_after_normalize
+1271,Sven Mijnans,578804,Sven Mijnans,1.0,1.0,1.0,1.0,exact_after_normalize
 1272,Mees de Wit,315254,Mees de Wit,1.0,1.0,1.0,1.0,exact_after_normalize
 1273,Felix Mambimbi,507496,Felix Mambimbi,1.0,1.0,1.0,1.0,exact_after_normalize
 1274,Mimoun Mahi,216815,Mimoun Mahi,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -1076,6 +1151,7 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1291,Reda Kharchouch,482826,Reda Kharchouch,1.0,1.0,1.0,1.0,exact_after_normalize
 1292,Stijn van Gassel,301696,Stijn van Gassel,1.0,1.0,1.0,1.0,exact_after_normalize
 1294,Nathan Tjoe-A-On,606023,Nathan Tjoe-A-On,1.0,1.0,1.0,1.0,exact_after_normalize
+1295,Julian Baas,616340,Julian Baas,1.0,1.0,1.0,1.0,exact_after_normalize
 1296,Redouan El Yaakoubi,480730,Redouan El Yaakoubi,1.0,1.0,1.0,1.0,exact_after_normalize
 1297,Arthur Zagre,536477,Arthur Zagré,0.7333,1.0,1.0,1.0,exact_after_normalize
 1298,Antoni Milambo,683620,Antoni Milambo,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -1144,8 +1220,17 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1364,Jakov Medić,488755,Jakov Medic,0.7143,1.0,1.0,1.0,exact_after_normalize
 1365,Josip Šutalo,371001,Josip Sutalo,0.625,1.0,1.0,1.0,exact_after_normalize
 1366,Lequincio Zeefuik,728864,Lequincio Zeefuik,1.0,1.0,1.0,1.0,exact_after_normalize
+1367,Kees Smit,859035,Kees Smit,1.0,1.0,1.0,1.0,exact_after_normalize
 1368,Ruben van Bommel,735701,Ruben van Bommel,1.0,1.0,1.0,1.0,exact_after_normalize
+1369,Ibrahim Sadiq,543501,Ibrahim Sadiq,1.0,1.0,1.0,1.0,exact_after_normalize
 1370,Dave Kwakman,747017,Dave Kwakman,1.0,1.0,1.0,1.0,exact_after_normalize
+1371,Jayden Addai,747720,Jayden Addai,1.0,1.0,1.0,1.0,exact_after_normalize
+1372,David Møller Wolfe,661427,David Møller Wolfe,1.0,1.0,1.0,1.0,exact_after_normalize
+1373,Tiago Dantas,429987,Tiago Dantas,1.0,1.0,1.0,1.0,exact_after_normalize
+1374,Rome-Jayden Owusu-Oduro,704772,Rome-Jayden Owusu-Oduro,1.0,1.0,1.0,1.0,exact_after_normalize
+1375,Kristijan Belic,507223,Kristijan Belic,1.0,1.0,1.0,1.0,exact_after_normalize
+1376,Alexandre Penetra,479643,Alexandre Penetra,1.0,1.0,1.0,1.0,exact_after_normalize
+1377,Denso Kasius,577394,Denso Kasius,1.0,1.0,1.0,1.0,exact_after_normalize
 1378,Finn Stam,665541,Finn Stam,1.0,1.0,1.0,1.0,exact_after_normalize
 1379,Lance Duijvestijn,378316,Lance Duijvestijn,1.0,1.0,1.0,1.0,exact_after_normalize
 1380,Cisse Sandra,632088,Cisse Sandra,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -1226,6 +1311,9 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1458,Matheus,177547,Matheus,1.0,1.0,1.0,1.0,exact_after_normalize
 1459,Don-Angelo Konadu,981693,Don-Angelo Konadu,1.0,1.0,1.0,1.0,exact_after_normalize
 1460,Daniele Rugani,162959,Daniele Rugani,1.0,1.0,1.0,1.0,exact_after_normalize
+1461,Ro-Zangelo Daal,800995,Ro-Zangelo Daal,1.0,1.0,1.0,1.0,exact_after_normalize
+1462,Elijah Dijkstra,957241,Elijah Dijkstra,1.0,1.0,1.0,1.0,exact_after_normalize
+1463,Seiya Maikuma,733438,Seiya Maikuma,1.0,1.0,1.0,1.0,exact_after_normalize
 1464,Ibrahim Osman,1110406,Ibrahim Osman,1.0,1.0,1.0,1.0,exact_after_normalize
 1465,Stephano Carrillo,955224,Stéphano Carrillo,0.7143,1.0,1.0,1.0,exact_after_normalize
 1466,Shiloh 't Zand,595247,Shiloh 't Zand,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -1311,7 +1399,14 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1563,Aaron Bouwman,987366,Aaron Bouwman,1.0,1.0,1.0,1.0,exact_after_normalize
 1564,Oscar Gloukh,930571,Oscar Gloukh,1.0,1.0,1.0,1.0,exact_after_normalize
 1565,Vitezslav Jaros,486604,Vitezslav Jaros,1.0,1.0,1.0,1.0,exact_after_normalize
+1566,Kasper Boogaard,988406,Kasper Boogaard,1.0,1.0,1.0,1.0,exact_after_normalize
+1567,Mateo Chávez,1066953,Mateo Chávez,1.0,1.0,1.0,1.0,exact_after_normalize
+1570,Ayoub Oufkir,1078350,Ayoub Oufkir,1.0,1.0,1.0,1.0,exact_after_normalize
 1571,Billy van Duijl,1008564,Billy van Duijl,1.0,1.0,1.0,1.0,exact_after_normalize
+1572,Isak Jensen,801886,Isak Jensen,1.0,1.0,1.0,1.0,exact_after_normalize
+1573,Weslley Patati,959106,Weslley Patati,1.0,1.0,1.0,1.0,exact_after_normalize
+1574,Rion Ichihara,936294,Rion Ichihara,1.0,1.0,1.0,1.0,exact_after_normalize
+1576,Matej Sin,724025,Matej Sin,1.0,1.0,1.0,1.0,exact_after_normalize
 1577,Stijn Middendorp,1299824,Stijn Middendorp,1.0,1.0,1.0,1.0,exact_after_normalize
 1579,Zach Booth,746838,Zach Booth,1.0,1.0,1.0,1.0,exact_after_normalize
 1580,Nolan Martens,720189,Nolan Martens,1.0,1.0,1.0,1.0,exact_after_normalize
@@ -1417,6 +1512,557 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1772,Dirk Kuyt,4010,Dirk Kuyt,1.0,1.0,1.0,1.0,exact_after_normalize
 1782,Andri Fannar Baldursson,464446,Andri Fannar Baldursson,1.0,1.0,1.0,1.0,exact_after_normalize
 1784,Reagy Ofosu,83253,Reagy Ofosu,1.0,1.0,1.0,1.0,exact_after_normalize
+1787,Roland Baas,241375,Roland Baas,1.0,1.0,1.0,1.0,exact_after_normalize
+1788,Hedwiges Maduro,19057,Hedwiges Maduro,1.0,1.0,1.0,1.0,exact_after_normalize
+1789,Simon Tibbling,192985,Simon Tibbling,1.0,1.0,1.0,1.0,exact_after_normalize
+1790,Jason Davidson,137669,Jason Davidson,1.0,1.0,1.0,1.0,exact_after_normalize
+1791,Jesper Drost,143155,Jesper Drost,1.0,1.0,1.0,1.0,exact_after_normalize
+1792,Alexander Sørloth,238407,Alexander Sørloth,1.0,1.0,1.0,1.0,exact_after_normalize
+1793,Sergio Padt,79573,Sergio Padt,1.0,1.0,1.0,1.0,exact_after_normalize
+1794,Hans Hateboer,275303,Hans Hateboer,1.0,1.0,1.0,1.0,exact_after_normalize
+1796,Ajdin Hrustic,265625,Ajdin Hrustic,1.0,1.0,1.0,1.0,exact_after_normalize
+1797,Juninho Bacuna,348863,Juninho Bacuna,1.0,1.0,1.0,1.0,exact_after_normalize
+1798,Kasper Larsen,95759,Kasper Larsen,1.0,1.0,1.0,1.0,exact_after_normalize
+1799,Samir Memišević,238595,Samir Memisevic,0.5238,1.0,1.0,1.0,exact_after_normalize
+1800,Stefano Marzo,83945,Stefano Marzo,1.0,1.0,1.0,1.0,exact_after_normalize
+1801,Simon Thern,116614,Simon Thern,1.0,1.0,1.0,1.0,exact_after_normalize
+1802,Caner Cavlan,136550,Caner Cavlan,1.0,1.0,1.0,1.0,exact_after_normalize
+1803,Pelle van Amersfoort,262613,Pelle van Amersfoort,1.0,1.0,1.0,1.0,exact_after_normalize
+1804,Shay Facey,183282,Shay Facey,1.0,1.0,1.0,1.0,exact_after_normalize
+1805,Willem Huizing,272732,Willem Huizing,1.0,1.0,1.0,1.0,exact_after_normalize
+1806,Henk Veerman,271743,Henk Veerman,1.0,1.0,1.0,1.0,exact_after_normalize
+1807,Morten Thorsby,226524,Morten Thorsby,1.0,1.0,1.0,1.0,exact_after_normalize
+1808,Yuki Kobayashi,145996,Yuki Kobayashi,1.0,1.0,1.0,1.0,exact_after_normalize
+1809,Younes Namli,227039,Younes Namli,1.0,1.0,1.0,1.0,exact_after_normalize
+1810,Joost van Aken,261546,Joost van Aken,1.0,1.0,1.0,1.0,exact_after_normalize
+1811,Arber Zeneli,222876,Arbër Zeneli,0.625,1.0,1.0,1.0,exact_after_normalize
+1812,Mark-Jan Fledderus,6853,Mark-Jan Fledderus,1.0,1.0,1.0,1.0,exact_after_normalize
+1813,Gor Agbaljan,255739,Gor Agbaljan,1.0,1.0,1.0,1.0,exact_after_normalize
+1814,Joey Pelupessy,187293,Joey Pelupessy,1.0,1.0,1.0,1.0,exact_after_normalize
+1815,Justin Hoogma,411287,Justin Hoogma,1.0,1.0,1.0,1.0,exact_after_normalize
+1816,Mike te Wierik,155806,Mike te Wierik,1.0,1.0,1.0,1.0,exact_after_normalize
+1818,Jaroslav Navrátil,253063,Jaroslav Navratil,0.7143,1.0,1.0,1.0,exact_after_normalize
+1819,Brahim Darri,196158,Brahim Darri,1.0,1.0,1.0,1.0,exact_after_normalize
+1820,Robin Gosens,273132,Robin Gosens,1.0,1.0,1.0,1.0,exact_after_normalize
+1821,Bram Castro,13283,Bram Castro,1.0,1.0,1.0,1.0,exact_after_normalize
+1822,Tim van de Berg,447827,Tim van de Berg,1.0,1.0,1.0,1.0,exact_after_normalize
+1823,Sander Thomas,207273,Sander Thomas,1.0,1.0,1.0,1.0,exact_after_normalize
+1824,Dario Vujičević,82505,Dario Vujicevic,0.5238,1.0,1.0,1.0,exact_after_normalize
+1825,Célestin Djim,208516,Célestin Djim,1.0,1.0,1.0,1.0,exact_after_normalize
+1827,Gyliano van Velzen,174248,Gyliano van Velzen,1.0,1.0,1.0,1.0,exact_after_normalize
+1828,David Boysen,78514,David Boysen,1.0,1.0,1.0,1.0,exact_after_normalize
+1829,Simon Church,66959,Simon Church,1.0,1.0,1.0,1.0,exact_after_normalize
+1830,Farshad Noor,187191,Farshad Noor,1.0,1.0,1.0,1.0,exact_after_normalize
+1831,Roel Brouwers,4607,Roel Brouwers,1.0,1.0,1.0,1.0,exact_after_normalize
+1832,Ard van Peppen,19063,Ard van Peppen,1.0,1.0,1.0,1.0,exact_after_normalize
+1833,Bryan Verboom,203360,Bryan Verboom,1.0,1.0,1.0,1.0,exact_after_normalize
+1835,Daniel De Silva,259721,Daniel De Silva,1.0,1.0,1.0,1.0,exact_after_normalize
+1836,Tim Blättler,328105,Tim Blättler,1.0,1.0,1.0,1.0,exact_after_normalize
+1837,Marcos Gullón,73254,Marcos Gullón,1.0,1.0,1.0,1.0,exact_after_normalize
+1838,Dani Schahin,58437,Dani Schahin,1.0,1.0,1.0,1.0,exact_after_normalize
+1840,Frederic Ananou,240263,Frederic Ananou,1.0,1.0,1.0,1.0,exact_after_normalize
+1841,Simeon Raykov,86739,Simeon Raykov,1.0,1.0,1.0,1.0,exact_after_normalize
+1842,Daryl Werker,269585,Daryl Werker,1.0,1.0,1.0,1.0,exact_after_normalize
+1843,Martin Milec,94523,Martin Milec,1.0,1.0,1.0,1.0,exact_after_normalize
+1844,Ognjen Gnjatić,190811,Ognjen Gnjatic,0.75,1.0,1.0,1.0,exact_after_normalize
+1845,Beni Badibanga,347625,Béni Badibanga,0.6471,1.0,1.0,1.0,exact_after_normalize
+1846,Sherel Floranus,315211,Sherel Floranus,1.0,1.0,1.0,1.0,exact_after_normalize
+1847,Ilias Alhaft,337669,Ilias Alhaft,1.0,1.0,1.0,1.0,exact_after_normalize
+1848,Ragnar Ache,416380,Ragnar Ache,1.0,1.0,1.0,1.0,exact_after_normalize
+1850,Iván Calero,212849,Iván Calero,1.0,1.0,1.0,1.0,exact_after_normalize
+1851,Florian Pinteaux,126700,Florian Pinteaux,1.0,1.0,1.0,1.0,exact_after_normalize
+1854,Mathias Pogba,196240,Mathias Pogba,1.0,1.0,1.0,1.0,exact_after_normalize
+1855,Craig Goodwin,214798,Craig Goodwin,1.0,1.0,1.0,1.0,exact_after_normalize
+1857,Janne Saksela,130280,Janne Saksela,1.0,1.0,1.0,1.0,exact_after_normalize
+1858,Cyril Chevreuil,456530,Cyril Chevreuil,1.0,1.0,1.0,1.0,exact_after_normalize
+1862,Roland Bergkamp,124761,Roland Bergkamp,1.0,1.0,1.0,1.0,exact_after_normalize
+1863,Martin Pušić,48052,Martin Pusic,0.5294,1.0,1.0,1.0,exact_after_normalize
+1864,Edson Braafheid,16731,Edson Braafheid,1.0,1.0,1.0,1.0,exact_after_normalize
+1865,Nick Venema,420187,Nick Venema,1.0,1.0,1.0,1.0,exact_after_normalize
+1866,Andreas Ludwig,67850,Andreas Ludwig,1.0,1.0,1.0,1.0,exact_after_normalize
+1867,Darren Rosheuvel,182580,Darren Rosheuvel,1.0,1.0,1.0,1.0,exact_after_normalize
+1868,David Jensen,78819,David Jensen,1.0,1.0,1.0,1.0,exact_after_normalize
+1869,Nacer Barazite,44787,Nacer Barazite,1.0,1.0,1.0,1.0,exact_after_normalize
+1870,Rico Strieder,94768,Rico Strieder,1.0,1.0,1.0,1.0,exact_after_normalize
+1872,Gyrano Kerk,268112,Gyrano Kerk,1.0,1.0,1.0,1.0,exact_after_normalize
+1874,Rubio Rubin,331282,Rubio Rubín,0.5455,1.0,1.0,1.0,exact_after_normalize
+1875,Ouasim Bouy,126412,Ouasim Bouy,1.0,1.0,1.0,1.0,exact_after_normalize
+1876,Bart Schenkeveld,124895,Bart Schenkeveld,1.0,1.0,1.0,1.0,exact_after_normalize
+1877,Erik Israelsson,76085,Erik Israelsson,1.0,1.0,1.0,1.0,exact_after_normalize
+1878,Wouter Marinus,206744,Wouter Marinus,1.0,1.0,1.0,1.0,exact_after_normalize
+1879,Kingsley Ehizibue,272812,Kingsley Ehizibue,1.0,1.0,1.0,1.0,exact_after_normalize
+1880,Mustafa Saymak,166959,Mustafa Saymak,1.0,1.0,1.0,1.0,exact_after_normalize
+1881,Hervin Ongenda,182910,Hervin Ongenda,1.0,1.0,1.0,1.0,exact_after_normalize
+1883,Nicolai Brock-Madsen,154051,Nicolai Brock-Madsen,1.0,1.0,1.0,1.0,exact_after_normalize
+1885,Django Warmerdam,288449,Django Warmerdam,1.0,1.0,1.0,1.0,exact_after_normalize
+1886,Hachim Mastour,253267,Hachim Mastour,1.0,1.0,1.0,1.0,exact_after_normalize
+1887,Gustavo Hebling,288502,Gustavo Hebling,1.0,1.0,1.0,1.0,exact_after_normalize
+1888,Max de Boom,241382,Max de Boom,1.0,1.0,1.0,1.0,exact_after_normalize
+1889,Josef Kvida,260041,Josef Kvida,1.0,1.0,1.0,1.0,exact_after_normalize
+1891,Tom van de Looi,420189,Tom van de Looi,1.0,1.0,1.0,1.0,exact_after_normalize
+1892,Amir Absalem,373977,Amir Absalem,1.0,1.0,1.0,1.0,exact_after_normalize
+1893,Uriel Antuna,355998,Uriel Antuna,1.0,1.0,1.0,1.0,exact_after_normalize
+1894,Ludovit Reis,490884,Ludovit Reis,1.0,1.0,1.0,1.0,exact_after_normalize
+1895,Lars Veldwijk,175912,Lars Veldwijk,1.0,1.0,1.0,1.0,exact_after_normalize
+1896,Lars Kramer,410897,Lars Kramer,1.0,1.0,1.0,1.0,exact_after_normalize
+1897,Wouter van der Steen,159896,Wouter van der Steen,1.0,1.0,1.0,1.0,exact_after_normalize
+1898,Nicolai Næss,222275,Nicolai Næss,1.0,1.0,1.0,1.0,exact_after_normalize
+1899,Marco Rojas,114940,Marco Rojas,1.0,1.0,1.0,1.0,exact_after_normalize
+1900,Daniel Høegh,99100,Daniel Høegh,1.0,1.0,1.0,1.0,exact_after_normalize
+1901,Dave Bulthuis,187098,Dave Bulthuis,1.0,1.0,1.0,1.0,exact_after_normalize
+1902,Nemanja Mihajlović,222825,Nemanja Mihajlović,1.0,1.0,1.0,1.0,exact_after_normalize
+1903,Bart van Hintum,57328,Bart van Hintum,1.0,1.0,1.0,1.0,exact_after_normalize
+1904,Kai Huisman,203907,Kai Huisman,1.0,1.0,1.0,1.0,exact_after_normalize
+1905,Sebastian Jakubiak,124084,Sebastian Jakubiak,1.0,1.0,1.0,1.0,exact_after_normalize
+1906,Niels Leemhuis,450201,Niels Leemhuis,1.0,1.0,1.0,1.0,exact_after_normalize
+1907,Patrick Banggaard,186557,Patrick Banggaard,1.0,1.0,1.0,1.0,exact_after_normalize
+1908,Jorn Vancamp,289645,Jorn Vancamp,1.0,1.0,1.0,1.0,exact_after_normalize
+1909,Livio Milts,363253,Livio Milts,1.0,1.0,1.0,1.0,exact_after_normalize
+1910,Ashton Götz,124083,Ashton Götz,1.0,1.0,1.0,1.0,exact_after_normalize
+1911,Jannes Vansteenkiste,110727,Jannes Vansteenkiste,1.0,1.0,1.0,1.0,exact_after_normalize
+1912,Henk Dijkhuizen,169334,Henk Dijkhuizen,1.0,1.0,1.0,1.0,exact_after_normalize
+1913,Mario Engels,93637,Mario Engels,1.0,1.0,1.0,1.0,exact_after_normalize
+1914,Maecky Ngombo,403839,Maecky Ngombo,1.0,1.0,1.0,1.0,exact_after_normalize
+1915,Frederik Holst,135209,Frederik Holst,1.0,1.0,1.0,1.0,exact_after_normalize
+1917,Jannik Huth,160954,Jannik Huth,1.0,1.0,1.0,1.0,exact_after_normalize
+1918,George Dobson,292734,George Dobson,1.0,1.0,1.0,1.0,exact_after_normalize
+1920,Abdou Harroui,416386,Abdou Harroui,1.0,1.0,1.0,1.0,exact_after_normalize
+1921,Soufyan Ahannach,262895,Soufyan Ahannach,1.0,1.0,1.0,1.0,exact_after_normalize
+1922,Nick Proschwitz,31535,Nick Proschwitz,1.0,1.0,1.0,1.0,exact_after_normalize
+1923,Nicholas Marfelt,273973,Nicholas Marfelt,1.0,1.0,1.0,1.0,exact_after_normalize
+1924,Dalibor Volaš,60273,Dalibor Volas,0.75,1.0,1.0,1.0,exact_after_normalize
+1925,Jean-Christophe Bahebeck,164897,Jean-Christophe Bahebeck,1.0,1.0,1.0,1.0,exact_after_normalize
+1926,Matty Willock,289845,Matty Willock,1.0,1.0,1.0,1.0,exact_after_normalize
+1927,Lukas Görtler,179638,Lukas Görtler,1.0,1.0,1.0,1.0,exact_after_normalize
+1928,Urby Emanuelson,20586,Urby Emanuelson,1.0,1.0,1.0,1.0,exact_after_normalize
+1929,Odysseus Velanas,360520,Odysseus Velanas,1.0,1.0,1.0,1.0,exact_after_normalize
+1930,Sepp van den Berg,541231,Sepp van den Berg,1.0,1.0,1.0,1.0,exact_after_normalize
+1931,Nicolás Freire,266809,Nicolás Freire,1.0,1.0,1.0,1.0,exact_after_normalize
+1932,Mike Hauptmeijer,297373,Mike Hauptmeijer,1.0,1.0,1.0,1.0,exact_after_normalize
+1933,Rick Dekker,299121,Rick Dekker,1.0,1.0,1.0,1.0,exact_after_normalize
+1934,Sander van Looy,320842,Sander van Looy,1.0,1.0,1.0,1.0,exact_after_normalize
+1937,Shaquile Woudstra,336207,Shaquile Woudstra,1.0,1.0,1.0,1.0,exact_after_normalize
+1938,Martijn Monteyne,19917,Martijn Monteyne,1.0,1.0,1.0,1.0,exact_after_normalize
+1940,Guy Ramos,56384,Guy Ramos,1.0,1.0,1.0,1.0,exact_after_normalize
+1941,Berry Powel,21398,Berry Powel,1.0,1.0,1.0,1.0,exact_after_normalize
+1942,Davy De Beule,12912,Davy De Beule,1.0,1.0,1.0,1.0,exact_after_normalize
+1943,Mitchell Donald,45511,Mitchell Donald,1.0,1.0,1.0,1.0,exact_after_normalize
+1944,Anco Jansen,56607,Anco Jansen,1.0,1.0,1.0,1.0,exact_after_normalize
+1945,Krisztián Németh,48262,Krisztián Németh,1.0,1.0,1.0,1.0,exact_after_normalize
+1946,Frank Demouge,4531,Frank Demouge,1.0,1.0,1.0,1.0,exact_after_normalize
+1947,Marc Höcher,29936,Marc Höcher,1.0,1.0,1.0,1.0,exact_after_normalize
+1948,Kees Luijckx,39524,Kees Luijckx,1.0,1.0,1.0,1.0,exact_after_normalize
+1949,Roly Bonevacia,124885,Roly Bonevacia,1.0,1.0,1.0,1.0,exact_after_normalize
+1950,Bart Biemans,101785,Bart Biemans,1.0,1.0,1.0,1.0,exact_after_normalize
+1952,Gévero Markiet,85353,Gévero Markiet,1.0,1.0,1.0,1.0,exact_after_normalize
+1953,Jeroen Verhoeven,7955,Jeroen Verhoeven,1.0,1.0,1.0,1.0,exact_after_normalize
+1955,Steve De Ridder,41818,Steve De Ridder,1.0,1.0,1.0,1.0,exact_after_normalize
+1956,Tommy Oar,80708,Tommy Oar,1.0,1.0,1.0,1.0,exact_after_normalize
+1957,Adam Sarota,109305,Adam Sarota,1.0,1.0,1.0,1.0,exact_after_normalize
+1958,Yoshiaki Takagi,129696,Yoshiaki Takagi,1.0,1.0,1.0,1.0,exact_after_normalize
+1959,Elroy Pappot,187292,Elroy Pappot,1.0,1.0,1.0,1.0,exact_after_normalize
+1960,Matthieu Delpierre,5636,Matthieu Delpierre,1.0,1.0,1.0,1.0,exact_after_normalize
+1961,Juan Agudelo,131171,Juan Agudelo,1.0,1.0,1.0,1.0,exact_after_normalize
+1962,Johan Mårtensson,76047,Johan Mårtensson,1.0,1.0,1.0,1.0,exact_after_normalize
+1963,Cedric van der Gun,4676,Cedric van der Gun,1.0,1.0,1.0,1.0,exact_after_normalize
+1964,Christian Dorda,36189,Christian Dorda,1.0,1.0,1.0,1.0,exact_after_normalize
+1966,Danny Koevermans,19319,Danny Koevermans,1.0,1.0,1.0,1.0,exact_after_normalize
+1967,Krisztián Adorján,143219,Krisztián Adorján,1.0,1.0,1.0,1.0,exact_after_normalize
+1970,Maikel Kieftenbeld,82332,Maikel Kieftenbeld,1.0,1.0,1.0,1.0,exact_after_normalize
+1971,Michael de Leeuw,110906,Michael de Leeuw,1.0,1.0,1.0,1.0,exact_after_normalize
+1972,David Texeira,143182,David Texeira,1.0,1.0,1.0,1.0,exact_after_normalize
+1973,William Troost-Ekong,192875,William Troost-Ekong,1.0,1.0,1.0,1.0,exact_after_normalize
+1974,Stefano Magnasco,180907,Stefano Magnasco,1.0,1.0,1.0,1.0,exact_after_normalize
+1975,Johan Kappelhof,124888,Johan Kappelhof,1.0,1.0,1.0,1.0,exact_after_normalize
+1976,Rasmus Lindgren,29456,Rasmus Lindgren,1.0,1.0,1.0,1.0,exact_after_normalize
+1977,Género Zeefuik,49069,Género Zeefuik,1.0,1.0,1.0,1.0,exact_after_normalize
+1978,Filip Kostić,161011,Filip Kostic,0.7333,1.0,1.0,1.0,exact_after_normalize
+1979,Andraž Kirm,28393,Andraz Kirm,0.7143,1.0,1.0,1.0,exact_after_normalize
+1980,Ramon Zomer,14124,Ramon Zomer,1.0,1.0,1.0,1.0,exact_after_normalize
+1982,Jukka Raitala,47785,Jukka Raitala,1.0,1.0,1.0,1.0,exact_after_normalize
+1983,Kenny Otigba,136515,Kenny Otigba,1.0,1.0,1.0,1.0,exact_after_normalize
+1984,Joey van den Berg,34785,Joey van den Berg,1.0,1.0,1.0,1.0,exact_after_normalize
+1985,Kristoffer Nordfeldt,75890,Kristoffer Nordfeldt,1.0,1.0,1.0,1.0,exact_after_normalize
+1986,Rajiv van La Parra,77001,Rajiv van La Parra,1.0,1.0,1.0,1.0,exact_after_normalize
+1987,Uche Nwofor,184948,Uche Nwofor,1.0,1.0,1.0,1.0,exact_after_normalize
+1988,Marten de Roon,133179,Marten de Roon,1.0,1.0,1.0,1.0,exact_after_normalize
+1989,Samir Fazli,66608,Samir Fazli,1.0,1.0,1.0,1.0,exact_after_normalize
+1990,Sven Kums,42735,Sven Kums,1.0,1.0,1.0,1.0,exact_after_normalize
+1991,Giovanni Gravenbeek,121940,Giovanni Gravenbeek,1.0,1.0,1.0,1.0,exact_after_normalize
+1993,Fred Benson,30473,Fred Benson,1.0,1.0,1.0,1.0,exact_after_normalize
+1994,Boris Rasevic,280125,Boris Rasevic,1.0,1.0,1.0,1.0,exact_after_normalize
+1995,Kevin Begois,19356,Kevin Begois,1.0,1.0,1.0,1.0,exact_after_normalize
+1996,Steven Pereira,288125,Steven Pereira,1.0,1.0,1.0,1.0,exact_after_normalize
+1997,Mimoun Eloisghiri,228818,Mimoun Eloisghiri,1.0,1.0,1.0,1.0,exact_after_normalize
+1999,Youssef Fennich,240199,Youssef Fennich,1.0,1.0,1.0,1.0,exact_after_normalize
+2000,Joost Broerse,4638,Joost Broerse,1.0,1.0,1.0,1.0,exact_after_normalize
+2001,Mark Uth,112935,Mark Uth,1.0,1.0,1.0,1.0,exact_after_normalize
+2002,Simon Cziommer,3170,Simon Cziommer,1.0,1.0,1.0,1.0,exact_after_normalize
+2003,Jens Jurn Streutker,187602,Jens Jurn Streutker,1.0,1.0,1.0,1.0,exact_after_normalize
+2004,Edwin Gyasi,79192,Edwin Gyasi,1.0,1.0,1.0,1.0,exact_after_normalize
+2005,Joey Belterman,214493,Joey Belterman,1.0,1.0,1.0,1.0,exact_after_normalize
+2006,Milano Koenders,30617,Milano Koenders,1.0,1.0,1.0,1.0,exact_after_normalize
+2007,Matthew Amoah,4429,Matthew Amoah,1.0,1.0,1.0,1.0,exact_after_normalize
+2008,Jeroen Veldmate,61867,Jeroen Veldmate,1.0,1.0,1.0,1.0,exact_after_normalize
+2011,Leon van Dijk,190853,Leon van Dijk,1.0,1.0,1.0,1.0,exact_after_normalize
+2013,Dragan Paljić,8387,Dragan Paljic,0.75,1.0,1.0,1.0,exact_after_normalize
+2014,Ruud Boymans,63469,Ruud Boymans,1.0,1.0,1.0,1.0,exact_after_normalize
+2017,Yannick Cortie,266781,Yannick Cortie,1.0,1.0,1.0,1.0,exact_after_normalize
+2018,Peter van der Vlag,19299,Peter van der Vlag,1.0,1.0,1.0,1.0,exact_after_normalize
+2019,Henk Bos,201637,Henk Bos,1.0,1.0,1.0,1.0,exact_after_normalize
+2021,Thomas Dalgaard,40022,Thomas Dalgaard,1.0,1.0,1.0,1.0,exact_after_normalize
+2022,Jeroen Lumu,203914,Jeroen Lumu,1.0,1.0,1.0,1.0,exact_after_normalize
+2023,Tarik Kada,257981,Tarik Kada,1.0,1.0,1.0,1.0,exact_after_normalize
+2024,Dimitrios Ferfelis,89480,Dimitrios Ferfelis,1.0,1.0,1.0,1.0,exact_after_normalize
+2025,Eli Babalj,137086,Eli Babalj,1.0,1.0,1.0,1.0,exact_after_normalize
+2027,Mark Engberink,272694,Mark Engberink,1.0,1.0,1.0,1.0,exact_after_normalize
+2028,Bas Sibum,6403,Bas Sibum,1.0,1.0,1.0,1.0,exact_after_normalize
+2029,Fahd Aktaou,227075,Fahd Aktaou,1.0,1.0,1.0,1.0,exact_after_normalize
+2030,Rick ten Voorde,99517,Rick ten Voorde,1.0,1.0,1.0,1.0,exact_after_normalize
+2032,Erixon Danso,108709,Erixon Danso,1.0,1.0,1.0,1.0,exact_after_normalize
+2033,Rihairo Meulens,41351,Rihairo Meulens,1.0,1.0,1.0,1.0,exact_after_normalize
+2036,Anthony Biekman,260795,Anthony Biekman,1.0,1.0,1.0,1.0,exact_after_normalize
+2037,Andwélé Slory,19325,Andwelé Slory,0.6471,1.0,1.0,1.0,exact_after_normalize
+2040,Gibril Sankoh,21590,Gibril Sankoh,1.0,1.0,1.0,1.0,exact_after_normalize
+2041,Jens van Son,56436,Jens van Son,1.0,1.0,1.0,1.0,exact_after_normalize
+2042,Rostyn Griffiths,67715,Rostyn Griffiths,1.0,1.0,1.0,1.0,exact_after_normalize
+2043,Tomi Juric,171820,Tomi Juric,1.0,1.0,1.0,1.0,exact_after_normalize
+2044,Richmond Boakye,119213,Richmond Boakye,1.0,1.0,1.0,1.0,exact_after_normalize
+2045,Rigino Cicilia,275939,Rigino Cicilia,1.0,1.0,1.0,1.0,exact_after_normalize
+2048,Uğur İnceman,933,Uğur İnceman,1.0,1.0,1.0,1.0,exact_after_normalize
+2049,Filip Bednarek,155158,Filip Bednarek,1.0,1.0,1.0,1.0,exact_after_normalize
+2050,Louis Nganioni,182909,Louis Nganioni,1.0,1.0,1.0,1.0,exact_after_normalize
+2052,Luka Zahović,169362,Luka Zahovic,0.7333,1.0,1.0,1.0,exact_after_normalize
+2053,Boy de Jong,182557,Boy de Jong,1.0,1.0,1.0,1.0,exact_after_normalize
+2056,Boban Lazić,170856,Boban Lazic,0.7143,1.0,1.0,1.0,exact_after_normalize
+2057,Menno Heerkes,271670,Menno Heerkes,1.0,1.0,1.0,1.0,exact_after_normalize
+2058,Simon Makienok,87162,Simon Makienok,1.0,1.0,1.0,1.0,exact_after_normalize
+2059,Nicolas Gavory,182816,Nicolas Gavory,1.0,1.0,1.0,1.0,exact_after_normalize
+2060,Jannik Pohl,288432,Jannik Pohl,1.0,1.0,1.0,1.0,exact_after_normalize
+2061,Tim Handwerker,284177,Tim Handwerker,1.0,1.0,1.0,1.0,exact_after_normalize
+2062,Ahmad Mendes Moreira,332973,Ahmad Mendes Moreira,1.0,1.0,1.0,1.0,exact_after_normalize
+2063,Rodney Kongolo,264748,Rodney Kongolo,1.0,1.0,1.0,1.0,exact_after_normalize
+2064,Ibrahim Drešević,321135,Ibrahim Dresevic,0.5455,1.0,1.0,1.0,exact_after_normalize
+2065,Yuta Nakayama,346647,Yuta Nakayama,1.0,1.0,1.0,1.0,exact_after_normalize
+2066,Alessandro Tripaldelli,357176,Alessandro Tripaldelli,1.0,1.0,1.0,1.0,exact_after_normalize
+2067,Denis Genreau,470618,Denis Genreau,1.0,1.0,1.0,1.0,exact_after_normalize
+2068,Gianluca Scamacca,315867,Gianluca Scamacca,1.0,1.0,1.0,1.0,exact_after_normalize
+2069,Kjelt Engbers,538939,Kjelt Engbers,1.0,1.0,1.0,1.0,exact_after_normalize
+2070,Robbert de Vos,297694,Robbert de Vos,1.0,1.0,1.0,1.0,exact_after_normalize
+2071,Easah Suliman,282820,Easah Suliman,1.0,1.0,1.0,1.0,exact_after_normalize
+2073,Nick Bakker,210921,Nick Bakker,1.0,1.0,1.0,1.0,exact_after_normalize
+2074,Hilal Ben Moussa,223405,Hilal Ben Moussa,1.0,1.0,1.0,1.0,exact_after_normalize
+2075,Nicklas Pedersen,44588,Nicklas Pedersen,1.0,1.0,1.0,1.0,exact_after_normalize
+2077,Nico Neidhart,158360,Nico Neidhart,1.0,1.0,1.0,1.0,exact_after_normalize
+2079,Sven Braken,185400,Sven Braken,1.0,1.0,1.0,1.0,exact_after_normalize
+2080,Andrej Lukić,239951,Andrej Lukic,0.7333,1.0,1.0,1.0,exact_after_normalize
+2081,Michael Chacon,158540,Michael Chacón,0.6471,1.0,1.0,1.0,exact_after_normalize
+2082,Janis Blaswich,81173,Janis Blaswich,1.0,1.0,1.0,1.0,exact_after_normalize
+2083,Stephen Sama,86204,Stephen Sama,1.0,1.0,1.0,1.0,exact_after_normalize
+2084,Maximilian Rossmann,158052,Maximilian Rossmann,1.0,1.0,1.0,1.0,exact_after_normalize
+2085,Mats Knoester,315138,Mats Knoester,1.0,1.0,1.0,1.0,exact_after_normalize
+2086,Michael Brouwer,231650,Michael Brouwer,1.0,1.0,1.0,1.0,exact_after_normalize
+2087,Zeki Erkilinc,387218,Zeki Erkilinc,1.0,1.0,1.0,1.0,exact_after_normalize
+2088,Adrián Dalmau,288228,Adrián Dalmau,1.0,1.0,1.0,1.0,exact_after_normalize
+2089,Joey Konings,315140,Joey Konings,1.0,1.0,1.0,1.0,exact_after_normalize
+2090,Alexander Merkel,86926,Alexander Merkel,1.0,1.0,1.0,1.0,exact_after_normalize
+2091,Lamine Sané,93758,Lamine Sané,1.0,1.0,1.0,1.0,exact_after_normalize
+2093,Kian Slor,513332,Kian Slor,1.0,1.0,1.0,1.0,exact_after_normalize
+2094,Joel Asoro,375391,Joel Asoro,1.0,1.0,1.0,1.0,exact_after_normalize
+2095,Romano Postema,513330,Romano Postema,1.0,1.0,1.0,1.0,exact_after_normalize
+2096,Thomas Poll,480457,Thomas Poll,1.0,1.0,1.0,1.0,exact_after_normalize
+2097,Daishawn Redan,361081,Daishawn Redan,1.0,1.0,1.0,1.0,exact_after_normalize
+2098,Sam Schreck,335100,Sam Schreck,1.0,1.0,1.0,1.0,exact_after_normalize
+2099,Gabriel Gudmundsson,362108,Gabriel Gudmundsson,1.0,1.0,1.0,1.0,exact_after_normalize
+2100,Tomáš Suslov,540333,Tomas Suslov,0.625,1.0,1.0,1.0,exact_after_normalize
+2101,Hamdi Akujobi,590773,Hamdi Akujobi,1.0,1.0,1.0,1.0,exact_after_normalize
+2102,Sven Botman,361093,Sven Botman,1.0,1.0,1.0,1.0,exact_after_normalize
+2103,Chidera Ejuke,500067,Chidera Ejuke,1.0,1.0,1.0,1.0,exact_after_normalize
+2104,Runar Espejord,257808,Runar Espejord,1.0,1.0,1.0,1.0,exact_after_normalize
+2105,Rein Smit,477979,Rein Smit,1.0,1.0,1.0,1.0,exact_after_normalize
+2106,Anders Dreyer,342389,Anders Dreyer,1.0,1.0,1.0,1.0,exact_after_normalize
+2107,Arjen van der Heide,462087,Arjen van der Heide,1.0,1.0,1.0,1.0,exact_after_normalize
+2108,Jan Ras,440531,Jan Ras,1.0,1.0,1.0,1.0,exact_after_normalize
+2109,Rami Al Hajj,593415,Rami Al Hajj,1.0,1.0,1.0,1.0,exact_after_normalize
+2110,Abdallah Aberkane,361086,Abdallah Aberkane,1.0,1.0,1.0,1.0,exact_after_normalize
+2112,Laros Duarte,258513,Laros Duarte,1.0,1.0,1.0,1.0,exact_after_normalize
+2113,Ariel Harush,96382,Ariel Harush,1.0,1.0,1.0,1.0,exact_after_normalize
+2114,Marc-Olivier Doué,540654,Marc-Olivier Doué,1.0,1.0,1.0,1.0,exact_after_normalize
+2115,Dean Huiberts,530258,Dean Huiberts,1.0,1.0,1.0,1.0,exact_after_normalize
+2116,Michael Zetterer,196813,Michael Zetterer,1.0,1.0,1.0,1.0,exact_after_normalize
+2117,Destan Bajselmani,460611,Destan Bajselmani,1.0,1.0,1.0,1.0,exact_after_normalize
+2118,Xavier Mous,288426,Xavier Mous,1.0,1.0,1.0,1.0,exact_after_normalize
+2119,Jarno Westerman,593956,Jarno Westerman,1.0,1.0,1.0,1.0,exact_after_normalize
+2121,Sam Kersten,430797,Sam Kersten,1.0,1.0,1.0,1.0,exact_after_normalize
+2122,Freddy Quispel,538921,Freddy Quispel,1.0,1.0,1.0,1.0,exact_after_normalize
+2123,Michaël Heylen,255748,Michaël Heylen,1.0,1.0,1.0,1.0,exact_after_normalize
+2124,Miguel Araujo,211420,Miguel Araujo,1.0,1.0,1.0,1.0,exact_after_normalize
+2125,Sergio Peña,224672,Sergio Peña,1.0,1.0,1.0,1.0,exact_after_normalize
+2126,Kerim Frei,146844,Kerim Frei,1.0,1.0,1.0,1.0,exact_after_normalize
+2127,Nikolai Laursen,290555,Nikolai Laursen,1.0,1.0,1.0,1.0,exact_after_normalize
+2128,Ferhat Görgülü,120050,Ferhat Görgülü,1.0,1.0,1.0,1.0,exact_after_normalize
+2129,Leon Sopic,584092,Leon Sopic,1.0,1.0,1.0,1.0,exact_after_normalize
+2130,Filip Ugrinic,394236,Filip Ugrinic,1.0,1.0,1.0,1.0,exact_after_normalize
+2131,Marko Kolar,205924,Marko Kolar,1.0,1.0,1.0,1.0,exact_after_normalize
+2132,Ruben Roosken,538963,Ruben Roosken,1.0,1.0,1.0,1.0,exact_after_normalize
+2133,Luka Adžić,423609,Luka Adzic,0.4667,1.0,1.0,1.0,exact_after_normalize
+2134,Navajo Bakboord,339330,Navajo Bakboord,1.0,1.0,1.0,1.0,exact_after_normalize
+2135,Teun Bijleveld,324111,Teun Bijleveld,1.0,1.0,1.0,1.0,exact_after_normalize
+2136,Jeremy Cijntje,446247,Jeremy Cijntje,1.0,1.0,1.0,1.0,exact_after_normalize
+2137,Orestis Kiomourtzoglou,337243,Orestis Kiomourtzoglou,1.0,1.0,1.0,1.0,exact_after_normalize
+2138,Adrian Szöke,404705,Adrián Szőke,0.3684,1.0,1.0,1.0,exact_after_normalize
+2139,Sylian Mokono,150663,Sylian Mokono,1.0,1.0,1.0,1.0,exact_after_normalize
+2141,Eric Oelschlägel,152460,Eric Oelschlägel,1.0,1.0,1.0,1.0,exact_after_normalize
+2142,Daniel Arzani,399997,Daniel Arzani,1.0,1.0,1.0,1.0,exact_after_normalize
+2143,Thijmen Nijhuis,315235,Thijmen Nijhuis,1.0,1.0,1.0,1.0,exact_after_normalize
+2144,Moussa Sylla,460655,Moussa Sylla,1.0,1.0,1.0,1.0,exact_after_normalize
+2146,Jørgen Strand Larsen,429983,Jørgen Strand Larsen,1.0,1.0,1.0,1.0,exact_after_normalize
+2147,Bjorn Meijer,594227,Bjorn Meijer,1.0,1.0,1.0,1.0,exact_after_normalize
+2149,Joël van Kaam,503642,Joël van Kaam,1.0,1.0,1.0,1.0,exact_after_normalize
+2150,Paulos Abraham,579289,Paulos Abraham,1.0,1.0,1.0,1.0,exact_after_normalize
+2151,Thijs Dallinga,538964,Thijs Dallinga,1.0,1.0,1.0,1.0,exact_after_normalize
+2152,Benjamin Nygren,475949,Benjamin Nygren,1.0,1.0,1.0,1.0,exact_after_normalize
+2153,Sieben Dewaele,371936,Sieben Dewaele,1.0,1.0,1.0,1.0,exact_after_normalize
+2154,Rami Kaib,274373,Rami Kaib,1.0,1.0,1.0,1.0,exact_after_normalize
+2155,Jan Paul van Hecke,576314,Jan Paul van Hecke,1.0,1.0,1.0,1.0,exact_after_normalize
+2156,Ulysses Llanez,469858,Ulysses Llanez,1.0,1.0,1.0,1.0,exact_after_normalize
+2157,Tibor Halilović,324957,Tibor Halilovic,0.7778,1.0,1.0,1.0,exact_after_normalize
+2158,Jeremy van Mullem,424330,Jeremy van Mullem,1.0,1.0,1.0,1.0,exact_after_normalize
+2159,Maduka Okoye,340353,Maduka Okoye,1.0,1.0,1.0,1.0,exact_after_normalize
+2160,Samir Lagsir,564620,Samir Lagsir,1.0,1.0,1.0,1.0,exact_after_normalize
+2161,Rav van den Berg,640556,Rav van den Berg,1.0,1.0,1.0,1.0,exact_after_normalize
+2162,Eliano Reijnders,538057,Eliano Reijnders,1.0,1.0,1.0,1.0,exact_after_normalize
+2163,Slobodan Tedić,505652,Slobodan Tedic,0.7647,1.0,1.0,1.0,exact_after_normalize
+2164,Immanuel Pherai,412935,Immanuel Pherai,1.0,1.0,1.0,1.0,exact_after_normalize
+2165,Sekou Sidibe,409513,Sekou Sidibe,1.0,1.0,1.0,1.0,exact_after_normalize
+2166,Didier La Torre,662703,Didier La Torre,1.0,1.0,1.0,1.0,exact_after_normalize
+2168,Jean-Pierre Rhyner,203981,Jean-Pierre Rhyner,1.0,1.0,1.0,1.0,exact_after_normalize
+2169,Lucas Bernadou,536480,Lucas Bernadou,1.0,1.0,1.0,1.0,exact_after_normalize
+2171,Jari Vlak,374213,Jari Vlak,1.0,1.0,1.0,1.0,exact_after_normalize
+2172,Felix Wiedwald,44594,Felix Wiedwald,1.0,1.0,1.0,1.0,exact_after_normalize
+2174,Denis Granečný,293351,Denis Granecny,0.5789,1.0,1.0,1.0,exact_after_normalize
+2175,Mohamed Amissi,549954,Mohamed Amissi,1.0,1.0,1.0,1.0,exact_after_normalize
+2176,Rohat Agca,591362,Rohat Ağca,0.5714,1.0,1.0,1.0,exact_after_normalize
+2177,Marco Rente,237244,Marco Rente,1.0,1.0,1.0,1.0,exact_after_normalize
+2178,Ahmed Kutucu,452084,Ahmed Kutucu,1.0,1.0,1.0,1.0,exact_after_normalize
+2179,Noah Fadiga,379168,Noah Fadiga,1.0,1.0,1.0,1.0,exact_after_normalize
+2180,Kasper Lunding,345586,Kasper Lunding,1.0,1.0,1.0,1.0,exact_after_normalize
+2181,Melih Ibrahimoglu,391555,Melih İbrahimoğlu,0.7143,1.0,1.0,1.0,exact_after_normalize
+2182,Luca de la Torre,315762,Luca de la Torre,1.0,1.0,1.0,1.0,exact_after_normalize
+2183,Koen Bucker,335027,Koen Bucker,1.0,1.0,1.0,1.0,exact_after_normalize
+2184,Giacomo Quagliata,458777,Giacomo Quagliata,1.0,1.0,1.0,1.0,exact_after_normalize
+2185,Mateo Leš,476755,Mateo Les,0.6667,1.0,1.0,1.0,exact_after_normalize
+2187,Naoki Maeda,246197,Naoki Maeda,1.0,1.0,1.0,1.0,exact_after_normalize
+2189,Rocco Shein,488296,Rocco Shein,1.0,1.0,1.0,1.0,exact_after_normalize
+2191,Djevencio van der Kust,596148,Djevencio van der Kust,1.0,1.0,1.0,1.0,exact_after_normalize
+2192,Ruben Kluivert,578421,Ruben Kluivert,1.0,1.0,1.0,1.0,exact_after_normalize
+2193,Pontus Almqvist,300532,Pontus Almqvist,1.0,1.0,1.0,1.0,exact_after_normalize
+2194,Fabian de Keijzer,462285,Fabian de Keijzer,1.0,1.0,1.0,1.0,exact_after_normalize
+2195,Yahya Kalley,593410,Yahya Kalley,1.0,1.0,1.0,1.0,exact_after_normalize
+2197,Daleho Irandust,369653,Daleho Irandust,1.0,1.0,1.0,1.0,exact_after_normalize
+2198,Peter Leeuwenburgh,166326,Peter Leeuwenburgh,1.0,1.0,1.0,1.0,exact_after_normalize
+2199,Elias Olsson,673067,Elias Olsson,1.0,1.0,1.0,1.0,exact_after_normalize
+2200,Emmanuel Matuta,486052,Emmanuel Matuta,1.0,1.0,1.0,1.0,exact_after_normalize
+2201,Melayro Bogarde,476915,Melayro Bogarde,1.0,1.0,1.0,1.0,exact_after_normalize
+2202,Marin Šverko,282169,Marin Šverko,1.0,1.0,1.0,1.0,exact_after_normalize
+2203,Djenahro Nunumete,590775,Djenahro Nunumete,1.0,1.0,1.0,1.0,exact_after_normalize
+2204,Stanislav Shopov,486813,Stanislav Shopov,1.0,1.0,1.0,1.0,exact_after_normalize
+2205,Nicolas Madsen,464599,Nicolas Madsen,1.0,1.0,1.0,1.0,exact_after_normalize
+2206,Amin Sarr,748382,Amin Sarr,1.0,1.0,1.0,1.0,exact_after_normalize
+2207,Timo Zaal,646670,Timo Zaal,1.0,1.0,1.0,1.0,exact_after_normalize
+2209,Riza Durmisi,135208,Riza Durmisi,1.0,1.0,1.0,1.0,exact_after_normalize
+2211,Laurent Jans,163724,Laurent Jans,1.0,1.0,1.0,1.0,exact_after_normalize
+2214,Augustin Drakpe,593193,Augustin Drakpe,1.0,1.0,1.0,1.0,exact_after_normalize
+2215,Giannis Masouras,295780,Giannis Masouras,1.0,1.0,1.0,1.0,exact_after_normalize
+2216,Gabi Caschili,648541,Gabi Caschili,1.0,1.0,1.0,1.0,exact_after_normalize
+2218,Chardi Landu,538966,Chardi Landu,1.0,1.0,1.0,1.0,exact_after_normalize
+2219,Mark Pabai,464699,Mark Pabai,1.0,1.0,1.0,1.0,exact_after_normalize
+2220,Tristan van Gilst,793702,Tristan van Gilst,1.0,1.0,1.0,1.0,exact_after_normalize
+2221,Max de Waal,485592,Max de Waal,1.0,1.0,1.0,1.0,exact_after_normalize
+2222,Sven Sonnenberg,339151,Sven Sonnenberg,1.0,1.0,1.0,1.0,exact_after_normalize
+2223,Sem Scheperman,618083,Sem Scheperman,1.0,1.0,1.0,1.0,exact_after_normalize
+2224,Anas Ouahim,240889,Anas Ouahim,1.0,1.0,1.0,1.0,exact_after_normalize
+2225,Anthony Descotte,565434,Anthony Descotte,1.0,1.0,1.0,1.0,exact_after_normalize
+2226,Modibo Sagnan,524925,Modibo Sagnan,1.0,1.0,1.0,1.0,exact_after_normalize
+2227,Vasilios Barkas,248658,Vasilios Barkas,1.0,1.0,1.0,1.0,exact_after_normalize
+2228,Can Bozdogan,406609,Can Bozdogan,1.0,1.0,1.0,1.0,exact_after_normalize
+2230,Aimar Sher,579294,Aimar Sher,1.0,1.0,1.0,1.0,exact_after_normalize
+2232,Thijmen Blokzijl,719209,Thijmen Blokzijl,1.0,1.0,1.0,1.0,exact_after_normalize
+2234,Jorg Schreuders,671735,Jorg Schreuders,1.0,1.0,1.0,1.0,exact_after_normalize
+2235,Jan de Boer,426142,Jan de Boer,1.0,1.0,1.0,1.0,exact_after_normalize
+2236,Johan Hove,418557,Johan Hove,1.0,1.0,1.0,1.0,exact_after_normalize
+2237,Thom van Bergen,671738,Thom van Bergen,1.0,1.0,1.0,1.0,exact_after_normalize
+2238,Florian Krüger,317740,Florian Krüger,1.0,1.0,1.0,1.0,exact_after_normalize
+2239,Nordin Musampa,420215,Nordin Musampa,1.0,1.0,1.0,1.0,exact_after_normalize
+2240,Matěj Chaluš,321178,Matej Chalus,0.4444,1.0,1.0,1.0,exact_after_normalize
+2241,Jan Bekkema,312473,Jan Bekkema,1.0,1.0,1.0,1.0,exact_after_normalize
+2242,Daniel Karlsbakk,661205,Daniel Karlsbakk,1.0,1.0,1.0,1.0,exact_after_normalize
+2243,Hussein Ali,585325,Hussein Ali,1.0,1.0,1.0,1.0,exact_after_normalize
+2244,Osame Sahraoui,580657,Osame Sahraoui,1.0,1.0,1.0,1.0,exact_after_normalize
+2245,Antoine Colassin,440953,Antoine Colassin,1.0,1.0,1.0,1.0,exact_after_normalize
+2246,Simon Olsson,321158,Simon Olsson,1.0,1.0,1.0,1.0,exact_after_normalize
+2247,Alex Timossi Andersson,454628,Alex Timossi Andersson,1.0,1.0,1.0,1.0,exact_after_normalize
+2248,Mike Eerdhuijzen,482141,Mike Eerdhuijzen,1.0,1.0,1.0,1.0,exact_after_normalize
+2249,Jason Lokilo,325200,Jason Lokilo,1.0,1.0,1.0,1.0,exact_after_normalize
+2250,Joshua Kitolano,432694,Joshua Kitolano,1.0,1.0,1.0,1.0,exact_after_normalize
+2252,Koki Saito,501743,Koki Saito,1.0,1.0,1.0,1.0,exact_after_normalize
+2253,Omar Rekik,578292,Omar Rekik,1.0,1.0,1.0,1.0,exact_after_normalize
+2254,Jonathan de Guzmán,31067,Jonathan de Guzmán,1.0,1.0,1.0,1.0,exact_after_normalize
+2256,Tobias Lauritsen,272206,Tobias Lauritsen,1.0,1.0,1.0,1.0,exact_after_normalize
+2257,Youri Schoonderwaldt,531712,Youri Schoonderwaldt,1.0,1.0,1.0,1.0,exact_after_normalize
+2258,Pedro Alemañ,699771,Pedro Alemañ,1.0,1.0,1.0,1.0,exact_after_normalize
+2259,Walid Ould-Chikh,597104,Walid Ould-Chikh,1.0,1.0,1.0,1.0,exact_after_normalize
+2260,Imran Nazih,929347,Imran Nazih,1.0,1.0,1.0,1.0,exact_after_normalize
+2266,Damon Mirani,257986,Damon Mirani,1.0,1.0,1.0,1.0,exact_after_normalize
+2267,Xavier Mbuyamba,640432,Xavier Mbuyamba,1.0,1.0,1.0,1.0,exact_after_normalize
+2269,Joey Antonioli,702856,Joey Antonioli,1.0,1.0,1.0,1.0,exact_after_normalize
+2271,Flip Klomp,790482,Flip Klomp,1.0,1.0,1.0,1.0,exact_after_normalize
+2272,Francesco Antonucci,338627,Francesco Antonucci,1.0,1.0,1.0,1.0,exact_after_normalize
+2275,Jordi Blom,900070,Jordi Blom,1.0,1.0,1.0,1.0,exact_after_normalize
+2276,Deron Payne,790411,Déron Payne,0.6,1.0,1.0,1.0,exact_after_normalize
+2277,Metehan Güçlü,395519,Metehan Güclü,0.6471,1.0,1.0,1.0,exact_after_normalize
+2281,Mohamed Bouchouari,546225,Mohamed Bouchouari,1.0,1.0,1.0,1.0,exact_after_normalize
+2283,Silas Andersen,685657,Silas Andersen,1.0,1.0,1.0,1.0,exact_after_normalize
+2284,Jeppe Okkels,345591,Jeppe Okkels,1.0,1.0,1.0,1.0,exact_after_normalize
+2285,Oscar Fraulo,610428,Oscar Fraulo,1.0,1.0,1.0,1.0,exact_after_normalize
+2286,Adrian Blake,875581,Adrian Blake,1.0,1.0,1.0,1.0,exact_after_normalize
+2289,Zidane Iqbal,686845,Zidane Iqbal,1.0,1.0,1.0,1.0,exact_after_normalize
+2290,Niklas Vesterlund,422932,Niklas Vesterlund,1.0,1.0,1.0,1.0,exact_after_normalize
+2291,Hugo Novoa,668276,Hugo Novoa,1.0,1.0,1.0,1.0,exact_after_normalize
+2294,Ion Nicolaescu,438310,Ion Nicolaescu,1.0,1.0,1.0,1.0,exact_after_normalize
+2295,Charlie Webster,697278,Charlie Webster,1.0,1.0,1.0,1.0,exact_after_normalize
+2296,Oliver Braude,869067,Oliver Braude,1.0,1.0,1.0,1.0,exact_after_normalize
+2297,Espen van Ee,607144,Espen van Ee,1.0,1.0,1.0,1.0,exact_after_normalize
+2298,Loizos Loizou,615033,Loizos Loizou,1.0,1.0,1.0,1.0,exact_after_normalize
+2300,Tijs Velthuis,568377,Tijs Velthuis,1.0,1.0,1.0,1.0,exact_after_normalize
+2301,Sergi Rosanas,466797,Sergi Rosanas,1.0,1.0,1.0,1.0,exact_after_normalize
+2303,Camiel Neghli,587588,Camiel Neghli,1.0,1.0,1.0,1.0,exact_after_normalize
+2304,Hamza el Dahri,928612,Hamza el Dahri,1.0,1.0,1.0,1.0,exact_after_normalize
+2305,Shunsuke Mito,566013,Shunsuke Mito,1.0,1.0,1.0,1.0,exact_after_normalize
+2306,Metinho,859396,Metinho,1.0,1.0,1.0,1.0,exact_after_normalize
+2307,Rayvien Rosario,806284,Rayvien Rosario,1.0,1.0,1.0,1.0,exact_after_normalize
+2309,Nordin Bakker,534015,Nordin Bakker,1.0,1.0,1.0,1.0,exact_after_normalize
+2310,Yoann Cathline,782476,Yoann Cathline,1.0,1.0,1.0,1.0,exact_after_normalize
+2314,Christopher Mamengi,477249,Christopher Mamengi,1.0,1.0,1.0,1.0,exact_after_normalize
+2316,Thomas Robinet,290615,Thomas Robinet,1.0,1.0,1.0,1.0,exact_after_normalize
+2317,Adi Nalic,332875,Adi Nalic,1.0,1.0,1.0,1.0,exact_after_normalize
+2319,Yann Kitala,395677,Yann Kitala,1.0,1.0,1.0,1.0,exact_after_normalize
+2320,Stije Resink,793099,Stije Resink,1.0,1.0,1.0,1.0,exact_after_normalize
+2321,Loïc Mbe Soh,463610,Loïc Mbe Soh,1.0,1.0,1.0,1.0,exact_after_normalize
+2322,Jason Van Duiven,738478,Jason van Duiven,1.0,1.0,1.0,1.0,exact_after_normalize
+2324,Samuel Şahin-Radlinger,77563,Samuel Sahin-Radlinger,0.8333,1.0,1.0,1.0,exact_after_normalize
+2325,Jeffry Puriel,667263,Jeffry Puriel,1.0,1.0,1.0,1.0,exact_after_normalize
+2328,Bram van Driel,891836,Bram van Driel,1.0,1.0,1.0,1.0,exact_after_normalize
+2330,Luke Le Roux,467616,Luke Le Roux,1.0,1.0,1.0,1.0,exact_after_normalize
+2331,Milan de Haan,765468,Milan de Haan,1.0,1.0,1.0,1.0,exact_after_normalize
+2332,Axel Guessand,925584,Axel Guessand,1.0,1.0,1.0,1.0,exact_after_normalize
+2333,Quincy Hoeve,702834,Quincy Hoeve,1.0,1.0,1.0,1.0,exact_after_normalize
+2334,Safouane Karim,804776,Safouane Karim,1.0,1.0,1.0,1.0,exact_after_normalize
+2335,Kayne van Oevelen,790669,Kayne van Oevelen,1.0,1.0,1.0,1.0,exact_after_normalize
+2336,Mio Backhaus,620295,Mio Backhaus,1.0,1.0,1.0,1.0,exact_after_normalize
+2338,Vivaldo Semedo,1014243,Vivaldo Semedo,1.0,1.0,1.0,1.0,exact_after_normalize
+2339,Garang Kuol,967948,Garang Kuol,1.0,1.0,1.0,1.0,exact_after_normalize
+2340,Anouar El Azzouzi,593774,Anouar El Azzouzi,1.0,1.0,1.0,1.0,exact_after_normalize
+2341,Damian van der Haar,640558,Damian van der Haar,1.0,1.0,1.0,1.0,exact_after_normalize
+2342,Teun Gijselhart,738477,Teun Gijselhart,1.0,1.0,1.0,1.0,exact_after_normalize
+2343,Kaj de Rooij,540927,Kaj de Rooij,1.0,1.0,1.0,1.0,exact_after_normalize
+2344,Mohamed Oukhattou,1073955,Mohamed Oukhattou,1.0,1.0,1.0,1.0,exact_after_normalize
+2345,Anthony Fontana,447216,Anthony Fontana,1.0,1.0,1.0,1.0,exact_after_normalize
+2346,Apostolos Vellios,124495,Apostolos Vellios,1.0,1.0,1.0,1.0,exact_after_normalize
+2347,Jasper Schendelaar,361082,Jasper Schendelaar,1.0,1.0,1.0,1.0,exact_after_normalize
+2348,Nick Fichtinger,806384,Nick Fichtinger,1.0,1.0,1.0,1.0,exact_after_normalize
+2349,Jannes Wieckhoff,447801,Jannes Wieckhoff,1.0,1.0,1.0,1.0,exact_after_normalize
+2350,Brian De Keersmaecker,429916,Brian De Keersmaecker,1.0,1.0,1.0,1.0,exact_after_normalize
+2351,Abdenego Nankishi,455662,Abdenego Nankishi,1.0,1.0,1.0,1.0,exact_after_normalize
+2352,Antonio Satriano,679414,Antonio Satriano,1.0,1.0,1.0,1.0,exact_after_normalize
+2354,Diego van Oorschot,989998,Diego van Oorschot,1.0,1.0,1.0,1.0,exact_after_normalize
+2355,Bryan Limbombe,502288,Bryan Limbombe,1.0,1.0,1.0,1.0,exact_after_normalize
+2356,Stijn Bultman,936571,Stijn Bultman,1.0,1.0,1.0,1.0,exact_after_normalize
+2357,Kolbeinn Finnsson,320421,Kolbeinn Finnsson,1.0,1.0,1.0,1.0,exact_after_normalize
+2358,Miguel Rodríguez,634427,Miguel Rodríguez,1.0,1.0,1.0,1.0,exact_after_normalize
+2359,Alonzo Engwanda,565436,Alonzo Engwanda,1.0,1.0,1.0,1.0,exact_after_normalize
+2360,Matisse Didden,570597,Matisse Didden,1.0,1.0,1.0,1.0,exact_after_normalize
+2361,Brynjólfur Willumsson,464444,Brynjólfur Willumsson,1.0,1.0,1.0,1.0,exact_after_normalize
+2363,Maxim Mariani,660059,Maxim Mariani,1.0,1.0,1.0,1.0,exact_after_normalize
+2364,Sven Bouland,848755,Sven Bouland,1.0,1.0,1.0,1.0,exact_after_normalize
+2366,Noam Emeran,557611,Noam Emeran,1.0,1.0,1.0,1.0,exact_after_normalize
+2367,Hjalmar Ekdal,392179,Hjalmar Ekdal,1.0,1.0,1.0,1.0,exact_after_normalize
+2368,David van der Werff,671737,David van der Werff,1.0,1.0,1.0,1.0,exact_after_normalize
+2370,Jacob Trenskow,542684,Jacob Trenskow,1.0,1.0,1.0,1.0,exact_after_normalize
+2371,Levi Smans,918365,Levi Smans,1.0,1.0,1.0,1.0,exact_after_normalize
+2372,Eser Gürbüz,1130803,Eser Gürbüz,1.0,1.0,1.0,1.0,exact_after_normalize
+2373,Milos Lukovic,845872,Milos Lukovic,1.0,1.0,1.0,1.0,exact_after_normalize
+2374,Marcus Linday,899163,Marcus Linday,1.0,1.0,1.0,1.0,exact_after_normalize
+2375,Mateja Milovanovic,775242,Mateja Milovanovic,1.0,1.0,1.0,1.0,exact_after_normalize
+2376,Nikolai Hopland,894050,Nikolai Hopland,1.0,1.0,1.0,1.0,exact_after_normalize
+2377,Hristiyan Petrov,628042,Hristiyan Petrov,1.0,1.0,1.0,1.0,exact_after_normalize
+2381,Dimitris Rallis,747953,Dimitris Rallis,1.0,1.0,1.0,1.0,exact_after_normalize
+2382,Ilias Sebaoui,852953,Ilias Sebaoui,1.0,1.0,1.0,1.0,exact_after_normalize
+2383,Amara Conde,207580,Amara Condé,0.7143,1.0,1.0,1.0,exact_after_normalize
+2384,Mike Kleijn,738516,Mike Kleijn,1.0,1.0,1.0,1.0,exact_after_normalize
+2385,Boyd Reith,393240,Boyd Reith,1.0,1.0,1.0,1.0,exact_after_normalize
+2386,Marvin Young,928592,Marvin Young,1.0,1.0,1.0,1.0,exact_after_normalize
+2387,Teo Quintero,627069,Teo Quintero,1.0,1.0,1.0,1.0,exact_after_normalize
+2388,Joël Ideho,760508,Joel Ideho,0.5714,1.0,1.0,1.0,exact_after_normalize
+2390,Ali Jasim,877672,Ali Jasim,1.0,1.0,1.0,1.0,exact_after_normalize
+2391,Tim Receveur,189650,Tim Receveur,1.0,1.0,1.0,1.0,exact_after_normalize
+2392,Baptiste Guillaume,264567,Baptiste Guillaume,1.0,1.0,1.0,1.0,exact_after_normalize
+2393,Junior Kadile,585958,Junior Kadile,1.0,1.0,1.0,1.0,exact_after_normalize
+2395,Ruben Providence,536520,Ruben Providence,1.0,1.0,1.0,1.0,exact_after_normalize
+2396,Jonas Wendlinger,367443,Jonas Wendlinger,1.0,1.0,1.0,1.0,exact_after_normalize
+2397,James Lawrence,272706,James Lawrence,1.0,1.0,1.0,1.0,exact_after_normalize
+2398,Vasilios Zagaritis,613781,Vasilios Zagaritis,1.0,1.0,1.0,1.0,exact_after_normalize
+2399,Logan Delaurier-Chaubet,569386,Logan Delaurier-Chaubet,1.0,1.0,1.0,1.0,exact_after_normalize
+2401,Ricardo Visus,630989,Ricardo Visus,1.0,1.0,1.0,1.0,exact_after_normalize
+2402,Alex Balboa,634460,Álex Balboa,0.6,1.0,1.0,1.0,exact_after_normalize
+2403,Olivier Aertssen,720791,Olivier Aertssen,1.0,1.0,1.0,1.0,exact_after_normalize
+2404,Dylan Mbayo,502289,Dylan Mbayo,1.0,1.0,1.0,1.0,exact_after_normalize
+2405,Braydon Manu,231590,Braydon Manu,1.0,1.0,1.0,1.0,exact_after_normalize
+2406,Suf Podgoreanu,540827,Suf Podgoreanu,1.0,1.0,1.0,1.0,exact_after_normalize
+2407,Ivan Mesík,482838,Ivan Mesik,0.5714,1.0,1.0,1.0,exact_after_normalize
+2408,Lorenzo Milani,500274,Lorenzo Milani,1.0,1.0,1.0,1.0,exact_after_normalize
+2409,Giandro Sambo,1025411,Giandro Sambo,1.0,1.0,1.0,1.0,exact_after_normalize
+2410,Luka Kulenović,569470,Luka Kulenovic,0.7647,1.0,1.0,1.0,exact_after_normalize
+2411,Jan Žambůrek,487924,Jan Zamburek,0.3684,1.0,1.0,1.0,exact_after_normalize
+2412,Rafik el Arguioui,738479,Rafik El Arguioui,1.0,1.0,1.0,1.0,exact_after_normalize
+2413,Ángel Alarcón,646739,Ángel Alarcón,1.0,1.0,1.0,1.0,exact_after_normalize
+2414,Emirhan Demircan,918445,Emirhan Demircan,1.0,1.0,1.0,1.0,exact_after_normalize
+2415,Emeka Adiele,1112524,Emeka Adiele,1.0,1.0,1.0,1.0,exact_after_normalize
+2416,Artem Stepanov,1045344,Artem Stepanov,1.0,1.0,1.0,1.0,exact_after_normalize
+2417,Oualid Agougil,738475,Oualid Agougil,1.0,1.0,1.0,1.0,exact_after_normalize
+2419,Ryan Metu,1143430,Ryan Metu,1.0,1.0,1.0,1.0,exact_after_normalize
+2420,Tyrique Mercera,913289,Tyrique Mercera,1.0,1.0,1.0,1.0,exact_after_normalize
+2423,Václav Sejk,629777,Vaclav Sejk,0.6,1.0,1.0,1.0,exact_after_normalize
+2424,Bernt Klaverboer,725816,Bernt Klaverboer,1.0,1.0,1.0,1.0,exact_after_normalize
+2425,Luca Oyen,551085,Luca Oyen,1.0,1.0,1.0,1.0,exact_after_normalize
+2426,Maxence Rivera,735700,Maxence Rivera,1.0,1.0,1.0,1.0,exact_after_normalize
+2428,Lasse Nordås,781270,Lasse Nordås,1.0,1.0,1.0,1.0,exact_after_normalize
+2430,Maas Willemsen,805451,Maas Willemsen,1.0,1.0,1.0,1.0,exact_after_normalize
+2431,Lushendry Martes,1255744,Lushendry Martes,1.0,1.0,1.0,1.0,exact_after_normalize
+2432,Ayoni Santos,1064184,Ayoni Santos,1.0,1.0,1.0,1.0,exact_after_normalize
+2433,Alwande Roaldsøy,670105,Alwande Roaldsøy,1.0,1.0,1.0,1.0,exact_after_normalize
+2434,Casper Terho,679597,Casper Terho,1.0,1.0,1.0,1.0,exact_after_normalize
+2435,Giannino Vianello,1102425,Giannino Vianello,1.0,1.0,1.0,1.0,exact_after_normalize
+2437,Jesper Tielemans,1055233,Jesper Tielemans,1.0,1.0,1.0,1.0,exact_after_normalize
+2438,Roy Steur,729011,Roy Steur,1.0,1.0,1.0,1.0,exact_after_normalize
+2440,Kiano Dyer,954125,Kiano Dyer,1.0,1.0,1.0,1.0,exact_after_normalize
+2442,Benjamin Pauwels,1104143,Benjamin Pauwels,1.0,1.0,1.0,1.0,exact_after_normalize
+2443,Precious Ugwu,936006,Precious Ugwu,1.0,1.0,1.0,1.0,exact_after_normalize
+2445,Nick Verschuren,891835,Nick Verschuren,1.0,1.0,1.0,1.0,exact_after_normalize
+2447,Robin van Cruijsen,1175048,Robin van Cruijsen,1.0,1.0,1.0,1.0,exact_after_normalize
+2448,Gibson Yah,559325,Gibson Yah,1.0,1.0,1.0,1.0,exact_after_normalize
+2449,Ozan Kökcü,380118,Ozan Kökcü,1.0,1.0,1.0,1.0,exact_after_normalize
+2450,Koen Kostons,453121,Koen Kostons,1.0,1.0,1.0,1.0,exact_after_normalize
+2452,Shola Shoretire,640026,Shola Shoretire,1.0,1.0,1.0,1.0,exact_after_normalize
+2453,Tom de Graaff,729010,Tom de Graaff,1.0,1.0,1.0,1.0,exact_after_normalize
+2454,Jan Faberski,949480,Jan Faberski,1.0,1.0,1.0,1.0,exact_after_normalize
+2457,Jadiel Pereira da Gama,1347762,Jadiel Pereira da Gama,1.0,1.0,1.0,1.0,exact_after_normalize
+2459,Gabriel Reiziger,827711,Gabriël Reiziger,0.7,1.0,1.0,1.0,exact_after_normalize
+2461,Sil Blokhuis,1476385,Sil Blokhuis,1.0,1.0,1.0,1.0,exact_after_normalize
+2462,Erik Ahlstrand,501049,Erik Ahlstrand,1.0,1.0,1.0,1.0,exact_after_normalize
+2464,Jop Tijink,936604,Jop Tijink,1.0,1.0,1.0,1.0,exact_after_normalize
+2465,Jeff Reine-Adélaïde,326300,Jeff Reine-Adélaïde,1.0,1.0,1.0,1.0,exact_after_normalize
+2466,Rhys Bozinovski,916461,Rhys Bozinovski,1.0,1.0,1.0,1.0,exact_after_normalize
 1713,Amourrichio van Axel Dongen,704773,Amourricho van Axel Dongen,0.8276,0.9926,0.9811,0.9811,same_surname_diff_given_name
 1714,Mohamed El Hankouri,384587,Mohammed El Hankouri,0.8636,0.99,0.9744,0.9744,same_surname_diff_given_name
 1715,Vyacheslav Karavayev,170620,Vyacheslav Karavaev,0.7826,0.99,0.9744,0.9744,same_given_name_diff_surname
@@ -1427,10 +2073,13 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1719,Mitchell Paulissen,213671,Mitchel Paulissen,0.85,0.9654,0.9714,0.9654,same_surname_diff_given_name
 1052,Dimitris Emmanouilidis,468036,Dimitrios Emmanouilidis,0.84,0.964,0.9778,0.964,same_surname_diff_given_name
 1720,Dries Saddiki,370042,Driess Saddiki,0.8125,0.9703,0.963,0.963,same_surname_diff_given_name
+2046,Georgy Zhukov,235755,Georgiy Zhukov,0.7059,0.9857,0.963,0.963,same_surname_diff_given_name
 1722,Dimitris Siovas,52403,Dimitrios Siovas,0.7368,0.9608,0.9677,0.9608,same_surname_diff_given_name
 1723,Llazaros Rota,483916,Lazaros Rota,0.8,0.9769,0.96,0.96,substring_match
+1778,Jóhann Berg Guðmundsson,89231,Jóhann Berg Gudmundsson,0.7778,0.9644,0.9565,0.9565,same_given_name_diff_surname
 1780,Stefán Ingi Sigurðarson,464454,Stefán Ingi Sigurdarson,0.7692,0.9826,0.9565,0.9565,same_given_name_diff_surname
 343,Colin Kazim-Richards,36802,Colin Kazım-Richards,0.75,0.9589,0.95,0.95,same_given_name_diff_surname
+2012,Aleksei Kangaskolkka,37462,Aleksey Kangaskolkka,0.8261,0.98,0.95,0.95,same_surname_diff_given_name
 1725,Armel Bella Kotchap,467563,Armel Bella-Kotchap,1.0,0.9789,0.9474,0.9474,same_given_name_diff_surname
 1187,Aventis Aventisian,451673,Aventis Aventisyan,0.6,0.9778,0.9444,0.9444,same_given_name_diff_surname
 1726,Albert Guðmundsson,305947,Albert Gudmundsson,0.7273,0.9542,0.9444,0.9444,same_given_name_diff_surname
@@ -1446,9 +2095,12 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1197,Turan Tuzlacik,436063,Turan Tuzlacık,0.625,0.9714,0.9286,0.9286,same_given_name_diff_surname
 1739,Kolbeinn Sigþórsson,52246,Kolbeinn Sigthórsson,0.7083,0.9695,0.9231,0.9231,same_given_name_diff_surname
 1741,Paweł Cibicki,223849,Pawel Cibicki,0.75,0.9692,0.9231,0.9231,same_surname_diff_given_name
+1130,Yusuf Barasi,566271,Yusuf Barası,0.7333,0.9667,0.9167,0.9167,same_given_name_diff_surname
+2026,Soufian Moro,228942,Soufyan Moro,0.625,0.9667,0.9167,0.9167,same_surname_diff_given_name
 1746,Rémi Amieux,125693,Rémy Amieux,0.7143,0.9109,0.9091,0.9091,same_surname_diff_given_name
 1747,Dario Đumić,78818,Dario Dumic,0.4375,0.9636,0.9091,0.9091,same_given_name_diff_surname
 1748,Giorgos Katsikas,96778,Georgios Katsikas,0.5909,0.9449,0.9091,0.9091,same_surname_diff_given_name
+1749,Delano van Crooy,159143,Delano van Crooij,0.75,0.964,0.9091,0.9091,same_given_name_diff_surname
 1752,Nökkvi Þórisson,381349,Nökkvi Thórisson,0.65,0.9617,0.9032,0.9032,same_given_name_diff_surname
 1755,Vytas Andriuškevičius,120034,Vytautas Andriuskevicius,0.5333,0.8988,0.9333,0.8988,same_surname_diff_given_name
 815,Lazaros Lamprou,292356,Lazaros Labrou,0.5882,0.959,0.8966,0.8966,same_given_name_diff_surname
@@ -1459,10 +2111,13 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1769,Richy Ledezma,575367,Richard Ledezma,0.6667,0.9113,0.8571,0.8571,same_surname_diff_given_name
 1770,Thomas Didillon,182891,Thomas Didillon-Hödl,0.7619,0.95,0.8571,0.8571,substring_match
 1665,Neville Ogidi Nwankwo,399350,Nigel Ogidi Nwankwo,0.5385,0.8914,0.85,0.85,same_surname_diff_given_name
+1916,Franck-Yves Bambock,182882,Franck Bambock,0.7368,0.9474,0.8485,0.8485,same_surname_diff_given_name
 970,Oriol Busquets,282721,Uri Busquets,0.4737,0.9008,0.8462,0.8462,same_surname_diff_given_name
 1773,Kostas Mitroglou,34944,Konstantinos Mitroglou,0.4815,0.8439,0.8421,0.8421,same_surname_diff_given_name
 1774,Manu Royo,351216,Manel Royo,0.6154,0.9274,0.8421,0.8421,same_surname_diff_given_name
 1775,Jordy Bos,855731,Jordan Bos,0.6154,0.9378,0.8421,0.8421,same_surname_diff_given_name
+61,Jan Wuytens,60971,Stijn Wuytens,0.4444,0.8928,0.8333,0.8333,same_surname_diff_given_name
+403,Stijn Wuytens,28815,Jan Wuytens,0.4444,0.8928,0.8333,0.8333,same_surname_diff_given_name
 467,Andrew Driver,42967,Andy Driver,0.625,0.8549,0.8333,0.8333,same_surname_diff_given_name
 766,Kostas Tsimikas,338070,Konstantinos Tsimikas,0.48,0.8705,0.8333,0.8333,same_surname_diff_given_name
 1776,Fredrik André Bjørkan,364938,Fredrik Bjørkan,0.7273,0.9029,0.8333,0.8333,given_and_surname_match_extra_middle_token
@@ -1473,6 +2128,8 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1781,Derensili Fernandes,608407,Derensili Sanches Fernandes,0.7407,0.8986,0.8261,0.8261,given_and_surname_match_extra_middle_token
 1783,Mo Hamdaoui,272698,Mohamed Hamdaoui,0.6471,0.8682,0.8148,0.8148,same_surname_diff_given_name
 232,Prince-Désir Gouano,171410,Prince Gouano,0.7,0.9368,0.8125,0.8125,same_surname_diff_given_name
+676,Teun Koopmeiners,361074,Peer Koopmeiners,0.5455,0.875,0.8125,0.8125,same_surname_diff_given_name
+1136,Peer Koopmeiners,360518,Teun Koopmeiners,0.5455,0.875,0.8125,0.8125,same_surname_diff_given_name
 33,Mike van der Hoorn,207048,Mickey van der Hart,0.3929,0.8994,0.8108,0.8108,other
 623,Ramon Lundqvist,238084,Ramon Pascal Lundqvist,0.6957,0.883,0.8108,0.8108,given_and_surname_match_extra_middle_token
 1785,Filip Delaveris,502561,Filip Møller Delaveris,0.6957,0.8964,0.8108,0.8108,given_and_surname_match_extra_middle_token
@@ -1484,6 +2141,7 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1760,Willum Þór Willumsson,455127,Willum Thór Willumsson,0.65,0.9723,0.7907,0.7907,given_and_surname_match_extra_middle_token
 1677,Luis Manuel Orejuela,331057,Luis Orejuela,0.7,0.8838,0.7879,0.7879,given_and_surname_match_extra_middle_token
 1678,Jerry St. Juste,288253,Jeremiah St. Juste,0.55,0.9041,0.7879,0.7879,same_surname_diff_given_name
+1680,Peter Vindahl Jensen,395421,Peter Vindahl,0.6667,0.93,0.7879,0.7879,substring_match
 23,Roland Alberg,124761,Roland Bergkamp,0.4286,0.9113,0.7857,0.7857,same_given_name_diff_surname
 1301,Quinten Timber,420243,Jurriën Timber,0.3043,0.7965,0.7857,0.7857,same_surname_diff_given_name
 1682,Sékou Oumar Sylla,587333,Sekou Sylla,0.4,0.893,0.7857,0.7857,given_and_surname_match_extra_middle_token
@@ -1492,18 +2150,22 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1685,Joel Castro Pereira,192611,Joel Pereira,0.65,0.8763,0.7742,0.7742,given_and_surname_match_extra_middle_token
 741,Thomas Bruns,357826,Thomas Buitink,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname
 742,Thomas Buitink,172202,Thomas Bruns,0.4,0.9095,0.7692,0.7692,same_given_name_diff_surname
+999,Marcus Holmgren Pedersen,41609,Marcus Pedersen,0.6667,0.885,0.7692,0.7692,given_and_surname_match_extra_middle_token
 999,Marcus Holmgren Pedersen,583404,Marcus Pedersen,0.6667,0.885,0.7692,0.7692,given_and_surname_match_extra_middle_token
 1687,Jochem van de Kamp,865281,Jochem Ritmeester van de Kamp,0.6333,0.8797,0.766,0.766,given_and_surname_match_extra_middle_token
 35,Christian Eriksen,1443,Christian Poulsen,0.5,0.8905,0.7647,0.7647,same_given_name_diff_surname
 36,Christian Poulsen,69633,Christian Eriksen,0.5,0.8905,0.7647,0.7647,same_given_name_diff_surname
 1688,Aliou Badara Baldé,666977,Aliou Baldé,0.7059,0.904,0.7586,0.7586,given_and_surname_match_extra_middle_token
+2233,Isak Määttä,664809,Isak Dybvik Määttä,0.6316,0.9222,0.7586,0.7586,given_and_surname_match_extra_middle_token
 1217,Joey Veerman,271743,Henk Veerman,0.4444,0.8333,0.75,0.75,same_surname_diff_given_name
 1319,Oliver Edvardsen,265324,Victor Edvardsen,0.4167,0.7738,0.75,0.75,same_surname_diff_given_name
 1391,Thomas van den Belt,593862,Thomas Beelen,0.4167,0.8776,0.75,0.75,same_given_name_diff_surname
 1392,Thomas Beelen,412941,Thomas van den Belt,0.4167,0.8776,0.75,0.75,same_given_name_diff_surname
 1410,Victor Edvardsen,374326,Oliver Edvardsen,0.4167,0.7738,0.75,0.75,same_surname_diff_given_name
+1806,Henk Veerman,408574,Joey Veerman,0.4444,0.8333,0.75,0.75,same_surname_diff_given_name
 184,Seydina Diarra,168172,Bahnou Seydina Diarra,0.6818,0.746,0.8,0.746,substring_match
 1278,Daniël van Kaam,503642,Joël van Kaam,0.5,0.7386,0.7857,0.7386,same_surname_diff_given_name
+2149,Joël van Kaam,377720,Daniël van Kaam,0.5,0.7386,0.7857,0.7386,same_surname_diff_given_name
 1052,Dimitris Emmanouilidis,565673,Dimitrios Ioannidis,0.3125,0.8982,0.7317,0.7317,other
 1689,Dauda Mohammed,360711,Mo Dauda,0.5,0.7321,0.7273,0.7273,other
 890,Robin Polley,202788,Robin Pröpper,0.35,0.8885,0.72,0.72,same_given_name_diff_surname
@@ -1520,18 +2182,25 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 873,Christian Kum,45534,Christian Supusepa,0.4348,0.8915,0.7097,0.7097,same_given_name_diff_surname
 779,Lisandro Magallán,480762,Lisandro Martínez,0.44,0.8824,0.7059,0.7059,same_given_name_diff_surname
 906,Lisandro Martínez,66736,Lisandro Magallán,0.44,0.8824,0.7059,0.7059,same_given_name_diff_surname
+745,Roel Janssen,457092,Simon Janssen,0.4211,0.703,0.72,0.703,same_surname_diff_given_name
+870,Simon Janssen,168787,Roel Janssen,0.4211,0.703,0.72,0.703,same_surname_diff_given_name
 1693,Memphis,167850,Memphis Depay,0.5714,0.9077,0.7,0.7,substring_match
 720,Thomas Lam,593862,Thomas Beelen,0.3889,0.8831,0.6957,0.6957,same_given_name_diff_surname
 1392,Thomas Beelen,131821,Thomas Lam,0.3889,0.8831,0.6957,0.6957,same_given_name_diff_surname
+1809,Younes Namli,866328,Younes Taha,0.3889,0.8788,0.6957,0.6957,same_given_name_diff_surname
 1081,Ola John,60312,Joshua John,0.3571,0.6943,0.7368,0.6943,same_surname_diff_given_name
 1694,Abass Issah,482145,Issah Abass,1.0,0.6932,1.0,0.6932,same_tokens_reordered
 222,Sander Duits,73504,Sander Fischer,0.35,0.8786,0.6923,0.6923,same_given_name_diff_surname
 240,Willem Janssen,4425,Theo Janssen,0.4,0.7976,0.6923,0.6923,same_surname_diff_given_name
 416,Dries Wuytens,60971,Stijn Wuytens,0.4,0.8128,0.6923,0.6923,same_surname_diff_given_name
 1695,Lucas Oliveira Rosa,468309,Lucas Rosa,0.55,0.8525,0.6897,0.6897,given_and_surname_match_extra_middle_token
+2251,Mohammed Tahiri,273431,Mohammed Osman,0.4091,0.8762,0.6897,0.6897,same_given_name_diff_surname
+753,Vito van Crooij,159143,Delano van Crooij,0.5,0.7797,0.6875,0.6875,same_surname_diff_given_name
 645,Pele van Anholt,262613,Pelle van Amersfoort,0.3214,0.86,0.6857,0.6857,other
 1391,Thomas van den Belt,640556,Rav van den Berg,0.3704,0.7661,0.6857,0.6857,other
+2161,Rav van den Berg,412941,Thomas van den Belt,0.3704,0.7661,0.6857,0.6857,other
 1697,Nikolai Baden,400550,Nikolai Baden Frederiksen,0.56,0.904,0.6842,0.6842,substring_match
+307,Robert Mühren,187288,Robert Klaasen,0.381,0.867,0.6667,0.6667,same_given_name_diff_surname
 309,Guus Hupperts,61446,Guus Joppen,0.3,0.8685,0.6667,0.6667,same_given_name_diff_surname
 379,Luuk de Jong,45509,Siem de Jong,0.4444,0.7361,0.6667,0.6667,same_surname_diff_given_name
 548,Guus Joppen,116636,Guus Hupperts,0.3,0.8685,0.6667,0.6667,same_given_name_diff_surname
@@ -1539,16 +2208,28 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 690,Dylan Vente,323788,Dylan Seys,0.3529,0.8673,0.6667,0.6667,same_given_name_diff_surname
 1090,Daan Rots,983677,Mats Rots,0.3571,0.7778,0.6667,0.6667,same_surname_diff_given_name
 1158,Fredrik Aursnes,364938,Fredrik Bjørkan,0.3333,0.8752,0.6667,0.6667,same_given_name_diff_surname
+1391,Thomas van den Belt,541231,Sepp van den Berg,0.3571,0.7236,0.6667,0.6667,other
 1414,Mathias Ross,490383,Mathias De Wolf,0.381,0.87,0.6667,0.6667,same_given_name_diff_surname
+1698,Emil Riis Jakobsen,293325,Emil Riis,0.5263,0.9,0.6667,0.6667,substring_match
 1699,Pedro,523998,Pedro Ruiz,0.5455,0.9,0.6667,0.6667,substring_match
 1700,Younes Taha El Idrissi,866328,Younes Taha,0.5217,0.9,0.6667,0.6667,substring_match
 140,Jop van der Linden,187300,Stefan van der Lei,0.3214,0.661,0.6667,0.661,other
+1896,Lars Kramer,95759,Kasper Larsen,0.3,0.6559,0.75,0.6559,other
+1871,Mark van der Maarel,187105,Mike van der Hoorn,0.3214,0.6739,0.6486,0.6486,other
+1871,Mark van der Maarel,203939,Robin van der Meer,0.3333,0.7509,0.6486,0.6486,other
 39,Ricardo van Rhijn,159026,Ricardo Kishna,0.3333,0.8793,0.6452,0.6452,same_given_name_diff_surname
 1124,Mohamed Daramy,503638,Mohamed Ihattaren,0.32,0.8684,0.6452,0.6452,same_given_name_diff_surname
 1032,Mohammed Kudus,574385,Mohamed Daramy,0.3043,0.8571,0.6429,0.6429,other
+2380,Danilo Al Saed,866082,Danilo Al-Saed,1.0,0.9714,0.6429,0.6429,same_given_name_diff_surname
+2096,Thomas Poll,290615,Thomas Robinet,0.35,0.8597,0.64,0.64,same_given_name_diff_surname
+2316,Thomas Robinet,480457,Thomas Poll,0.35,0.8597,0.64,0.64,same_given_name_diff_surname
 627,Dylan George,323788,Dylan Seys,0.3333,0.8567,0.6364,0.6364,same_given_name_diff_surname
+666,Dani de Wit,315254,Mees de Wit,0.4375,0.71,0.6364,0.6364,same_surname_diff_given_name
 720,Thomas Lam,172202,Thomas Bruns,0.4118,0.8567,0.6364,0.6364,same_given_name_diff_surname
+1272,Mees de Wit,340459,Dani de Wit,0.4375,0.71,0.6364,0.6364,same_surname_diff_given_name
 78,Martijn van der Laan,187300,Stefan van der Lei,0.3103,0.7651,0.6316,0.6316,other
+2265,Brian Plat,410719,Alex Plat,0.3125,0.7556,0.6316,0.6316,same_surname_diff_given_name
+2438,Roy Steur,612757,Daan Steur,0.4,0.7556,0.6316,0.6316,same_surname_diff_given_name
 703,Thomas Enevoldsen,396003,Thomas Marijnissen,0.3214,0.8335,0.6286,0.6286,same_given_name_diff_surname
 195,Luciano Narsingh,187298,Luciano Slagveer,0.3077,0.8667,0.625,0.625,same_given_name_diff_surname
 389,Bilal Ould-Chikh,597104,Walid Ould-Chikh,0.4783,0.869,0.625,0.625,same_surname_diff_given_name
@@ -1556,6 +2237,7 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 103,Jordy van Deelen,64439,Jordy Deckers,0.3478,0.851,0.6207,0.6207,same_given_name_diff_surname
 753,Vito van Crooij,547499,Bart van Rooij,0.3636,0.8094,0.6207,0.6207,other
 1208,Bart van Rooij,312493,Vito van Crooij,0.3636,0.8094,0.6207,0.6207,other
+2086,Michael Brouwer,369552,Luuk Brouwers,0.3043,0.616,0.6429,0.616,other
 78,Martijn van der Laan,178220,Marco van der Heide,0.3793,0.6883,0.6154,0.6154,other
 176,Ryan Koolwijk,153415,Ryan van Dijk,0.35,0.8462,0.6154,0.6154,same_given_name_diff_surname
 196,Park Ji-sung,4592,Ji-sung Park,1.0,0.6111,1.0,0.6111,same_tokens_reordered
@@ -1566,6 +2248,8 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 592,Emil Hansson,37217,Pär Hansson,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
 656,Nick Kuipers,187188,Bas Kuipers,0.4706,0.7563,0.6087,0.6087,same_surname_diff_given_name
 1704,Eduardo Carvalho,34159,Eduardo,0.4706,0.8875,0.6087,0.6087,substring_match
+2455,Dylan Ruward,502289,Dylan Mbayo,0.3158,0.8439,0.6087,0.6087,same_given_name_diff_surname
+1991,Giovanni Gravenbeek,195499,Giovanni Hiwat,0.36,0.8481,0.6061,0.6061,same_given_name_diff_surname
 1173,Michael Verrips,179481,Michael Olaitan,0.3333,0.84,0.6,0.6,same_given_name_diff_surname
 1705,Juan Carlos Familia,349567,Juan Familia-Castillo,0.5556,0.8583,0.6,0.6,same_given_name_diff_surname
 360,Mickey van der Hart,203939,Robin van der Meer,0.3103,0.6827,0.5946,0.5946,other
@@ -1576,10 +2260,19 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 720,Thomas Lam,357826,Thomas Buitink,0.3684,0.84,0.5833,0.5833,same_given_name_diff_surname
 742,Thomas Buitink,131821,Thomas Lam,0.3684,0.84,0.5833,0.5833,same_given_name_diff_surname
 1757,Thomas Meißner,396106,Thomas Kok,0.3684,0.84,0.5833,0.5833,same_given_name_diff_surname
+1983,Kenny Otigba,42531,Kenny Steppe,0.3,0.8333,0.5833,0.5833,same_given_name_diff_surname
 947,Ryan Thomas,593862,Thomas Beelen,0.3684,0.5821,0.6667,0.5821,other
+1391,Thomas van den Belt,172202,Thomas Bruns,0.32,0.8225,0.5806,0.5806,same_given_name_diff_surname
+1749,Delano van Crooy,312493,Vito van Crooij,0.3333,0.6972,0.5806,0.5806,other
 650,Branco van den Boomen,34785,Joey van den Berg,0.3103,0.648,0.5789,0.5789,other
+1984,Joey van den Berg,203938,Branco van den Boomen,0.3103,0.648,0.5789,0.5789,other
 881,Victor van den Bogert,203938,Branco van den Boomen,0.3226,0.6984,0.5714,0.5714,other
+1655,Sem van Duijn,1008564,Billy van Duijl,0.3636,0.7641,0.5714,0.5714,other
 947,Ryan Thomas,357826,Thomas Buitink,0.35,0.5693,0.64,0.5693,other
+1105,Giorgos Giakoumakis,234850,Georgios Giakoumakis,0.6522,0.9534,0.5641,0.5641,same_surname_diff_given_name
+1988,Marten de Roon,273547,Maarten de Fockert,0.36,0.8508,0.5625,0.5625,other
+1942,Davy De Beule,19312,Davy De fauw,0.3889,0.8885,0.56,0.56,same_given_name_diff_surname
+2148,Leonel Miguel,527964,Miguel Leal,0.5625,0.5579,0.8333,0.5579,other
 282,Christian Atsu,186863,Cristian Cuevas,0.3043,0.8721,0.5517,0.5517,other
 766,Kostas Tsimikas,64352,Kostas Lamprou,0.3043,0.8263,0.5517,0.5517,same_given_name_diff_surname
 881,Victor van den Bogert,477476,Connor van den Berg,0.3226,0.743,0.55,0.55,other
@@ -1591,41 +2284,63 @@ canonical_player_id,canonical_name,transfermarkt_player_id,transfermarkt_name,tr
 1048,Leroy George,359692,George Cox,0.4118,0.6659,0.5455,0.5455,other
 1125,Youri Regeer,559327,Youri Baas,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname
 1258,Youri Baas,559324,Youri Regeer,0.3333,0.82,0.5455,0.5455,same_given_name_diff_surname
+2404,Dylan Mbayo,369319,Dylan Vente,0.3333,0.697,0.5455,0.5455,same_given_name_diff_surname
 113,Wesley Verhoek,75295,John Verhoek,0.4,0.621,0.5385,0.5385,same_surname_diff_given_name
 1706,Nicolas Elsek,422158,Nicolas Olsak,0.4,0.9385,0.5385,0.5385,same_given_name_diff_surname
 947,Ryan Thomas,412941,Thomas van den Belt,0.3333,0.6158,0.5333,0.5333,other
+1391,Thomas van den Belt,203357,Ryan Thomas,0.3333,0.6158,0.5333,0.5333,other
+1971,Michael de Leeuw,158540,Michael Chacón,0.3478,0.6905,0.5333,0.5333,same_given_name_diff_surname
+2081,Michael Chacon,110906,Michael de Leeuw,0.3478,0.6905,0.5333,0.5333,same_given_name_diff_surname
 472,Alexander Bannink,458017,Alexander Afoussi,0.4,0.8824,0.5294,0.5294,same_given_name_diff_surname
+56,Aron Jóhannsson,89231,Jóhann Berg Gudmundsson,0.3,0.7081,0.5263,0.5263,other
 554,Abdenasser El Khayati,88968,Nasser El Khayati,0.6667,0.7993,0.5263,0.5263,substring_match
+1778,Jóhann Berg Guðmundsson,119169,Aron Jóhannsson,0.3,0.7081,0.5263,0.5263,other
 183,Daan Bovenberg,228048,Daan Blij,0.3158,0.6984,0.5217,0.5217,same_given_name_diff_surname
+2455,Dylan Ruward,369319,Dylan Vente,0.3158,0.6818,0.5217,0.5217,same_given_name_diff_surname
 40,Siem de Jong,326330,Frenkie de Jong,0.381,0.7667,0.5185,0.5185,same_surname_diff_given_name
 407,Frenkie de Jong,45509,Siem de Jong,0.381,0.7667,0.5185,0.5185,same_surname_diff_given_name
 748,Lennart Thy,309393,Lennart Czyborra,0.381,0.8761,0.5185,0.5185,same_given_name_diff_surname
+810,Michael Pinto,341447,Michael Fabrie,0.381,0.867,0.5185,0.5185,same_given_name_diff_surname
 720,Thomas Lam,203357,Ryan Thomas,0.4375,0.5045,0.7619,0.5045,other
 947,Ryan Thomas,131821,Thomas Lam,0.4375,0.5045,0.7619,0.5045,other
 337,Tom van Weert,420189,Tom van de Looi,0.3636,0.8585,0.5,0.5,same_given_name_diff_surname
 338,Kevin Vermeulen,49640,Kevin van Diermen,0.4167,0.8678,0.5,0.5,same_given_name_diff_surname
 538,Mohammed Osman,549954,Mohamed Amissi,0.3043,0.8597,0.5,0.5,other
 949,Ibrahim Afellay,62337,Ibrahim Rabiu,0.3636,0.8585,0.5,0.5,same_given_name_diff_surname
+1132,Maxim Dekker,501640,Maxim Gullit,0.3,0.6667,0.5,0.5,same_given_name_diff_surname
+1177,Deroy Duarte,258513,Laros Duarte,0.3889,0.8333,0.5,0.5,same_surname_diff_given_name
 1474,Jordan Lotomba,855731,Jordan Bos,0.3684,0.8863,0.5,0.5,same_given_name_diff_surname
 1708,Amar Ahmed,931841,Amar Fatah,0.3125,0.88,0.5,0.5,same_given_name_diff_surname
+1882,Thanasis Karagounis,105811,Athanasios Karagounis,0.64,0.8454,0.5,0.5,same_surname_diff_given_name
+1891,Tom van de Looi,95673,Tom van Weert,0.3636,0.8585,0.5,0.5,same_given_name_diff_surname
+2112,Laros Duarte,432852,Deroy Duarte,0.3889,0.8333,0.5,0.5,same_surname_diff_given_name
+2175,Mohamed Amissi,273431,Mohammed Osman,0.3043,0.8597,0.5,0.5,other
 1477,Hwang In-beom,365394,In-beom Hwang,1.0,0.4872,1.0,0.4872,same_tokens_reordered
 1719,Mitchell Paulissen,45511,Mitchell Donald,0.3462,0.8767,0.4848,0.4848,same_given_name_diff_surname
+55,Jeffrey Gouweleeuw,107965,Jeffrey Ket,0.3478,0.8636,0.4828,0.4828,same_given_name_diff_surname
 1173,Michael Verrips,158540,Michael Chacón,0.3636,0.821,0.4828,0.4828,same_given_name_diff_surname
+1173,Michael Verrips,341447,Michael Fabrie,0.3478,0.8856,0.4828,0.4828,same_given_name_diff_surname
+2081,Michael Chacon,288259,Michael Verrips,0.3636,0.821,0.4828,0.4828,same_given_name_diff_surname
 1304,Marcos López,469781,Marcos Senesi,0.35,0.8564,0.48,0.48,same_given_name_diff_surname
 741,Thomas Bruns,207273,Sander Thomas,0.35,0.4671,0.64,0.4671,other
 631,Oussama Assaidi,235540,Oussama Tannane,0.3478,0.8667,0.4667,0.4667,same_given_name_diff_surname
 980,Oussama Tannane,57275,Oussama Assaidi,0.3478,0.8667,0.4667,0.4667,same_given_name_diff_surname
 1070,Ibrahim Sangaré,15760,Ibrahim Afellay,0.3333,0.8752,0.4667,0.4667,same_given_name_diff_surname
+2124,Miguel Araujo,497252,Leonel Miguel,0.35,0.4551,0.6154,0.4551,other
 8,Kevin Jansen,184686,Kevin Tano,0.3333,0.8933,0.4545,0.4545,same_given_name_diff_surname
 863,Oussama Darfalou,235540,Oussama Tannane,0.32,0.8583,0.4516,0.4516,same_given_name_diff_surname
 980,Oussama Tannane,321182,Oussama Darfalou,0.32,0.8583,0.4516,0.4516,same_given_name_diff_surname
 1173,Michael Verrips,110906,Michael de Leeuw,0.32,0.8325,0.4516,0.4516,same_given_name_diff_surname
+1971,Michael de Leeuw,288259,Michael Verrips,0.32,0.8325,0.4516,0.4516,same_given_name_diff_surname
 1404,Justin Lonwijk,411287,Justin Hoogma,0.3182,0.8374,0.4444,0.4444,same_given_name_diff_surname
 1404,Justin Lonwijk,678641,Justin Hubner,0.3182,0.8374,0.4444,0.4444,same_given_name_diff_surname
 1607,Justin Hubner,357917,Justin Lonwijk,0.3182,0.8374,0.4444,0.4444,same_given_name_diff_surname
+1815,Justin Hoogma,357917,Justin Lonwijk,0.3182,0.8374,0.4444,0.4444,same_given_name_diff_surname
 2,Danny Holla,250440,Danny Bakker,0.3158,0.8439,0.4348,0.4348,same_given_name_diff_surname
 20,Danny Bakker,45486,Danny Holla,0.3158,0.8439,0.4348,0.4348,same_given_name_diff_surname
+1868,David Jensen,187285,Chris David,0.3158,0.4823,0.4348,0.4348,other
 536,Julian Lelieveld,341434,Julian Calor,0.3043,0.8333,0.4286,0.4286,same_given_name_diff_surname
 632,Fredrik Jensen,214078,Richard Jensen,0.3043,0.8268,0.4286,0.4286,same_surname_diff_given_name
 862,Martin Ødegaard,45601,Martin Hansen,0.3043,0.8362,0.4286,0.4286,same_given_name_diff_surname
 8,Kevin Jansen,151540,Kevin Visser,0.3,0.8667,0.4167,0.4167,same_given_name_diff_surname
+1779,Kristian Nökkvi Hlynsson,381349,Nökkvi Thórisson,0.3548,0.6986,0.35,0.35,other

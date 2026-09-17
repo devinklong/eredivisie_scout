@@ -9,10 +9,13 @@ canonical_player_id,transfermarkt_player_id,canonical_name,transfermarkt_name,tr
 1719,213671,Mitchell Paulissen,Mitchel Paulissen,0.85,0.9654,0.9714,0.9654,same_surname_diff_given_name,,
 1052,468036,Dimitris Emmanouilidis,Dimitrios Emmanouilidis,0.84,0.964,0.9778,0.964,same_surname_diff_given_name,match,nickaname
 1720,370042,Dries Saddiki,Driess Saddiki,0.8125,0.9703,0.963,0.963,same_surname_diff_given_name,,
+2046,235755,Georgy Zhukov,Georgiy Zhukov,0.7059,0.9857,0.963,0.963,same_surname_diff_given_name,,
 1722,52403,Dimitris Siovas,Dimitrios Siovas,0.7368,0.9608,0.9677,0.9608,same_surname_diff_given_name,,
 1723,483916,Llazaros Rota,Lazaros Rota,0.8,0.9769,0.96,0.96,substring_match,,
+1778,89231,Jóhann Berg Guðmundsson,Jóhann Berg Gudmundsson,0.7778,0.9644,0.9565,0.9565,same_given_name_diff_surname,,
 1780,464454,Stefán Ingi Sigurðarson,Stefán Ingi Sigurdarson,0.7692,0.9826,0.9565,0.9565,same_given_name_diff_surname,,
 343,36802,Colin Kazim-Richards,Colin Kazım-Richards,0.75,0.9589,0.95,0.95,same_given_name_diff_surname,match,nickaname
+2012,37462,Aleksei Kangaskolkka,Aleksey Kangaskolkka,0.8261,0.98,0.95,0.95,same_surname_diff_given_name,,
 1725,467563,Armel Bella Kotchap,Armel Bella-Kotchap,1.0,0.9789,0.9474,0.9474,same_given_name_diff_surname,,
 1187,451673,Aventis Aventisian,Aventis Aventisyan,0.6,0.9778,0.9444,0.9444,same_given_name_diff_surname,match,nickaname
 1726,305947,Albert Guðmundsson,Albert Gudmundsson,0.7273,0.9542,0.9444,0.9444,same_given_name_diff_surname,,
@@ -28,9 +31,12 @@ canonical_player_id,transfermarkt_player_id,canonical_name,transfermarkt_name,tr
 1197,436063,Turan Tuzlacik,Turan Tuzlacık,0.625,0.9714,0.9286,0.9286,same_given_name_diff_surname,match,nickaname
 1739,52246,Kolbeinn Sigþórsson,Kolbeinn Sigthórsson,0.7083,0.9695,0.9231,0.9231,same_given_name_diff_surname,,
 1741,223849,Paweł Cibicki,Pawel Cibicki,0.75,0.9692,0.9231,0.9231,same_surname_diff_given_name,,
+1130,566271,Yusuf Barasi,Yusuf Barası,0.7333,0.9667,0.9167,0.9167,same_given_name_diff_surname,,
+2026,228942,Soufian Moro,Soufyan Moro,0.625,0.9667,0.9167,0.9167,same_surname_diff_given_name,,
 1746,125693,Rémi Amieux,Rémy Amieux,0.7143,0.9109,0.9091,0.9091,same_surname_diff_given_name,,
 1747,78818,Dario Đumić,Dario Dumic,0.4375,0.9636,0.9091,0.9091,same_given_name_diff_surname,,
 1748,96778,Giorgos Katsikas,Georgios Katsikas,0.5909,0.9449,0.9091,0.9091,same_surname_diff_given_name,,
+1749,159143,Delano van Crooy,Delano van Crooij,0.75,0.964,0.9091,0.9091,same_given_name_diff_surname,,
 1752,381349,Nökkvi Þórisson,Nökkvi Thórisson,0.65,0.9617,0.9032,0.9032,same_given_name_diff_surname,,
 1755,120034,Vytas Andriuškevičius,Vytautas Andriuskevicius,0.5333,0.8988,0.9333,0.8988,same_surname_diff_given_name,,
 815,292356,Lazaros Lamprou,Lazaros Labrou,0.5882,0.959,0.8966,0.8966,same_given_name_diff_surname,match,nickaname
@@ -41,10 +47,13 @@ canonical_player_id,transfermarkt_player_id,canonical_name,transfermarkt_name,tr
 1769,575367,Richy Ledezma,Richard Ledezma,0.6667,0.9113,0.8571,0.8571,same_surname_diff_given_name,,
 1770,182891,Thomas Didillon,Thomas Didillon-Hödl,0.7619,0.95,0.8571,0.8571,substring_match,,
 1665,399350,Neville Ogidi Nwankwo,Nigel Ogidi Nwankwo,0.5385,0.8914,0.85,0.85,same_surname_diff_given_name,No match ,brothers
+1916,182882,Franck-Yves Bambock,Franck Bambock,0.7368,0.9474,0.8485,0.8485,same_surname_diff_given_name,,
 970,282721,Oriol Busquets,Uri Busquets,0.4737,0.9008,0.8462,0.8462,same_surname_diff_given_name,match,nickaname
 1773,34944,Kostas Mitroglou,Konstantinos Mitroglou,0.4815,0.8439,0.8421,0.8421,same_surname_diff_given_name,,
 1774,351216,Manu Royo,Manel Royo,0.6154,0.9274,0.8421,0.8421,same_surname_diff_given_name,,
 1775,855731,Jordy Bos,Jordan Bos,0.6154,0.9378,0.8421,0.8421,same_surname_diff_given_name,,
+61,60971,Jan Wuytens,Stijn Wuytens,0.4444,0.8928,0.8333,0.8333,same_surname_diff_given_name,,
+403,28815,Stijn Wuytens,Jan Wuytens,0.4444,0.8928,0.8333,0.8333,same_surname_diff_given_name,,
 467,42967,Andrew Driver,Andy Driver,0.625,0.8549,0.8333,0.8333,same_surname_diff_given_name,match,nickaname
 766,338070,Kostas Tsimikas,Konstantinos Tsimikas,0.48,0.8705,0.8333,0.8333,same_surname_diff_given_name,match,nickaname
 1776,364938,Fredrik André Bjørkan,Fredrik Bjørkan,0.7273,0.9029,0.8333,0.8333,given_and_surname_match_extra_middle_token,,
@@ -55,6 +64,8 @@ canonical_player_id,transfermarkt_player_id,canonical_name,transfermarkt_name,tr
 1781,608407,Derensili Fernandes,Derensili Sanches Fernandes,0.7407,0.8986,0.8261,0.8261,given_and_surname_match_extra_middle_token,,
 1783,272698,Mo Hamdaoui,Mohamed Hamdaoui,0.6471,0.8682,0.8148,0.8148,same_surname_diff_given_name,,
 232,171410,Prince-Désir Gouano,Prince Gouano,0.7,0.9368,0.8125,0.8125,same_surname_diff_given_name,match,nickaname
+676,361074,Teun Koopmeiners,Peer Koopmeiners,0.5455,0.875,0.8125,0.8125,same_surname_diff_given_name,,
+1136,360518,Peer Koopmeiners,Teun Koopmeiners,0.5455,0.875,0.8125,0.8125,same_surname_diff_given_name,,
 33,207048,Mike van der Hoorn,Mickey van der Hart,0.3929,0.8994,0.8108,0.8108,other,No match,Different ages
 623,238084,Ramon Lundqvist,Ramon Pascal Lundqvist,0.6957,0.883,0.8108,0.8108,given_and_surname_match_extra_middle_token,match,nickaname
 1785,502561,Filip Delaveris,Filip Møller Delaveris,0.6957,0.8964,0.8108,0.8108,given_and_surname_match_extra_middle_token,,
