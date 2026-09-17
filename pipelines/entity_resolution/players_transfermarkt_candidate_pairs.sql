@@ -1,71 +1,87 @@
 -- players_transfermarkt_candidate_pairs.sql
--- Candidate-pair VIEW for the entity-resolution SECOND pass: matching
--- canonical players against Transfermarkt's player_name.
 --
--- REBUILT (2026-09-08) with real team/season blocking. The first
--- version had none -- confirmed via a real run that this produced an
--- unworkable 3,213-row review band (57.7% of all candidates), most of
--- it the riskiest collision pattern (same_given_name_diff_surname).
--- Root cause: comparing every canonical player against every
--- Transfermarkt player by name alone, with nothing narrowing the
--- comparison down first.
+-- REFACTORED (2026-09-16): TWO real bugs fixed in this version, both
+-- of the same root cause -- blocking on a raw team-name string instead
+-- of a real ID.
 --
--- THE FIX: player_source_crosswalk already records which FBref/
--- WhoScored name each canonical player maps to -- joining that back
--- to the two stats tables reconstructs exactly which (team, season_id)
--- pairs each canonical player actually appeared in. Matching that
--- against eredivisie_transfers' own (own_club_name, season_id) gives a
--- real block: only Transfermarkt players who had an actual transfer
--- record at a club+season overlapping one of the canonical player's
--- known appearances become candidates at all. Team-name consistency
--- across sources is assumed (confirmed for PSV specifically -- see
--- patch_list.md -- not exhaustively re-checked for every club here).
+-- BUG 1 (pre-existing, undocumented until now): the original version
+-- joined `t.own_club_name = h.team` -- but eredivisie_transfers has
+-- no own_club_name column at all in its tracked schema, only the
+-- numeric own_club_id. Whether this ever actually ran depends on
+-- whether own_club_name was added directly to the live database
+-- outside the tracked schema file -- either way, it's fixed now by
+-- using own_club_id directly, which IS real and already numeric.
+--
+-- BUG 2: even setting BUG 1 aside, blocking on any raw team-name
+-- string is the same class of bug already found and fixed for
+-- FBref<->WhoScored blocking (fbref_whoscored_candidate_pairs.sql,
+-- 2026-09-15/16) -- confirmed to silently exclude every player at a
+-- club whose spellings disagreed across sources. The original
+-- comment here even flagged this as a known risk ("Team-name
+-- consistency across sources is assumed... not exhaustively
+-- re-checked for every club here") but was never followed up on.
+--
+-- THE FIX: player_team_season_history now resolves each appearance's
+-- team to a real team_id via team_name_alias (same table used for the
+-- FBref<->WhoScored fix). eredivisie_transfers' own_club_id is
+-- ALREADY Transfermarkt's real numeric club ID -- the same ID space
+-- team_name_alias.club_id is anchored on -- so the Transfermarkt side
+-- of this join needs NO string resolution at all, just a direct
+-- integer comparison.
 
 CREATE EXTENSION IF NOT EXISTS pg_trgm;
 
--- Speeds up the '%' similarity operator below via an index instead of
--- brute-force computing similarity() for every pairing.
 CREATE INDEX IF NOT EXISTS idx_players_canonical_name_trgm
     ON players USING gin (canonical_name gin_trgm_ops);
 
 CREATE INDEX IF NOT EXISTS idx_transfers_player_name_trgm
     ON eredivisie_transfers USING gin (player_name gin_trgm_ops);
 
--- Sets the '%' operator's threshold as a database-wide default so it
--- doesn't need to be set per-session. Safe to rerun -- if this was
--- already set in an earlier session, this just reaffirms the same
--- value.
 ALTER DATABASE postgres SET pg_trgm.similarity_threshold = 0.3;
 
--- Every (team, season_id) a canonical player is known to have
--- appeared in, from EITHER source side of the crosswalk.
-CREATE OR REPLACE VIEW player_team_season_history AS
-SELECT psc.player_id, s.team, s.season_id
+-- Every (team_id, season_id) a canonical player is known to have
+-- appeared in, from EITHER source side of the crosswalk -- team
+-- resolved to a real ID via team_name_alias, not left as a raw string.
+--
+-- Uses DROP VIEW + CREATE VIEW, not CREATE OR REPLACE, same reason as
+-- master_player_season_stats: Postgres won't let CREATE OR REPLACE
+-- rename an existing column (this version renames the old "team"
+-- column to "team_id"), only append new ones at the end. CASCADE is
+-- required since players_transfermarkt_candidate_pairs depends on
+-- this view -- it gets dropped too and is recreated right after.
+DROP VIEW IF EXISTS player_team_season_history CASCADE;
+
+CREATE VIEW player_team_season_history AS
+SELECT psc.player_id, fbref_alias.club_id AS team_id, s.season_id
 FROM player_source_crosswalk psc
 JOIN eredivisie_soccerdata_player_season_stats s
     ON psc.source = 'fbref' AND psc.source_name = s.player_name
+JOIN team_name_alias fbref_alias
+    ON fbref_alias.source = 'fbref' AND fbref_alias.source_name = s.team
+
 UNION
-SELECT psc.player_id, w.team, w.season_id
+
+SELECT psc.player_id, ws_alias.club_id AS team_id, w.season_id
 FROM player_source_crosswalk psc
 JOIN eredivisie_whoscored_player_season_stats w
-    ON psc.source = 'whoscored' AND psc.source_name = w.player_name;
+    ON psc.source = 'whoscored' AND psc.source_name = w.player_name
+JOIN team_name_alias ws_alias
+    ON ws_alias.source = 'whoscored' AND ws_alias.source_name = w.team;
 
 -- Blocked candidates: a Transfermarkt player only shows up here if
 -- BOTH conditions hold -- (1) a real transfer record at a club+season
 -- matching one of the canonical player's known team/season
--- appearances, AND (2) the names are actually similar. CONFIRMED BUG
--- (2026-09-08): an earlier version of this view had ONLY the
--- team/season condition, no name-similarity filter at all -- since
--- eredivisie_transfers is NOT deduplicated (a club can have 20+
--- transfer records in one season), that produced 115,335 candidate
--- pairs, an order of magnitude WORSE than the original unblocked
--- version (5,570) -- every player who appeared for a club in a season
--- was matching every OTHER player who had any transfer at that same
--- club/season, with zero regard for whether the names looked anything
--- alike. Fixed by requiring the '%' similarity operator too, same as
--- the original unblocked version -- team/season narrows the pool,
--- name similarity picks real candidates out of that narrowed pool.
-CREATE OR REPLACE VIEW players_transfermarkt_candidate_pairs AS
+-- appearances, now via team_id not a name string, AND (2) the names
+-- are actually similar.
+--
+-- Also DROP + CREATE, not REPLACE -- this view was just dropped via
+-- the CASCADE above (its old column shape doesn't matter now, but
+-- CREATE OR REPLACE would fail the same way if any future column
+-- gets renamed here too, so this is written the safe way from the
+-- start).
+DROP VIEW IF EXISTS players_transfermarkt_candidate_pairs;
+
+CREATE VIEW players_transfermarkt_candidate_pairs AS
 SELECT DISTINCT
     p.player_id AS canonical_player_id,
     p.canonical_name,
@@ -75,9 +91,9 @@ SELECT DISTINCT
 FROM players p
 JOIN player_team_season_history h ON h.player_id = p.player_id
 JOIN eredivisie_transfers t
-    ON t.own_club_name = h.team AND t.season_id = h.season_id
+    ON t.own_club_id = h.team_id AND t.season_id = h.season_id
     AND p.canonical_name % t.player_name
 WHERE t.player_id IS NOT NULL;
 
 -- Sanity check after running the above:
-SELECT COUNT(*) FROM players_transfermarkt_candidate_pairs;  -- should be meaningfully lower than the unblocked 5,570
+SELECT COUNT(*) FROM players_transfermarkt_candidate_pairs;
