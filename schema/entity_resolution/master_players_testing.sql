@@ -158,15 +158,23 @@ SELECT canonical_name, team, season_id, fbref_born FROM master_player_season_sta
 -- SECTION 8: Team name consistency -- confirms no other PSV-Eindhoven-
 -- style mismatch slipped through. Replaced an earlier version of this
 -- check (2026-09-14) that asked you to eyeball a list against a
--- GUESSED club count ("~34-36") that was never actually verified --
--- this version cross-references against eredivisie_club_status, the
--- one table in this project that's an independently verified source
--- of truth for real club names (built from a manual Wikipedia
--- compilation, not scraped/derived).
+-- GUESSED club count ("~34-36") that was never actually verified.
+--
+-- UPDATED (2026-09-16): now checks against team_name_alias instead of
+-- eredivisie_club_status.club_name directly. eredivisie_club_status
+-- only has Transfermarkt's OWN canonical spelling (29 rows) -- but
+-- FBref legitimately uses 6 different spellings for real clubs
+-- (Sparta R., Heracles Almelo, Roda JC, AZ Alkmaar, VVV-Venlo,
+-- Zwolle -- all confirmed real, all cataloged in team_name_alias
+-- during tonight's team_id refactor). Checking against
+-- eredivisie_club_status alone would false-flag every one of those
+-- as if it were a new PSV/PSV-Eindhoven-style bug. team_name_alias is
+-- the definitive, up-to-date source now -- every real FBref spelling
+-- should have a row there.
 -- Healthy: ZERO rows returned. Any team name here exists in
--- master_player_season_stats but matches NO real club name in
--- eredivisie_club_status -- exactly the PSV/PSV Eindhoven bug class.
-SELECT DISTINCT team FROM master_player_season_stats WHERE team NOT IN (SELECT DISTINCT club_name FROM eredivisie_club_status);
+-- master_player_season_stats but has no registered alias for FBref at
+-- all -- a genuinely new, unresolved mismatch.
+SELECT DISTINCT team FROM master_player_season_stats WHERE team NOT IN (SELECT source_name FROM team_name_alias WHERE source = 'fbref');
 
 -- SECTION 9a: verify the position label real goalkeepers actually
 -- carry, BEFORE trusting Section 9's filter below. The '%GK%' pattern
@@ -197,7 +205,3 @@ FROM master_player_season_stats m
 LEFT JOIN players p ON p.player_id = m.player_id
 WHERE m.player_id IS NOT NULL AND p.player_id IS NULL;
 
-SELECT *
-FROM eredivisie_whoscored_player_season_stats
-WHERE game_id = 1982244 AND type = 'BlockedPass'
-LIMIT 5;
