@@ -43,6 +43,29 @@ shouldn't count the same as 75% on 40 attempts).
 
 A player who genuinely transferred between two Eredivisie clubs
 mid-season now correctly gets two separate rows (one per club).
+
+FIXED (2026-09-18): TWO real bugs found via a full data-quality audit
+after `shots`/`shots_on_target` showed 100% NULL across every season in
+this table, despite fix_shots_with_whoscored_derivation.sql having
+apparently run successfully multiple times:
+  1. SEASONS was hardcoded to only ["2016-17", "2017-18"] -- narrowed
+     for that specific team-name investigation and never widened back
+     out. Expanded to all 13 confirmed-working seasons, matching
+     scrape_all_whoscored_matches.py's own SEASONS list.
+  2. "shots" was never wired into this script AT ALL -- missing from
+     MULTI_STAT_CATEGORIES, ADDITIVE_FIELDS, build_rows()'s pct
+     computation, and INSERT_SQL's column list / ON CONFLICT clause.
+     Even with real shots data sitting in the per-match JSON, this
+     script silently never loaded it. Fixed by adding "shots" as its
+     own MULTI_STAT_CATEGORIES entry (fields: shots, shots_on_target)
+     and wiring shots_on_target_pct through build_rows() and
+     INSERT_SQL, matching the existing aerials_won_pct pattern.
+  Because of bug 1, this also means every season's TEAM_NAME_NORMALIZATION
+  fix from 2026-09-15 never actually applied outside 2016-17/2017-18 --
+  confirmed via the same audit (raw un-normalized names like "FC
+  Groningen", "Roda", "Sparta Rotterdam" still present for other
+  seasons). This run fixes that too, since it's driven by the same
+  SEASONS list.
 """
 
 import json
@@ -53,13 +76,15 @@ import psycopg2
 from psycopg2.extras import execute_values
 
 SEASONS = [
-    "2016-17", "2017-18",
-] 
+    "2013-14", "2014-15", "2015-16", "2016-17", "2017-18", "2018-19",
+    "2019-20", "2020-21", "2021-22", "2022-23", "2023-24", "2024-25",
+    "2025-26",
+]
 DATA_ROOT = Path("data/whoscored")
 
 MULTI_STAT_CATEGORIES = [
     "passing", "touches", "take_ons", "tackles", "interceptions",
-    "final_third_entries", "aerials",
+    "final_third_entries", "aerials", "shots",
 ]
 SINGLE_STAT_CATEGORIES = ["dispossessed", "clearances", "dribbled_past", "errors"]
 
@@ -73,6 +98,7 @@ ADDITIVE_FIELDS = {
                        "interceptions_att_3rd"],
     "final_third_entries": ["final_third_entries", "pen_area_entries"],
     "aerials": ["aerials", "aerials_won"],
+    "shots": ["shots", "shots_on_target"],
     "dispossessed": ["dispossessed"],
     "clearances": ["clearances"],
     "dribbled_past": ["dribbled_past"],
@@ -220,6 +246,10 @@ def build_rows(totals, matches_seen, player_ids, name_counts, season_id):
         aerials_won = stats.get("aerials_won", 0)
         aerials_won_pct = round((aerials_won / aerials) * 100, 1) if aerials else None
 
+        shots = stats.get("shots", 0)
+        shots_on_target = stats.get("shots_on_target", 0)
+        shots_on_target_pct = round((shots_on_target / shots) * 100, 1) if shots else None
+
         rows.append((
             display_name, team, season_id, len(matches_seen[(identity_key, team)]),
             player_ids.get((identity_key, team)),
@@ -237,6 +267,7 @@ def build_rows(totals, matches_seen, player_ids, name_counts, season_id):
             stats.get("clearances", 0), stats.get("dribbled_past", 0), stats.get("errors", 0),
             stats.get("final_third_entries", 0), stats.get("pen_area_entries", 0),
             aerials, aerials_won, aerials_won_pct,
+            shots, shots_on_target, shots_on_target_pct,
         ))
     return rows
 
@@ -253,7 +284,8 @@ INSERT_SQL = """
          interceptions, interceptions_def_3rd, interceptions_mid_3rd, interceptions_att_3rd,
          clearances, dribbled_past, errors,
          final_third_entries, pen_area_entries,
-         aerials, aerials_won, aerials_won_pct)
+         aerials, aerials_won, aerials_won_pct,
+         shots, shots_on_target, shots_on_target_pct)
     VALUES %s
     ON CONFLICT (player_name, team, season_id) DO UPDATE SET
         matches_with_data = EXCLUDED.matches_with_data,
@@ -287,7 +319,10 @@ INSERT_SQL = """
         pen_area_entries = EXCLUDED.pen_area_entries,
         aerials = EXCLUDED.aerials,
         aerials_won = EXCLUDED.aerials_won,
-        aerials_won_pct = EXCLUDED.aerials_won_pct
+        aerials_won_pct = EXCLUDED.aerials_won_pct,
+        shots = EXCLUDED.shots,
+        shots_on_target = EXCLUDED.shots_on_target,
+        shots_on_target_pct = EXCLUDED.shots_on_target_pct
 """
 
 

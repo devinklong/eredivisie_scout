@@ -85,6 +85,7 @@ appropriate -- see project notes for that variant.
 """
 
 import json
+import subprocess
 from pathlib import Path
 
 import soccerdata as sd
@@ -210,56 +211,69 @@ def save_match_json(match_id, season, data):
 
 
 def main():
-    for season in SEASONS:
-        print(f"\n{'=' * 60}\nSeason: {season}\n{'=' * 60}")
-        ws = sd.WhoScored(LEAGUE, season)
+    # Self-managed sleep prevention: this run can take 3+ hours for a
+    # full 13-season force-regeneration -- launching caffeinate here
+    # means that's true regardless of how the script gets invoked
+    # (forgetting a shell wrapper, running from an IDE's built-in
+    # terminal, etc.), rather than relying on the caller remembering
+    # to prefix the command. -d/-i/-u match the flags already used
+    # for this project's other long-running scrapes (see patch_list.md).
+    # Terminated in the finally block so it doesn't linger as an
+    # orphan process if the script finishes, crashes, or is interrupted.
+    caffeinate_proc = subprocess.Popen(["caffeinate", "-d", "-i", "-u"])
+    try:
+        for season in SEASONS:
+            print(f"\n{'=' * 60}\nSeason: {season}\n{'=' * 60}")
+            ws = sd.WhoScored(LEAGUE, season)
 
-        print("Fetching schedule (force_cache=True)...")
-        schedule = ws.read_schedule(force_cache=True)
+            print("Fetching schedule (force_cache=True)...")
+            schedule = ws.read_schedule(force_cache=True)
 
-        if MATCH_IDS_OVERRIDE:
-            match_ids = MATCH_IDS_OVERRIDE
-            print(f"Using MATCH_IDS_OVERRIDE -- retrying {len(match_ids)} "
-                  f"specific match(es) instead of the full schedule.")
-        else:
-            match_ids = schedule["game_id"].tolist()
-            print(f"Found {len(match_ids)} matches.")
+            if MATCH_IDS_OVERRIDE:
+                match_ids = MATCH_IDS_OVERRIDE
+                print(f"Using MATCH_IDS_OVERRIDE -- retrying {len(match_ids)} "
+                      f"specific match(es) instead of the full schedule.")
+            else:
+                match_ids = schedule["game_id"].tolist()
+                print(f"Found {len(match_ids)} matches.")
 
-        succeeded = 0
-        skipped_already_done = 0
-        used_fallback_count = 0
-        failed = []
+            succeeded = 0
+            skipped_already_done = 0
+            used_fallback_count = 0
+            failed = []
 
-        for i, match_id in enumerate(match_ids, start=1):
-            output_path = DATA_DIR / season / f"{match_id}.json"
-            if output_path.exists():
-                skipped_already_done += 1
-                continue
-
-            print(f"[{i}/{len(match_ids)}] match_id={match_id}...", end=" ")
-            try:
-                events, used_fallback = get_events_with_fallback(ws, LEAGUE, season, match_id)
-                if events is None or len(events) == 0:
-                    print("SKIPPED (no events returned)")
-                    failed.append(match_id)
+            for i, match_id in enumerate(match_ids, start=1):
+                output_path = DATA_DIR / season / f"{match_id}.json"
+                if output_path.exists():
+                    skipped_already_done += 1
                     continue
 
-                data = process_match(events, match_id)
-                path = save_match_json(match_id, season, data)
-                fallback_note = " (via raw fallback parser)" if used_fallback else ""
-                print(f"OK{fallback_note} -> {path}")
-                succeeded += 1
-                if used_fallback:
-                    used_fallback_count += 1
-            except Exception as e:
-                print(f"FAILED -- {type(e).__name__}: {e}")
-                failed.append(match_id)
+                print(f"[{i}/{len(match_ids)}] match_id={match_id}...", end=" ")
+                try:
+                    events, used_fallback = get_events_with_fallback(ws, LEAGUE, season, match_id)
+                    if events is None or len(events) == 0:
+                        print("SKIPPED (no events returned)")
+                        failed.append(match_id)
+                        continue
 
-        print(f"\n{season} summary: {succeeded}/{len(match_ids)} succeeded"
-              f" ({used_fallback_count} via raw fallback parser, "
-              f"{skipped_already_done} already done, skipped)")
-        if failed:
-            print(f"Failed/skipped match_ids: {failed}")
+                    data = process_match(events, match_id)
+                    path = save_match_json(match_id, season, data)
+                    fallback_note = " (via raw fallback parser)" if used_fallback else ""
+                    print(f"OK{fallback_note} -> {path}")
+                    succeeded += 1
+                    if used_fallback:
+                        used_fallback_count += 1
+                except Exception as e:
+                    print(f"FAILED -- {type(e).__name__}: {e}")
+                    failed.append(match_id)
+
+            print(f"\n{season} summary: {succeeded}/{len(match_ids)} succeeded"
+                  f" ({used_fallback_count} via raw fallback parser, "
+                  f"{skipped_already_done} already done, skipped)")
+            if failed:
+                print(f"Failed/skipped match_ids: {failed}")
+    finally:
+        caffeinate_proc.terminate()
 
 
 if __name__ == "__main__":
