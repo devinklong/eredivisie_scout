@@ -1,0 +1,495 @@
+
+======================================================================
+eredivisie_soccerdata_player_season_stats
+======================================================================
+Auditing 47 numeric columns across all seasons.
+
+--- minutes_per_start ---
+  Top outliers (z-score > 4.0):
+    Naoki Maeda (Utrecht, 2021): 10.0 (season mean=79.5, z=6.8)
+    Dario Van den Buijs (Fortuna Sittard, 2020): 4.0 (season mean=79.4, z=6.8)
+    Oleksandr Zinchenko (Ajax, 2025): 5.0 (season mean=77.2, z=6.3)
+    Albert Guðmundsson (AZ Alkmaar, 2019): 30.0 (season mean=82.7, z=5.8)
+    Tristan Gooijer (Zwolle, 2024): 25.0 (season mean=78.4, z=5.5)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2016=100.0%, 2017=100.0%
+--- substitute_appearances ---
+  Top outliers (z-score > 4.0):
+    Nayib Lagouireh (Excelsior, 2010): 26 (season mean=3.2, z=6.0)
+    Donyell Malen (PSV, 2018): 25 (season mean=2.8, z=5.8)
+    Henk Veerman (Heerenveen, 2017): 25 (season mean=2.8, z=5.6)
+    Romano Postema (Groningen, 2021): 30 (season mean=3.8, z=5.3)
+    Henk Veerman (Heerenveen, 2016): 23 (season mean=2.9, z=5.2)
+--- minutes_per_sub ---
+  Top outliers (z-score > 4.0):
+    Rijk Janse (NEC Nijmegen, 2025): 85.0 (season mean=20.5, z=6.4)
+    Gregoire Amiot (Fortuna Sittard, 2020): 86.0 (season mean=21.1, z=6.3)
+    Mickey van der Hart (Heerenveen, 2024): 75.0 (season mean=20.6, z=5.8)
+    Wouter Burger (Feyenoord, 2021): 77.0 (season mean=20.4, z=5.3)
+    Nick Bakker (Heerenveen, 2021): 77.0 (season mean=20.4, z=5.3)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2016=100.0%, 2017=100.0%
+--- unused_sub ---
+  Top outliers (z-score > 4.0):
+    Maarten de Fockert (Heerenveen, 2014): 34 (season mean=4.8, z=4.7)
+    David Meul (Willem II, 2015): 34 (season mean=4.9, z=4.6)
+    Peter van der Vlag (Groningen, 2015): 34 (season mean=4.9, z=4.6)
+    Maarten de Fockert (Heerenveen, 2015): 33 (season mean=4.9, z=4.4)
+    Remko Pasveer (PSV, 2015): 33 (season mean=4.9, z=4.4)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%
+--- points_per_match ---
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%
+--- team_goals_while_on_pitch ---
+  Top outliers (z-score > 4.0):
+    Walter Benítez (PSV, 2024): 102 (season mean=18.8, z=4.7)
+    Ryan Flamingo (PSV, 2024): 100 (season mean=18.8, z=4.6)
+    Walter Benítez (PSV, 2023): 109 (season mean=20.8, z=4.3)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%
+--- team_goals_against_while_on_pitch ---
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%
+--- plus_minus ---
+  Top outliers (z-score > 4.0):
+    Walter Benítez (PSV, 2023): 89 (season mean=0.1, z=4.9)
+    Jurriën Timber (Ajax, 2021): 70 (season mean=0.0, z=4.9)
+    Walter Benítez (PSV, 2024): 63 (season mean=0.1, z=4.9)
+    Dušan Tadić (Ajax, 2021): 68 (season mean=0.0, z=4.8)
+    Ryan Flamingo (PSV, 2024): 61 (season mean=0.1, z=4.7)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%
+--- plus_minus_per90 ---
+  Top outliers (z-score > 4.0):
+    Zeki Erkilinc (Heracles Almelo, 2018): 90.00 (season mean=-0.0, z=19.6)
+    Fofin Turay (Groningen, 2024): -90.00 (season mean=-0.3, z=19.6)
+    Menno Koch (PSV, 2014): 60.00 (season mean=0.0, z=19.4)
+    Marouane Afaker (Excelsior, 2017): -180.00 (season mean=-0.3, z=19.3)
+    Daan Huisman (Vitesse, 2023): -90.00 (season mean=-0.4, z=18.2)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%
+--- on_off ---
+  Top outliers (z-score > 4.0):
+    Fofin Turay (Groningen, 2024): -89.65 (season mean=-0.3, z=19.6)
+    Zeki Erkilinc (Heracles Almelo, 2018): 90.24 (season mean=0.0, z=19.4)
+    Marouane Afaker (Excelsior, 2017): -179.62 (season mean=-0.2, z=19.2)
+    Menno Koch (PSV, 2014): 58.26 (season mean=0.1, z=18.7)
+    Daan Huisman (Vitesse, 2023): -88.73 (season mean=-0.4, z=18.4)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%
+--- goals ---
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2016=100.0%, 2017=100.0%, 2018=100.0%, 2019=100.0%, 2020=100.0%, 2021=100.0%, 2022=100.0%, 2023=100.0%, 2024=100.0%, 2025=100.0%
+--- assists ---
+  Top outliers (z-score > 4.0):
+    Dušan Tadić (Ajax, 2021): 19 (season mean=1.2, z=9.1)
+    Dušan Tadić (Ajax, 2020): 18 (season mean=1.2, z=8.4)
+    Dušan Tadić (Ajax, 2022): 17 (season mean=1.3, z=7.5)
+    Dušan Tadić (Ajax, 2019): 14 (season mean=1.0, z=7.4)
+    Oliver Antman (Go Ahead Eagles, 2024): 15 (season mean=1.2, z=7.2)
+--- goals_plus_assists ---
+  Top outliers (z-score > 4.0):
+    Luuk de Jong (PSV, 2023): 44 (season mean=3.2, z=8.4)
+    Alfreð Finnbogason (Heerenveen, 2013): 39 (season mean=3.4, z=7.1)
+    Sem Steijn (Twente, 2024): 31 (season mean=2.8, z=6.8)
+    Dušan Tadić (Ajax, 2021): 32 (season mean=2.7, z=6.7)
+    Wilfried Bony (Vitesse, 2012): 39 (season mean=3.4, z=6.7)
+--- non_penalty_goals ---
+  Top outliers (z-score > 4.0):
+    Vangelis Pavlidis (AZ Alkmaar, 2023): 28 (season mean=1.7, z=8.4)
+    Ayase Ueda (Feyenoord, 2025): 24 (season mean=1.6, z=8.1)
+    Bas Dost (Heerenveen, 2011): 28 (season mean=1.9, z=7.8)
+    Luuk de Jong (PSV, 2018): 27 (season mean=2.0, z=7.5)
+    Wilfried Bony (Vitesse, 2012): 27 (season mean=1.9, z=7.5)
+--- penalty_goals ---
+  Top outliers (z-score > 4.0):
+    Alfreð Finnbogason (Heerenveen, 2013): 10 (season mean=0.2, z=13.3)
+    Ricky van Wolfswinkel (Twente, 2025): 6 (season mean=0.1, z=12.7)
+    Marco van Ginkel (PSV, 2017): 9 (season mean=0.2, z=12.6)
+    Dušan Tadić (Ajax, 2018): 11 (season mean=0.2, z=12.6)
+    Teun Koopmeiners (AZ Alkmaar, 2019): 9 (season mean=0.2, z=12.5)
+--- penalty_attempts ---
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2016=100.0%, 2017=100.0%, 2018=100.0%, 2019=100.0%, 2020=100.0%, 2021=100.0%, 2022=100.0%, 2023=100.0%, 2024=100.0%, 2025=100.0%
+--- goals_per90 ---
+  Top outliers (z-score > 4.0):
+    Maximiliano Romero (PSV, 2020): 45.00 (season mean=0.2, z=22.6)
+    Jesper Uneken (PSV, 2023): 30.00 (season mean=0.2, z=22.4)
+    Marvin van der Pluijm (NAC Breda, 2010): 22.50 (season mean=0.2, z=20.9)
+    Richie Musaba (Vitesse, 2018): 10.00 (season mean=0.2, z=18.4)
+    Naoufal Bannis (Feyenoord, 2021): 5.63 (season mean=0.1, z=16.7)
+--- assists_per90 ---
+  Top outliers (z-score > 4.0):
+    Jordy de Wijs (PSV, 2017): 15.00 (season mean=0.1, z=21.1)
+    Sam Hendriks (Ajax, 2015): 9.00 (season mean=0.1, z=19.6)
+    Mika Godts (Ajax, 2022): 5.63 (season mean=0.1, z=17.9)
+    Mark Diemers (Feyenoord, 2021): 6.43 (season mean=0.1, z=14.7)
+    Enis Bunjaki (Twente, 2016): 2.43 (season mean=0.1, z=14.2)
+--- goals_plus_assists_per90 ---
+  Top outliers (z-score > 4.0):
+    Maximiliano Romero (PSV, 2020): 45.00 (season mean=0.3, z=22.5)
+    Jesper Uneken (PSV, 2023): 30.00 (season mean=0.3, z=21.6)
+    Marvin van der Pluijm (NAC Breda, 2010): 22.50 (season mean=0.2, z=20.7)
+    Jordy de Wijs (PSV, 2017): 15.00 (season mean=0.2, z=19.8)
+    Sam Hendriks (Ajax, 2015): 9.00 (season mean=0.2, z=17.6)
+--- non_penalty_goals_per90 ---
+  Top outliers (z-score > 4.0):
+    Maximiliano Romero (PSV, 2020): 45.00 (season mean=0.2, z=22.7)
+    Jesper Uneken (PSV, 2023): 30.00 (season mean=0.2, z=22.4)
+    Marvin van der Pluijm (NAC Breda, 2010): 22.50 (season mean=0.2, z=20.9)
+    Richie Musaba (Vitesse, 2018): 10.00 (season mean=0.1, z=18.5)
+    Naoufal Bannis (Feyenoord, 2021): 5.63 (season mean=0.1, z=16.8)
+--- non_penalty_goals_plus_assists_per90 ---
+  Top outliers (z-score > 4.0):
+    Maximiliano Romero (PSV, 2020): 45.00 (season mean=0.3, z=22.5)
+    Jesper Uneken (PSV, 2023): 30.00 (season mean=0.3, z=21.6)
+    Marvin van der Pluijm (NAC Breda, 2010): 22.50 (season mean=0.2, z=20.7)
+    Jordy de Wijs (PSV, 2017): 15.00 (season mean=0.2, z=19.9)
+    Sam Hendriks (Ajax, 2015): 9.00 (season mean=0.2, z=17.8)
+--- shots ---
+  Top outliers (z-score > 4.0):
+    Tobias Lauritsen (Sparta R., 2024): 96 (season mean=14.8, z=4.7)
+    Thom van Bergen (Groningen, 2025): 101 (season mean=14.7, z=4.6)
+    Tobias Lauritsen (Sparta R., 2022): 91 (season mean=13.1, z=4.4)
+    Younes Taha El Idrissi (Groningen, 2025): 96 (season mean=14.7, z=4.3)
+    Sydney van Hooijdonk (Heerenveen, 2022): 90 (season mean=13.1, z=4.3)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2016=99.2%, 2017=99.0%, 2018=100.0%, 2019=69.8%, 2020=68.8%, 2021=70.1%, 2022=69.9%, 2023=66.7%, 2024=69.1%, 2025=69.1%
+--- shots_on_target ---
+  Top outliers (z-score > 4.0):
+    Tjaronn Chery (Groningen, 2014): 61 (season mean=5.6, z=6.4)
+    Cyriel Dessers (Heracles Almelo, 2019): 45 (season mean=4.6, z=6.1)
+    Tobias Lauritsen (Sparta R., 2023): 45 (season mean=4.8, z=5.9)
+    Tobias Lauritsen (Sparta R., 2024): 36 (season mean=5.0, z=5.0)
+    Jørgen Strand Larsen (Groningen, 2021): 34 (season mean=4.3, z=5.0)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=63.6%, 2014=67.9%, 2015=71.1%, 2016=99.0%, 2017=99.0%, 2018=100.0%, 2019=69.8%, 2020=68.8%, 2021=70.1%, 2022=69.9%, 2023=66.7%, 2024=69.1%, 2025=69.1%
+--- shots_on_target_pct ---
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2016=100.0%, 2017=100.0%, 2018=100.0%, 2019=75.1%, 2020=73.9%, 2021=76.6%, 2022=76.6%, 2023=72.9%, 2024=74.2%, 2025=75.4%
+--- shots_per90 ---
+  Top outliers (z-score > 4.0):
+    Ruben Kluivert (Utrecht, 2021): 90.00 (season mean=1.5, z=21.1)
+    Anwar El Ghazi (PSV, 2023): 67.50 (season mean=1.6, z=19.0)
+    Christian Rasmussen (Ajax, 2022): 45.00 (season mean=1.4, z=18.1)
+    Maximiliano Romero (PSV, 2020): 45.00 (season mean=1.4, z=17.2)
+    Ofosu Boakye (Go Ahead Eagles, 2024): 45.00 (season mean=1.5, z=15.7)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2018=100.0%
+--- shots_on_target_per90 ---
+  Top outliers (z-score > 4.0):
+    Maximiliano Romero (PSV, 2020): 45.00 (season mean=0.5, z=21.1)
+    Amin Laoukili (Fortuna Sittard, 2025): 30.00 (season mean=0.6, z=19.1)
+    Rai Vloet (PSV, 2015): 30.00 (season mean=0.5, z=19.0)
+    Mohamed El Hankouri (Feyenoord, 2016): 18.00 (season mean=0.5, z=18.1)
+    Soufian Moro (Utrecht, 2012): 22.50 (season mean=0.6, z=17.9)
+  Seasons with >50% NULL: 2018=100.0%
+--- goals_per_shot ---
+  Top outliers (z-score > 4.0):
+    Noam Emeran (Groningen, 2024): 1.00 (season mean=0.1, z=8.8)
+    Jesper Uneken (PSV, 2023): 1.00 (season mean=0.1, z=7.4)
+    Danny Post (Almere City, 2023): 1.00 (season mean=0.1, z=7.4)
+    Sven Nieuwpoort (Excelsior, 2023): 1.00 (season mean=0.1, z=7.4)
+    Ronald Koeman Jr. (Telstar, 2025): 1.00 (season mean=0.1, z=7.1)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2016=100.0%, 2017=100.0%, 2018=100.0%
+--- goals_per_shot_on_target ---
+  Seasons with >50% NULL: 2018=100.0%
+--- yellow_cards ---
+  Top outliers (z-score > 4.0):
+    Adil Auassar (Sparta R., 2019): 11 (season mean=1.6, z=4.9)
+    Joeri de Kamps (NAC Breda, 2014): 12 (season mean=1.8, z=4.8)
+    Matúš Bero (Vitesse, 2021): 12 (season mean=1.7, z=4.8)
+    Tom Beugelsdijk (ADO Den Haag, 2018): 12 (season mean=1.9, z=4.6)
+    Leo Greiml (NAC Breda, 2024): 11 (season mean=1.7, z=4.6)
+--- red_cards ---
+  Top outliers (z-score > 4.0):
+    Arjan Swinkels (Willem II, 2010): 3 (season mean=0.1, z=7.0)
+    Juninho Bacuna (Groningen, 2016): 4 (season mean=0.2, z=6.9)
+    Paweł Kieszek (Roda JC, 2011): 3 (season mean=0.2, z=6.8)
+    Joris Kramer (Go Ahead Eagles, 2021): 2 (season mean=0.1, z=6.6)
+    Mike te Wierik (Groningen, 2021): 2 (season mean=0.1, z=6.6)
+--- second_yellow_cards ---
+  Top outliers (z-score > 4.0):
+    Danny Bakker (ADO Den Haag, 2019): 2 (season mean=0.0, z=10.3)
+    Matúš Bero (Vitesse, 2018): 2 (season mean=0.0, z=8.7)
+    Miguel Araujo (Emmen, 2022): 1 (season mean=0.0, z=7.2)
+    Carlens Arcus (Vitesse, 2022): 1 (season mean=0.0, z=7.2)
+    Doğan Erdoğan (Fortuna Sittard, 2022): 1 (season mean=0.0, z=7.2)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%
+--- fouls_committed ---
+  Top outliers (z-score > 4.0):
+    Sebastian Polter (Fortuna Sittard, 2020): 89 (season mean=12.9, z=5.7)
+    Peer Koopmeiners (Almere City, 2023): 75 (season mean=11.6, z=5.5)
+    Dani de Wit (AZ Alkmaar, 2023): 69 (season mean=11.6, z=5.0)
+    Dani de Wit (AZ Alkmaar, 2021): 72 (season mean=11.6, z=5.0)
+    Mats Seuntjens (Fortuna Sittard, 2021): 69 (season mean=11.6, z=4.7)
+  Seasons with >50% NULL: 2018=100.0%
+--- fouls_drawn ---
+  Top outliers (z-score > 4.0):
+    Mark Diemers (Fortuna Sittard, 2019): 87 (season mean=10.1, z=6.7)
+    Oussama Tannane (Vitesse, 2020): 104 (season mean=12.0, z=6.6)
+    Landry Dimata (NEC Nijmegen, 2022): 86 (season mean=10.8, z=5.5)
+    Ole Romeny (Emmen, 2022): 85 (season mean=10.8, z=5.4)
+    Riechedly Bazoer (Vitesse, 2020): 86 (season mean=12.0, z=5.3)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2018=100.0%
+--- offsides ---
+  Top outliers (z-score > 4.0):
+    Cyriel Dessers (Heracles Almelo, 2019): 29 (season mean=1.5, z=8.6)
+    Burak Yılmaz (Fortuna Sittard, 2022): 32 (season mean=1.7, z=8.5)
+    Vangelis Pavlidis (AZ Alkmaar, 2021): 29 (season mean=1.9, z=7.2)
+    Giorgos Giakoumakis (VVV-Venlo, 2020): 31 (season mean=1.9, z=7.1)
+    Tim Matavž (Vitesse, 2019): 24 (season mean=1.5, z=7.0)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2018=100.0%
+--- crosses ---
+  Top outliers (z-score > 4.0):
+    Souffian El Karouani (Utrecht, 2025): 313 (season mean=20.0, z=8.2)
+    Dušan Tadić (Ajax, 2020): 304 (season mean=19.9, z=8.0)
+    Dušan Tadić (Ajax, 2022): 335 (season mean=21.7, z=7.9)
+    Souffian El Karouani (Utrecht, 2024): 287 (season mean=20.8, z=7.8)
+    Dušan Tadić (Ajax, 2021): 294 (season mean=20.2, z=7.5)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2018=100.0%
+--- interceptions ---
+  Top outliers (z-score > 4.0):
+    Carlens Arcus (Vitesse, 2022): 74 (season mean=10.9, z=4.8)
+    Olivier Boscagli (PSV, 2023): 64 (season mean=9.6, z=4.6)
+    Marco Rente (Heracles Almelo, 2021): 86 (season mean=12.7, z=4.5)
+    Josip Šutalo (Ajax, 2024): 65 (season mean=10.0, z=4.5)
+    Azor Matusiwa (Groningen, 2019): 66 (season mean=10.3, z=4.4)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2018=100.0%
+--- tackles_won ---
+  Top outliers (z-score > 4.0):
+    Milan van Ewijk (ADO Den Haag, 2020): 76 (season mean=12.2, z=4.8)
+    Bart van Rooij (Twente, 2025): 68 (season mean=11.1, z=4.6)
+    Calvin Verdonk (NEC Nijmegen, 2023): 73 (season mean=12.2, z=4.5)
+    Paxten Aaronson (Utrecht, 2024): 72 (season mean=12.2, z=4.5)
+    Pol Llonch (Willem II, 2019): 61 (season mean=10.3, z=4.4)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2018=100.0%
+--- penalty_kicks_won ---
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2018=100.0%, 2019=100.0%, 2020=100.0%, 2021=100.0%, 2022=100.0%, 2023=100.0%, 2024=100.0%, 2025=100.0%
+--- penalty_kicks_conceded ---
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%, 2018=100.0%, 2019=100.0%, 2020=100.0%, 2021=100.0%, 2022=100.0%, 2023=100.0%, 2024=100.0%, 2025=100.0%
+--- own_goals ---
+  Top outliers (z-score > 4.0):
+    Ricardo van Rhijn (AZ Alkmaar, 2018): 3 (season mean=0.1, z=10.3)
+    Jari De Busser (Go Ahead Eagles, 2025): 2 (season mean=0.0, z=9.4)
+    Ximo Navarro (Fortuna Sittard, 2022): 2 (season mean=0.0, z=8.8)
+    Damon Mirani (Volendam, 2022): 2 (season mean=0.0, z=8.8)
+    Paweł Bochniewicz (Heerenveen, 2023): 2 (season mean=0.0, z=8.5)
+  Seasons with >50% NULL: 2010=100.0%, 2011=100.0%, 2012=100.0%, 2013=100.0%, 2014=100.0%, 2015=100.0%
+
+--- Team-level row density, eredivisie_soccerdata_player_season_stats ---
+
+======================================================================
+eredivisie_whoscored_player_season_stats
+======================================================================
+Auditing 34 numeric columns across all seasons.
+
+--- passes ---
+  Top outliers (z-score > 4.0):
+    Dávid Hancko (Feyenoord, 2023): 3035 (season mean=574.2, z=4.3)
+    Daley Blind (Ajax, 2021): 3120 (season mean=580.7, z=4.3)
+    Ryan Flamingo (PSV, 2024): 2927 (season mean=562.1, z=4.3)
+    Olivier Boscagli (PSV, 2024): 2832 (season mean=562.1, z=4.1)
+    Olivier Boscagli (PSV, 2023): 2863 (season mean=574.2, z=4.0)
+--- passes_completed ---
+  Top outliers (z-score > 4.0):
+    Dávid Hancko (Feyenoord, 2023): 2671 (season mean=439.3, z=4.8)
+    Ryan Flamingo (PSV, 2024): 2626 (season mean=438.5, z=4.8)
+    Daley Blind (Ajax, 2021): 2592 (season mean=433.6, z=4.6)
+    Jurriën Timber (Ajax, 2022): 2517 (season mean=441.6, z=4.6)
+    Olivier Boscagli (PSV, 2024): 2469 (season mean=438.5, z=4.4)
+--- passes_pct ---
+  Top outliers (z-score > 4.0):
+    Arjen Hagenauw (FC Groningen, 2013): 0.0 (season mean=72.6, z=6.6)
+    Sam Hutchinson (Vitesse, 2013): 0.0 (season mean=72.6, z=6.6)
+    Jari Schuurman (Feyenoord, 2015): 0.0 (season mean=70.8, z=6.5)
+    Brian Jacobs (Roda, 2015): 0.0 (season mean=70.8, z=6.5)
+    Maximiliano Romero (PSV, 2020): 0.0 (season mean=73.0, z=6.4)
+--- touches_def_3rd ---
+  Top outliers (z-score > 4.0):
+    Sergio Padt (FC Groningen, 2015): 2189 (season mean=260.7, z=5.2)
+    Peter Leeuwenburgh (FC Groningen, 2021): 1929 (season mean=244.1, z=5.2)
+    Remko Pasveer (Heracles, 2013): 2244 (season mean=268.6, z=5.1)
+    Sergio Padt (FC Groningen, 2020): 1860 (season mean=247.3, z=4.9)
+    Joël Drommel (Sparta Rotterdam, 2025): 1830 (season mean=225.4, z=4.9)
+--- touches_mid_3rd ---
+  Top outliers (z-score > 4.0):
+    Ryan Flamingo (PSV, 2024): 1984 (season mean=313.6, z=5.1)
+    Olivier Boscagli (PSV, 2024): 1834 (season mean=313.6, z=4.6)
+    Dávid Hancko (Feyenoord, 2023): 1848 (season mean=316.5, z=4.5)
+    Olivier Boscagli (PSV, 2023): 1841 (season mean=316.5, z=4.5)
+    Jurriën Timber (Ajax, 2022): 1831 (season mean=318.8, z=4.4)
+--- touches_att_3rd ---
+  Top outliers (z-score > 4.0):
+    Dusan Tadic (Ajax, 2021): 1636 (season mean=179.9, z=6.6)
+    Dusan Tadic (Ajax, 2022): 1642 (season mean=187.6, z=6.6)
+    Dusan Tadic (Twente, 2013): 1483 (season mean=178.7, z=6.3)
+    Hakim Ziyech (Ajax, 2017): 1672 (season mean=195.7, z=6.2)
+    Dusan Tadic (Ajax, 2020): 1366 (season mean=177.7, z=5.6)
+--- touches_def_pen_area ---
+  Top outliers (z-score > 4.0):
+    Peter Leeuwenburgh (FC Groningen, 2021): 1674 (season mean=82.0, z=7.9)
+    Kostas Lamprou (RKC Waalwijk, 2020): 1518 (season mean=79.7, z=7.5)
+    Sergio Padt (FC Groningen, 2020): 1480 (season mean=79.7, z=7.3)
+    Sergio Padt (FC Groningen, 2015): 2015 (season mean=97.0, z=7.0)
+    Kayne van Oevelen (FC Volendam, 2025): 1497 (season mean=81.9, z=6.9)
+--- touches_att_pen_area ---
+  Top outliers (z-score > 4.0):
+    Dusan Tadic (Ajax, 2021): 310 (season mean=27.2, z=7.4)
+    Dusan Tadic (Ajax, 2022): 315 (season mean=29.5, z=7.3)
+    Dusan Tadic (Ajax, 2019): 249 (season mean=22.5, z=7.0)
+    Luuk de Jong (PSV, 2015): 299 (season mean=26.8, z=7.0)
+    Luuk de Jong (PSV, 2016): 289 (season mean=27.6, z=6.9)
+--- take_ons ---
+  Top outliers (z-score > 4.0):
+    Osame Sahraoui (SC Heerenveen, 2023): 276 (season mean=22.9, z=8.2)
+    Gyrano Kerk (FC Utrecht, 2020): 239 (season mean=22.1, z=7.4)
+    Hakim Ziyech (Twente, 2015): 238 (season mean=22.1, z=7.1)
+    Filip Kostic (FC Groningen, 2013): 246 (season mean=24.1, z=6.9)
+    Chidera Ejuke (SC Heerenveen, 2019): 207 (season mean=18.9, z=6.9)
+--- take_ons_won ---
+  Top outliers (z-score > 4.0):
+    Osame Sahraoui (SC Heerenveen, 2023): 100 (season mean=9.8, z=6.8)
+    Mika Godts (Ajax, 2025): 85 (season mean=7.9, z=6.8)
+    Gyrano Kerk (FC Utrecht, 2020): 115 (season mean=11.5, z=6.8)
+    Chidera Ejuke (SC Heerenveen, 2019): 103 (season mean=10.2, z=6.5)
+    Luis Sinisterra (Feyenoord, 2021): 107 (season mean=11.0, z=6.4)
+--- dispossessed ---
+  Top outliers (z-score > 4.0):
+    Richonell Margaret (RKC Waalwijk, 2024): 93 (season mean=9.8, z=7.1)
+    Gyrano Kerk (FC Utrecht, 2020): 107 (season mean=11.3, z=6.7)
+    Jens Odgaard (RKC Waalwijk, 2021): 91 (season mean=10.7, z=6.1)
+    Brandley Kuwas (Heracles Almelo, 2017): 125 (season mean=13.9, z=6.0)
+    Brandley Kuwas (Excelsior, 2015): 119 (season mean=14.4, z=6.0)
+--- tackles ---
+  Top outliers (z-score > 4.0):
+    Pol Llonch (Willem II, 2019): 110 (season mean=16.9, z=5.1)
+    Peer Koopmeiners (Almere City FC, 2023): 115 (season mean=19.7, z=4.6)
+    Bart van Rooij (Twente, 2025): 108 (season mean=18.0, z=4.6)
+    Paxten Aaronson (FC Utrecht, 2024): 114 (season mean=19.3, z=4.5)
+    Joël Veltman (Ajax, 2016): 133 (season mean=22.8, z=4.5)
+--- tackles_won ---
+  Top outliers (z-score > 4.0):
+    Joël Veltman (Ajax, 2016): 108 (season mean=16.8, z=5.0)
+    Milan van Ewijk (ADO Den Haag, 2020): 76 (season mean=11.8, z=4.9)
+    Enric Llansana (Go Ahead Eagles, 2024): 71 (season mean=11.8, z=4.5)
+    Pol Llonch (Willem II, 2019): 62 (season mean=10.4, z=4.5)
+    Calvin Verdonk (NEC Nijmegen, 2023): 71 (season mean=12.0, z=4.5)
+--- tackles_def_3rd ---
+  Top outliers (z-score > 4.0):
+    Milan van Ewijk (ADO Den Haag, 2020): 78 (season mean=9.6, z=5.8)
+    Calvin Verdonk (NEC Nijmegen, 2023): 70 (season mean=9.9, z=5.0)
+    Max Clark (Vitesse, 2019): 59 (season mean=8.5, z=5.0)
+    Bart van Rooij (NEC Nijmegen, 2021): 66 (season mean=9.4, z=5.0)
+    Dirk Marcellis (PEC Zwolle, 2015): 87 (season mean=12.4, z=5.0)
+--- tackles_mid_3rd ---
+  Top outliers (z-score > 4.0):
+    Karim El Ahmadi (Feyenoord, 2016): 72 (season mean=8.6, z=6.2)
+    Pol Llonch (Willem II, 2019): 54 (season mean=6.6, z=5.9)
+    Karim El Ahmadi (Feyenoord, 2017): 66 (season mean=8.5, z=5.7)
+    Peer Koopmeiners (AZ Alkmaar, 2024): 57 (season mean=7.6, z=5.7)
+    Sondre Tronstad (Vitesse, 2021): 61 (season mean=7.9, z=5.7)
+--- tackles_att_3rd ---
+  Top outliers (z-score > 4.0):
+    Hakim Ziyech (Ajax, 2019): 16 (season mean=1.8, z=5.9)
+    Davy Pröpper (Vitesse, 2013): 20 (season mean=2.2, z=5.8)
+    Hidde ter Avest (Twente, 2016): 17 (season mean=2.0, z=5.8)
+    Quinten Timber (Feyenoord, 2023): 20 (season mean=2.6, z=5.7)
+    Daan Rots (Twente, 2024): 20 (season mean=2.5, z=5.7)
+--- interceptions ---
+  Top outliers (z-score > 4.0):
+    Eric Botteghin (FC Groningen, 2013): 135 (season mean=18.8, z=5.1)
+    Jeffrey Gouweleeuw (AZ Alkmaar, 2013): 127 (season mean=18.8, z=4.7)
+    Carlens Arcus (Vitesse, 2022): 72 (season mean=10.9, z=4.6)
+    Olivier Boscagli (PSV, 2023): 66 (season mean=9.9, z=4.6)
+    Marco Rente (Heracles, 2021): 85 (season mean=12.5, z=4.6)
+--- interceptions_def_3rd ---
+  Top outliers (z-score > 4.0):
+    Eric Botteghin (FC Groningen, 2013): 99 (season mean=9.4, z=6.5)
+    Henrico Drost (NAC Breda, 2013): 84 (season mean=9.4, z=5.4)
+    Marco Rente (Heracles, 2021): 55 (season mean=6.4, z=5.4)
+    Siebe Horemans (Excelsior, 2022): 47 (season mean=5.6, z=5.2)
+    Eric Botteghin (FC Groningen, 2014): 83 (season mean=10.7, z=4.9)
+--- interceptions_mid_3rd ---
+  Top outliers (z-score > 4.0):
+    Orestis Kiomourtzoglou (Heracles, 2019): 38 (season mean=4.3, z=6.0)
+    Thulani Serero (Vitesse, 2017): 50 (season mean=6.1, z=5.6)
+    Ibrahim Sangaré (PSV, 2021): 44 (season mean=5.3, z=5.4)
+    Eric Fernando Botteghin (Feyenoord, 2016): 57 (season mean=7.3, z=5.4)
+    Ryan Thomas (Zwolle, 2017): 47 (season mean=6.1, z=5.2)
+--- interceptions_att_3rd ---
+  Top outliers (z-score > 4.0):
+    Jens Toornstra (Feyenoord, 2020): 13 (season mean=0.9, z=7.7)
+    Ramiz Zerrouki (Twente, 2022): 10 (season mean=0.8, z=7.2)
+    Mats Wieffer (Feyenoord, 2023): 10 (season mean=0.8, z=6.9)
+    Malik Tillman (PSV, 2024): 10 (season mean=0.8, z=6.9)
+    Ramiz Zerrouki (Twente, 2025): 9 (season mean=0.8, z=6.3)
+--- clearances ---
+  Top outliers (z-score > 4.0):
+    Jurgen Mattheij (Sparta Rotterdam, 2019): 173 (season mean=18.4, z=5.9)
+    Mike te Wierik (Heracles, 2015): 317 (season mean=35.4, z=5.7)
+    Jurgen Mattheij (Excelsior, 2018): 250 (season mean=29.5, z=5.6)
+    Jurgen Mattheij (Excelsior, 2017): 288 (season mean=33.3, z=5.6)
+    Rodrigo Guth (Fortuna Sittard, 2022): 201 (season mean=23.2, z=5.6)
+--- dribbled_past ---
+  Top outliers (z-score > 4.0):
+    Joeri de Kamps (NAC Breda, 2014): 70 (season mean=10.8, z=5.2)
+    Sander Duits (RKC Waalwijk, 2013): 67 (season mean=11.3, z=4.9)
+    Peer Koopmeiners (AZ Alkmaar, 2024): 49 (season mean=8.3, z=4.8)
+    Marten de Roon (SC Heerenveen, 2014): 65 (season mean=10.8, z=4.7)
+    Ryan Koolwijk (Excelsior, 2018): 67 (season mean=11.7, z=4.5)
+--- errors ---
+  Top outliers (z-score > 4.0):
+    Remko Pasveer (Vitesse, 2020): 6 (season mean=0.3, z=8.4)
+    Ibrahim Dresevic (SC Heerenveen, 2019): 6 (season mean=0.3, z=8.3)
+    Kjell Scherpen (Vitesse, 2022): 6 (season mean=0.3, z=7.8)
+    Marco Bizot (AZ Alkmaar, 2017): 8 (season mean=0.5, z=7.2)
+    Esteban Alvarado (AZ Alkmaar, 2013): 10 (season mean=0.7, z=7.1)
+--- final_third_entries ---
+  Top outliers (z-score > 4.0):
+    Daley Blind (Ajax, 2021): 957 (season mean=107.9, z=6.4)
+    Dusan Tadic (Twente, 2013): 862 (season mean=117.1, z=6.3)
+    Hakim Ziyech (Ajax, 2017): 942 (season mean=120.3, z=6.2)
+    Dusan Tadic (Ajax, 2022): 903 (season mean=114.3, z=5.9)
+    Joey Veerman (PSV, 2025): 753 (season mean=104.5, z=5.7)
+--- pen_area_entries ---
+  Top outliers (z-score > 4.0):
+    Dusan Tadic (Ajax, 2022): 316 (season mean=16.7, z=11.5)
+    Dusan Tadic (Ajax, 2021): 265 (season mean=15.4, z=10.6)
+    Dusan Tadic (Ajax, 2020): 206 (season mean=14.6, z=8.7)
+    Hakim Ziyech (Ajax, 2017): 221 (season mean=17.0, z=8.2)
+    Dusan Tadic (Ajax, 2019): 162 (season mean=12.4, z=7.7)
+--- aerials ---
+  Top outliers (z-score > 4.0):
+    Tobias Lauritsen (Sparta Rotterdam, 2022): 466 (season mean=33.4, z=10.3)
+    Tobias Lauritsen (Sparta Rotterdam, 2025): 379 (season mean=33.8, z=8.3)
+    Luuk de Jong (PSV, 2018): 477 (season mean=45.2, z=8.1)
+    Tobias Lauritsen (Sparta Rotterdam, 2024): 382 (season mean=35.8, z=8.0)
+    Christian Santos (NEC Nijmegen, 2015): 369 (season mean=38.9, z=7.2)
+--- aerials_won ---
+  Top outliers (z-score > 4.0):
+    Tobias Lauritsen (Sparta Rotterdam, 2022): 284 (season mean=16.7, z=11.3)
+    Tobias Lauritsen (Sparta Rotterdam, 2025): 236 (season mean=16.9, z=9.5)
+    Luuk de Jong (PSV, 2018): 298 (season mean=22.6, z=9.1)
+    Tobias Lauritsen (Sparta Rotterdam, 2024): 228 (season mean=17.9, z=8.6)
+    Tobias Lauritsen (Sparta Rotterdam, 2023): 219 (season mean=18.1, z=8.0)
+--- shots ---
+  Seasons with >50% NULL: 2013=100.0%, 2014=100.0%, 2015=100.0%, 2016=100.0%, 2017=100.0%, 2018=100.0%, 2019=100.0%, 2020=100.0%, 2021=100.0%, 2022=100.0%, 2023=100.0%, 2024=100.0%, 2025=100.0%
+--- shots_on_target ---
+  Seasons with >50% NULL: 2013=100.0%, 2014=100.0%, 2015=100.0%, 2016=100.0%, 2017=100.0%, 2018=100.0%, 2019=100.0%, 2020=100.0%, 2021=100.0%, 2022=100.0%, 2023=100.0%, 2024=100.0%, 2025=100.0%
+--- shots_on_target_pct ---
+  Seasons with >50% NULL: 2013=100.0%, 2014=100.0%, 2015=100.0%, 2016=100.0%, 2017=100.0%, 2018=100.0%, 2019=100.0%, 2020=100.0%, 2021=100.0%, 2022=100.0%, 2023=100.0%, 2024=100.0%, 2025=100.0%
+
+--- Team-level row density, eredivisie_whoscored_player_season_stats ---
+
+======================================================================
+eredivisie_keeper_season_stats
+======================================================================
+Auditing 19 numeric columns across all seasons.
+
+
+--- Team-level row density, eredivisie_keeper_season_stats ---
+
+======================================================================
+eredivisie_transfermarkt_player_bio
+======================================================================
+Implausible height_cm values (outside 155-210cm): [(101810, 875), (128168, 875)]
+foot distinct values: [('both', 102), ('left', 651), ('right', 1670), (None, 811)]
+
+======================================================================
+eredivisie_transfers
+======================================================================
+fee_amount range by fee_type (millions EUR):
+  permanent_transfer: min=0.01, max=95.00, avg=3.83, n=1399
+  free_transfer: min=0.00, max=0.00, avg=0.00, n=2708
+
+direction balance: [('out', 3922), ('in', 4138)]
+
+======================================================================
+Done. This does NOT cover: cross-season consistency for player-level static fields, or per-90 denominator sanity beyond Section 6's existing 3 columns -- see module docstring.

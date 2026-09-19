@@ -22,6 +22,16 @@ looping needed, since FBref/soccerdata already scopes to "who was
 actually in the Eredivisie that season," unlike Transfermarkt's
 club-history pages which needed the separate eredivisie_club_status
 filter.
+
+FIXED (2026-09-18): the live table was renamed to
+eredivisie_soccerdata_player_season_stats (to disambiguate from
+WhoScored's own player-season table) at some point, but this script's
+INSERT target was never updated to match -- it was still pointing at
+the pre-rename name, eredivisie_player_season_stats, which no longer
+exists. Found via a full-schema data-quality audit that checked every
+loader's real INSERT columns against the live schema directly, rather
+than assuming a script matches its table just because it looks
+reasonable.
 """
 
 import psycopg2
@@ -134,7 +144,7 @@ def main():
     conn = get_connection()
 
     player_insert_sql = """
-        INSERT INTO eredivisie_player_season_stats
+        INSERT INTO eredivisie_soccerdata_player_season_stats
             (player_name, team, season_id, nation, position, age, born,
              matches_played, minutes, minutes_per_match, minutes_pct, nineties,
              starts, minutes_per_start, complete_matches, substitute_appearances,

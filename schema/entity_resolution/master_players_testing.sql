@@ -205,3 +205,21 @@ FROM master_player_season_stats m
 LEFT JOIN players p ON p.player_id = m.player_id
 WHERE m.player_id IS NOT NULL AND p.player_id IS NULL;
 
+SELECT table_name, string_agg(column_name || ' (' || data_type || ')', ', ' ORDER BY ordinal_position) AS columns
+FROM information_schema.columns
+WHERE table_schema = 'public'
+  AND table_name IN (
+    'eredivisie_club_status',
+    'eredivisie_keeper_season_stats',
+    'eredivisie_soccerdata_player_season_stats',
+    'eredivisie_transfermarkt_player_bio',
+    'eredivisie_transfers',
+    'eredivisie_whoscored_player_season_stats',
+    'player_source_crosswalk',
+    'players',
+    'team_name_alias'
+  )
+GROUP BY table_name
+ORDER BY table_name;
+
+SELECT COUNT(*) AS total, COUNT(own_club_name) AS populated FROM eredivisie_transfers;
