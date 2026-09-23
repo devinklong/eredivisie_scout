@@ -65,7 +65,9 @@ def get_numeric_columns(cur):
         AND data_type IN ('integer', 'numeric', 'smallint', 'bigint', 'double precision', 'real')
         ORDER BY ordinal_position
     """)
-    exclude = {"player_id", "season_id"}
+    # fbref_born excluded: a birth year isn't a performance stat --
+    # z-scoring it just flags very young/old players, not an anomaly.
+    exclude = {"player_id", "season_id", "fbref_born"}
     cols = [r[0] for r in cur.fetchall() if r[0] not in exclude]
 
     domains = {}
