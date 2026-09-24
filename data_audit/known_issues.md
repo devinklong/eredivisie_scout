@@ -109,8 +109,10 @@ written for someone who needs the answer fast, not the full story.
   for every column -- any stat that's inherently position-specific
   will keep getting flagged as an "outlier" every run, regardless of
   minutes floor or z-threshold, because the comparison population
-  includes positions the stat doesn't apply evenly to.** Confirmed
-  2026-09-21 via direct position breakdown of flagged rows:
+  includes positions the stat doesn't apply evenly to. Confirmed
+  across FOUR separate stat families as of 2026-09-23, not a one-off
+  -- treat any newly-flagged column as a likely next instance before
+  assuming it's a real anomaly.**
   - `ws_touches_def_pen_area`: 31/31 flagged rows are `GK` --
     structurally, not statistically, unusual (matches the sanity check
     already documented in `derive_possession_stats.py`'s own
@@ -121,11 +123,44 @@ written for someone who needs the answer fast, not the full story.
     artifact like the touches case, but the same root cause: a
     blended-position baseline makes any position-concentrated stat
     look extreme.
+  - `ws_errors`/`ws_errors_per90`: 26/27 flagged rows are `GK` or `DF`
+    -- matches the football-logical expectation that a WhoScored
+    "error" (a mistake directly leading to a shot/goal) concentrates
+    among the players closest to danger, not attackers or midfielders.
+  - `ws_tackles*`/`ws_interceptions*` zone variants
+    (`_att_3rd`/`_mid_3rd`/`_def_3rd` and their `_per90` forms) plus
+    `ws_clearances`: a ZONE-MATCHED-TO-ROLE version of the same
+    pattern, confirmed 2026-09-23 -- `MF` dominates the `_att_3rd`/
+    `_mid_3rd` variants (pressing/midfield actions), `DF` dominates
+    `_def_3rd` variants and `clearances` (own-box defending). Same
+    root cause as the others, just manifesting zone-by-zone rather
+    than as one dominant position across a whole column.
   - Real fix, not yet built: the baseline should be computed
     per-position (or at minimum GK vs. outfield) for any column known
     to cluster by role, rather than one mean across the whole season.
     Until that's built, expect this same shape of flag to recur every
-    time `flag_outliers.py` is re-run, for these specific columns.
+    time `flag_outliers.py` is re-run, for these specific columns and
+    likely others sharing the same position-concentration pattern
+    (candidates worth checking first if they show up flagged again:
+    anything zone-based like `touches_att_3rd`/`def_3rd`, or role-based
+    like `tackles`/`interceptions` by zone).
+
+- **`fbref_on_off` has a near-zero season mean/stddev, making its
+  z-score hypersensitive -- nearly any nonzero value reads as
+  "extreme" regardless of real magnitude.** Confirmed 2026-09-23: the
+  8 flagged rows mixed genuine stars (Tadić, Reijnders) with unknown
+  players (Peters, Fischer, Röseler) at similarly wild z-scores
+  (11-14) -- a metric-scaling issue, not 8 individual football
+  stories. Not yet fixed (would need a different outlier-detection
+  approach for near-zero-variance columns specifically, not the
+  season-mean z-score used everywhere else).
+
+- **`fbref_minutes_per_sub` has no floor on the number of substitute
+  appearances behind it.** A player with only 1-2 sub appearances can
+  show an extreme-looking per-appearance rate off a genuinely tiny
+  sample -- same root cause as the original `fbref_nineties` floor
+  gap, just a different denominator that floor doesn't cover. Not yet
+  fixed in `flag_outliers.py` as of 2026-09-23.
 
 ## Not yet investigated (genuinely open, not yet explained)
 
