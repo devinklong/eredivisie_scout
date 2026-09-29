@@ -162,6 +162,34 @@ written for someone who needs the answer fast, not the full story.
   gap, just a different denominator that floor doesn't cover. Not yet
   fixed in `flag_outliers.py` as of 2026-09-23.
 
+## Loader bugs found and fixed
+
+- **`fbref_goals`/`fbref_penalty_attempts` were 100% NULL across ALL 16
+  seasons, not just the documented 2010-2017 range -- found 2026-09-28
+  via the coverage audit's `pct_populated = 0` check.** Root cause:
+  `load_eredivisie_player_stats.py` looked up `Performance_Gls_std`/
+  `Performance_PKatt_std`, but real soccerdata output for these two
+  columns has no `_std` suffix (confirmed via direct inspection) --
+  same class of bug as the earlier `own_club_name`/table-rename
+  issues, a guessed key that was never verified against real output.
+  Fixed in the loader (permanent fix for future loads) and backfilled
+  via a targeted `UPDATE` script for the 9,229 existing rows (no full
+  reload needed, since `ON CONFLICT DO NOTHING` would have skipped
+  every already-existing row anyway).
+  - **After the fix, ~55-95 rows per season (2014 onward) still show
+    `goals IS NULL` -- confirmed benign, not a residual bug.** These
+    are players with `position`/`age` populated but `minutes`/`goals`/
+    `assists`/`shots` all NULL together, as a complete block -- mostly
+    teenage squad/reserve players and backup goalkeepers. They never
+    had a real `standard`-stat_type row at all; `fetch_season_player_
+    stats()`'s `outer` join means a player present in only one of the
+    four merged stat types (e.g. `misc` or `playing_time`) still gets
+    a row, with every `standard`-sourced column (goals included)
+    correctly NULL. Not something to chase further -- flagging here so
+    a future audit doesn't mistake it for a new bug. 2010-2013 shows
+    NO such gap (has_goals = total exactly) -- worth knowing if the
+    exact row-count-vs-season pattern ever needs re-deriving.
+
 ## Not yet investigated (genuinely open, not yet explained)
 
 - Whether `foot`'s ~25% NULL rate specifically is fully explained by
