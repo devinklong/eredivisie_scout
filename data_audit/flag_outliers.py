@@ -33,6 +33,18 @@ an unfiltered tiny sample, for counting stats exactly as much as for
 rates. 5.0 nineties (~450 minutes, a real sample) is the new floor,
 applied everywhere.
 
+FIXED (2026-09-23), two more real gaps found during outlier review:
+  1. fbref_minutes_per_sub/fbref_minutes_per_start have a different
+     real denominator (substitute_appearances / starts, not total
+     minutes) -- the universal nineties floor never protected these.
+     Now use their own floor via SPECIAL_DENOMINATOR_FLOORS.
+  2. fbref_on_off's near-zero season variance made its z-score
+     hypersensitive, flagging real stars and unknowns alike at
+     similarly extreme scores. Excluded from z-score detection
+     entirely (EXCLUDE_NEAR_ZERO_VARIANCE) until a real fix (a
+     percentile-based or CoV-aware method) gets built -- this is a
+     documented placeholder, not a general solution.
+
 Before treating anything this flags as a bug: check
 data_audit/known_issues.md first. Most extreme values are one of two
 things -- a genuine elite performance (leave alone, mark reviewed with
@@ -49,6 +61,34 @@ VIEW_TABLE = "master_player_season_stats"
 RESULTS_DIR = Path(__file__).parent / "results"
 Z_SCORE_THRESHOLD = 5.0
 MIN_NINETIES = 5.0  # ~450 minutes -- a real sample, applied to every column
+
+# Some columns' real denominator ISN'T total minutes played --
+# fbref_minutes_per_sub is an average over substitute_appearances, not
+# nineties, so a player can clear the nineties floor easily while
+# still having only 1-2 sub appearances behind this specific rate.
+# Confirmed real 2026-09-23: 3 players all landed here with extreme
+# z-scores purely from a tiny appearance count. fbref_minutes_per_start
+# has the identical structural risk (denominator is starts, not
+# nineties) even though it hadn't been flagged yet -- fixed proactively
+# rather than waiting for it to show up on its own.
+SPECIAL_DENOMINATOR_FLOORS = {
+    "fbref_minutes_per_sub": ("fbref_substitute_appearances", 3),
+    "fbref_minutes_per_start": ("fbref_starts", 3),
+}
+
+# fbref_on_off has a near-zero season stddev, which makes the z-score
+# formula hypersensitive -- confirmed 2026-09-23: 8 flagged rows mixed
+# genuine stars with unknown players at similarly wild z-scores (11-14),
+# proving the METRIC's scale is the problem, not 8 real anomalies.
+# Excluded from z-score detection entirely until a proper fix (a
+# percentile-based or coefficient-of-variation-aware method) is built --
+# this is a known placeholder, not a general solution to near-zero-
+# variance columns. If another column shows this same symptom (a
+# flagged list mixing obvious stars with total unknowns at similarly
+# extreme z-scores), it likely needs the same treatment -- add it here
+# rather than guessing a universal threshold that hasn't been tested
+# against this project's actual column-scale diversity.
+EXCLUDE_NEAR_ZERO_VARIANCE = {"fbref_on_off"}
 
 
 def get_connection():
@@ -109,11 +149,24 @@ def ensure_review_table(cur):
 
 
 def flag_column(cur, column_name, domain):
-    # Floor applied to EVERY column now, not just rate-shaped ones --
-    # see module docstring for why (Maximiliano Romero's 0.0-nineties
-    # row still tripping raw counting stats is what proved this was
-    # needed everywhere, not just for _pct/_per90).
-    minutes_floor_clause = f"AND fbref_nineties >= {MIN_NINETIES}"
+    # Skip entirely -- see EXCLUDE_NEAR_ZERO_VARIANCE's definition for
+    # why a z-score isn't a meaningful check for these columns.
+    if column_name in EXCLUDE_NEAR_ZERO_VARIANCE:
+        return 0
+
+    # Some columns' real denominator isn't total minutes -- use that
+    # column's own floor instead of the default nineties one.
+    # See SPECIAL_DENOMINATOR_FLOORS's definition for why.
+    if column_name in SPECIAL_DENOMINATOR_FLOORS:
+        floor_col, floor_val = SPECIAL_DENOMINATOR_FLOORS[column_name]
+        minutes_floor_clause = f'AND "{floor_col}" >= {floor_val}'
+    else:
+        # Floor applied to EVERY other column, not just rate-shaped
+        # ones -- see module docstring for why (Maximiliano Romero's
+        # 0.0-nineties row still tripping raw counting stats is what
+        # proved this was needed everywhere, not just for _pct/_per90).
+        minutes_floor_clause = f"AND fbref_nineties >= {MIN_NINETIES}"
+
     keeper_clause = "AND fbref_position LIKE '%%GK%%'" if domain == "gk" else ""
 
     query = f"""
