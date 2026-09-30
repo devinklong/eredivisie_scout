@@ -190,6 +190,16 @@ written for someone who needs the answer fast, not the full story.
     NO such gap (has_goals = total exactly) -- worth knowing if the
     exact row-count-vs-season pattern ever needs re-deriving.
 
+## Real, confirmed gaps -- scoped, but not yet fixed
+
+- **A THIRD genuine FBref historical gap, confirmed 2026-09-29: the entire `misc` and `keeper` stat types return completely empty (`<NA>`) for the 2018-19 season specifically, at FBref's own source -- not a loader bug.** Found via `data_audit/build_team_season_summary.py`'s team/season rollup, which surfaced a clean discontinuity for exactly one season (2017: ~57-81% depending on column, 2018: exactly 0.0% across every affected column, 2019: back to ~41-79%) across MANY teams simultaneously -- the shape that distinguishes a real source-side gap from a team-specific data problem. An earlier read of this data (an AZ-specific 56.4%/60.9% dip flagged as worth investigating) turned out to be a symptom of this same league-wide gap, not an AZ-specific issue -- worth remembering that a team's rollup number can look team-specific while the real cause is season-wide.
+
+  Confirmed via the same direct-inspection method that resolved the original 2016-17/2017-18 shots gap: `soccerdata`'s raw `misc` stat-type pull for 2018-19 returns a real DataFrame (479 rows, correct 17 columns, correct column name `Performance_Fls`) but every value is `<NA>` -- ruling out a wrong-column-key bug like the `goals`/`penalty_attempts` fix earlier tonight. Same confirmed for `keeper` (37 real rows, correct `Performance_Saves` column name, all `<NA>`).
+
+  **Affected columns**: everything sourced from `misc` (`fbref_fouls_committed`, `fbref_fouls_drawn`, `fbref_offsides`, `fbref_crosses`, `fbref_interceptions`, `fbref_tackles_won`, and likely a few others from that same stat type not yet individually spot-checked) and everything from `keeper` (`gk_saves`, `gk_save_pct`, `gk_shots_on_target_against`, and likely the rest of that stat type) -- for season 2018 (2018-19) ONLY. Confirmed via direct season-by-season query that 2017 and 2019 are both genuinely populated -- this is not bleeding into neighboring seasons.
+
+  **NOT YET FIXED.** Given the diagnosis matches the already-solved `shots` gap exactly (genuinely empty at FBref's source, confirmed by bypassing this project's own loading code), the established precedent is a WhoScored-derived reconstruction, same approach as `derive_shots_stats.py`. For `misc`'s columns, this is likely straightforward -- `derive_defense_stats.py` and similar already produce comparable stats (fouls, interceptions, tackles) from WhoScored raw events for the `ws_*` columns elsewhere in `master_player_season_stats`, so the derivation logic may already exist and just needs pointing at this specific gap. For `keeper`'s columns, no WhoScored-derived keeper reconstruction (`derive_keeper_stats.py` or equivalent) exists in this project yet -- would need to be built from scratch, the same real iteration process the original shots definition required (multiple attempts, real validation against known-good seasons) before it could be trusted. Scoped as its own dedicated session, not a quick fix -- deliberately not rushed into tonight.
+
 ## Not yet investigated (genuinely open, not yet explained)
 
 - Whether `foot`'s ~25% NULL rate specifically is fully explained by
