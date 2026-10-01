@@ -124,6 +124,22 @@ TEAM_NAME_NORMALIZATION = {
     "Heracles": "Heracles Almelo",
     "Roda": "Roda JC",
     "Sparta Rotterdam": "Sparta R.",
+    # Confirmed 2026-09-30: found via data_audit/build_team_season_summary.py's
+    # team/season coverage rollup -- Volendam, Almere City, Emmen, and
+    # Dordrecht all showed ws_ domain coverage at exactly 0.0% (not just
+    # low -- completely absent), every season. team_name_alias already
+    # had the correct whoscored-side aliases for all four (built during
+    # the original 2026-09-16 investigation), but this script's own
+    # TEAM_NAME_NORMALIZATION dict -- the thing that actually controls
+    # what's STORED in eredivisie_whoscored_player_season_stats.team,
+    # separate from team_name_alias's entity-resolution-matching role --
+    # never had these four added. Confirmed directly via
+    # `SELECT DISTINCT team FROM eredivisie_whoscored_player_season_stats
+    # WHERE team IN (...)` before writing this fix.
+    "FC Volendam": "Volendam",
+    "Almere City FC": "Almere City",
+    "FC Emmen": "Emmen",
+    "FC Dordrecht": "Dordrecht",
     # add any other confirmed mismatches here
 }
 
