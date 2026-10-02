@@ -1,0 +1,289 @@
+team,canonical_team,season_id,num_players,total_cells,non_null_cells,pct_populated
+ADO Den Haag,ADO Den Haag,2010,29,3657,911,24.9
+ADO Den Haag,ADO Den Haag,2011,29,3657,915,25.0
+ADO Den Haag,ADO Den Haag,2012,24,3048,784,25.7
+ADO Den Haag,ADO Den Haag,2013,26,3298,2382,72.2
+ADO Den Haag,ADO Den Haag,2014,29,3673,2626,71.5
+ADO Den Haag,ADO Den Haag,2015,27,3423,2495,72.9
+ADO Den Haag,ADO Den Haag,2016,34,4298,3546,82.5
+ADO Den Haag,ADO Den Haag,2017,33,4189,3301,78.8
+ADO Den Haag,ADO Den Haag,2018,31,3923,2604,66.4
+ADO Den Haag,ADO Den Haag,2019,41,5189,4145,79.9
+ADO Den Haag,ADO Den Haag,2020,43,5455,4438,81.4
+Ajax,Ajax,2010,31,3923,1015,25.9
+Ajax,Ajax,2011,27,3407,881,25.9
+Ajax,Ajax,2012,33,4157,1060,25.5
+Ajax,Ajax,2013,27,3407,2583,75.8
+Ajax,Ajax,2014,31,3939,2987,75.8
+Ajax,Ajax,2015,27,3423,2566,75.0
+Ajax,Ajax,2016,32,4048,3563,88.0
+Ajax,Ajax,2017,36,4548,3713,81.6
+Ajax,Ajax,2018,36,4596,3060,66.6
+Ajax,Ajax,2019,37,4705,3582,76.1
+Ajax,Ajax,2020,38,4846,3705,76.5
+Ajax,Ajax,2021,42,5362,3760,70.1
+Ajax,Ajax,2022,38,4814,3657,76.0
+Ajax,Ajax,2023,44,5596,4328,77.3
+Ajax,Ajax,2024,47,5971,4567,76.5
+Ajax,Ajax,2025,51,6487,4156,64.1
+Almere City,Almere City,2023,34,4330,3472,80.2
+Almere City,Almere City,2024,40,5080,3965,78.1
+AZ Alkmaar,AZ,2010,26,3298,861,26.1
+AZ Alkmaar,AZ,2011,21,2641,681,25.8
+AZ Alkmaar,AZ,2012,24,3016,782,25.9
+AZ Alkmaar,AZ,2013,23,2891,2195,75.9
+AZ Alkmaar,AZ,2014,29,3689,2494,67.6
+AZ Alkmaar,AZ,2015,32,4048,2901,71.7
+AZ Alkmaar,AZ,2016,32,4064,3481,85.7
+AZ Alkmaar,AZ,2017,33,4173,3287,78.8
+AZ Alkmaar,AZ,2018,36,4580,2581,56.4
+AZ Alkmaar,AZ,2019,29,3689,2940,79.7
+AZ Alkmaar,AZ,2020,40,5096,3103,60.9
+AZ Alkmaar,AZ,2021,36,4564,3470,76.0
+AZ Alkmaar,AZ,2022,36,4596,3578,77.9
+AZ Alkmaar,AZ,2023,40,5112,4051,79.2
+AZ Alkmaar,AZ,2024,39,4955,3602,72.7
+AZ Alkmaar,AZ,2025,41,5205,4175,80.2
+Cambuur,Cambuur,2013,25,3157,2393,75.8
+Cambuur,Cambuur,2014,29,3673,2608,71.0
+Cambuur,Cambuur,2015,36,4548,3301,72.6
+Cambuur,Cambuur,2021,31,3939,3276,83.2
+Cambuur,Cambuur,2022,34,4314,3716,86.1
+De Graafschap,De Graafschap,2010,27,3407,868,25.5
+De Graafschap,De Graafschap,2011,29,3657,921,25.2
+De Graafschap,De Graafschap,2015,29,3673,2585,70.4
+De Graafschap,De Graafschap,2018,35,4455,2811,63.1
+Dordrecht,Dordrecht,2014,34,4298,3036,70.6
+Emmen,Emmen,2018,35,4455,2857,64.1
+Emmen,Emmen,2019,35,4471,3479,77.8
+Emmen,Emmen,2020,37,4705,3863,82.1
+Emmen,Emmen,2022,38,4830,3663,75.8
+Excelsior,Excelsior,2010,27,3423,872,25.5
+Excelsior,Excelsior,2011,29,3641,919,25.2
+Excelsior,Excelsior,2014,26,3314,2478,74.8
+Excelsior,Excelsior,2015,27,3423,2572,75.1
+Excelsior,Excelsior,2016,29,3705,3071,82.9
+Excelsior,Excelsior,2017,29,3705,3001,81.0
+Excelsior,Excelsior,2018,29,3705,2456,66.3
+Excelsior,Excelsior,2022,31,3923,3372,86.0
+Excelsior,Excelsior,2023,34,4298,3314,77.1
+Excelsior,Excelsior,2025,32,4048,3732,92.2
+Feyenoord,Feyenoord,2010,28,3532,911,25.8
+Feyenoord,Feyenoord,2011,26,3266,835,25.6
+Feyenoord,Feyenoord,2012,26,3282,848,25.8
+Feyenoord,Feyenoord,2013,25,3173,2390,75.3
+Feyenoord,Feyenoord,2014,28,3548,2583,72.8
+Feyenoord,Feyenoord,2015,29,3689,2437,66.1
+Feyenoord,Feyenoord,2016,29,3705,3095,83.5
+Feyenoord,Feyenoord,2017,30,3814,3218,84.4
+Feyenoord,Feyenoord,2018,33,4189,2982,71.2
+Feyenoord,Feyenoord,2019,37,4705,3641,77.4
+Feyenoord,Feyenoord,2020,35,4455,3656,82.1
+Feyenoord,Feyenoord,2021,40,5080,3794,74.7
+Feyenoord,Feyenoord,2022,35,4471,3662,81.9
+Feyenoord,Feyenoord,2023,34,4330,3124,72.1
+Feyenoord,Feyenoord,2024,47,5987,4847,81.0
+Feyenoord,Feyenoord,2025,45,5721,4405,77.0
+Fortuna Sittard,Fortuna Sittard,2018,40,5112,3014,59.0
+Fortuna Sittard,Fortuna Sittard,2019,31,3939,3270,83.0
+Fortuna Sittard,Fortuna Sittard,2020,36,4596,3655,79.5
+Fortuna Sittard,Fortuna Sittard,2021,38,4830,3537,73.2
+Fortuna Sittard,Fortuna Sittard,2022,33,4173,3351,80.3
+Fortuna Sittard,Fortuna Sittard,2023,38,4846,3790,78.2
+Fortuna Sittard,Fortuna Sittard,2024,35,4439,3596,81.0
+Fortuna Sittard,Fortuna Sittard,2025,38,4830,3877,80.3
+Go Ahead Eagles,Go Ahead Eagles,2013,22,2798,2094,74.8
+Go Ahead Eagles,Go Ahead Eagles,2014,27,3439,2392,69.6
+Go Ahead Eagles,Go Ahead Eagles,2016,37,4657,3787,81.3
+Go Ahead Eagles,Go Ahead Eagles,2021,34,4346,3147,72.4
+Go Ahead Eagles,Go Ahead Eagles,2022,34,4314,3311,76.8
+Go Ahead Eagles,Go Ahead Eagles,2023,29,3673,2842,77.4
+Go Ahead Eagles,Go Ahead Eagles,2024,31,3923,3368,85.9
+Go Ahead Eagles,Go Ahead Eagles,2025,34,4298,3543,82.4
+Groningen,Groningen,2010,24,3032,772,25.5
+Groningen,Groningen,2011,26,3282,833,25.4
+Groningen,Groningen,2012,30,3782,960,25.4
+Groningen,Groningen,2013,24,3016,2246,74.5
+Groningen,Groningen,2014,29,3657,2690,73.6
+Groningen,Groningen,2015,30,3782,2514,66.5
+Groningen,Groningen,2016,35,4455,3161,71.0
+Groningen,Groningen,2017,31,3939,2991,75.9
+Groningen,Groningen,2018,33,4189,2874,68.6
+Groningen,Groningen,2019,37,4689,3096,66.0
+Groningen,Groningen,2020,36,4564,3482,76.3
+Groningen,Groningen,2021,34,4330,3376,78.0
+Groningen,Groningen,2022,45,5737,4434,77.3
+Groningen,Groningen,2024,34,4314,3451,80.0
+Groningen,Groningen,2025,32,4080,2992,73.3
+Heerenveen,Heerenveen,2010,28,3548,902,25.4
+Heerenveen,Heerenveen,2011,24,3048,788,25.9
+Heerenveen,Heerenveen,2012,29,3657,940,25.7
+Heerenveen,Heerenveen,2013,26,3282,2473,75.4
+Heerenveen,Heerenveen,2014,33,4157,2799,67.3
+Heerenveen,Heerenveen,2015,27,3423,2289,66.9
+Heerenveen,Heerenveen,2016,33,4189,2870,68.5
+Heerenveen,Heerenveen,2017,26,3330,2853,85.7
+Heerenveen,Heerenveen,2018,32,4064,2573,63.3
+Heerenveen,Heerenveen,2019,29,3673,2925,79.6
+Heerenveen,Heerenveen,2020,34,4330,2984,68.9
+Heerenveen,Heerenveen,2021,35,4455,3805,85.4
+Heerenveen,Heerenveen,2022,33,4205,3111,74.0
+Heerenveen,Heerenveen,2023,29,3689,3162,85.7
+Heerenveen,Heerenveen,2024,37,4705,3678,78.2
+Heerenveen,Heerenveen,2025,35,4455,3368,75.6
+Heracles Almelo,Heracles Almelo,2010,24,3016,761,25.2
+Heracles Almelo,Heracles Almelo,2011,25,3157,794,25.2
+Heracles Almelo,Heracles Almelo,2012,26,3282,841,25.6
+Heracles Almelo,Heracles Almelo,2013,28,3532,2645,74.9
+Heracles Almelo,Heracles Almelo,2014,30,3798,2656,69.9
+Heracles Almelo,Heracles Almelo,2015,26,3298,2277,69.0
+Heracles Almelo,Heracles Almelo,2016,30,3798,3258,85.8
+Heracles Almelo,Heracles Almelo,2017,30,3798,3005,79.1
+Heracles Almelo,Heracles Almelo,2018,29,3673,2621,71.4
+Heracles Almelo,Heracles Almelo,2019,29,3673,2829,77.0
+Heracles Almelo,Heracles Almelo,2020,32,4080,3417,83.8
+Heracles Almelo,Heracles Almelo,2021,35,4455,3770,84.6
+Heracles Almelo,Heracles Almelo,2023,34,4314,3317,76.9
+Heracles Almelo,Heracles Almelo,2024,32,4064,2968,73.0
+Heracles Almelo,Heracles Almelo,2025,41,5205,3934,75.6
+NAC Breda,NAC Breda,2010,25,3141,787,25.1
+NAC Breda,NAC Breda,2011,24,3016,772,25.6
+NAC Breda,NAC Breda,2012,22,2766,701,25.3
+NAC Breda,NAC Breda,2013,22,2766,2091,75.6
+NAC Breda,NAC Breda,2014,33,4173,3086,74.0
+NAC Breda,NAC Breda,2017,35,4455,3293,73.9
+NAC Breda,NAC Breda,2018,37,4705,3577,76.0
+NAC Breda,NAC Breda,2024,32,4064,3641,89.6
+NAC Breda,NAC Breda,2025,35,4439,3552,80.0
+NEC Nijmegen,NEC Nijmegen,2010,21,2657,686,25.8
+NEC Nijmegen,NEC Nijmegen,2011,25,3157,817,25.9
+NEC Nijmegen,NEC Nijmegen,2012,27,3423,898,26.2
+NEC Nijmegen,NEC Nijmegen,2013,29,3657,2758,75.4
+NEC Nijmegen,NEC Nijmegen,2015,31,3971,2809,70.7
+NEC Nijmegen,NEC Nijmegen,2016,32,4064,3237,79.7
+NEC Nijmegen,NEC Nijmegen,2021,31,3923,3053,77.8
+NEC Nijmegen,NEC Nijmegen,2022,27,3439,2708,78.7
+NEC Nijmegen,NEC Nijmegen,2023,33,4173,3419,81.9
+NEC Nijmegen,NEC Nijmegen,2024,29,3673,3063,83.4
+NEC Nijmegen,NEC Nijmegen,2025,41,5205,3934,75.6
+Zwolle,PEC Zwolle,2012,27,3423,886,25.9
+Zwolle,PEC Zwolle,2013,29,3673,2765,75.3
+Zwolle,PEC Zwolle,2014,32,4064,2799,68.9
+Zwolle,PEC Zwolle,2015,34,4298,2898,67.4
+Zwolle,PEC Zwolle,2016,32,4064,3304,81.3
+Zwolle,PEC Zwolle,2017,32,4064,3492,85.9
+Zwolle,PEC Zwolle,2018,34,4314,2764,64.1
+Zwolle,PEC Zwolle,2019,38,4814,3636,75.5
+Zwolle,PEC Zwolle,2020,34,4330,3309,76.4
+Zwolle,PEC Zwolle,2021,39,4939,3911,79.2
+Zwolle,PEC Zwolle,2023,36,4564,3489,76.4
+Zwolle,PEC Zwolle,2024,33,4205,3163,75.2
+Zwolle,PEC Zwolle,2025,39,4955,3682,74.3
+PSV,PSV,2010,25,3157,807,25.6
+PSV,PSV,2011,26,3298,845,25.6
+PSV,PSV,2012,23,2907,747,25.7
+PSV,PSV,2013,24,3032,2235,73.7
+PSV,PSV,2014,29,3657,2545,69.6
+PSV,PSV,2015,26,3298,2346,71.1
+PSV,PSV,2016,36,4580,2936,64.1
+PSV,PSV,2017,30,3830,3089,80.7
+PSV,PSV,2018,33,4189,2733,65.2
+PSV,PSV,2019,41,5237,3588,68.5
+PSV,PSV,2020,39,4939,4088,82.8
+PSV,PSV,2021,35,4455,3657,82.1
+PSV,PSV,2022,43,5455,3973,72.8
+PSV,PSV,2023,32,4064,3465,85.3
+PSV,PSV,2024,37,4689,3860,82.3
+PSV,PSV,2025,37,4689,3649,77.8
+RKC Waalwijk,RKC Waalwijk,2011,22,2766,715,25.8
+RKC Waalwijk,RKC Waalwijk,2012,23,2907,750,25.8
+RKC Waalwijk,RKC Waalwijk,2013,25,3157,2383,75.5
+RKC Waalwijk,RKC Waalwijk,2019,35,4439,3429,77.2
+RKC Waalwijk,RKC Waalwijk,2020,31,3923,3282,83.7
+RKC Waalwijk,RKC Waalwijk,2021,28,3580,3171,88.6
+RKC Waalwijk,RKC Waalwijk,2022,29,3689,3268,88.6
+RKC Waalwijk,RKC Waalwijk,2023,29,3689,3178,86.1
+RKC Waalwijk,RKC Waalwijk,2024,32,4096,3561,86.9
+Roda JC,Roda JC,2010,25,3173,807,25.4
+Roda JC,Roda JC,2011,22,2798,722,25.8
+Roda JC,Roda JC,2012,23,2907,751,25.8
+Roda JC,Roda JC,2013,23,2891,2198,76.0
+Roda JC,Roda JC,2015,37,4673,3395,72.7
+Roda JC,Roda JC,2016,41,5221,3619,69.3
+Roda JC,Roda JC,2017,33,4221,3104,73.5
+Sparta R.,Sparta,2016,32,4064,3518,86.6
+Sparta R.,Sparta,2017,38,4846,3929,81.1
+Sparta R.,Sparta,2019,27,3439,2774,80.7
+Sparta R.,Sparta,2020,30,3814,2777,72.8
+Sparta R.,Sparta,2021,39,4971,3813,76.7
+Sparta R.,Sparta,2022,35,4471,3418,76.4
+Sparta R.,Sparta,2023,38,4814,3166,65.8
+Sparta R.,Sparta,2024,38,4814,3585,74.5
+Sparta R.,Sparta,2025,36,4564,3618,79.3
+Telstar,Telstar,2025,35,4439,3355,75.6
+Twente,Twente,2010,29,3657,925,25.3
+Twente,Twente,2011,30,3798,976,25.7
+Twente,Twente,2012,29,3673,943,25.7
+Twente,Twente,2013,26,3266,2368,72.5
+Twente,Twente,2014,32,4064,3051,75.1
+Twente,Twente,2015,33,4205,2915,69.3
+Twente,Twente,2016,31,3955,3083,78.0
+Twente,Twente,2017,35,4423,3734,84.4
+Twente,Twente,2019,31,3939,3026,76.8
+Twente,Twente,2020,30,3798,3379,89.0
+Twente,Twente,2021,33,4189,3427,81.8
+Twente,Twente,2022,34,4314,3140,72.8
+Twente,Twente,2023,29,3689,3173,86.0
+Twente,Twente,2024,35,4455,3523,79.1
+Twente,Twente,2025,33,4189,3201,76.4
+Utrecht,Utrecht,2010,32,4032,1010,25.0
+Utrecht,Utrecht,2011,33,4189,1077,25.7
+Utrecht,Utrecht,2012,29,3657,928,25.4
+Utrecht,Utrecht,2013,35,4407,3303,74.9
+Utrecht,Utrecht,2014,39,4923,3578,72.7
+Utrecht,Utrecht,2015,31,3923,2802,71.4
+Utrecht,Utrecht,2016,36,4564,3596,78.8
+Utrecht,Utrecht,2017,28,3548,3178,89.6
+Utrecht,Utrecht,2018,32,4064,2812,69.2
+Utrecht,Utrecht,2019,41,5221,3663,70.2
+Utrecht,Utrecht,2020,38,4830,3790,78.5
+Utrecht,Utrecht,2021,40,5112,4207,82.3
+Utrecht,Utrecht,2022,42,5346,4001,74.8
+Utrecht,Utrecht,2023,46,5862,4242,72.4
+Utrecht,Utrecht,2024,34,4330,3288,75.9
+Utrecht,Utrecht,2025,39,4955,3906,78.8
+Vitesse,Vitesse,2010,32,4032,1018,25.2
+Vitesse,Vitesse,2011,31,3923,998,25.4
+Vitesse,Vitesse,2012,22,2782,721,25.9
+Vitesse,Vitesse,2013,25,3141,2290,72.9
+Vitesse,Vitesse,2014,23,2923,2182,74.6
+Vitesse,Vitesse,2015,30,3798,2641,69.5
+Vitesse,Vitesse,2016,30,3814,3319,87.0
+Vitesse,Vitesse,2017,32,4080,3284,80.5
+Vitesse,Vitesse,2018,30,3798,2758,72.6
+Vitesse,Vitesse,2019,31,3923,3042,77.5
+Vitesse,Vitesse,2020,31,3939,3070,77.9
+Vitesse,Vitesse,2021,35,4455,3527,79.2
+Vitesse,Vitesse,2022,32,4080,3520,86.3
+Vitesse,Vitesse,2023,38,4814,3662,76.1
+Volendam,Volendam,2022,33,4173,3651,87.5
+Volendam,Volendam,2023,42,5298,4402,83.1
+Volendam,Volendam,2025,36,4580,3852,84.1
+VVV-Venlo,VVV Venlo,2010,27,3407,851,25.0
+VVV-Venlo,VVV Venlo,2011,26,3298,830,25.2
+VVV-Venlo,VVV Venlo,2012,25,3157,797,25.2
+VVV-Venlo,VVV Venlo,2017,32,4064,2913,71.7
+VVV-Venlo,VVV Venlo,2018,29,3689,2548,69.1
+VVV-Venlo,VVV Venlo,2019,32,4096,3050,74.5
+VVV-Venlo,VVV Venlo,2020,33,4189,3527,84.2
+Willem II,Willem II,2010,28,3548,903,25.5
+Willem II,Willem II,2012,27,3407,858,25.2
+Willem II,Willem II,2014,29,3673,2491,67.8
+Willem II,Willem II,2015,34,4282,3009,70.3
+Willem II,Willem II,2016,32,4064,3006,74.0
+Willem II,Willem II,2017,36,4564,3264,71.5
+Willem II,Willem II,2018,32,4064,2974,73.2
+Willem II,Willem II,2019,29,3689,2918,79.1
+Willem II,Willem II,2020,34,4330,3651,84.3
+Willem II,Willem II,2021,37,4705,4013,85.3
+Willem II,Willem II,2024,31,3939,3136,79.6

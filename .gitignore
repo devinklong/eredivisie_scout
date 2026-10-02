@@ -101,3 +101,6 @@ docker-compose.override.yml
 # ==========================================
 models/*.pkl
 models/*.joblib
+
+!data_audit/**/*.csv
+data_audit/results/player_column_coverage.csv
