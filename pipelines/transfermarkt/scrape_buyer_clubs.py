@@ -45,11 +45,16 @@ the player-page behaviour, not confirmed -- if the first club comes back
 as a failure or the wrong club (check the logged page title), add a
 'slug' column to the CSV and rerun.
 
-DIRECTION caveat inherited from the extractor: even-indexed tables are
-'in', odd-indexed 'out' (never fully confirmed -- its own docstring says
-so). For a buyer club direction='in' IS the spend, so after loading, run
-schema/transfermarkt/buyer_club_transfers_checks.sql: check 2 uses the
-Eredivisie side's own 'out' rows as independent ground truth for it.
+DIRECTION comes from each table's own 'Arrivals'/'Departures' heading,
+not its position. The position rule this script originally inherited from
+the extractor was wrong: one season with a single table shifted every table
+below it, inverting direction for the whole rest of the page (7 of 69 buyer
+pages, including Chelsea, Inter, Atalanta, Benfica, Arsenal and Atletico).
+A club whose tables can't be given a trustworthy direction fails instead of
+being saved. For a buyer club direction='in' IS the spend, so after loading,
+run schema/transfermarkt/buyer_club_transfers_checks.sql: check 2 uses the
+Eredivisie side's own 'out' rows as independent ground truth, and should
+show 0 found_only_as_out_direction_flipped.
 """
 
 import argparse
@@ -63,7 +68,10 @@ from bs4 import BeautifulSoup
 
 from extract_transfermarkt_transfer_history import (
     HEADERS,
-    extract_transfer_table,
+    RELEVANT_FROM_SEASON,
+    DirectionError,
+    parse_transfer_page_html,
+    require_resolved_directions,
     save_to_json,
 )
 
@@ -132,15 +140,12 @@ def page_title(html):
 
 
 def parse_transfer_page(html):
-    """Pure function: page HTML -> list of transfer dicts. Direction rule is
-    the extractor's, unchanged (even table index = 'in', odd = 'out'), so
-    buyer rows mean exactly what the 29 Eredivisie clubs' rows already do."""
-    soup = BeautifulSoup(html, "html.parser")
-    transfers = []
-    for i, table in enumerate(soup.find_all("table")):
-        direction = "in" if i % 2 == 0 else "out"
-        transfers.extend(extract_transfer_table(table, direction))
-    return transfers
+    """Pure function: page HTML -> (transfers, info). Direction for every
+    table comes from its own 'Arrivals'/'Departures' heading, never from its
+    position (see extract_transfermarkt_transfer_history.py for why). info
+    lists unresolved tables and where the old position rule would have been
+    wrong."""
+    return parse_transfer_page_html(html)
 
 
 def summarize(transfers):
@@ -157,19 +162,24 @@ def summarize(transfers):
 
 
 def scrape_club(club_id, slug=None):
-    """Fetches and parses one club. Returns (url, title, transfers).
-    Raises ScrapeError rather than ever returning an empty result."""
+    """Fetches and parses one club. Returns (url, title, transfers, info).
+    Raises ScrapeError rather than ever returning an empty or
+    direction-uncertain result."""
     url = build_url(club_id, slug)
     html = fetch_html(url)
     title = page_title(html)
-    transfers = parse_transfer_page(html)
+    transfers, info = parse_transfer_page(html)
+    try:
+        require_resolved_directions(info)
+    except DirectionError as e:
+        raise ScrapeError(f"{e} (page title: {title!r}) -- NOT saved")
     if not transfers:
         raise ScrapeError(
             f"HTTP 200 but 0 transfers parsed (page title: {title!r}) -- a bot-"
             f"challenge page, a wrong/placeholder-slug redirect, or a layout change; "
             f"NOT saved as an empty success"
         )
-    return url, title, transfers
+    return url, title, transfers, info
 
 
 def main():
@@ -182,6 +192,11 @@ def main():
                         help="re-scrape clubs whose JSON already exists")
     args = parser.parse_args()
 
+    if not args.input.exists():
+        sys.exit(f"Input file not found: {args.input}\n"
+                 f"Generate it with: python pipelines/transfermarkt/select_buyer_clubs.py "
+                 f"(reads data_audit/results/buyer_clubs_ranked.csv, written by "
+                 f"list_buyer_clubs.py), or pass --input <path>.")
     clubs = read_club_list(args.input)
     if args.only:
         wanted = set(args.only)
@@ -205,7 +220,7 @@ def main():
             continue
 
         try:
-            url, title, transfers = scrape_club(club_id, club["slug"])
+            url, title, transfers, info = scrape_club(club_id, club["slug"])
         except ScrapeError as e:
             print(f"  FAILED: {e}")
             failures.append((club_id, name, str(e)))
@@ -217,6 +232,13 @@ def main():
               f"seasons {s['first_season']}-{s['last_season']}, "
               f"{s['unrecognized_fees']} unrecognized fee format(s), "
               f"{s['no_season']} with no season")
+        if info["parity_wrong_tables"]:
+            print(f"  direction fixed: the old position rule would have mislabeled "
+                  f"{info['parity_wrong_tables']} table(s) ({info['parity_wrong_rows_relevant']} rows "
+                  f"from {RELEVANT_FROM_SEASON} on), first at table {info['first_parity_wrong_index']}")
+        if info["unresolved"]:
+            print(f"  skipped {len(info['unresolved'])} table(s) with no usable direction "
+                  f"(none hold rows from {RELEVANT_FROM_SEASON} on)")
         save_to_json(transfers, out_path)
         done.append(club_id)
 

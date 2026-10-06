@@ -13,12 +13,25 @@ Transfer-history row structure (4 cells, confirmed from real rows):
   3: 'rechts' -- fee text, same €X.XXm / descriptive-string format as the
      squad page's transfer widget
 
-Pattern observed (NOT yet confirmed across all 163 tables, only the
-first 2): even-indexed tables (0, 2, 4...) are incoming transfers,
-odd-indexed (1, 3, 5...) are outgoing -- i.e. each season contributes a
-pair of tables. Worth spot-checking a few more pairs before trusting
-this holds for the entire page, especially older seasons where a
-transfer window might have zero movement in one direction.
+DIRECTION comes from each table's own heading, NOT from its position
+(changed 2026-10-05). Every table sits under a heading like "Arrivals
+26/27" or "Departures 27/28". This module previously assumed even-indexed
+tables were incoming and odd-indexed outgoing, an assumption its own
+docstring called unconfirmed. It was wrong: a season that has only ONE
+table (an announced future departure with no arrivals yet, or a window
+with no arrivals) shifts every table below it by one, so the whole rest of
+the page is labeled backwards. Found when buyer_club_transfers_checks.sql
+check 2 showed 22 of 238 paid Eredivisie sales labeled backwards, all at 7
+clubs (Atalanta, Benfica, Chelsea, Atletico, Inter, Arsenal, Anzhi), none
+labeled correctly at those clubs, then confirmed on the real pages with
+inspect_transfer_tables.py. The table header row ('Players', 'Club',
+'Transfer sum') is identical on every table and cannot be used.
+
+A table whose direction cannot be established from the page (no Arrivals/
+Departures heading, a heading already used by another table, or a heading
+whose season disagrees with its own rows) is left out and reported. If it
+holds transfers from RELEVANT_FROM_SEASON on, extract_all_transfers raises
+DirectionError instead of guessing. It never falls back to position.
 
 parse_market_value / parse_fee / extract_player_id / extract_club_id
 duplicated from extract_transfermarkt_squad.py rather than shared via
@@ -177,22 +190,117 @@ def extract_transfer_table(table, direction):
     return transfers
 
 
+# Transfers before this season are dropped downstream (see
+# pipelines/transfermarkt/load_buyer_club_transfers.py MIN_SEASON). A table
+# whose direction can't be established only blocks a scrape if it holds rows
+# from this season on. Old, undated clutter does not.
+RELEVANT_FROM_SEASON = 2000
+
+_HEADING_TAG = re.compile(r"^h[1-6]$")
+_DIRECTION_HEADING = re.compile(r"^\s*(Arrivals|Departures)\b", re.IGNORECASE)
+_HEADING_SEASON = re.compile(r"(\d{2})\s*/\s*(\d{2})")
+
+
+class DirectionError(Exception):
+    """A table holding relevant transfers has no trustworthy direction."""
+
+
+def heading_direction(text):
+    """'Arrivals 26/27' -> 'in', 'Departures 27/28' -> 'out', anything else
+    (including None) -> None."""
+    m = _DIRECTION_HEADING.match(text or "")
+    if not m:
+        return None
+    return "in" if m.group(1).lower() == "arrivals" else "out"
+
+
+def heading_start_yy(text):
+    """'Arrivals 26/27' -> 26 (the season's start year, last two digits), or
+    None. Century-agnostic on purpose: compared with season_id % 100."""
+    m = _HEADING_SEASON.search(text or "")
+    return int(m.group(1)) if m else None
+
+
+def parse_transfer_page_html(html):
+    """Pure function: page HTML -> (transfers, info).
+
+    Direction for every table comes from its own Arrivals/Departures heading.
+    Tables that can't be resolved are excluded from `transfers` and listed in
+    info["unresolved"]. info also records where the OLD position rule would
+    have been wrong, so each scrape can show what the fix changed."""
+    soup = BeautifulSoup(html, "html.parser")
+    transfers = []
+    unresolved = []
+    parity_wrong = []
+    claimed = {}  # heading element -> index of the first table that used it
+
+    tables = soup.find_all("table")
+    for i, table in enumerate(tables):
+        heading_tag = table.find_previous(_HEADING_TAG)
+        heading = heading_tag.get_text(" ", strip=True) if heading_tag is not None else None
+        direction = heading_direction(heading)
+        parity = "in" if i % 2 == 0 else "out"
+
+        problem = None
+        if direction is None:
+            problem = "no Arrivals/Departures heading above this table"
+        elif id(heading_tag) in claimed:
+            problem = f"heading {heading!r} already used by table {claimed[id(heading_tag)]}"
+        else:
+            claimed[id(heading_tag)] = i
+
+        rows = extract_transfer_table(table, direction or parity)
+
+        if problem is None:
+            yy = heading_start_yy(heading)
+            if yy is not None:
+                bad = sorted({r["season_id"] for r in rows
+                              if r["season_id"] is not None and r["season_id"] % 100 != yy})
+                if bad:
+                    problem = f"heading season {yy:02d} but rows are from season(s) {bad}"
+
+        relevant = sum(1 for r in rows
+                       if r["season_id"] is not None and r["season_id"] >= RELEVANT_FROM_SEASON)
+        if problem:
+            unresolved.append({"index": i, "heading": heading, "problem": problem,
+                               "rows": len(rows), "rows_relevant": relevant})
+            continue
+        if direction != parity:
+            parity_wrong.append({"index": i, "heading": heading,
+                                 "rows": len(rows), "rows_relevant": relevant})
+        transfers.extend(rows)
+
+    info = {
+        "tables": len(tables),
+        "unresolved": unresolved,
+        "parity_wrong_tables": len(parity_wrong),
+        "parity_wrong_rows_relevant": sum(t["rows_relevant"] for t in parity_wrong),
+        "first_parity_wrong_index": parity_wrong[0]["index"] if parity_wrong else None,
+    }
+    return transfers, info
+
+
+def require_resolved_directions(info):
+    """Raises DirectionError if any unresolved table holds transfers from
+    RELEVANT_FROM_SEASON on. Those rows would silently vanish or be
+    mislabeled, so the scrape must fail instead."""
+    blocking = [u for u in info["unresolved"] if u["rows_relevant"] > 0]
+    if blocking:
+        first = blocking[0]
+        raise DirectionError(
+            f"{len(blocking)} table(s) holding transfers from {RELEVANT_FROM_SEASON} on have no "
+            f"trustworthy direction; first: table {first['index']} ({first['heading']!r}): "
+            f"{first['problem']}"
+        )
+
+
 def extract_all_transfers(url=URL):
     """Fetches and parses a club's full transfer-history page. Returns
     the list of transfer dicts -- callable directly by other pipeline
     code, not just as a script."""
     response = requests.get(url, headers=HEADERS, timeout=15)
-    soup = BeautifulSoup(response.text, "html.parser")
-    tables = soup.find_all("table")
-
-    all_transfers = []
-    for i, table in enumerate(tables):
-        # Pattern per module docstring: even index = incoming, odd =
-        # outgoing. NOT fully confirmed across all 163 -- flagged, not
-        # assumed safe.
-        direction = "in" if i % 2 == 0 else "out"
-        all_transfers.extend(extract_transfer_table(table, direction))
-
+    all_transfers, info = parse_transfer_page_html(response.text)
+    require_resolved_directions(info)
     return all_transfers
 
 

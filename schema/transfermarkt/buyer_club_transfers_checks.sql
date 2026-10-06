@@ -64,6 +64,32 @@ SELECT COUNT(*)                                          AS ered_outs_to_scraped
        ROUND(100.0 * COUNT(*) FILTER (WHERE as_in) / NULLIF(COUNT(*), 0), 1) AS pct_found_as_in
 FROM matched;
 
+-- 2b. WHERE the direction flips are. Lists every transfer from check 2's
+--    found_only_as_out_direction_flipped bucket. If they cluster by buyer
+--    club or by season, the parity rule is breaking at a specific point
+--    on those pages (e.g. a season with only one table shifts every table
+--    after it) rather than at random.
+SELECT COALESCE(b.own_club_name, b.own_club_id::text) AS buyer,
+       e.season_id, e.player_name, e.fee_amount,
+       e.own_club_id AS seller_id
+FROM eredivisie_transfers e
+JOIN buyer_club_transfers b
+  ON b.own_club_id = e.counterparty_club_id
+ AND b.counterparty_club_id = e.own_club_id
+ AND b.player_id = e.player_id
+ AND b.season_id = e.season_id
+ AND b.direction = 'out'
+WHERE e.direction = 'out'
+  AND e.fee_type IN ('permanent_transfer', 'paid_loan')
+  AND e.fee_amount IS NOT NULL
+  AND NOT EXISTS (SELECT 1 FROM buyer_club_transfers b2
+                  WHERE b2.own_club_id = e.counterparty_club_id
+                    AND b2.counterparty_club_id = e.own_club_id
+                    AND b2.player_id = e.player_id
+                    AND b2.season_id = e.season_id
+                    AND b2.direction = 'in')
+ORDER BY buyer, e.season_id;
+
 -- 3. Fee agreement on the transfers both pages describe. The seller's
 --    page and the buyer's page should state the same fee. GOOD: 0 or
 --    near-0 disagreements. Any rows listed are worth eyeballing -- they
@@ -99,3 +125,33 @@ WHERE e.direction = 'out'
   AND b.fee_amount IS DISTINCT FROM e.fee_amount
 ORDER BY e.season_id DESC
 LIMIT 25;
+
+-- 4. Is the Eredivisie side itself trustworthy? Check 2 treats
+--    eredivisie_transfers.direction as ground truth, but that table came
+--    from the same extractor and the same parity rule. A paid transfer
+--    between two TRACKED clubs appears once on each club's page, so the
+--    two rows must carry OPPOSITE directions (one 'out', one 'in').
+--    Rows that carry the SAME direction on both sides are contradictions
+--    -- at least one of the two is mislabeled. Each pair is counted once
+--    (a.transfer_id < b.transfer_id). Restricted to paid fees to avoid
+--    loan out-and-back round trips inside one season, which would create
+--    false contradictions. GOOD: contradictory at or near 0, so check 2's
+--    ground truth holds. BAD: a share comparable to check 2's ~9% means
+--    the flaw is in the shared extractor, so eredivisie_transfers and
+--    transfer_spend_context (which filters direction = 'in') are affected
+--    too. The ALL row is the grand total, the rest is per season.
+SELECT COALESCE(a.season_id::text, 'ALL') AS season,
+       COUNT(*)                                          AS inter_eredivisie_paid_pairs,
+       COUNT(*) FILTER (WHERE a.direction <> b.direction) AS consistent,
+       COUNT(*) FILTER (WHERE a.direction =  b.direction) AS contradictory
+FROM eredivisie_transfers a
+JOIN eredivisie_transfers b
+  ON b.own_club_id = a.counterparty_club_id
+ AND b.counterparty_club_id = a.own_club_id
+ AND b.player_id = a.player_id
+ AND b.season_id = a.season_id
+ AND a.transfer_id < b.transfer_id
+WHERE a.fee_type IN ('permanent_transfer', 'paid_loan') AND a.fee_amount IS NOT NULL
+  AND b.fee_type IN ('permanent_transfer', 'paid_loan') AND b.fee_amount IS NOT NULL
+GROUP BY ROLLUP (a.season_id)
+ORDER BY a.season_id;
