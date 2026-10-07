@@ -363,6 +363,27 @@ class ClusteringReadinessTests(unittest.TestCase):
         self.assertEqual(ready.loc["ALL"].tolist(), [40, 39, 39])
 
 
+class NullShareTests(unittest.TestCase):
+    def test_names_the_feature_and_the_seasons_where_it_is_worst_and_best(self):
+        a = rows(2015, "DF", 40, 1000); a.loc[:9, "tm_height_cm"] = np.nan          # 10 of 40 missing in 2015
+        b = rows(2016, "DF", 40, 2000)                                              # none missing in 2016
+        c = rows(2011, "DF", 40, 3000); c["tm_height_cm"] = np.nan                  # before the first usable season: ignored
+        result, _ = bsp.build_percentiles(frame(a, b, c))
+        top = bsp.null_share_by_feature(result).iloc[0]
+        self.assertEqual(top.feature, "tm_height_cm")
+        self.assertEqual((top.null_share, top.worst_season, top.worst_share, top.best_season, top.best_share),
+                         (0.125, 2015, 0.25, 2016, 0.0))                             # 10 of 80 overall
+
+    def test_sorted_worst_first_and_complete_features_show_zero(self):
+        df = rows(2015, "DF", 40, 1000)
+        df.loc[:3, "ws_clearances_per90"] = np.nan                                  # 4 missing
+        df.loc[:9, "tm_height_cm"] = np.nan                                         # 10 missing
+        out = bsp.null_share_by_feature(bsp.build_percentiles(df)[0])
+        self.assertEqual(out.feature.iloc[:2].tolist(), ["tm_height_cm", "ws_clearances_per90"])
+        self.assertEqual(out[out.feature == "ws_touches_per90"].iloc[0].null_share, 0.0)
+        self.assertEqual(len(out), len(bsp.CLUSTERING_FEATURES))
+
+
 class SchemaTests(unittest.TestCase):
     def test_ddl_has_every_percentile_column_and_a_primary_key(self):
         ddl = bsp.table_ddl()

@@ -245,6 +245,21 @@ def clustering_readiness(result, first_season=CLUSTERING_FIRST_SEASON, features=
     return out.astype(int)
 
 
+def null_share_by_feature(result, features=CLUSTERING_FEATURES, first_season=CLUSTERING_FIRST_SEASON):
+    """For each clustering feature, the share of ranked rows (from first_season on) with a NULL
+    percentile, overall and in its best and worst season, sorted worst first. This names WHICH feature
+    is costing rows; clustering_readiness only says how many rows are incomplete."""
+    r = result[result["season_id"] >= first_season]
+    out = []
+    for f in features:
+        isnull = r["pct_" + f].isna()
+        by_season = isnull.groupby(r["season_id"]).mean()
+        out.append({"feature": f, "null_share": float(isnull.mean()),
+                    "worst_season": int(by_season.idxmax()), "worst_share": float(by_season.max()),
+                    "best_season": int(by_season.idxmin()), "best_share": float(by_season.min())})
+    return pd.DataFrame(out).sort_values("null_share", ascending=False, kind="mergesort").reset_index(drop=True)
+
+
 def empty_feature_seasons(result, features=STYLE_FEATURES):
     """Features with NO ranked value at all in some season, grouped by which
     seasons: {(seasons...): [features]}. Complete features are not listed. The
@@ -331,6 +346,13 @@ def print_report(report, result):
     print(ready.to_string())
     print(f"  -> requiring {RATE_UNDER_REVIEW} costs {int(ready.loc['ALL', 'complete_without_take_on_rate'] - ready.loc['ALL', 'complete'])} "
           f"of {int(ready.loc['ALL', 'ranked'])} ranked rows")
+    nulls = null_share_by_feature(result)
+    print(f"\nWhere the NULLs are (clustering features, stat seasons {CLUSTERING_FIRST_SEASON}+, share of ranked rows with a NULL percentile):")
+    shown = nulls[nulls["null_share"] > 0]
+    if shown.empty:
+        print("  none")
+    for r in shown.head(10).itertuples():
+        print(f"  {r.feature:<34} {r.null_share:6.1%}   (worst {r.worst_season}: {r.worst_share:.0%}, best {r.best_season}: {r.best_share:.0%})")
     gaps = empty_feature_seasons(result)
     print("\nFeatures with NO ranked value in a season (the clustering step needs to know):")
     if not gaps:

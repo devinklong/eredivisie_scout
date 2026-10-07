@@ -107,7 +107,10 @@ def format_report(findings):
         lines.append(f"\n--- {kind.upper()}")
         for (_, value, seasons), cols in sorted(groups.items(), key=lambda kv: (-len(kv[1]), kv[0][2])):
             val = f" (value {value:g})" if kind == "constant" and value is not None else ""
-            shown = ", ".join(sorted(cols)[:6]) + (f", ... (+{len(cols) - 6} more)" if len(cols) > 6 else "")
+            if kind == "constant":      # always name every one: these are the suspects that matter
+                shown = ", ".join(sorted(cols))
+            else:
+                shown = ", ".join(sorted(cols)[:6]) + (f", ... (+{len(cols) - 6} more; full list in the CSV)" if len(cols) > 6 else "")
             lines.append(f"  seasons {list(seasons)}{val}: {len(cols)} column(s): {shown}")
     return "\n".join(lines)
 

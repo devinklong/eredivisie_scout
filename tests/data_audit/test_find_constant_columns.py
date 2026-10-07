@@ -108,6 +108,19 @@ class GroupingTests(unittest.TestCase):
         self.assertIn("CONSTANT", text)
         self.assertIn("seasons [2016] (value 0): 1 column(s): crosses", text)
 
+    def test_constant_columns_are_all_named_but_other_groups_are_truncated(self):
+        const = {f"c{i}": 0.0 for i in range(9)}
+        empty = {f"e{i}": np.nan for i in range(9)}
+        text = fcc.format_report(fcc.scan(make(2016, 40, **const, **empty)))
+        for i in range(9):
+            self.assertIn(f"c{i}", text)                                  # every constant column is named
+        self.assertNotIn("(+", text.split("--- EMPTY")[0])                # no truncation in the CONSTANT section
+        empty_section = text.split("--- EMPTY")[1]
+        self.assertIn("(+3 more; full list in the CSV)", empty_section)   # the EMPTY section is truncated at 6
+        self.assertIn("e5", empty_section)
+        for hidden in ("e6", "e7", "e8"):
+            self.assertNotIn(hidden, empty_section)                       # and the extra names really are hidden
+
     def test_a_clean_dataset_says_so(self):
         self.assertEqual(fcc.format_report(fcc.scan(make(2019, 40, good=range(40)))), "No constant, empty or sparse columns found.")
 
