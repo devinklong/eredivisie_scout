@@ -100,14 +100,22 @@ GUARD_COLUMNS = sorted({col for col, _ in RATE_GUARDS.values()})
 # feature -> the raw count column it is derived from (divided by fbref_nineties)
 DERIVED_FEATURES = {"derived_shots_per90": "fbref_shots"}
 RAW_FEATURES = [f for f in STYLE_FEATURES if f not in DERIVED_FEATURES]
-# The v1 CLUSTERING vector (step 2): every style feature that is complete for the stat seasons
-# used for training. FBref's misc columns are out: crosses, offsides and fouls drawn are real only
-# from 2019 (FBref zeros in 2016-2017, NULL before and in 2018), fouls committed is missing in 2018.
+# The CLUSTERING vector (step 2) holds what a player DOES (volume, zone, habit). How WELL he does it
+# (the success rates) and physical attributes go to the valuation model, which accepts NULLs. Left out of
+# the clustering vector, and why, from the first real readiness report (2026-10-06):
+#   FBref misc: crosses, offsides and fouls drawn are real only from 2019 (FBref zeros in 2016-2017, NULL
+#     before and in 2018), fouls committed is missing in 2018.
+#   The three success rates: skill not style, the ones needing attempt guards, 23% / 4.4% / 0.2% NULL.
+#   tm_height_cm: physical not style, 31.8% NULL because Transfermarkt bio coverage reaches only
+#     crosswalk-linked players (44% NULL in 2017, 14% in 2025), a data-linkage artifact not a player trait.
+# Clustering cannot take NULLs, so everything left should be nearly complete for stat seasons 2013-2025.
 FBREF_MISC_EXCLUDED = ["fbref_crosses_per90", "fbref_offsides_per90",
                        "fbref_fouls_drawn_per90", "fbref_fouls_committed_per90"]
-CLUSTERING_FEATURES = [f for f in STYLE_FEATURES if f not in FBREF_MISC_EXCLUDED]
+RATE_FEATURES = list(RATE_GUARDS)
+HEIGHT_FEATURE = "tm_height_cm"
+V1_FEATURES = [f for f in STYLE_FEATURES if f not in FBREF_MISC_EXCLUDED]     # the 27-feature vector of the first readiness report
+CLUSTERING_FEATURES = [f for f in V1_FEATURES if f not in RATE_FEATURES and f != HEIGHT_FEATURE]
 CLUSTERING_FIRST_SEASON = 2013          # WhoScored starts in 2013
-RATE_UNDER_REVIEW = "ws_take_ons_won_pct"   # 19% of ranked rows are NULL: shrink, drop or keep NULL (undecided)
 ID_COLUMNS = ["player_id", "canonical_name", "team", "season_id", "fbref_position", "fbref_nineties"]
 READ_COLUMNS = list(dict.fromkeys(ID_COLUMNS + RAW_FEATURES + sorted(DERIVED_FEATURES.values()) + GUARD_COLUMNS))
 
@@ -228,24 +236,22 @@ def coverage_by_season(result, features=STYLE_FEATURES):
 
 
 def clustering_readiness(result, first_season=CLUSTERING_FIRST_SEASON, features=CLUSTERING_FEATURES):
-    """Ranked rows from first_season on whose clustering vector is COMPLETE, and how many would be if
-    the under-review rate feature were not required. Clustering cannot take NULLs, so this is how many
-    rows each choice about that feature costs."""
-    pct = ["pct_" + f for f in features]
-    without_rate = [c for c in pct if c != "pct_" + RATE_UNDER_REVIEW]
+    """Ranked rows from first_season on whose clustering vector is COMPLETE (no NULL percentile), next to
+    how many would be complete under the earlier 27-feature vector that also required the three success
+    rates and height. Clustering cannot take NULLs, so this is what the vector choice costs."""
     r = result[result["season_id"] >= first_season]
     flags = pd.DataFrame({"season_id": r["season_id"].values,
-                          "complete": r[pct].notna().all(axis=1).values,
-                          "complete_without_take_on_rate": r[without_rate].notna().all(axis=1).values})
+                          "complete": r[["pct_" + f for f in features]].notna().all(axis=1).values,
+                          "complete_27_feature_vector": r[["pct_" + f for f in V1_FEATURES]].notna().all(axis=1).values})
     out = flags.groupby("season_id").agg(ranked=("complete", "size"), complete=("complete", "sum"),
-                                         complete_without_take_on_rate=("complete_without_take_on_rate", "sum"))
+                                         complete_27_feature_vector=("complete_27_feature_vector", "sum"))
     total = out.sum()
     out.index = out.index.astype(str)
     out.loc["ALL"] = total
     return out.astype(int)
 
 
-def null_share_by_feature(result, features=CLUSTERING_FEATURES, first_season=CLUSTERING_FIRST_SEASON):
+def null_share_by_feature(result, features=V1_FEATURES, first_season=CLUSTERING_FIRST_SEASON):
     """For each clustering feature, the share of ranked rows (from first_season on) with a NULL
     percentile, overall and in its best and worst season, sorted worst first. This names WHICH feature
     is costing rows; clustering_readiness only says how many rows are incomplete."""
@@ -341,18 +347,19 @@ def print_report(report, result):
     print("\nCoverage by season (share of ranked rows with at least one ranked feature):")
     print(coverage_by_season(result).round(2).to_string())
     ready = clustering_readiness(result)
-    print(f"\nClustering-ready rows (stat seasons {CLUSTERING_FIRST_SEASON}+, vector of {len(CLUSTERING_FEATURES)} features: "
-          f"every non-FBref-misc style feature):")
+    print(f"\nClustering-ready rows (stat seasons {CLUSTERING_FIRST_SEASON}+): complete = all {len(CLUSTERING_FEATURES)} clustering features present; "
+          f"the last column is the earlier {len(V1_FEATURES)}-feature vector that also required the success rates and height:")
     print(ready.to_string())
-    print(f"  -> requiring {RATE_UNDER_REVIEW} costs {int(ready.loc['ALL', 'complete_without_take_on_rate'] - ready.loc['ALL', 'complete'])} "
-          f"of {int(ready.loc['ALL', 'ranked'])} ranked rows")
+    print(f"  -> the {len(CLUSTERING_FEATURES)}-feature vector is complete for {ready.loc['ALL', 'complete'] / ready.loc['ALL', 'ranked']:.1%} of ranked rows "
+          f"(+{int(ready.loc['ALL', 'complete'] - ready.loc['ALL', 'complete_27_feature_vector'])} rows over the {len(V1_FEATURES)}-feature vector)")
     nulls = null_share_by_feature(result)
-    print(f"\nWhere the NULLs are (clustering features, stat seasons {CLUSTERING_FIRST_SEASON}+, share of ranked rows with a NULL percentile):")
+    print(f"\nWhere the NULLs are (stat seasons {CLUSTERING_FIRST_SEASON}+, share of ranked rows with a NULL percentile; * = not in the clustering vector, kept for the valuation model):")
     shown = nulls[nulls["null_share"] > 0]
     if shown.empty:
         print("  none")
     for r in shown.head(10).itertuples():
-        print(f"  {r.feature:<34} {r.null_share:6.1%}   (worst {r.worst_season}: {r.worst_share:.0%}, best {r.best_season}: {r.best_share:.0%})")
+        mark = " " if r.feature in CLUSTERING_FEATURES else "*"
+        print(f" {mark}{r.feature:<34} {r.null_share:6.1%}   (worst {r.worst_season}: {r.worst_share:.0%}, best {r.best_season}: {r.best_share:.0%})")
     gaps = empty_feature_seasons(result)
     print("\nFeatures with NO ranked value in a season (the clustering step needs to know):")
     if not gaps:

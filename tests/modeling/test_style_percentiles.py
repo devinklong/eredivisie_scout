@@ -326,22 +326,29 @@ class ConstantFeatureTests(unittest.TestCase):
 
 
 class ClusteringReadinessTests(unittest.TestCase):
-    def test_the_vector_is_27_features_without_the_four_fbref_misc_ones(self):
-        self.assertEqual(len(bsp.CLUSTERING_FEATURES), 27)
-        for f in bsp.FBREF_MISC_EXCLUDED:
-            self.assertNotIn(f, bsp.CLUSTERING_FEATURES)
-        self.assertIn("derived_shots_per90", bsp.CLUSTERING_FEATURES)
-        self.assertIn("tm_height_cm", bsp.CLUSTERING_FEATURES)
-        self.assertIn(bsp.RATE_UNDER_REVIEW, bsp.CLUSTERING_FEATURES)
+    def test_the_clustering_vector_is_23_features_of_volume_zone_and_habit(self):
+        self.assertEqual(len(bsp.CLUSTERING_FEATURES), 23)
+        self.assertEqual(len(bsp.V1_FEATURES), 27)
+        for f in bsp.FBREF_MISC_EXCLUDED + bsp.RATE_FEATURES + [bsp.HEIGHT_FEATURE]:
+            self.assertNotIn(f, bsp.CLUSTERING_FEATURES, f)
+        for f in ("derived_shots_per90", "ws_take_ons_per90", "ws_dispossessed_per90", "ws_passes_per90", "ws_aerials_per90"):
+            self.assertIn(f, bsp.CLUSTERING_FEATURES, f)                   # the style side of each excluded rate stays in
 
-    def test_counts_complete_rows_with_and_without_the_take_on_rate(self):
+    def test_the_three_success_rates_and_height_are_still_computed_for_the_valuation_model(self):
+        self.assertEqual(sorted(bsp.RATE_FEATURES), ["ws_aerial_duel_win_pct", "ws_passes_pct", "ws_take_ons_won_pct"])
+        result, _ = bsp.build_percentiles(rows(2015, "DF", 40, 1000))
+        for f in bsp.RATE_FEATURES + [bsp.HEIGHT_FEATURE]:
+            self.assertIn("pct_" + f, result.columns)
+            self.assertTrue(result["pct_" + f].notna().all())
+
+    def test_rates_and_height_no_longer_cost_clustering_rows_but_other_features_still_do(self):
         df = rows(2015, "DF", 40, 1000)
         df.loc[:4, "ws_take_ons"] = 3.0                  # 5 rows: take-on rate nulled by the attempts guard
-        df.loc[5:7, "fbref_shots"] = np.nan              # 3 more rows: no shot count
-        result, _ = bsp.build_percentiles(df)
-        ready = bsp.clustering_readiness(result)
-        self.assertEqual(ready.loc["2015"].tolist(), [40, 32, 37])      # 40 - 5 - 3, and 40 - 3
-        self.assertEqual(ready.loc["ALL"].tolist(), [40, 32, 37])
+        df.loc[5:12, "tm_height_cm"] = np.nan            # 8 rows: no height
+        df.loc[13:15, "fbref_shots"] = np.nan            # 3 rows: no shot count (a CLUSTERING feature)
+        ready = bsp.clustering_readiness(bsp.build_percentiles(df)[0])
+        self.assertEqual(ready.loc["2015"].tolist(), [40, 37, 24])         # 40-3 for the new vector, 40-5-8-3 for the 27-feature one
+        self.assertEqual(ready.loc["ALL"].tolist(), [40, 37, 24])
 
     def test_seasons_before_the_first_whoscored_season_are_not_counted(self):
         result, _ = bsp.build_percentiles(frame(rows(2011, "DF", 40, 1000), rows(2013, "DF", 40, 2000)))
@@ -349,14 +356,14 @@ class ClusteringReadinessTests(unittest.TestCase):
         self.assertEqual(list(ready.index), ["2013", "ALL"])
         self.assertEqual(ready.loc["ALL", "ranked"], 40)
 
-    def test_missing_fbref_misc_features_do_not_cost_any_rows(self):
+    def test_missing_fbref_misc_features_do_not_cost_any_rows_in_either_vector(self):
         df = rows(2015, "DF", 40, 1000)
         for f in bsp.FBREF_MISC_EXCLUDED:
             df[f] = np.nan
-        result, _ = bsp.build_percentiles(df)
-        self.assertEqual(bsp.clustering_readiness(result).loc["ALL", "complete"], 40)
+        ready = bsp.clustering_readiness(bsp.build_percentiles(df)[0])
+        self.assertEqual(ready.loc["ALL"].tolist(), [40, 40, 40])
 
-    def test_a_row_missing_a_clustering_feature_other_than_the_rate_is_lost_in_both_columns(self):
+    def test_a_row_missing_a_clustering_feature_is_lost_in_both_columns(self):
         df = rows(2015, "DF", 40, 1000)
         df.loc[0, "ws_clearances_per90"] = np.nan
         ready = bsp.clustering_readiness(bsp.build_percentiles(df)[0])
@@ -381,7 +388,7 @@ class NullShareTests(unittest.TestCase):
         out = bsp.null_share_by_feature(bsp.build_percentiles(df)[0])
         self.assertEqual(out.feature.iloc[:2].tolist(), ["tm_height_cm", "ws_clearances_per90"])
         self.assertEqual(out[out.feature == "ws_touches_per90"].iloc[0].null_share, 0.0)
-        self.assertEqual(len(out), len(bsp.CLUSTERING_FEATURES))
+        self.assertEqual(len(out), len(bsp.V1_FEATURES))               # reports the 27, so the excluded ones stay visible
 
 
 class SchemaTests(unittest.TestCase):
