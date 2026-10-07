@@ -38,6 +38,19 @@
 -- season of spending", and season_paid_count is exposed so a consumer can
 -- decide for itself.
 --
+-- DESCRIPTION vs PREDICTION (added 2026-10-06, before any modeling): the season
+-- and trailing windows above END AT the sale's own season, so they contain the
+-- fee itself and any signings the club made after it (a January window, say).
+-- pct_of_buyer_season_spend and pct_of_buyer_5yr_spend are therefore good for
+-- DESCRIBING how big a bet a transfer was, and USELESS as predictors of the fee:
+-- a model given them could solve for the fee algebraically and would look
+-- excellent in validation for no real reason. For a model, use the prior_*
+-- columns at the end. They cover only seasons BEFORE the sale's season, which
+-- were complete and known when the transfer was decided: prior_season_* is the
+-- single season before, prior_5yr_* is the five seasons before. A club with no
+-- paid arrivals in its prior window has a genuine 0, not NULL. NULL still means
+-- "no buyer data" (a sale to a buyer outside the 69, or to an Eredivisie club).
+--
 -- THE CLUB-SEASONS CTE IS LOAD-BEARING. Joining the paid-arrivals set to
 -- itself directly fans out (every fee counted once per arrival that season),
 -- which inflated PSV's trailing spend 8x in transfer_spend_context before it
@@ -59,12 +72,16 @@ buyer_windows AS (
     SELECT cs.own_club_id, cs.season_id,
            SUM(b.fee_amount)   FILTER (WHERE b.season_id = cs.season_id) AS season_paid_total,
            COUNT(b.fee_amount) FILTER (WHERE b.season_id = cs.season_id) AS season_paid_count,
-           SUM(b.fee_amount)   AS trailing_5yr_paid_total,
-           COUNT(b.fee_amount) AS trailing_5yr_paid_count
+           SUM(b.fee_amount)   FILTER (WHERE b.season_id >= cs.season_id - 4) AS trailing_5yr_paid_total,
+           COUNT(b.fee_amount) FILTER (WHERE b.season_id >= cs.season_id - 4) AS trailing_5yr_paid_count,
+           COALESCE(SUM(b.fee_amount) FILTER (WHERE b.season_id = cs.season_id - 1), 0) AS prior_season_paid_total,
+           COUNT(b.fee_amount) FILTER (WHERE b.season_id = cs.season_id - 1)            AS prior_season_paid_count,
+           COALESCE(SUM(b.fee_amount) FILTER (WHERE b.season_id < cs.season_id), 0)     AS prior_5yr_paid_total,
+           COUNT(b.fee_amount) FILTER (WHERE b.season_id < cs.season_id)                AS prior_5yr_paid_count
     FROM club_seasons cs
     JOIN buyer_paid_in b
       ON b.own_club_id = cs.own_club_id
-     AND b.season_id BETWEEN cs.season_id - 4 AND cs.season_id
+     AND b.season_id BETWEEN cs.season_id - 5 AND cs.season_id
     GROUP BY cs.own_club_id, cs.season_id
 ),
 sales AS (
@@ -88,7 +105,9 @@ SELECT s.transfer_id, s.player_id, s.player_name,
        ROUND(100.0 * m.buyer_page_fee / NULLIF(w.season_paid_total, 0), 1) AS pct_of_buyer_season_spend,
        CASE WHEN w.trailing_5yr_paid_count >= 3
             THEN ROUND(100.0 * m.buyer_page_fee / NULLIF(w.trailing_5yr_paid_total, 0), 1)
-       END AS pct_of_buyer_5yr_spend
+       END AS pct_of_buyer_5yr_spend,
+       w.prior_season_paid_total, w.prior_season_paid_count,
+       w.prior_5yr_paid_total, w.prior_5yr_paid_count
 FROM sales s
 LEFT JOIN LATERAL (
     -- The same transfer on the buyer's own page. LIMIT 1 keeps the grain at
@@ -131,25 +150,37 @@ SELECT v.transfer_id, v.player_name, v.season_id,
        v.season_paid_total, d.season_direct,
        v.trailing_5yr_paid_total, d.trailing_direct,
        v.season_paid_count, d.season_count_direct,
-       v.trailing_5yr_paid_count, d.trailing_count_direct
+       v.trailing_5yr_paid_count, d.trailing_count_direct,
+       v.prior_season_paid_total, d.prior_season_direct,
+       v.prior_5yr_paid_total, d.prior_5yr_direct,
+       v.prior_season_paid_count, d.prior_season_count_direct,
+       v.prior_5yr_paid_count, d.prior_5yr_count_direct
 FROM buyer_spend_context v
 JOIN LATERAL (
-    SELECT COALESCE(SUM(b.fee_amount) FILTER (WHERE b.season_id = v.season_id), 0)   AS season_direct,
-           COALESCE(SUM(b.fee_amount), 0)                                            AS trailing_direct,
-           COUNT(b.fee_amount) FILTER (WHERE b.season_id = v.season_id)              AS season_count_direct,
-           COUNT(b.fee_amount)                                                       AS trailing_count_direct
+    SELECT COALESCE(SUM(b.fee_amount) FILTER (WHERE b.season_id = v.season_id), 0)       AS season_direct,
+           COALESCE(SUM(b.fee_amount) FILTER (WHERE b.season_id >= v.season_id - 4), 0)  AS trailing_direct,
+           COUNT(b.fee_amount) FILTER (WHERE b.season_id = v.season_id)                  AS season_count_direct,
+           COUNT(b.fee_amount) FILTER (WHERE b.season_id >= v.season_id - 4)             AS trailing_count_direct,
+           COALESCE(SUM(b.fee_amount) FILTER (WHERE b.season_id = v.season_id - 1), 0)   AS prior_season_direct,
+           COALESCE(SUM(b.fee_amount) FILTER (WHERE b.season_id < v.season_id), 0)       AS prior_5yr_direct,
+           COUNT(b.fee_amount) FILTER (WHERE b.season_id = v.season_id - 1)              AS prior_season_count_direct,
+           COUNT(b.fee_amount) FILTER (WHERE b.season_id < v.season_id)                  AS prior_5yr_count_direct
     FROM buyer_club_transfers b
     WHERE b.own_club_id = v.buyer_club_id
       AND b.direction = 'in'
       AND b.fee_type IN ('permanent_transfer', 'paid_loan')
       AND b.fee_amount IS NOT NULL
-      AND b.season_id BETWEEN v.season_id - 4 AND v.season_id
+      AND b.season_id BETWEEN v.season_id - 5 AND v.season_id
 ) d ON TRUE
 WHERE v.season_paid_total IS NOT NULL
   AND (ABS(v.season_paid_total - d.season_direct) > 0.01
     OR ABS(v.trailing_5yr_paid_total - d.trailing_direct) > 0.01
     OR v.season_paid_count <> d.season_count_direct
-    OR v.trailing_5yr_paid_count <> d.trailing_count_direct);
+    OR v.trailing_5yr_paid_count <> d.trailing_count_direct
+    OR ABS(v.prior_season_paid_total - d.prior_season_direct) > 0.01
+    OR ABS(v.prior_5yr_paid_total - d.prior_5yr_direct) > 0.01
+    OR v.prior_season_paid_count <> d.prior_season_count_direct
+    OR v.prior_5yr_paid_count <> d.prior_5yr_count_direct);
 
 -- 2b. How much of the view check 2 actually covered, and how much has no
 --     buyer context (sales to buyers outside the 69, or to Eredivisie clubs).
@@ -173,6 +204,8 @@ WHERE pct_of_buyer_season_spend > 100 OR pct_of_buyer_5yr_spend > 100
 --    know, and the season total with the buyer's other signings that season.
 SELECT player_name, buyer_club_name, season_id, fee_amount, buyer_page_fee,
        season_paid_total, season_paid_count, pct_of_buyer_season_spend,
-       trailing_5yr_paid_total, trailing_5yr_paid_count, pct_of_buyer_5yr_spend
+       trailing_5yr_paid_total, trailing_5yr_paid_count, pct_of_buyer_5yr_spend,
+       prior_season_paid_total, prior_season_paid_count,
+       prior_5yr_paid_total, prior_5yr_paid_count
 FROM buyer_spend_context
 WHERE player_name ILIKE '%ligt%';
