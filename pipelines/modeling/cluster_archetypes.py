@@ -173,18 +173,23 @@ def relabel_by_size(labels, centroids):
     return np.array([mapping[l] + 1 for l in labels]), centroids[order]
 
 
-def assign_rows(Xw, centroids, weights):
-    """Nearest centroid for each row, using only the features the row has. A partial row's squared
-    distance is rescaled by (sum of all squared weights / sum of its available squared weights), so
-    distances are comparable with full rows. A complete row reduces to plain nearest-centroid.
-    Returns (labels 0-based, distances, number of features used)."""
+def centroid_distances(Xw, centroids, weights):
+    """Distance from every row to every centroid, using only the features the row has. A partial
+    row's squared distance is rescaled by (sum of all squared weights / sum of its available
+    squared weights), so distances are comparable with full rows. Shape (rows, k)."""
     avail = ~np.isnan(Xw)
     w2 = weights ** 2
     scale = w2.sum() / (avail * w2).sum(axis=1)
     diff = np.where(avail[:, None, :], Xw[:, None, :] - centroids[None, :, :], 0.0)
-    d2 = (diff ** 2).sum(axis=2) * scale[:, None]
-    labels = d2.argmin(axis=1)
-    return labels, np.sqrt(d2[np.arange(len(labels)), labels]), avail.sum(axis=1)
+    return np.sqrt((diff ** 2).sum(axis=2) * scale[:, None])
+
+
+def assign_rows(Xw, centroids, weights):
+    """Nearest centroid for each row (see centroid_distances). A complete row reduces to plain
+    nearest-centroid. Returns (labels 0-based, distances, number of features used)."""
+    d = centroid_distances(Xw, centroids, weights)
+    labels = d.argmin(axis=1)
+    return labels, d[np.arange(len(labels)), labels], (~np.isnan(Xw)).sum(axis=1)
 
 
 def profile(df, labels, features=CLUSTERING_FEATURES, groups=FEATURE_GROUPS, top=4):
