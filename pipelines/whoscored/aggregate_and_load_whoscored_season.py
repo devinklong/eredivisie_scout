@@ -81,6 +81,9 @@ SEASONS = [
     "2025-26",
 ]
 DATA_ROOT = Path("data/whoscored")
+# Written by build_regular_season_manifest.py: the regular-season match ids for a season. The
+# schedule also lists play-off matches, which must not be summed into league counts.
+MANIFEST_NAME = "regular_season_matches.json"
 
 MULTI_STAT_CATEGORIES = [
     "passing", "touches", "take_ons", "tackles", "interceptions",
@@ -124,22 +127,6 @@ TEAM_NAME_NORMALIZATION = {
     "Heracles": "Heracles Almelo",
     "Roda": "Roda JC",
     "Sparta Rotterdam": "Sparta R.",
-    # Confirmed 2026-09-30: found via data_audit/build_team_season_summary.py's
-    # team/season coverage rollup -- Volendam, Almere City, Emmen, and
-    # Dordrecht all showed ws_ domain coverage at exactly 0.0% (not just
-    # low -- completely absent), every season. team_name_alias already
-    # had the correct whoscored-side aliases for all four (built during
-    # the original 2026-09-16 investigation), but this script's own
-    # TEAM_NAME_NORMALIZATION dict -- the thing that actually controls
-    # what's STORED in eredivisie_whoscored_player_season_stats.team,
-    # separate from team_name_alias's entity-resolution-matching role --
-    # never had these four added. Confirmed directly via
-    # `SELECT DISTINCT team FROM eredivisie_whoscored_player_season_stats
-    # WHERE team IN (...)` before writing this fix.
-    "FC Volendam": "Volendam",
-    "Almere City FC": "Almere City",
-    "FC Emmen": "Emmen",
-    "FC Dordrecht": "Dordrecht",
     # add any other confirmed mismatches here
 }
 
@@ -154,7 +141,18 @@ def season_to_id(season):
     return int(season.split("-")[0])
 
 
-def aggregate_season(data_dir):
+def load_regular_match_ids(data_dir):
+    """The set of regular-season match ids (as strings, matching the file names). Refuses to
+    continue without a manifest: summing every file silently includes play-off matches."""
+    path = Path(data_dir) / MANIFEST_NAME
+    if not path.exists():
+        raise FileNotFoundError(
+            f"{path} not found. Run pipelines/whoscored/build_regular_season_manifest.py first: the "
+            f"folder holds play-off matches that must be excluded from the season totals.")
+    return {str(i) for i in json.loads(path.read_text())["regular_match_ids"]}
+
+
+def aggregate_season(data_dir, allowed_match_ids=None):
     """
     UPDATED (2026-09-14): keys aggregation by (identity_key, team),
     where identity_key is the record's player_id if present, falling
@@ -182,7 +180,9 @@ def aggregate_season(data_dir):
     player_ids = {}  # (identity_key, team) -> whoscored player_id
     name_counts = defaultdict(lambda: defaultdict(int))  # (identity_key, team) -> {name: count}
 
-    files = list(data_dir.glob("*.json"))
+    files = [f for f in data_dir.glob("*.json") if f.name != MANIFEST_NAME]
+    if allowed_match_ids is not None:
+        files = [f for f in files if f.stem in allowed_match_ids]
 
     for f in files:
         match_id = f.stem
@@ -364,7 +364,18 @@ CLEANUP_RENAMED_TEAM_SQL = """
 """
 
 
+def missing_manifests(seasons, root):
+    """Seasons that have a data folder but no regular-season manifest."""
+    return [s for s in seasons if (Path(root) / s).exists() and not (Path(root) / s / MANIFEST_NAME).exists()]
+
+
 def main():
+    # Check every manifest BEFORE touching the database, so a missing one cannot leave the early
+    # seasons reloaded and the later ones not.
+    missing = missing_manifests(SEASONS, DATA_ROOT)
+    if missing:
+        raise SystemExit(f"No {MANIFEST_NAME} for {missing}. Run pipelines/whoscored/build_regular_season_manifest.py "
+                         f"until it reports no failed seasons; nothing was loaded.")
     conn = get_connection()
     total_rows_inserted = 0
     total_orphans_removed = 0
@@ -377,7 +388,11 @@ def main():
                 continue
 
             season_id = season_to_id(season)
-            totals, matches_seen, player_ids, name_counts, file_count = aggregate_season(data_dir)
+            regular_ids = load_regular_match_ids(data_dir)
+            all_files = [f for f in data_dir.glob("*.json") if f.name != MANIFEST_NAME]
+            totals, matches_seen, player_ids, name_counts, file_count = aggregate_season(data_dir, regular_ids)
+            excluded_files = len(all_files) - file_count
+            missing_regular = len(regular_ids - {f.stem for f in all_files})
             rows = build_rows(totals, matches_seen, player_ids, name_counts, season_id)
 
             orphans_this_season = 0
@@ -420,7 +435,8 @@ def main():
             conn.commit()
             total_rows_inserted += inserted
             total_orphans_removed += orphans_this_season
-            print(f"{season}: {file_count} match files, "
+            print(f"{season}: {file_count} regular-season match files used "
+                  f"({excluded_files} non-regular excluded, {missing_regular} regular matches with no file), "
                   f"{len(totals)} (player, team) pairs aggregated, "
                   f"{inserted} rows inserted/updated, "
                   f"{orphans_this_season} orphaned rows removed")
