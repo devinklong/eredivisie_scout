@@ -198,6 +198,8 @@ def make_tables(cur):
     cur.execute("CREATE TEMP TABLE player_season_archetypes (player_id int, season_id int, archetype_id int)")
     cur.execute("CREATE TEMP TABLE archetype_centroids (archetype_id int, feature text, feature_group text, centroid_pct numeric)")
     cur.execute("CREATE TEMP TABLE eredivisie_transfers (transfer_id serial, player_name text, season_id int, fee_amount numeric)")
+    cur.execute("CREATE TEMP TABLE eredivisie_whoscored_player_season_stats (player_name text, team text, season_id int)")
+    cur.execute("CREATE TEMP TABLE eredivisie_soccerdata_player_season_stats (player_name text, team text, season_id int)")
 
 
 SEASONS = [2019, 2022, 2023]
@@ -250,6 +252,8 @@ def load_clean(cur):
     cur.execute("INSERT INTO player_season_archetypes SELECT player_id, season_id, 1 FROM player_season_style_percentiles")
     cur.execute("INSERT INTO archetype_centroids SELECT a, 'f' || f, 'g', 50 FROM generate_series(1, 3) a, generate_series(1, 23) f")
     cur.execute("INSERT INTO eredivisie_transfers (player_name, season_id, fee_amount) VALUES ('a', 2022, 5.0), ('b', 2023, 0.0)")
+    for table in ("eredivisie_whoscored_player_season_stats", "eredivisie_soccerdata_player_season_stats"):
+        cur.execute(f"INSERT INTO {table} SELECT 'Player ' || player_id, team, season_id FROM master_player_season_stats WHERE player_id % 7 = 0")
 
 
 M = "master_player_season_stats"
@@ -302,6 +306,8 @@ PLANTED = {
     "percentiles_have_stats": "INSERT INTO player_season_style_percentiles VALUES (999999, 2022, 50, 50, 50)",
     "archetypes_have_percentiles": "INSERT INTO player_season_archetypes VALUES (999999, 2022, 1)",
     "centroids_complete": "DELETE FROM archetype_centroids WHERE archetype_id = 2 AND feature = 'f7'",
+    "ws_team_names_match_fbref": "INSERT INTO eredivisie_whoscored_player_season_stats VALUES ('Player 3', 'FC Club 00', 2022)",
+    "ws_player_names_not_numeric": "INSERT INTO eredivisie_whoscored_player_season_stats VALUES ('0.0', 'Club 00', 2022)",
     "transfer_fee_range": "UPDATE eredivisie_transfers SET fee_amount = 400 WHERE player_name = 'a'",
     "transfer_season_range": "UPDATE eredivisie_transfers SET season_id = 1850 WHERE player_name = 'a'",
 }
@@ -336,7 +342,8 @@ class DatabaseCase(unittest.TestCase):
         self.conn.rollback()
         with self.conn.cursor() as cur:
             cur.execute("DROP TABLE IF EXISTS pg_temp.master_player_season_stats, pg_temp.player_season_style_percentiles, "
-                        "pg_temp.player_season_archetypes, pg_temp.archetype_centroids, pg_temp.eredivisie_transfers")
+                        "pg_temp.player_season_archetypes, pg_temp.archetype_centroids, pg_temp.eredivisie_transfers, "
+                        "pg_temp.eredivisie_whoscored_player_season_stats, pg_temp.eredivisie_soccerdata_player_season_stats")
             make_tables(cur)
             load_clean(cur)
 
@@ -374,6 +381,33 @@ class TestEachCheckFires(DatabaseCase):
             if extra:
                 failures.append((name, f"also fired: {sorted(extra)}"))
         self.assertEqual(failures, [])
+
+
+class TestWhoScoredNameChecks(DatabaseCase):
+    def fire(self, sql, check):
+        with self.conn.cursor() as cur:
+            cur.execute(sql)
+        return self.results([check])[check]
+
+    def test_team_name_must_exist_in_fbref_for_the_same_season_not_just_any_season(self):
+        # Club 00 exists in FBref for 2019, 2022 and 2023, so a WhoScored row for 2021 has no match that season
+        r = self.fire("INSERT INTO eredivisie_whoscored_player_season_stats VALUES ('x', 'Club 00', 2021)", "ws_team_names_match_fbref")
+        self.assertEqual((r["status"], r["violations"]), ("FAIL", 1))
+
+    def test_matching_name_in_the_same_season_passes_however_many_rows(self):
+        r = self.fire("INSERT INTO eredivisie_whoscored_player_season_stats SELECT 'p' || g, 'Club 00', 2022 FROM generate_series(1, 30) g",
+                      "ws_team_names_match_fbref")
+        self.assertEqual(r["status"], "PASS")
+
+    def test_each_variant_name_is_one_violation_group_with_its_row_count(self):
+        r = self.fire("INSERT INTO eredivisie_whoscored_player_season_stats SELECT 'p' || g, 'FC Club 00', 2022 FROM generate_series(1, 5) g",
+                      "ws_team_names_match_fbref")
+        self.assertEqual((r["status"], r["violations"]), ("FAIL", 1))      # one (season, team) group of 5 rows
+
+    def test_numeric_names_are_caught_but_real_names_with_digits_are_not(self):
+        r = self.fire("INSERT INTO eredivisie_whoscored_player_season_stats VALUES ('298844.0', 'Club 00', 2022), ('Player 2', 'Club 00', 2022), ('2Pac', 'Club 00', 2022)",
+                      "ws_player_names_not_numeric")
+        self.assertEqual((r["status"], r["violations"]), ("FAIL", 1))
 
 
 class TestSeverityAndExit(DatabaseCase):

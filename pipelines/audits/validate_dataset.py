@@ -191,8 +191,8 @@ CHECKS = [
                 KEY + ", ws_aerials, ws_aerials_won, ws_aerial_duel_win_pct"),
     where_check("ws_per90_sign_consistent", "error", "a per-90 rate is zero exactly when its count is zero",
                 " OR ".join(f"(({c} = 0 AND {r} > 0) OR ({c} > 0 AND {r} = 0))" for c, r in PER90_PAIRS)),
-    where_check("ws_matches_le_fbref_matches", "warn", "WhoScored matches with data should not exceed FBref matches played by more than 2 (a wrong player link shows here; "
-                "also fires when WhoScored counts matches outside the league, such as play-offs)",
+    where_check("ws_matches_le_fbref_matches", "error", "WhoScored matches with data should not exceed FBref matches played by more than 2 (a wrong player link shows here; "
+                "also fires when WhoScored counts matches outside the league, such as play-offs, or a stale row from an earlier unfiltered load)",
                 "ws_matches_with_data > fbref_matches_played + 2", KEY + ", ws_matches_with_data, fbref_matches_played"),
     # ----- goalkeepers -----
     where_check("gk_saves_le_shots_faced", "error", "saves cannot exceed shots on target against",
@@ -223,6 +223,16 @@ CHECKS = [
           "WHERE NOT EXISTS (SELECT 1 FROM player_season_style_percentiles p WHERE p.player_id = a.player_id AND p.season_id = a.season_id)"),
     Check("centroids_complete", "error", "every archetype has one centroid value per clustering feature (23)", "archetype_centroids",
           "SELECT archetype_id, COUNT(*) AS features FROM archetype_centroids GROUP BY 1 HAVING COUNT(*) <> 23"),
+    Check("ws_team_names_match_fbref", "error",
+          "every WhoScored club name exists in FBref for that season (a mismatch stores a squad under a second name the "
+          "master table never joins to; seen with FC Emmen / Emmen)", "eredivisie_whoscored_player_season_stats",
+          "SELECT w.season_id, w.team, COUNT(*) AS rows FROM eredivisie_whoscored_player_season_stats w "
+          "WHERE NOT EXISTS (SELECT 1 FROM eredivisie_soccerdata_player_season_stats f "
+          "WHERE f.season_id = w.season_id AND f.team = w.team) GROUP BY 1, 2"),
+    Check("ws_player_names_not_numeric", "error",
+          "no WhoScored row is named like a number (a known artifact such as 0.0 or 298844.0; the aggregator skips it now)",
+          "eredivisie_whoscored_player_season_stats",
+          "SELECT season_id, team, player_name FROM eredivisie_whoscored_player_season_stats WHERE player_name ~ '^[0-9.]+$'"),
     Check("transfer_fee_range", "error", "transfer fees between 0 and 150 (millions of euros)", "eredivisie_transfers",
           "SELECT transfer_id, player_name, season_id, fee_amount FROM eredivisie_transfers "
           "WHERE fee_amount IS NOT NULL AND (fee_amount < 0 OR fee_amount > 150)"),
