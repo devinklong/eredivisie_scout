@@ -68,6 +68,7 @@ apparently run successfully multiple times:
   SEASONS list.
 """
 
+import argparse
 import json
 from collections import defaultdict
 from pathlib import Path
@@ -127,6 +128,15 @@ TEAM_NAME_NORMALIZATION = {
     "Heracles": "Heracles Almelo",
     "Roda": "Roda JC",
     "Sparta Rotterdam": "Sparta R.",
+    # Confirmed 2026-10-12: the table held every squad of these four clubs TWICE, once under WhoScored's
+    # name (written by every run of this script) and once under FBref's (older rows, and the ones
+    # master_player_season_stats actually joins to). Same bug class as the Botteghin split: one identity,
+    # two spellings. Found through a "WhoScored club names with no FBref club of that name" query: exactly
+    # these four, 10 club-seasons, and nothing else.
+    "FC Dordrecht": "Dordrecht",
+    "FC Emmen": "Emmen",
+    "FC Volendam": "Volendam",
+    "Almere City FC": "Almere City",
     # add any other confirmed mismatches here
 }
 
@@ -364,12 +374,46 @@ CLEANUP_RENAMED_TEAM_SQL = """
 """
 
 
+SEASON_KEYS_SQL = "SELECT player_name, team FROM eredivisie_whoscored_player_season_stats WHERE season_id = %s"
+PRUNE_SQL = "DELETE FROM eredivisie_whoscored_player_season_stats WHERE season_id = %s AND player_name = %s AND team = %s"
+
+
+def find_stale(existing_keys, written_keys):
+    """(player_name, team) rows already in the table for a season that this run did not produce.
+    The upsert only inserts and updates, so a player who appeared ONLY in matches that are no longer
+    counted (play-offs) keeps the row from the earlier, unfiltered load."""
+    written = set(written_keys)
+    return sorted(k for k in set(existing_keys) if k not in written)
+
+
+def split_stale(stale, playoff_keys):
+    """Stale rows split into those a non-regular (play-off) match would produce, which exist only because
+    of the old unfiltered load and are safe to delete, and everything else, which this change did not
+    create and must not touch."""
+    po = set(playoff_keys)
+    return [k for k in stale if k in po], [k for k in stale if k not in po]
+
+
+def count_by_team(keys):
+    """[(team, n)] largest first, for a short summary of rows that are left alone."""
+    n = defaultdict(int)
+    for _, team in keys:
+        n[team] += 1
+    return sorted(n.items(), key=lambda kv: (-kv[1], kv[0]))
+
+
 def missing_manifests(seasons, root):
     """Seasons that have a data folder but no regular-season manifest."""
     return [s for s in seasons if (Path(root) / s).exists() and not (Path(root) / s / MANIFEST_NAME).exists()]
 
 
-def main():
+def main(argv=None):
+    ap = argparse.ArgumentParser(description="Aggregate WhoScored regular-season matches and load them.")
+    ap.add_argument("--prune", action="store_true",
+                    help="delete the rows that exist ONLY because of excluded (play-off) matches. Other rows the "
+                         "run did not produce are never deleted. Without the flag the play-off rows are listed "
+                         "and left in place.")
+    args = ap.parse_args(argv)
     # Check every manifest BEFORE touching the database, so a missing one cannot leave the early
     # seasons reloaded and the later ones not.
     missing = missing_manifests(SEASONS, DATA_ROOT)
@@ -379,6 +423,8 @@ def main():
     conn = get_connection()
     total_rows_inserted = 0
     total_orphans_removed = 0
+    total_stale = 0
+    total_other_stale = 0
 
     with conn.cursor() as cur:
         for season in SEASONS:
@@ -432,6 +478,19 @@ def main():
             else:
                 inserted = 0
 
+            cur.execute(SEASON_KEYS_SQL, (season_id,))
+            stale = find_stale(cur.fetchall(), [(r[0], r[1]) for r in rows])
+            non_regular_ids = {f.stem for f in all_files} - regular_ids
+            playoff_keys = set()
+            if stale and non_regular_ids:
+                po = aggregate_season(data_dir, non_regular_ids)
+                playoff_keys = {(r[0], r[1]) for r in build_rows(*po[:4], season_id)}
+            playoff_stale, other_stale = split_stale(stale, playoff_keys)
+            if playoff_stale and args.prune:
+                for name, team in playoff_stale:
+                    cur.execute(PRUNE_SQL, (season_id, name, team))
+            total_stale += len(playoff_stale)
+            total_other_stale += len(other_stale)
             conn.commit()
             total_rows_inserted += inserted
             total_orphans_removed += orphans_this_season
@@ -440,10 +499,21 @@ def main():
                   f"{len(totals)} (player, team) pairs aggregated, "
                   f"{inserted} rows inserted/updated, "
                   f"{orphans_this_season} orphaned rows removed")
+            if playoff_stale:
+                shown = ", ".join(f"{n} ({t})" for n, t in playoff_stale)
+                print(f"    {len(playoff_stale)} play-off-only row(s) from the old unfiltered load, "
+                      f"{'DELETED' if args.prune else 'left in place'}: {shown}")
+            if other_stale:
+                teams = ", ".join(f"{t} x{n}" for t, n in count_by_team(other_stale)[:6])
+                print(f"    {len(other_stale)} other row(s) not produced by this run and NOT from play-offs, left alone: {teams}")
 
     conn.close()
     print(f"\nTotal rows inserted/updated across all seasons: {total_rows_inserted}")
     print(f"Total orphaned rows removed: {total_orphans_removed}")
+    if total_stale:
+        print(f"Play-off-only rows {'deleted' if args.prune else 'still in the table (re-run with --prune to delete them)'}: {total_stale}")
+    if total_other_stale:
+        print(f"Other rows this run did not produce (not touched): {total_other_stale}")
 
 
 if __name__ == "__main__":
