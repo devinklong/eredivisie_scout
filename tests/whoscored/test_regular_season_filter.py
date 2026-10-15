@@ -216,5 +216,355 @@ class TestAggregation(unittest.TestCase):
         self.assertFalse(ids & {str(p) for p in pids})
 
 
+class TestFailureHandling(unittest.TestCase):
+    def broken(self):
+        """A full season with ONE regular fixture between two clubs missing from the schedule."""
+        s, _ = schedule()
+        drop = s[(s["home_team"] == "Club 10") & (s["away_team"] == "Club 11")].index[0]
+        gone = s[((s["home_team"] == "Club 10") & (s["away_team"] == "Club 11"))
+                 | ((s["home_team"] == "Club 11") & (s["away_team"] == "Club 10"))]
+        return s.drop(index=gone.index[0]), gone.iloc[0]
+
+    def test_a_missing_fixture_fails_the_season_and_the_diagnosis_names_it(self):
+        s, gone = self.broken()
+        with self.assertRaises(man.ManifestError):
+            man.regular_season_ids(s)
+        text = man.diagnose(s)
+        self.assertIn("Club 10: 33 regular", text)
+        self.assertIn("Club 11: 33 regular", text)
+        self.assertIn("Club 10 vs Club 11: 1 scheduled meeting", text)
+        self.assertNotIn("Club 03: ", text)           # clubs with 34 are not listed
+
+    def test_diagnose_shows_stage_values_when_the_schedule_has_them(self):
+        s, _ = self.broken()
+        s["stage"] = "Eredivisie"
+        self.assertIn("stage values: {'Eredivisie': 311}", man.diagnose(s))
+
+    def test_one_failed_season_does_not_stop_the_others(self):
+        good, _ = schedule()
+        bad, _ = self.broken()
+        with tempfile.TemporaryDirectory() as tmp:
+            lines, failures = man.process_seasons(
+                ["2013-14", "2014-15", "2015-16"], {"2013-14": good, "2014-15": bad, "2015-16": good}.get, root=tmp)
+            self.assertEqual(list(failures), ["2014-15"])
+            self.assertTrue((Path(tmp) / "2013-14" / man.MANIFEST_NAME).exists())
+            self.assertTrue((Path(tmp) / "2015-16" / man.MANIFEST_NAME).exists())
+            self.assertFalse((Path(tmp) / "2014-15" / man.MANIFEST_NAME).exists())
+            self.assertTrue(any(l.startswith("2014-15: FAILED") for l in lines))
+
+    def test_a_stale_manifest_is_not_left_behind_for_a_failed_season_check(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "2013-14").mkdir()
+            (Path(tmp) / "2014-15").mkdir()
+            (Path(tmp) / "2013-14" / agg.MANIFEST_NAME).write_text("{}")
+            self.assertEqual(agg.missing_manifests(["2013-14", "2014-15", "2015-16"], tmp), ["2014-15"])
+
+    def test_main_exits_nonzero_when_any_season_failed(self):
+        import types
+        good, _ = schedule()
+        bad, _ = self.broken()
+        by_season = {"2013-14": good, "2014-15": bad}
+
+        class FakeWS:
+            def __init__(self, league, season):
+                self.season = season
+
+            def read_schedule(self, force_cache=True):
+                return by_season[self.season].copy()
+
+        fake = types.ModuleType("soccerdata")
+        fake.WhoScored = FakeWS
+        old_mod, old_root = sys.modules.get("soccerdata"), man.DATA_ROOT
+        with tempfile.TemporaryDirectory() as tmp:
+            sys.modules["soccerdata"], man.DATA_ROOT = fake, Path(tmp)
+            try:
+                self.assertEqual(man.main(["--seasons", "2013-14"]), 0)
+                self.assertEqual(man.main(["--seasons", "2013-14", "2014-15"]), 1)
+                self.assertTrue((Path(tmp) / "2013-14" / man.MANIFEST_NAME).exists())     # written under DATA_ROOT only
+            finally:
+                man.DATA_ROOT = old_root
+                if old_mod is None:
+                    del sys.modules["soccerdata"]
+                else:
+                    sys.modules["soccerdata"] = old_mod
+
+
+def staged(playoffs=True):
+    s, playoff_ids = schedule(playoffs=playoffs)
+    s["stage"] = ["Europa League Playoff" if g in set(playoff_ids) else "Eredivisie" for g in s["game_id"]]
+    return s, playoff_ids
+
+
+def with_duplicate(s):
+    """The 2018-19 shape: one mid-season fixture listed twice under a different game_id."""
+    row = s[(s["home_team"] == "Club 10") & (s["away_team"] == "Club 11") & (s["stage"] == "Eredivisie")].iloc[0].copy()
+    row["game_id"] = 999999
+    row["date"] = row["date"] + pd.Timedelta(days=2)
+    return pd.concat([s, row.to_frame().T], ignore_index=True).astype({"game_id": int}), 999999
+
+
+def write_files(root, season, ids):
+    d = Path(root) / season
+    d.mkdir(parents=True, exist_ok=True)
+    for i in ids:
+        (d / f"{i}.json").write_text("{}")
+
+
+class TestDuplicateFixturesAndStageCheck(unittest.TestCase):
+    def test_the_duplicate_really_breaks_the_date_rule_alone(self):
+        s, _ = staged()
+        dup, _ = with_duplicate(s)
+        with self.assertRaises(man.ManifestError):
+            man.regular_season_ids(dup)
+
+    def test_duplicate_resolved_by_which_file_exists(self):
+        s, playoff_ids = staged()
+        dup, dup_id = with_duplicate(s)
+        with tempfile.TemporaryDirectory() as tmp:
+            write_files(tmp, "2018-19", [g for g in dup["game_id"] if g != dup_id])
+            lines, failures = man.process_seasons(["2018-19"], {"2018-19": dup}.get, root=tmp)
+            self.assertEqual(failures, {})
+            self.assertIn("306 regular, 6 excluded", lines[0])
+            self.assertIn(f"dropped 1 duplicate schedule row(s) with no file: [{dup_id}]", lines[0])
+            m = json.loads((Path(tmp) / "2018-19" / man.MANIFEST_NAME).read_text())
+            self.assertNotIn(dup_id, m["regular_match_ids"])
+            self.assertEqual(m["dropped_duplicate_ids"], [dup_id])
+            self.assertEqual(sorted(m["excluded_match_ids"]), sorted(playoff_ids))
+
+    def test_duplicate_not_settled_by_files_fails_and_names_the_fixture(self):
+        s, _ = staged()
+        dup, dup_id = with_duplicate(s)
+        for have in (list(dup["game_id"]), [g for g in dup["game_id"] if g not in (dup_id,) and g != dup.loc[dup["game_id"] != dup_id].query("home_team=='Club 10' and away_team=='Club 11' and stage=='Eredivisie'")["game_id"].iloc[0]]):
+            with tempfile.TemporaryDirectory() as tmp:
+                write_files(tmp, "2018-19", have)
+                lines, failures = man.process_seasons(["2018-19"], {"2018-19": dup}.get, root=tmp)
+                self.assertIn("2018-19", failures)
+                self.assertIn("Club 10 - Club 11", failures["2018-19"])
+                self.assertEqual(lines[1].count("repeated fixture"), 2)         # both rows of the pair are shown
+                self.assertFalse((Path(tmp) / "2018-19" / man.MANIFEST_NAME).exists())
+
+    def test_clean_season_is_untouched_and_labels_agree(self):
+        s, _ = staged()
+        with tempfile.TemporaryDirectory() as tmp:
+            write_files(tmp, "2013-14", s["game_id"])
+            lines, failures = man.process_seasons(["2013-14"], {"2013-14": s}.get, root=tmp)
+            self.assertEqual(failures, {})
+            self.assertNotIn("dropped", lines[0])
+            self.assertIn("stage labels agree", lines[0])
+
+    def test_label_disagreement_is_reported_but_the_date_rule_still_decides(self):
+        s, _ = staged()
+        victim = s[s["stage"] == "Eredivisie"]["game_id"].iloc[5]
+        s.loc[s["game_id"] == victim, "stage"] = "Something else"
+        with tempfile.TemporaryDirectory() as tmp:
+            lines, failures = man.process_seasons(["2013-14"], {"2013-14": s}.get, root=tmp)
+            self.assertEqual(failures, {})
+            self.assertIn("306 regular", lines[0])
+            self.assertIn("DISAGREE", lines[0])
+            self.assertIn(str(int(victim)), lines[0])
+
+    def test_without_a_stage_column_nothing_is_dropped(self):
+        s, _ = schedule()
+        cleaned, dropped = man.drop_duplicate_fixtures(s, set())
+        self.assertEqual(dropped, [])
+        self.assertEqual(len(cleaned), len(s))
+        self.assertIsNone(man.stage_label_excluded(s))
+
+    def test_rerun_does_not_count_its_own_manifest_as_a_match_file(self):
+        s, _ = staged()
+        with tempfile.TemporaryDirectory() as tmp:
+            write_files(tmp, "2013-14", s["game_id"])
+            man.process_seasons(["2013-14"], {"2013-14": s}.get, root=tmp)
+            lines, _ = man.process_seasons(["2013-14"], {"2013-14": s}.get, root=tmp)
+            self.assertIn("on disk 312: 306 regular, 6 excluded, 0 not in the schedule, 0 regular", lines[0])
+
+    def test_a_stage_column_with_every_value_empty_is_a_single_competition(self):
+        s, _ = schedule(playoffs=False)          # the abandoned-season shape: column present, all NaN
+        s["stage"] = None
+        with tempfile.TemporaryDirectory() as tmp:
+            lines, failures = man.process_seasons(["2019-20"], {"2019-20": s}.get, root=tmp)
+            self.assertEqual(failures, {})
+            self.assertIn("stage labels agree", lines[0])
+        self.assertEqual(man.stage_label_excluded(s), set())
+        cleaned, dropped = man.drop_duplicate_fixtures(s, set())
+        self.assertEqual(dropped, [])
+
+    def test_some_missing_labels_count_as_their_own_label(self):
+        s, _ = staged()
+        victim = int(s[s["stage"] == "Eredivisie"]["game_id"].iloc[3])
+        s.loc[s["game_id"] == victim, "stage"] = None
+        self.assertIn(victim, man.stage_label_excluded(s))
+
+    def test_an_unexpected_error_in_one_season_fails_only_that_season(self):
+        good, _ = schedule()
+
+        def read(season):
+            if season == "2014-15":
+                raise RuntimeError("cache unreadable")
+            return good
+        with tempfile.TemporaryDirectory() as tmp:
+            lines, failures = man.process_seasons(["2013-14", "2014-15", "2015-16"], read, root=tmp)
+            self.assertEqual(list(failures), ["2014-15"])
+            self.assertIn("unexpected RuntimeError: cache unreadable", failures["2014-15"])
+            self.assertTrue((Path(tmp) / "2015-16" / man.MANIFEST_NAME).exists())
+            self.assertFalse((Path(tmp) / "2014-15" / man.MANIFEST_NAME).exists())
+
+
+class TestStaleRows(unittest.TestCase):
+    def test_rows_the_run_did_not_produce_are_stale(self):
+        existing = [("A", "X"), ("B", "X"), ("C", "Y"), ("Kerkez", "AZ")]
+        written = [("A", "X"), ("B", "X"), ("C", "Y")]
+        self.assertEqual(agg.find_stale(existing, written), [("Kerkez", "AZ")])
+
+    def test_same_name_other_team_is_a_different_row(self):
+        self.assertEqual(agg.find_stale([("A", "X"), ("A", "Y")], [("A", "X")]), [("A", "Y")])
+
+    def test_nothing_stale_when_everything_was_written(self):
+        self.assertEqual(agg.find_stale([("A", "X")], [("A", "X"), ("B", "Y")]), [])
+
+    def test_prune_flag_defaults_off(self):
+        sql = agg.PRUNE_SQL
+        self.assertIn("season_id = %s AND player_name = %s AND team = %s", sql)
+        self.assertTrue(sql.startswith("DELETE FROM eredivisie_whoscored_player_season_stats"))
+
+    def test_only_playoff_rows_are_deletable(self):
+        stale = [("Kerkez", "AZ"), ("Old Dordrecht Player", "Dordrecht"), ("Steffen", "Vitesse")]
+        po, other = agg.split_stale(stale, {("Kerkez", "AZ"), ("Steffen", "Vitesse"), ("Someone Else", "AZ")})
+        self.assertEqual(po, [("Kerkez", "AZ"), ("Steffen", "Vitesse")])
+        self.assertEqual(other, [("Old Dordrecht Player", "Dordrecht")])
+
+    def test_nothing_is_deletable_without_playoff_keys(self):
+        po, other = agg.split_stale([("A", "X"), ("B", "Y")], set())
+        self.assertEqual(po, [])
+        self.assertEqual(len(other), 2)
+
+    def test_count_by_team_orders_largest_first(self):
+        keys = [("a", "Emmen"), ("b", "Emmen"), ("c", "Dordrecht"), ("d", "Emmen"), ("e", "Almere")]
+        self.assertEqual(agg.count_by_team(keys), [("Emmen", 3), ("Almere", 1), ("Dordrecht", 1)])
+
+    def test_playoff_only_player_is_found_by_aggregating_the_excluded_files(self):
+        """Mirrors main(): a player present in a play-off file only is a play-off key; one with a regular file is not."""
+        ids = {"Regular Guy": 11, "Playoff Only": 22}
+        with tempfile.TemporaryDirectory() as tmp:
+            d = Path(tmp)
+            for i, players in {"1": ["Regular Guy"], "2": ["Regular Guy", "Playoff Only"]}.items():
+                (d / f"{i}.json").write_text(json.dumps(match_json([(p, "AZ", ids[p], 10) for p in players])))
+            regular = {"1"}
+            non_regular = {"1", "2"} - regular
+            po = agg.aggregate_season(d, non_regular)
+            keys = {(r[0], r[1]) for r in agg.build_rows(*po[:4], 2021)}
+            self.assertIn(("Playoff Only", "AZ"), keys)
+            reg = agg.aggregate_season(d, regular)
+            written = [(r[0], r[1]) for r in agg.build_rows(*reg[:4], 2021)]
+            stale = agg.find_stale(list(keys | set(written)), written)
+            self.assertEqual(agg.split_stale(stale, keys)[0], [("Playoff Only", "AZ")])
+
+
+class FakeCursor:
+    def __init__(self, existing):
+        self.existing, self.calls, self.rowcount, self._result = existing, [], 0, []
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *a):
+        return False
+
+    def execute(self, sql, params=None):
+        self.calls.append((sql, params))
+        self.rowcount = 0
+        if sql == agg.SEASON_KEYS_SQL:
+            self._result = list(self.existing)
+
+    def fetchall(self):
+        return self._result
+
+
+class FakeConn:
+    def __init__(self, existing):
+        self.cur = FakeCursor(existing)
+
+    def cursor(self):
+        return self.cur
+
+    def commit(self):
+        pass
+
+    def close(self):
+        pass
+
+
+class TestMainEndToEnd(unittest.TestCase):
+    """main() with a stand-in connection: which rows does it delete?"""
+
+    def run_main(self, argv):
+        existing = [("Regular Guy", "Vitesse"), ("Playoff Only", "Vitesse"), ("Old Dordrecht Player", "Dordrecht")]
+        conn = FakeConn(existing)
+        ids = {"Regular Guy": 11, "Playoff Only": 22}
+        with tempfile.TemporaryDirectory() as tmp:
+            d = Path(tmp) / "2021-22"
+            d.mkdir()
+            for i, players in {"1": ["Regular Guy"], "2": ["Regular Guy", "Playoff Only"]}.items():
+                (d / f"{i}.json").write_text(json.dumps(match_json([(p, "Vitesse", ids[p], 10) for p in players])))
+            (d / agg.MANIFEST_NAME).write_text(json.dumps({"regular_match_ids": [1]}))
+            saved = (agg.SEASONS, agg.DATA_ROOT, agg.get_connection, agg.execute_values)
+            agg.SEASONS, agg.DATA_ROOT, agg.get_connection = ["2021-22"], Path(tmp), lambda: conn
+            agg.execute_values = lambda cur, sql, rows: None
+            try:
+                import contextlib
+                import io
+                buf = io.StringIO()
+                with contextlib.redirect_stdout(buf):
+                    agg.main(argv)
+            finally:
+                agg.SEASONS, agg.DATA_ROOT, agg.get_connection, agg.execute_values = saved
+        deletes = [p for sql, p in conn.cur.calls if sql == agg.PRUNE_SQL]
+        return deletes, buf.getvalue()
+
+    def test_without_the_flag_nothing_is_deleted_but_it_is_reported(self):
+        deletes, out = self.run_main([])
+        self.assertEqual(deletes, [])
+        self.assertIn("1 play-off-only row(s)", out)
+        self.assertIn("Playoff Only (Vitesse)", out)
+        self.assertIn("left in place", out)
+        self.assertIn("Dordrecht x1", out)
+
+    def test_prune_deletes_only_the_playoff_only_player(self):
+        deletes, out = self.run_main(["--prune"])
+        self.assertEqual(deletes, [(2021, "Playoff Only", "Vitesse")])       # not the Dordrecht row, not Regular Guy
+        self.assertIn("DELETED", out)
+
+    def test_a_missing_manifest_stops_before_any_database_work(self):
+        conn = FakeConn([])
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "2021-22").mkdir()
+            saved = (agg.SEASONS, agg.DATA_ROOT, agg.get_connection)
+            agg.SEASONS, agg.DATA_ROOT, agg.get_connection = ["2021-22"], Path(tmp), lambda: conn
+            try:
+                with self.assertRaises(SystemExit):
+                    agg.main([])
+            finally:
+                agg.SEASONS, agg.DATA_ROOT, agg.get_connection = saved
+        self.assertEqual(conn.cur.calls, [])
+
+
+class TestTeamNameNormalization(unittest.TestCase):
+    def test_the_four_clubs_stored_twice_are_mapped_to_the_fbref_names(self):
+        self.assertEqual({k: agg.TEAM_NAME_NORMALIZATION[k] for k in ("FC Dordrecht", "FC Emmen", "FC Volendam", "Almere City FC")},
+                         {"FC Dordrecht": "Dordrecht", "FC Emmen": "Emmen", "FC Volendam": "Volendam", "Almere City FC": "Almere City"})
+
+    def test_a_raw_name_in_a_match_file_is_written_under_the_normalized_name(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            d = Path(tmp)
+            (d / "1.json").write_text(json.dumps(match_json([("A Player", "FC Emmen", 5, 10), ("B Player", "Almere City FC", 6, 10)])))
+            out = agg.aggregate_season(d, {"1"})
+            teams = {r[1] for r in agg.build_rows(*out[:4], 2018)}
+            self.assertEqual(teams, {"Emmen", "Almere City"})
+
+    def test_every_mapped_name_differs_from_its_target(self):
+        for raw, norm in agg.TEAM_NAME_NORMALIZATION.items():
+            self.assertNotEqual(raw, norm)
+
+
 if __name__ == "__main__":
     unittest.main()
