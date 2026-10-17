@@ -308,6 +308,9 @@ PLANTED = {
     "centroids_complete": "DELETE FROM archetype_centroids WHERE archetype_id = 2 AND feature = 'f7'",
     "ws_team_names_match_fbref": "INSERT INTO eredivisie_whoscored_player_season_stats VALUES ('Player 3', 'FC Club 00', 2022)",
     "ws_player_names_not_numeric": "INSERT INTO eredivisie_whoscored_player_season_stats VALUES ('0.0', 'Club 00', 2022)",
+    "ws_season_present": "INSERT INTO eredivisie_soccerdata_player_season_stats VALUES ('x', 'Club 00', 2021)",
+    "ws_team_coverage": f"UPDATE {M} SET ws_matches_with_data = 20 WHERE team = 'Club 03' AND season_id = 2022",
+    "percentile_vector_complete": "UPDATE player_season_style_percentiles SET pct_f1 = NULL WHERE player_id = (SELECT MIN(player_id) FROM player_season_style_percentiles)",
     "transfer_fee_range": "UPDATE eredivisie_transfers SET fee_amount = 400 WHERE player_name = 'a'",
     "transfer_season_range": "UPDATE eredivisie_transfers SET season_id = 1850 WHERE player_name = 'a'",
 }
@@ -408,6 +411,94 @@ class TestWhoScoredNameChecks(DatabaseCase):
         r = self.fire("INSERT INTO eredivisie_whoscored_player_season_stats VALUES ('298844.0', 'Club 00', 2022), ('Player 2', 'Club 00', 2022), ('2Pac', 'Club 00', 2022)",
                       "ws_player_names_not_numeric")
         self.assertEqual((r["status"], r["violations"]), ("FAIL", 1))
+
+
+class TestRegressionChecks(DatabaseCase):
+    def fire(self, sql, check):
+        with self.conn.cursor() as cur:
+            cur.execute(sql)
+        return self.results([check])[check]
+
+    def test_excluded_percentile_list_matches_the_modeling_code(self):
+        sys.path.insert(0, str(ROOT / "pipelines" / "modeling"))
+        import build_style_percentiles as bsp
+        left_out = {"pct_" + f for f in bsp.STYLE_FEATURES} - {"pct_" + f for f in bsp.CLUSTERING_FEATURES}
+        self.assertEqual(set(vd.CLUSTERING_EXCLUDED_PCT), left_out)
+        self.assertEqual(len(bsp.CLUSTERING_FEATURES), 23)
+
+    def test_a_season_missing_from_whoscored_is_one_violation_with_the_fbref_row_count(self):
+        r = self.fire("INSERT INTO eredivisie_soccerdata_player_season_stats SELECT 'p' || g, 'Club 00', 2021 FROM generate_series(1, 9) g",
+                      "ws_season_present")
+        self.assertEqual((r["status"], r["violations"]), ("FAIL", 1))
+
+    def test_seasons_before_whoscored_began_are_not_expected_to_have_rows(self):
+        r = self.fire("INSERT INTO eredivisie_soccerdata_player_season_stats VALUES ('x', 'Club 00', 2012)", "ws_season_present")
+        self.assertEqual(r["status"], "PASS")
+
+    def test_the_first_whoscored_season_itself_is_expected_to_have_rows(self):
+        with self.conn.cursor() as cur:
+            cur.execute("INSERT INTO eredivisie_soccerdata_player_season_stats VALUES ('x', 'Club 00', 2013)")
+        self.assertEqual(self.results(["ws_season_present"])["ws_season_present"]["status"], "FAIL")
+
+    def test_the_first_whoscored_season_must_have_complete_percentiles(self):
+        with self.conn.cursor() as cur:
+            cur.execute("INSERT INTO player_season_style_percentiles VALUES (888888, 2013, NULL, 50, 50)")
+        self.assertEqual(self.results(["percentile_vector_complete"])["percentile_vector_complete"]["status"], "FAIL")
+
+    def test_coverage_boundary_is_inclusive_and_a_club_with_no_ws_data_is_not_flagged(self):
+        with self.conn.cursor() as cur:
+            cur.execute(f"UPDATE {M} SET ws_matches_with_data = 26 WHERE team = 'Club 03' AND season_id = 2022")      # FBref 30 - 4: allowed
+            cur.execute(f"UPDATE {M} SET ws_matches_with_data = NULL WHERE team = 'Club 04' AND season_id = 2022")   # no WS data at all
+        self.assertEqual(self.results(["ws_team_coverage"])["ws_team_coverage"]["status"], "PASS")
+        with self.conn.cursor() as cur:
+            cur.execute(f"UPDATE {M} SET ws_matches_with_data = 25 WHERE team = 'Club 03' AND season_id = 2022")
+        self.assertEqual(self.results(["ws_team_coverage"])["ws_team_coverage"]["status"], "WARN")
+
+    def test_a_club_that_really_played_fewer_than_34_in_both_sources_passes(self):
+        # PSV 2021: the busiest player has 29 in WhoScored and 29 in FBref. Only a gap BETWEEN the sources is a problem.
+        with self.conn.cursor() as cur:
+            cur.execute(f"UPDATE {M} SET fbref_matches_played = 29, ws_matches_with_data = 29 WHERE team = 'Club 03' AND season_id = 2022")
+            self.assertEqual(cur.rowcount, 14)
+        self.assertEqual(self.results(["ws_team_coverage"])["ws_team_coverage"]["status"], "PASS")
+
+    def test_the_abandoned_season_is_judged_the_same_way(self):
+        with self.conn.cursor() as cur:
+            cur.execute(f"UPDATE {M} SET fbref_matches_played = 26, ws_matches_with_data = 26, fbref_starts = 20 WHERE team = 'Club 03' AND season_id = 2019")
+        self.assertEqual(self.results(["ws_team_coverage"])["ws_team_coverage"]["status"], "PASS")
+        with self.conn.cursor() as cur:
+            cur.execute(f"UPDATE {M} SET ws_matches_with_data = 21 WHERE team = 'Club 03' AND season_id = 2019")
+        self.assertEqual(self.results(["ws_team_coverage"])["ws_team_coverage"]["status"], "WARN")
+
+    def test_coverage_uses_the_busiest_player_so_one_short_player_is_fine(self):
+        with self.conn.cursor() as cur:
+            cur.execute(f"UPDATE {M} SET ws_matches_with_data = 5 WHERE player_id = 10002 AND season_id = 2022")   # Club 00, 2022
+            self.assertEqual(cur.rowcount, 1)        # the update must hit a real row, or this test proves nothing
+        self.assertEqual(self.results(["ws_team_coverage"])["ws_team_coverage"]["status"], "PASS")
+
+    def test_a_busy_fbref_player_missing_from_whoscored_is_what_gets_flagged(self):
+        with self.conn.cursor() as cur:
+            cur.execute(f"UPDATE {M} SET ws_matches_with_data = 29 WHERE team = 'Club 00' AND season_id = 2022")    # WS best is 29 ...
+            cur.execute(f"UPDATE {M} SET fbref_matches_played = 34 WHERE player_id = 10002 AND season_id = 2022")   # ... FBref has a 34-match player
+        r = self.results(["ws_team_coverage"])["ws_team_coverage"]
+        self.assertEqual((r["status"], r["violations"]), ("WARN", 1))
+
+    def test_a_null_in_any_clustering_percentile_is_caught_in_each_column(self):
+        for col in ("pct_f0", "pct_f1", "pct_f2"):
+            with self.subTest(col=col):
+                self.setUp()
+                r = self.fire(f"UPDATE player_season_style_percentiles SET {col} = NULL WHERE player_id = (SELECT MIN(player_id) FROM player_season_style_percentiles)",
+                              "percentile_vector_complete")
+                self.assertEqual((r["status"], r["violations"]), ("FAIL", 1))
+
+    def test_a_null_in_an_excluded_percentile_is_allowed(self):
+        with self.conn.cursor() as cur:
+            cur.execute("ALTER TABLE player_season_style_percentiles ADD COLUMN pct_tm_height_cm numeric")      # NULL everywhere
+        self.assertEqual(self.results(["percentile_vector_complete"])["percentile_vector_complete"]["status"], "PASS")
+
+    def test_seasons_before_whoscored_began_may_have_null_percentiles(self):
+        with self.conn.cursor() as cur:
+            cur.execute("INSERT INTO player_season_style_percentiles VALUES (888888, 2012, NULL, NULL, NULL)")
+        self.assertEqual(self.results(["percentile_vector_complete"])["percentile_vector_complete"]["status"], "PASS")
 
 
 class TestSeverityAndExit(DatabaseCase):

@@ -67,6 +67,14 @@ PER90_PAIRS = [("ws_passes", "ws_passes_per90"), ("ws_touches", "ws_touches_per9
 
 EXPECTED_MINUTES_SQL = ("(CASE season_id " + " ".join(f"WHEN {k} THEN {v}" for k, v in SHORT_SEASONS.items())
                         + f" ELSE {MATCHES_PER_SEASON} END * {MINUTES_PER_MATCH})")
+FIRST_WHOSCORED_SEASON = 2013               # WhoScored coverage starts here
+WS_COVERAGE_TOLERANCE = 4                   # the busiest WhoScored player may sit a few matches behind the busiest FBref player
+# Percentile columns that are NOT in the 23-feature clustering vector (three success rates, height, four FBref
+# misc rates); a test keeps this equal to build_style_percentiles.py.
+CLUSTERING_EXCLUDED_PCT = (
+    "pct_ws_passes_pct", "pct_ws_take_ons_won_pct", "pct_ws_aerial_duel_win_pct", "pct_tm_height_cm",
+    "pct_fbref_crosses_per90", "pct_fbref_offsides_per90", "pct_fbref_fouls_drawn_per90", "pct_fbref_fouls_committed_per90",
+)
 
 
 @dataclass
@@ -99,6 +107,20 @@ def percentile_range_sql(conn):
         return "SELECT player_id, season_id FROM player_season_style_percentiles WHERE FALSE"
     cond = " OR ".join(f"{c} < 0 OR {c} > 100" for c in cols)
     return f"SELECT player_id, season_id FROM player_season_style_percentiles WHERE {cond}"
+
+
+def percentile_vector_sql(conn):
+    """Ranked rows from the first WhoScored season on whose clustering vector has a NULL percentile."""
+    with conn.cursor() as cur:
+        cur.execute("""SELECT attname FROM pg_attribute
+                       WHERE attrelid = to_regclass('player_season_style_percentiles')
+                         AND attnum > 0 AND NOT attisdropped AND attname LIKE 'pct\\_%' ORDER BY 1""")
+        cols = sorted({r[0] for r in cur.fetchall()} - set(CLUSTERING_EXCLUDED_PCT))
+    if not cols:
+        return "SELECT player_id, season_id FROM player_season_style_percentiles WHERE FALSE"
+    cond = " OR ".join(f"{c} IS NULL" for c in cols)
+    return (f"SELECT player_id, season_id FROM player_season_style_percentiles "
+            f"WHERE season_id >= {FIRST_WHOSCORED_SEASON} AND ({cond})")
 
 
 CHECKS = [
@@ -233,6 +255,22 @@ CHECKS = [
           "no WhoScored row is named like a number (a known artifact such as 0.0 or 298844.0; the aggregator skips it now)",
           "eredivisie_whoscored_player_season_stats",
           "SELECT season_id, team, player_name FROM eredivisie_whoscored_player_season_stats WHERE player_name ~ '^[0-9.]+$'"),
+    Check("ws_season_present", "error",
+          f"every FBref season from {FIRST_WHOSCORED_SEASON} on has WhoScored rows (a failed or partial reload can wipe a season)",
+          "eredivisie_whoscored_player_season_stats",
+          "SELECT f.season_id, COUNT(*) AS fbref_rows FROM eredivisie_soccerdata_player_season_stats f "
+          f"WHERE f.season_id >= {FIRST_WHOSCORED_SEASON} AND NOT EXISTS (SELECT 1 FROM eredivisie_whoscored_player_season_stats w "
+          "WHERE w.season_id = f.season_id) GROUP BY 1"),
+    Check("ws_team_coverage", "warn",
+          f"in every club-season with WhoScored data, the busiest player has WhoScored data for nearly as many matches as the "
+          f"busiest player has FBref appearances (within {WS_COVERAGE_TOLERANCE}); low = match files missing for that club "
+          "(compared with FBref, not a fixed 34: a rotated squad can have no ever-present player, PSV 2021 peaked at 29 in both sources)", M,
+          f"SELECT team, season_id, MAX(ws_matches_with_data) AS ws_matches, MAX(fbref_matches_played) AS fbref_matches FROM {M} "
+          f"GROUP BY team, season_id HAVING MAX(ws_matches_with_data) < MAX(fbref_matches_played) - {WS_COVERAGE_TOLERANCE}"),
+    Check("percentile_vector_complete", "error",
+          f"every ranked row from {FIRST_WHOSCORED_SEASON} on has all 23 clustering percentiles (a NULL means a feature failed to "
+          "build, such as shots missing or a club stored under two names; clustering would drop or half-assign the row)",
+          "player_season_style_percentiles", percentile_vector_sql),
     Check("transfer_fee_range", "error", "transfer fees between 0 and 150 (millions of euros)", "eredivisie_transfers",
           "SELECT transfer_id, player_name, season_id, fee_amount FROM eredivisie_transfers "
           "WHERE fee_amount IS NOT NULL AND (fee_amount < 0 OR fee_amount > 150)"),
