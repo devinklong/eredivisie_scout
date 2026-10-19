@@ -27,7 +27,7 @@ CENTERS = np.array([[20.0] * 23, [50.0] * 23, [80.0] * 23])
 POS = ["DF", "MF", "FW"]
 
 
-def synthetic_raw(n=240, style_effect=0.0, seed=3):
+def synthetic_raw(n=240, style_effect=0.0, seed=3, interaction_effect=0.0):
     """n sales by n/1.2 players. Fee (log scale) = controls rule + style_effect * archetype score."""
     rng = np.random.default_rng(seed)
     n_players = int(n / 1.2)
@@ -56,6 +56,9 @@ def synthetic_raw(n=240, style_effect=0.0, seed=3):
     })
     for j, c in enumerate(sp.PCT_COLS):
         raw[c] = pct[:, j]
+    if interaction_effect:      # a Big-5 buyer pays more the higher the style score (applied after every random draw, so other tests keep their data)
+        big5 = raw["buyer_league"].isin(sp.BIG5_LEAGUES).to_numpy(dtype=float)
+        raw["fee_amount"] = np.expm1(np.log1p(raw["fee_amount"]) + interaction_effect * (arch - 1) * big5)
     return raw
 
 
@@ -233,7 +236,7 @@ class TestComparison(unittest.TestCase):
 
     def test_controls_row_is_its_own_baseline(self):
         c = self.noise[self.noise["arm"] == 1]
-        self.assertTrue((c["diff_vs_controls"] == 0).all())
+        self.assertTrue((c["diff_vs_baseline"] == 0).all())
 
     def test_both_schemes_reported(self):
         self.assertEqual(set(self.noise["scheme"]), {"grouped", "time"})
@@ -264,6 +267,107 @@ class TestComparison(unittest.TestCase):
         self.assertRegex(text, r"arm 2 .*mixed")
         self.assertRegex(text, r"arm 3 .*ADDS signal")
         self.assertRegex(text, r"arm 4 .*no clear gain")
+
+
+class TestInteractionArms(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        def run(**kw):
+            return sp.compare(features(synthetic_raw(n=480, **kw)), K, WEIGHTS, n_repeats=3, n_boot=150,
+                              arms=(1, 2, 4, 6, 7), models=("ridge",))
+        cls.interaction = run(interaction_effect=0.9)
+        cls.main_effect_only = run(style_effect=0.9)
+        cls.nothing = run()
+
+    @staticmethod
+    def grouped(res, arm):
+        return res[(res["scheme"] == "grouped") & (res["arm"] == arm)].iloc[0]
+
+    def test_a_planted_big5_interaction_is_found_against_the_main_effects_arm(self):
+        self.assertLess(self.grouped(self.interaction, 6)["ci_high"], 0)
+        self.assertLess(self.grouped(self.interaction, 7)["ci_high"], 0)
+
+    def test_a_main_effect_of_style_is_not_credited_to_the_interaction_arms(self):
+        # style pays everywhere, Big-5 or not: arms 2 and 4 find it, arms 6 and 7 add nothing to arms 2 and 4
+        self.assertLess(self.grouped(self.main_effect_only, 2)["ci_high"], 0)
+        self.assertGreaterEqual(self.grouped(self.main_effect_only, 6)["ci_high"], 0)
+        self.assertGreaterEqual(self.grouped(self.main_effect_only, 7)["ci_high"], 0)
+
+    def test_no_effect_means_no_clear_gain_for_either_interaction_arm(self):
+        for arm in (6, 7):
+            self.assertGreaterEqual(self.grouped(self.nothing, arm)["ci_high"], 0)
+
+    def test_each_interaction_arm_is_compared_with_its_own_baseline(self):
+        r = self.interaction
+        self.assertEqual(dict(zip(r["arm"], r["baseline_arm"])), {1: 1, 2: 1, 4: 1, 6: 2, 7: 4})
+        g = r[r["scheme"] == "grouped"].set_index("arm")
+        self.assertAlmostEqual(g.loc[6, "diff_vs_baseline"], g.loc[6, "rmse_log"] - g.loc[2, "rmse_log"], places=6)
+        self.assertAlmostEqual(g.loc[7, "diff_vs_baseline"], g.loc[7, "rmse_log"] - g.loc[4, "rmse_log"], places=6)
+
+    def test_share_of_repeats_beating_the_baseline_is_measured_against_the_baseline_arm(self):
+        # planted interaction: arm 6 beats arm 2 in every repeat. Main effect only: arm 6 beats the controls
+        # in every repeat (it contains arm 2) but must NOT beat arm 2 in most of them.
+        self.assertEqual(self.grouped(self.interaction, 6)["share_repeats_beating_baseline"], 1.0)
+        self.assertLess(self.grouped(self.main_effect_only, 6)["share_repeats_beating_baseline"], 1.0)
+        self.assertTrue(np.isnan(self.grouped(self.interaction, 1)["share_repeats_beating_baseline"]))
+
+    def test_an_interaction_arm_without_its_baseline_is_refused(self):
+        with self.assertRaises(ValueError):
+            sp.compare(features(synthetic_raw(n=120)), K, WEIGHTS, n_repeats=1, n_boot=5, arms=(1, 6), models=("ridge",))
+        with self.assertRaises(ValueError):
+            sp.compare(features(synthetic_raw(n=120)), K, WEIGHTS, n_repeats=1, n_boot=5, arms=(1, 2, 7), models=("ridge",))
+
+    def test_the_verdict_names_the_baseline_of_an_interaction_arm(self):
+        text = sp.verdict(self.interaction)
+        self.assertRegex(text, r"arm 6 .*combinations beat arm 2")
+        self.assertRegex(text, r"arm 7 .*combinations beat arm 4")
+        self.assertRegex(text, r"arm 2 .*beat the controls")
+
+    def test_features_flag_big5_buyers_and_build_the_archetype_products(self):
+        raw = synthetic_raw(n=60)
+        raw.loc[raw.index[:5], "buyer_league"] = ["GB1", "ES1", "IT1", "L1", "FR1"]
+        raw.loc[raw.index[5:8], "buyer_league"] = ["NL1", "OTHER", None]
+        df = features(raw)
+        self.assertEqual(df["buyer_big5"].iloc[:8].tolist(), [1, 1, 1, 1, 1, 0, 0, 0])      # NL1, OTHER and unknown are not Big-5
+        for j in range(1, K + 1):
+            expect = ((df["archetype_id"] == j) & (df["buyer_big5"] == 1)).astype(float)
+            self.assertTrue((df[f"arch_x_big5_{j}"] == expect).all())
+        self.assertTrue((df[[f"arch_x_big5_{j}" for j in range(1, K + 1)]].sum(axis=1) == df["buyer_big5"]).all())   # exactly one archetype per Big-5 sale
+
+    def test_arm_columns_for_the_interaction_arms(self):
+        n6, c6, s6 = sp.arm_columns(6, K)
+        self.assertIn("buyer_big5", n6)
+        self.assertEqual([c for c in n6 if c.startswith("arch_x_big5_")], [f"arch_x_big5_{j}" for j in range(1, K + 1)])
+        self.assertIn("archetype", c6)
+        self.assertIsNone(s6)
+        n7, c7, s7 = sp.arm_columns(7, K)
+        self.assertIn("buyer_big5", n7)
+        self.assertEqual(s7, "pc1_x_big5")
+
+    def test_the_pc1_product_is_zero_for_non_big5_buyers_and_the_component_for_big5_buyers(self):
+        rng = np.random.default_rng(0)
+        X = np.hstack([rng.uniform(0, 100, (40, 23)), (np.arange(40) % 2).reshape(-1, 1)])
+        out = sp.PC1TimesFlag(WEIGHTS).fit(X).transform(X)
+        self.assertEqual(out.shape, (40, 2))
+        np.testing.assert_allclose(out[X[:, -1] == 0, 1], 0)
+        np.testing.assert_allclose(out[X[:, -1] == 1, 1], out[X[:, -1] == 1, 0])
+
+    def test_the_pc1_axis_is_fitted_on_the_training_rows_only(self):
+        rng = np.random.default_rng(1)
+        train = np.hstack([rng.uniform(0, 100, (60, 23)), np.ones((60, 1))])
+        test = np.hstack([rng.uniform(0, 100, (20, 23)) * np.array([1] * 22 + [0.01]), np.ones((20, 1))])
+        t = sp.PC1TimesFlag(WEIGHTS).fit(train)
+        first = t.transform(test)
+        t.fit(np.vstack([train, test]))                       # refitting on more rows must be able to change the axis
+        self.assertFalse(np.allclose(first, t.transform(test)))
+
+    def test_interaction_arms_fit_inside_the_pipeline_and_predict_for_both_models(self):
+        df = features(synthetic_raw(n=120))
+        for arm in (6, 7):
+            for kind in ("ridge", "gbm"):
+                n, c, s = sp.arm_columns(arm, K)
+                pred = sp.oof_grouped(df, n, c, s, kind, WEIGHTS, 5, 1)
+                self.assertFalse(np.isnan(pred).any(), (arm, kind))
 
 
 class TestModels(unittest.TestCase):

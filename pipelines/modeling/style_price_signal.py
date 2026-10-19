@@ -19,13 +19,20 @@ FIVE ARMS, identical rows and identical folds:
   4 + style axis      controls + the first principal component of the style percentiles
                       (fitted inside each training fold)
   5 + all percentiles controls + the 23 style percentiles
-Two models per arm: ridge regression and a shallow gradient-boosted model.
+  6 + archetype x Big-5   arm 2 plus a Big-5-buyer flag and archetype x flag: the thesis itself (do Big-5
+                      clubs pay a premium for certain styles?). Judged against ARM 2, not the controls, so
+                      it cannot take credit for a main effect of style
+  7 + style axis x Big-5  the same question for the PC1 axis, judged against arm 4
+Two models per arm: ridge regression and a shallow gradient-boosted model. Trees find interactions on
+their own, so for the gradient-boosted model the explicit products add little; the ridge model is where
+the interaction arms have teeth.
 
 TWO VALIDATION SCHEMES:
   grouped    repeated 5-fold, all of a player's sales in one fold (a player sold twice must not
              sit on both sides of a split)
   time       train on sale seasons up to 2021, test on 2022 on
-A style arm only counts if it beats the controls under both.
+A style arm only counts if it beats its baseline (the controls, or for arms 6 and 7 the same style
+information without the interaction) under both.
 
 LEAKAGE GUARD: the fee itself, the buyer page's fee and every share of the buyer's spend that
 contains the fee (season and trailing windows end at the sale's own season) are forbidden as
@@ -47,6 +54,7 @@ import warnings
 import numpy as np
 import pandas as pd
 import psycopg2
+from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.compose import ColumnTransformer
 from sklearn.decomposition import PCA
 from sklearn.ensemble import HistGradientBoostingRegressor
@@ -80,7 +88,12 @@ CONTROL_NUMERIC = ["age", "log_nineties", "production", "sale_season", "seller_b
                    "seller_points_per_match", "log_prior_season_spend", "log_prior_5yr_spend"]
 CONTROL_CATEGORICAL = ["primary_position", "buyer_league"]
 CONTROL_COLUMNS = CONTROL_NUMERIC + CONTROL_CATEGORICAL
-ARM_NAMES = {1: "controls", 2: "+ archetype", 3: "+ centroid distances", 4: "+ style axis (PC1)", 5: "+ 23 percentiles"}
+ARM_NAMES = {1: "controls", 2: "+ archetype", 3: "+ centroid distances", 4: "+ style axis (PC1)", 5: "+ 23 percentiles",
+             6: "+ archetype x Big-5 buyer", 7: "+ style axis x Big-5 buyer"}
+# Each arm is judged against the arm that has the same style information WITHOUT the interaction, so an
+# interaction arm cannot take credit for a main effect: 6 against 2, 7 against 4; every other arm against 1.
+BASELINE_ARM = {1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 2, 7: 4}
+BIG5_LEAGUES = frozenset({"GB1", "ES1", "IT1", "L1", "FR1"})      # Transfermarkt competition codes
 
 
 DATASET_SQL = """
@@ -166,6 +179,9 @@ def build_features(raw, cent_matrix, weights):
     for j in range(dist.shape[1]):
         df[f"dist_to_{j + 1}"] = dist[:, j]
     df["archetype"] = df["archetype_id"].astype(int).astype(str)
+    df["buyer_big5"] = df["buyer_league"].isin(BIG5_LEAGUES).astype(float)       # UNKNOWN counts as not Big-5
+    for j in range(cent_matrix.shape[0]):
+        df[f"arch_x_big5_{j + 1}"] = (df["archetype_id"].astype(int) == j + 1).astype(float) * df["buyer_big5"]
     return df
 
 
@@ -182,6 +198,10 @@ def arm_columns(arm, k):
         return num, cat, "pc1"
     if arm == 5:
         return num + PCT_COLS, cat, None
+    if arm == 6:   # archetype, the Big-5 flag, and archetype x Big-5 (the thesis: do Big-5 buyers pay more for some styles?)
+        return num + ["buyer_big5"] + [f"arch_x_big5_{j + 1}" for j in range(k)], cat + ["archetype"], None
+    if arm == 7:   # the same question for the continuous style axis
+        return num + ["buyer_big5"], cat, "pc1_x_big5"
     raise ValueError(f"unknown arm {arm}")
 
 
@@ -208,6 +228,28 @@ def _fill_50_and_weight(weights):
     return FunctionTransformer(f)
 
 
+class PC1TimesFlag(BaseEstimator, TransformerMixin):
+    """Input: the 23 style percentiles then a 0/1 flag. Output: the first principal component (fitted on the
+    rows it is given, so inside each training fold only) and that component times the flag."""
+
+    def __init__(self, weights):
+        self.weights = weights
+
+    def _prep(self, X):
+        P = np.where(np.isnan(X[:, :-1]), 50.0, X[:, :-1])
+        return P / 100.0 * self.weights
+
+    def fit(self, X, y=None):
+        X = np.asarray(X, dtype=float)
+        self.pca_ = PCA(n_components=1).fit(self._prep(X))
+        return self
+
+    def transform(self, X):
+        X = np.asarray(X, dtype=float)
+        z = self.pca_.transform(self._prep(X))
+        return np.hstack([z, z * X[:, -1:]])
+
+
 def make_model(kind, num, cat, style, weights, seed=SEED):
     transformers = [
         ("num", Pipeline([("imp", SimpleImputer(strategy="median", add_indicator=True)),
@@ -217,6 +259,9 @@ def make_model(kind, num, cat, style, weights, seed=SEED):
     if style == "pc1":
         transformers.append(("pc1", Pipeline([("w", _fill_50_and_weight(weights)), ("pca", PCA(n_components=1)),
                                               ("sc", StandardScaler())]), PCT_COLS))
+    if style == "pc1_x_big5":
+        transformers.append(("pc1x", Pipeline([("pc", PC1TimesFlag(weights)), ("sc", StandardScaler())]),
+                             PCT_COLS + ["buyer_big5"]))
     pre = ColumnTransformer(transformers)
     if kind == "ridge":
         est = RidgeCV(alphas=np.logspace(-1, 3, 20))
@@ -286,8 +331,13 @@ def cluster_bootstrap_diff(se_arm, se_base, groups, n_boot=1000, seed=SEED):
     return point, float(np.percentile(diffs, 2.5)), float(np.percentile(diffs, 97.5))
 
 
-def compare(df, k, weights, n_splits=5, n_repeats=10, n_boot=1000, seed=SEED, arms=(1, 2, 3, 4, 5), models=("ridge", "gbm")):
-    """Run every arm x model x scheme. Returns a long DataFrame of results."""
+def compare(df, k, weights, n_splits=5, n_repeats=10, n_boot=1000, seed=SEED, arms=(1, 2, 3, 4, 5, 6, 7), models=("ridge", "gbm")):
+    """Run every arm x model x scheme. Returns a long DataFrame of results. Each arm is compared with its
+    BASELINE_ARM (the controls, except the two interaction arms, which are compared with the same style
+    information without the interaction)."""
+    missing = sorted({BASELINE_ARM[a] for a in arms} - set(arms))
+    if missing:
+        raise ValueError(f"arms {missing} are the baseline of a requested arm and must be run too")
     y = df["log_fee"].to_numpy(dtype=float)
     groups = df["player_id"].to_numpy()
     # guard once over every column any arm uses
@@ -313,42 +363,44 @@ def compare(df, k, weights, n_splits=5, n_repeats=10, n_boot=1000, seed=SEED, ar
             se[("time", kind, a)] = full
     rows = []
     for (scheme, kind, a), e in se.items():
-        base = se[(scheme, kind, 1)]
+        b = BASELINE_ARM[a]
+        base = se[(scheme, kind, b)]
         if scheme == "time":
             sel = te_idx
-            point, lo, hi = cluster_bootstrap_diff(e[sel], base[sel], groups[sel], n_boot, seed) if a != 1 else (0.0, 0.0, 0.0)
+            point, lo, hi = cluster_bootstrap_diff(e[sel], base[sel], groups[sel], n_boot, seed) if a != b else (0.0, 0.0, 0.0)
             r = rmse(e[sel])
             beats = np.nan
         else:
-            point, lo, hi = cluster_bootstrap_diff(e, base, groups, n_boot, seed) if a != 1 else (0.0, 0.0, 0.0)
+            point, lo, hi = cluster_bootstrap_diff(e, base, groups, n_boot, seed) if a != b else (0.0, 0.0, 0.0)
             r = rmse(e)
-            beats = float((rep_rmse[(scheme, kind, a)] < rep_rmse[(scheme, kind, 1)]).mean()) if a != 1 else np.nan
-        rows.append({"scheme": scheme, "model": kind, "arm": a, "arm_name": ARM_NAMES[a],
-                     "rmse_log": r, "diff_vs_controls": point, "ci_low": lo, "ci_high": hi,
-                     "share_repeats_beating_controls": beats,
+            beats = float((rep_rmse[(scheme, kind, a)] < rep_rmse[(scheme, kind, b)]).mean()) if a != b else np.nan
+        rows.append({"scheme": scheme, "model": kind, "arm": a, "arm_name": ARM_NAMES[a], "baseline_arm": b,
+                     "rmse_log": r, "diff_vs_baseline": point, "ci_low": lo, "ci_high": hi,
+                     "share_repeats_beating_baseline": beats,
                      "n_scored": int(len(e) if scheme == "grouped" else len(te_idx))})
     return pd.DataFrame(rows)
 
 
 def verdict(results):
-    """Plain-language reading. A style arm 'adds signal' only if its 95% interval sits below zero
-    under BOTH schemes and for BOTH models."""
+    """Plain-language reading. An arm 'adds signal' only if its 95% interval (against its baseline arm)
+    sits below zero under BOTH schemes and for BOTH models."""
     lines = []
     for a in sorted(results["arm"].unique()):
-        if a == 1:
+        if BASELINE_ARM[a] == a:
             continue
         sub = results[results["arm"] == a]
         wins = sub[sub["ci_high"] < 0]
         status = "ADDS signal" if len(wins) == len(sub) else ("mixed" if len(wins) else "no clear gain")
-        lines.append(f"  arm {a} {ARM_NAMES[a]:<22} {status}  ({len(wins)} of {len(sub)} scheme/model combinations beat the controls)")
+        base = "the controls" if BASELINE_ARM[a] == 1 else f"arm {BASELINE_ARM[a]} ({ARM_NAMES[BASELINE_ARM[a]]})"
+        lines.append(f"  arm {a} {ARM_NAMES[a]:<28} {status}  ({len(wins)} of {len(sub)} scheme/model combinations beat {base})")
     return "\n".join(lines)
 
 
 def format_results(results):
     out = results.copy()
-    for c in ("rmse_log", "diff_vs_controls", "ci_low", "ci_high"):
+    for c in ("rmse_log", "diff_vs_baseline", "ci_low", "ci_high"):
         out[c] = out[c].round(3)
-    out["share_repeats_beating_controls"] = out["share_repeats_beating_controls"].round(2)
+    out["share_repeats_beating_baseline"] = out["share_repeats_beating_baseline"].round(2)
     return out.drop(columns=["arm"]).to_string(index=False)
 
 
@@ -380,7 +432,7 @@ def run(conn, n_repeats=10, n_boot=1000, out=print, csv_path=None):
     with warnings.catch_warnings():
         warnings.simplefilter("ignore")
         results = compare(df, k, weights, n_repeats=n_repeats, n_boot=n_boot)
-    out("\nRMSE on log(1 + fee) (lower is better); diff = arm minus controls, with a 95% interval from resampling players:")
+    out("\nRMSE on log(1 + fee) (lower is better); diff = arm minus its baseline arm (controls for arms 2-5, arm 2 for arm 6, arm 4 for arm 7), with a 95% interval from resampling players:")
     out(format_results(results))
     out("\nReading (an arm adds signal only if its interval is below zero for both models and both schemes):")
     out(verdict(results))
