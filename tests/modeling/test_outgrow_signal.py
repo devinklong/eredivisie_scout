@@ -291,6 +291,99 @@ class TestProfileTables(unittest.TestCase):
         q = t["production (non-penalty goals + assists per 90)"]
         self.assertEqual(q["cleared"].tolist(), [2, 0, 0, 1])      # cut points 0.225 / 0.35 / 0.475 give quartiles [0.1, 0.2] [0.3] [0.4] [0.5, 0.6]: outcomes [1,1] [0] [0] [1,0]
 
+def world(kind, n=480, seed=11):
+    """Frame whose label is rewritten: 'club' = depends only on whether the seller is big-three, 'player' = only on production."""
+    d, _ = frame(synthetic_raw(n=n))
+    rng = np.random.default_rng(seed)
+    base = d["seller_big3"].to_numpy() if kind == "club" else (d["production"] > d["production"].median()).to_numpy()
+    flip = rng.random(len(d)) < 0.08
+    d["outgrew"] = np.where(flip, 1 - base, base).astype(int)
+    return d
+
+
+class TestAblation(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        run = lambda d: og.compare_variants(d, og.ablation_variants(), WEIGHTS, n_repeats=3, n_boot=150, models=("logit",))
+        cls.club, cls.player = run(world("club")), run(world("player"))
+
+    @staticmethod
+    def row(res, variant):
+        return res[(res["scheme"] == "grouped") & (res["variant"] == variant)].iloc[0]
+
+    def test_in_a_club_only_world_dropping_the_seller_is_clearly_worse_and_seller_alone_is_enough(self):
+        self.assertGreater(self.row(self.club, "no seller context")["ci_low"], 0)
+        self.assertLess(self.row(self.club, "seller context only")["auc"] - self.row(self.club, "all controls")["auc"], 0.03)
+        self.assertGreater(self.row(self.club, "seller context only")["auc"], self.row(self.club, "no seller context")["auc"] + 0.15)
+
+    def test_in_a_player_only_world_dropping_the_seller_costs_nothing_and_seller_alone_is_clearly_worse(self):
+        self.assertLess(abs(self.row(self.player, "no seller context")["diff_vs_first"]), 0.03)
+        self.assertGreater(self.row(self.player, "seller context only")["ci_low"], 0)
+
+    def test_variant_column_sets_are_exactly_as_documented(self):
+        v = og.ablation_variants()
+        self.assertEqual(list(v)[0], "all controls")
+        self.assertEqual(sorted(v["seller context only"][0]), ["sale_season", "seller_big3", "seller_points_per_match"])
+        self.assertEqual(v["seller context only"][1], [])
+        self.assertEqual(sorted(v["age, position, season only"][0]), ["age", "sale_season"])
+        self.assertFalse(set(v["no seller context"][0]) & {"seller_big3", "seller_points_per_match"})
+        self.assertEqual(set(v["all controls"][0]) - set(v["no seller context"][0]), {"seller_big3", "seller_points_per_match"})
+
+    def test_first_variant_is_its_own_baseline(self):
+        r = self.row(self.club, "all controls")
+        self.assertEqual((r["diff_vs_first"], r["ci_low"], r["ci_high"]), (0.0, 0.0, 0.0))
+
+    def test_difference_is_variant_minus_first(self):
+        for scheme in ("grouped", "time"):
+            r = self.club[self.club["scheme"] == scheme].set_index("variant")
+            for v in ("no seller context", "seller context only"):
+                self.assertAlmostEqual(r.loc[v, "diff_vs_first"], r.loc[v, "log_loss"] - r.loc["all controls", "log_loss"], places=9)
+
+    def test_buyer_side_columns_are_refused(self):
+        d = world("club", n=120)
+        with self.assertRaises(Exception):
+            og.compare_variants(d, {"a": (["age", "sale_season"], [], None), "b": (["age", "buyer_big5"], [], None)}, WEIGHTS, n_repeats=1, n_boot=10, models=("logit",))
+
+    def test_empty_variants_refused(self):
+        with self.assertRaises(ValueError):
+            og.compare_variants(world("club", n=120), {}, WEIGHTS)
+
+    def test_reading_names_the_club_in_a_club_world_and_the_player_in_a_player_world(self):
+        self.assertIn("CLUB", og.ablation_reading(self.club).split("\n")[0])
+        self.assertIn("PLAYER", og.ablation_reading(self.player).split("\n")[0])
+        self.assertIn("alone is clearly worse", og.ablation_reading(self.player))
+        self.assertIn("explains most", og.ablation_reading(self.club))
+
+
+class TestProbabilityGrid(unittest.TestCase):
+    def test_values_are_percentages_monotone_in_production_and_seller_matters_in_a_club_world(self):
+        d = world("player")
+        g = og.probability_grid(d, K, WEIGHTS, "MF")
+        for big3, t in g.items():
+            self.assertTrue(((t.values >= 0) & (t.values <= 100)).all())
+            self.assertEqual(t.shape[1], 4)
+            for _, row in t.iterrows():
+                self.assertTrue(list(row.values) == sorted(row.values), "chance should not fall as production rises")
+            self.assertGreater(t.iloc[:, -1].max(), t.iloc[:, 0].min() + 40)
+        c = og.probability_grid(world("club"), K, WEIGHTS, "MF")
+        self.assertGreater(c[1.0].values.mean(), c[0.0].values.mean() + 40)
+
+    def test_labels_carry_the_quartile_medians(self):
+        d = world("player", n=200)
+        t = og.probability_grid(d, K, WEIGHTS, "MF")[0.0]
+        meds = d.groupby(pd.qcut(d["production"], 4), observed=True)["production"].median().tolist()
+        self.assertEqual(list(t.columns), [f"production {x:.2f}" for x in meds])
+
+
+class TestQuartileLabels(unittest.TestCase):
+    def test_labels_show_the_cutoffs(self):
+        d = pd.DataFrame({"primary_position": ["MF"] * 8, "age": [22] * 8, "production": np.arange(8, dtype=float),
+                          "outgrew": [0, 0, 0, 0, 1, 1, 1, 1]})
+        q = og.profile_tables(d)["production (non-penalty goals + assists per 90)"]
+        self.assertEqual(q.iloc[:, 0].astype(str).tolist(),
+                         ["Q1 (0.00 to 1.75)", "Q2 (1.75 to 3.50)", "Q3 (3.50 to 5.25)", "Q4 (5.25 to 7.00)"])
+        self.assertEqual(q["cleared"].tolist(), [0, 0, 2, 2])
+
 
 if __name__ == "__main__":
     unittest.main()

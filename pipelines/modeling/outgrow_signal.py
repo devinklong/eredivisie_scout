@@ -26,7 +26,13 @@ resampling players) is below zero under BOTH schemes and for BOTH models:
   time     train on sale seasons up to 2021, test on 2022 on
 
 ALSO PRINTED, no model involved: how often sales clear the bar by position, age band and production
-quartile, so the "threshold" can be read straight off the data.
+quartile (with the quartile boundaries), so the "threshold" can be read straight off the data.
+
+IS IT THE PLAYER OR THE CLUB? The controls include two seller-side columns (is the seller one of the big
+three, the seller's points per match). The ablation re-scores the controls with those removed, with only
+those kept, and with only age, position and season, so the reading says how much of the model is the club.
+A grid then shows the fitted chance of clearing the bar by age and production (descriptive, fitted on every
+sale), separately for big-three and other sellers.
 
 CAVEAT that no model can fix: we only see players who were SOLD. Someone who outgrew the league and stayed
 is invisible, so every threshold describes sold players.
@@ -171,46 +177,132 @@ def _auc(y, p):
     return float(roc_auc_score(y, p)) if len(np.unique(y)) == 2 else float("nan")
 
 
+def _score(df, specs, base_key, weights, n_splits, n_repeats, n_boot, seed, models):
+    """Score every spec x model x scheme. specs: ordered {key: (name, numeric, categorical, style kind)}.
+    Each spec is compared with specs[base_key]. Returns a long DataFrame."""
+    y = df["outgrew"].to_numpy(dtype=int)
+    groups = df["player_id"].to_numpy()
+    te_idx = sp.time_fold(df["sale_season"])[1]
+    loss, rep_loss, auc = {}, {}, {}
+    for kind in models:
+        for key, (name, n, c, s) in specs.items():
+            pred = oof_grouped(df, n, c, s, kind, weights, n_splits, n_repeats, seed)
+            ll = row_log_loss(y[None, :], pred)
+            loss[("grouped", kind, key)] = ll.mean(axis=0)
+            rep_loss[("grouped", kind, key)] = ll.mean(axis=1)
+            auc[("grouped", kind, key)] = float(np.nanmean([_auc(y, pred[r]) for r in range(n_repeats)]))
+            te, p = predict_time(df, n, c, s, kind, weights, seed)
+            full = np.full(len(df), np.nan)
+            full[te] = row_log_loss(y[te], p)
+            loss[("time", kind, key)] = full
+            auc[("time", kind, key)] = _auc(y[te], p)
+    rows = []
+    for (scheme, kind, key), e in loss.items():
+        base = loss[(scheme, kind, base_key)]
+        sel = te_idx if scheme == "time" else np.arange(len(df))
+        point, lo, hi = (cluster_bootstrap_mean_diff(e[sel], base[sel], groups[sel], n_boot, seed)
+                         if key != base_key else (0.0, 0.0, 0.0))
+        beats = (float((rep_loss[(scheme, kind, key)] < rep_loss[(scheme, kind, base_key)]).mean())
+                 if scheme == "grouped" and key != base_key else np.nan)
+        rows.append({"scheme": scheme, "model": kind, "key": key, "name": specs[key][0],
+                     "log_loss": float(e[sel].mean()), "diff": point, "ci_low": lo, "ci_high": hi,
+                     "auc": auc[(scheme, kind, key)], "share_beating_base": beats,
+                     "n_scored": int(len(sel)), "n_positive": int(y[sel].sum())})
+    return pd.DataFrame(rows)
+
+
 def compare(df, k, weights, n_splits=5, n_repeats=10, n_boot=1000, seed=SEED, arms=(1, 2, 3, 4, 5), models=("logit", "gbm_clf")):
     """Every arm x model x scheme, as a long DataFrame. Arm 1 (controls) must be included."""
     if 1 not in arms:
         raise ValueError("arm 1 (controls) is the baseline and must be run")
-    y = df["outgrew"].to_numpy(dtype=int)
-    groups = df["player_id"].to_numpy()
+    specs = {a: (ARM_NAMES[a],) + arm_columns(a, k) for a in arms}
     all_cols = set()
-    for a in arms:
-        n, c, s = arm_columns(a, k)
+    for _, n, c, s in specs.values():
         all_cols |= set(n) | set(c) | (set(sp.PCT_COLS) if s else set())
     assert_player_side_only(sorted(all_cols))
     sp.assert_no_leak(sorted(all_cols), df, target="outgrew")
+    r = _score(df, specs, 1, weights, n_splits, n_repeats, n_boot, seed, models)
+    r = r.rename(columns={"key": "arm", "name": "arm_name", "diff": "diff_vs_controls",
+                          "share_beating_base": "share_repeats_beating_controls"})
+    return r[["scheme", "model", "arm", "arm_name", "log_loss", "diff_vs_controls", "ci_low", "ci_high", "auc",
+              "share_repeats_beating_controls", "n_scored", "n_positive"]]
 
-    te_idx = sp.time_fold(df["sale_season"])[1]
-    loss, rep_loss, auc = {}, {}, {}
-    for kind in models:
-        for a in arms:
-            n, c, s = arm_columns(a, k)
-            pred = oof_grouped(df, n, c, s, kind, weights, n_splits, n_repeats, seed)
-            ll = row_log_loss(y[None, :], pred)
-            loss[("grouped", kind, a)] = ll.mean(axis=0)
-            rep_loss[("grouped", kind, a)] = ll.mean(axis=1)
-            auc[("grouped", kind, a)] = float(np.nanmean([_auc(y, pred[r]) for r in range(n_repeats)]))
-            te, p = predict_time(df, n, c, s, kind, weights, seed)
-            full = np.full(len(df), np.nan)
-            full[te] = row_log_loss(y[te], p)
-            loss[("time", kind, a)] = full
-            auc[("time", kind, a)] = _auc(y[te], p)
-    rows = []
-    for (scheme, kind, a), e in loss.items():
-        base = loss[(scheme, kind, 1)]
-        sel = te_idx if scheme == "time" else np.arange(len(df))
-        point, lo, hi = cluster_bootstrap_mean_diff(e[sel], base[sel], groups[sel], n_boot, seed) if a != 1 else (0.0, 0.0, 0.0)
-        beats = (float((rep_loss[(scheme, kind, a)] < rep_loss[(scheme, kind, 1)]).mean())
-                 if scheme == "grouped" and a != 1 else np.nan)
-        rows.append({"scheme": scheme, "model": kind, "arm": a, "arm_name": ARM_NAMES[a],
-                     "log_loss": float(e[sel].mean()), "diff_vs_controls": point, "ci_low": lo, "ci_high": hi,
-                     "auc": auc[(scheme, kind, a)], "share_repeats_beating_controls": beats,
-                     "n_scored": int(len(sel)), "n_positive": int(y[sel].sum())})
-    return pd.DataFrame(rows)
+
+SELLER_SIDE = ["seller_big3", "seller_points_per_match"]
+
+
+def ablation_variants():
+    """Which part of the controls carries the model: the player, or the club he sells from? First entry is the baseline."""
+    full = list(PLAYER_SIDE_NUMERIC)
+    return {
+        "all controls": (full, list(PLAYER_SIDE_CATEGORICAL), None),
+        "no seller context": ([c for c in full if c not in SELLER_SIDE], list(PLAYER_SIDE_CATEGORICAL), None),
+        "seller context only": (SELLER_SIDE + ["sale_season"], [], None),
+        "age, position, season only": (["age", "sale_season"], list(PLAYER_SIDE_CATEGORICAL), None),
+    }
+
+
+def compare_variants(df, variants, weights, n_splits=5, n_repeats=10, n_boot=1000, seed=SEED, models=("logit", "gbm_clf")):
+    """Score named column sets against the FIRST one. variants: {name: (numeric, categorical, style kind)}."""
+    names = list(variants)
+    if not names:
+        raise ValueError("no variants")
+    specs = {i: (name,) + tuple(variants[name]) for i, name in enumerate(names)}
+    all_cols = set()
+    for _, n, c, s in specs.values():
+        all_cols |= set(n) | set(c) | (set(sp.PCT_COLS) if s else set())
+    assert_player_side_only(sorted(all_cols))
+    sp.assert_no_leak(sorted(all_cols), df, target="outgrew")
+    r = _score(df, specs, 0, weights, n_splits, n_repeats, n_boot, seed, models)
+    r = r.rename(columns={"name": "variant", "diff": "diff_vs_first", "share_beating_base": "share_repeats_beating_first"})
+    return r.drop(columns=["key"])[["scheme", "model", "variant", "log_loss", "diff_vs_first", "ci_low", "ci_high", "auc",
+                                    "share_repeats_beating_first", "n_scored", "n_positive"]]
+
+
+def ablation_reading(results):
+    """Plain-language reading from the grouped logistic rows."""
+    g = results[(results["scheme"] == "grouped") & (results["model"] == "logit")].set_index("variant")
+    lines = []
+    ns, so = g.loc["no seller context"], g.loc["seller context only"]
+    allc = g.loc["all controls"]
+    if ns["ci_low"] > 0:
+        lines.append(f"  Removing the seller context makes the model clearly worse (log loss +{ns['diff_vs_first']:.3f}, AUC {allc['auc']:.3f} -> {ns['auc']:.3f}): part of the signal is the CLUB he sells from.")
+    else:
+        lines.append(f"  Removing the seller context does not clearly hurt (log loss {ns['diff_vs_first']:+.3f}, AUC {allc['auc']:.3f} -> {ns['auc']:.3f}): the PLAYER side carries the model.")
+    if so["ci_low"] > 0:
+        lines.append(f"  The seller context alone is clearly worse than everything (log loss +{so['diff_vs_first']:.3f}, AUC {so['auc']:.3f}): the player side adds real signal on top of the club.")
+    else:
+        lines.append(f"  The seller context alone does about as well as everything (log loss {so['diff_vs_first']:+.3f}, AUC {so['auc']:.3f}): the club explains most of it.")
+    return "\n".join(lines)
+
+
+def probability_grid(df, k, weights, position, ages=(19, 21, 23, 25, 27, 29), seed=SEED):
+    """Fit the controls model on every row and return {seller_big3 value: DataFrame of P(outgrew) in percent,
+    age down, production quartile medians across}. Descriptive only: the model sees every row it describes.
+    Everything else is held at its median (sale season at the latest one)."""
+    num, cat, _ = arm_columns(1, k)
+    q = pd.qcut(df["production"], 4, duplicates="drop")
+    meds = df.groupby(q, observed=True)["production"].median().tolist()
+    m = sp.make_model("logit", num, cat, None, weights, seed)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", FutureWarning)
+        m.fit(df[num + cat], df["outgrew"].to_numpy(dtype=int))
+    base = {c: df[c].median() for c in num}
+    base["sale_season"] = float(df["sale_season"].max())
+    out = {}
+    for big3 in (0.0, 1.0):
+        rows = []
+        for age in ages:
+            for prod in meds:
+                r = dict(base)
+                r.update(age=float(age), production=float(prod), seller_big3=big3)
+                r["primary_position"] = position
+                rows.append(r)
+        grid = pd.DataFrame(rows)
+        p = m.predict_proba(grid[num + cat])[:, 1].reshape(len(ages), len(meds))
+        out[big3] = pd.DataFrame(np.round(100 * p, 0).astype(int), index=[f"age {a}" for a in ages],
+                                 columns=[f"production {x:.2f}" for x in meds])
+    return out
 
 
 def verdict(results):
@@ -244,7 +336,9 @@ def profile_tables(df):
     """How often sales clear the bar, by position, age band and production quartile. No model."""
     d = df.copy()
     d["age_band"] = pd.cut(d["age"], [-np.inf, 20, 22, 24, 26, np.inf], labels=["<=20", "21-22", "23-24", "25-26", "27+"])
-    d["production_quartile"] = pd.qcut(d["production"], 4, labels=["Q1 (lowest)", "Q2", "Q3", "Q4 (highest)"], duplicates="drop")
+    _, bins = pd.qcut(d["production"], 4, retbins=True, duplicates="drop")
+    labels = [f"Q{i + 1} ({bins[i]:.2f} to {bins[i + 1]:.2f})" for i in range(len(bins) - 1)]
+    d["production_quartile"] = pd.qcut(d["production"], 4, labels=labels, duplicates="drop")
 
     def table(col):
         g = d.groupby(col, observed=True)["outgrew"].agg(sales="size", cleared="sum")
@@ -254,7 +348,7 @@ def profile_tables(df):
             "production (non-penalty goals + assists per 90)": table("production_quartile")}
 
 
-def run(conn, bar="median", n_repeats=10, n_boot=1000, out=print, csv_path=None):
+def run(conn, bar="median", n_repeats=10, n_boot=1000, out=print, csv_path=None, position=None):
     raw = sp.read_dataset(conn)
     cent = sp.centroid_matrix(sp.read_centroids(conn))
     k = cent.shape[0]
@@ -280,6 +374,22 @@ def run(conn, bar="median", n_repeats=10, n_boot=1000, out=print, csv_path=None)
     out(format_results(results))
     out("\nReading (an arm adds signal only if its interval is below zero for both models and both schemes):")
     out(verdict(results))
+    out("\n--- Is it the PLAYER or the CLUB? Same controls with the seller-side columns removed or kept alone ---")
+    out("(diff = variant minus 'all controls'; positive = worse)")
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore")
+        abl = compare_variants(df, ablation_variants(), weights, n_repeats=n_repeats, n_boot=n_boot)
+    t = abl.copy()
+    for c in ("log_loss", "diff_vs_first", "ci_low", "ci_high", "auc"):
+        t[c] = t[c].round(3)
+    out(t.drop(columns=["share_repeats_beating_first"]).to_string(index=False))
+    out("\n" + ablation_reading(abl))
+    pos = position or df["primary_position"].value_counts().index[0]
+    out(f"\n--- Chance of clearing the bar by age and production (%), {pos}, everything else at its median, latest sale season ---")
+    out("(descriptive: the controls model fitted on every sale; production = non-penalty goals + assists per 90, at each quartile's median)")
+    for big3, grid in probability_grid(df, k, weights, pos).items():
+        out(f"\n  seller is {'one of the big three' if big3 else 'NOT one of the big three'}")
+        out("    " + grid.to_string().replace("\n", "\n    "))
     if csv_path:
         results.assign(bar=bar).to_csv(csv_path, index=False)
         out(f"\nWrote {csv_path}")
@@ -291,12 +401,13 @@ def main(argv=None):
     ap.add_argument("--bar", choices=list(BARS) + ["both"], default="both")
     ap.add_argument("--repeats", type=int, default=10)
     ap.add_argument("--boot", type=int, default=1000)
+    ap.add_argument("--position", choices=["DF", "MF", "FW"], default=None, help="position for the probability grid (default: the most common)")
     ap.add_argument("--out", default=None, help="write the result table to this CSV (the bar name is added as a column)")
     args = ap.parse_args(argv)
     conn = ca.get_connection()
     try:
         for bar in (BARS if args.bar == "both" else (args.bar,)):
-            run(conn, bar, args.repeats, args.boot, csv_path=args.out if args.bar != "both" else (args.out and args.out.replace(".csv", f"_{bar}.csv")))
+            run(conn, bar, args.repeats, args.boot, position=args.position, csv_path=args.out if args.bar != "both" else (args.out and args.out.replace(".csv", f"_{bar}.csv")))
             print()
     finally:
         conn.close()
