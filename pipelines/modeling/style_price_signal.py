@@ -57,9 +57,9 @@ import psycopg2
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.compose import ColumnTransformer
 from sklearn.decomposition import PCA
-from sklearn.ensemble import HistGradientBoostingRegressor
+from sklearn.ensemble import HistGradientBoostingClassifier, HistGradientBoostingRegressor
 from sklearn.impute import SimpleImputer
-from sklearn.linear_model import RidgeCV
+from sklearn.linear_model import LogisticRegressionCV, RidgeCV
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import FunctionTransformer, OneHotEncoder, StandardScaler
 
@@ -268,6 +268,11 @@ def make_model(kind, num, cat, style, weights, seed=SEED):
     elif kind == "gbm":
         est = HistGradientBoostingRegressor(max_depth=3, max_iter=150, learning_rate=0.05,
                                             min_samples_leaf=15, random_state=seed)
+    elif kind == "logit":          # classifiers, used by outgrow_signal.py
+        est = LogisticRegressionCV(Cs=np.logspace(-3, 2, 10), cv=3, scoring="neg_log_loss", max_iter=3000)
+    elif kind == "gbm_clf":
+        est = HistGradientBoostingClassifier(max_depth=3, max_iter=150, learning_rate=0.05,
+                                             min_samples_leaf=15, random_state=seed)
     else:
         raise ValueError(kind)
     return Pipeline([("pre", pre), ("est", est)])
